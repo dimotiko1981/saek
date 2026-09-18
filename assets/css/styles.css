@@ -587,8 +587,10 @@ h2 {
 
 .specialty-photo {
   position: relative;
-  width: clamp(170px, 18vw, 220px);
-  aspect-ratio: 4 / 3;
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+  aspect-ratio: 1;
   overflow: hidden;
   margin: 0;
   border: 1px solid rgba(132, 206, 247, 0.24);
@@ -609,7 +611,7 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 60%;
+  object-position: 42% 62%;
   filter: saturate(0.84) contrast(1.06);
   transition: filter 260ms ease, transform 450ms ease;
 }
@@ -1065,6 +1067,8 @@ h2 {
   .specialty-photo {
     grid-column: 1 / -1;
     width: 100%;
+    min-width: 0;
+    max-width: none;
     aspect-ratio: 16 / 9;
     border-radius: 18px;
   }
