@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=6" />
   </head>
   <body class="lesson-page">
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -103,10 +103,10 @@
             <h2 id="goals-title">Μετά το τετράωρο θα μπορείς να</h2>
           </div>
           <ol class="goal-list">
-            <li><span>01</span><p>Ορίζεις με απλά λόγια τι είναι δίκτυο επικοινωνίας οχήματος.</p></li>
-            <li><span>02</span><p>Ξεχωρίζεις αισθητήρα, ECU και ενεργοποιητή.</p></li>
-            <li><span>03</span><p>Ακολουθείς τη διαδρομή ενός δεδομένου από τη μέτρηση έως την ενέργεια.</p></li>
-            <li><span>04</span><p>Προτείνεις βασικούς ελέγχους όταν μία μονάδα δεν επικοινωνεί.</p></li>
+            <li><span>01</span><div><strong>Βασικός ορισμός</strong><p>Μέσο • μήνυμα • πρωτόκολλο</p></div></li>
+            <li><span>02</span><div><strong>Ρόλοι εξαρτημάτων</strong><p>Αισθητήρας • ECU • ενεργοποιητής</p></div></li>
+            <li><span>03</span><div><strong>Ροή δεδομένων</strong><p>Μέτρηση → επεξεργασία → ενέργεια</p></div></li>
+            <li><span>04</span><div><strong>Πρώτοι έλεγχοι</strong><p>Τροφοδοσία • γείωση • συνδέσεις • δίκτυο</p></div></li>
           </ol>
         </section>
 
@@ -115,9 +115,21 @@
             <div>
               <p class="section-kicker">Αυτοαξιολόγηση</p>
               <h2 id="quiz-title">Τεστ πρώτης ενότητας</h2>
-              <p>Επίλεξε μία απάντηση σε κάθε ερώτηση. Στόχος επιτυχίας: τουλάχιστον 24 στις 30.</p>
+              <ul class="quiz-rules" aria-label="Κανόνες τεστ">
+                <li><strong>1</strong><span>επιλογή ανά ερώτηση</span></li>
+                <li><strong>24/30</strong><span>όριο επιτυχίας</span></li>
+                <li><strong>%</strong><span>άμεσο τελικό ποσοστό</span></li>
+              </ul>
             </div>
             <div class="quiz-counter" aria-hidden="true"><strong>30</strong><span>ερωτήσεις</span></div>
+          </div>
+
+          <div class="quiz-progress" aria-live="polite">
+            <div class="quiz-progress-copy">
+              <span>Πρόοδος τεστ</span>
+              <strong><span data-progress-current>0</span>/30 απαντημένες</strong>
+            </div>
+            <div class="quiz-progress-track" aria-hidden="true"><span data-progress-bar></span></div>
           </div>
 
           <noscript><p class="quiz-warning">Για να λειτουργήσει το αυτοδιορθούμενο τεστ, ενεργοποίησε τη JavaScript στον browser.</p></noscript>
@@ -258,6 +270,6 @@
     </div>
 
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/mathima-01.js?v=3"></script>
+    <script src="assets/js/mathima-01.js?v=4"></script>
   </body>
 </html>
