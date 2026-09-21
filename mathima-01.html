@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=5" />
   </head>
   <body class="lesson-page">
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -41,8 +41,7 @@
         </a>
 
         <nav class="main-nav" aria-label="Πλοήγηση μαθήματος">
-          <a href="#yliko">Υλικό</a>
-          <a href="#ergastirio">Εργαστήριο</a>
+          <a href="#stoxoi">Στόχοι</a>
           <a href="#test">Τεστ</a>
         </nav>
 
@@ -69,9 +68,12 @@
             </p>
             <dl class="lesson-facts" aria-label="Στοιχεία τετραώρου">
               <div><dt>4</dt><dd>διδακτικές ώρες</dd></div>
-              <div><dt>16</dt><dd>διαφάνειες</dd></div>
-              <div><dt>12</dt><dd>ερωτήσεις τεστ</dd></div>
+              <div><dt>01</dt><dd>πρώτη ενότητα</dd></div>
+              <div><dt>30</dt><dd>ερωτήσεις τεστ</dd></div>
             </dl>
+            <div class="lesson-hero-actions">
+              <a class="button button-primary" href="#test">Έναρξη τεστ</a>
+            </div>
           </div>
 
           <div class="signal-flow" aria-label="Ροή πληροφορίας από τον αισθητήρα στον ενεργοποιητή">
@@ -95,7 +97,7 @@
           </div>
         </section>
 
-        <section class="lesson-section learning-section" aria-labelledby="goals-title">
+        <section class="lesson-section learning-section" id="stoxoi" aria-labelledby="goals-title">
           <div class="lesson-section-heading">
             <p class="section-kicker">Μαθησιακοί στόχοι</p>
             <h2 id="goals-title">Μετά το τετράωρο θα μπορείς να</h2>
@@ -108,79 +110,17 @@
           </ol>
         </section>
 
-        <section class="lesson-section" id="yliko" aria-labelledby="materials-title">
-          <div class="lesson-section-heading split-heading">
-            <div>
-              <p class="section-kicker">Υλικό μαθήματος</p>
-              <h2 id="materials-title">Θεωρία και φύλλο εργασίας</h2>
-            </div>
-            <p>Τα αρχεία ανοίγουν και χωρίς ειδική πλατφόρμα μάθησης.</p>
-          </div>
-
-          <div class="material-list">
-            <article class="material-item">
-              <div class="material-number">01</div>
-              <div class="material-copy">
-                <span>ΘΕΩΡΙΑ</span>
-                <h3>Παρουσίαση μαθήματος</h3>
-                <p>16 διαφάνειες για τα μέρη, τα μηνύματα και τη βασική λειτουργία ενός δικτύου οχήματος.</p>
-              </div>
-              <div class="material-actions">
-                <a class="file-link file-link-primary" href="assets/material/mathima-01/parousiasi-mathima-01.pdf" target="_blank" rel="noopener">Προβολή PDF</a>
-                <a class="file-link" href="assets/material/mathima-01/parousiasi-mathima-01.pptx" download>Λήψη PowerPoint</a>
-              </div>
-            </article>
-
-            <article class="material-item">
-              <div class="material-number">02</div>
-              <div class="material-copy">
-                <span>ΕΡΓΑΣΤΗΡΙΟ</span>
-                <h3>Φύλλο εργασίας</h3>
-                <p>Δραστηριότητες ταξινόμησης, ροής δεδομένων, σχεδίασης δικτύου και διαγνωστικής σκέψης.</p>
-              </div>
-              <div class="material-actions">
-                <a class="file-link file-link-primary" href="assets/material/mathima-01/fyllo-ergasias-mathima-01.pdf" target="_blank" rel="noopener">Προβολή PDF</a>
-                <a class="file-link" href="assets/material/mathima-01/fyllo-ergasias-mathima-01.docx" download>Λήψη Word</a>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="lesson-section lab-section" id="ergastirio" aria-labelledby="lab-title">
-          <div class="lesson-section-heading">
-            <p class="section-kicker">90 λεπτά σε υπολογιστές</p>
-            <h2 id="lab-title">Εργαστηριακή διαδρομή</h2>
-          </div>
-          <ol class="lab-steps">
-            <li>
-              <span>Α</span>
-              <div><strong>Ταξινόμηση εξαρτημάτων</strong><p>Αναγνώρισε ποιος μετρά, ποιος αποφασίζει και ποιος εκτελεί.</p></div>
-            </li>
-            <li>
-              <span>Β</span>
-              <div><strong>Ροή δεδομένων ψύξης</strong><p>Ακολούθησε την πληροφορία από τον αισθητήρα έως τον ανεμιστήρα και τον πίνακα οργάνων.</p></div>
-            </li>
-            <li>
-              <span>Γ</span>
-              <div><strong>Σχεδίαση απλού δικτύου</strong><p>Σύνδεσε τέσσερις ECU σε κοινή γραμμή και πρόσθεσε παραδείγματα δεδομένων.</p></div>
-            </li>
-            <li>
-              <span>Δ</span>
-              <div><strong>Διαγνωστικό περιστατικό</strong><p>Οργάνωσε τους πρώτους ελέγχους για μήνυμα «χωρίς επικοινωνία με ABS».</p></div>
-            </li>
-          </ol>
-        </section>
-
         <section class="lesson-section quiz-section" id="test" aria-labelledby="quiz-title">
           <div class="quiz-heading">
             <div>
               <p class="section-kicker">Αυτοαξιολόγηση</p>
               <h2 id="quiz-title">Τεστ πρώτης ενότητας</h2>
-              <p>Επίλεξε μία απάντηση σε κάθε ερώτηση. Στόχος επιτυχίας: τουλάχιστον 9 στις 12.</p>
+              <p>Επίλεξε μία απάντηση σε κάθε ερώτηση. Στόχος επιτυχίας: τουλάχιστον 24 στις 30.</p>
             </div>
-            <div class="quiz-counter" aria-hidden="true"><strong>12</strong><span>ερωτήσεις</span></div>
+            <div class="quiz-counter" aria-hidden="true"><strong>30</strong><span>ερωτήσεις</span></div>
           </div>
 
+          <noscript><p class="quiz-warning">Για να λειτουργήσει το αυτοδιορθούμενο τεστ, ενεργοποίησε τη JavaScript στον browser.</p></noscript>
           <form class="quiz-form" data-quiz novalidate>
             <fieldset class="quiz-question" data-question data-correct="b">
               <legend><span>01</span> Τι περιγράφει καλύτερα ένα δίκτυο επικοινωνίας οχήματος;</legend>
@@ -278,7 +218,7 @@
               <p class="question-feedback" data-feedback hidden>Οι μονάδες χρειάζονται σωστά και έγκαιρα δεδομένα για να λειτουργήσουν με ασφάλεια.</p>
             </fieldset>
 
-            <p class="quiz-warning" data-quiz-warning role="alert" hidden>Απάντησε και στις 12 ερωτήσεις πριν από την υποβολή.</p>
+            <p class="quiz-warning" data-quiz-warning role="alert" hidden>Απάντησε και στις 30 ερωτήσεις πριν από την υποβολή.</p>
             <div class="quiz-controls">
               <button class="button button-primary" type="submit">Υποβολή απαντήσεων</button>
               <button class="button button-ghost" type="button" data-quiz-reset hidden>Νέα προσπάθεια</button>
@@ -287,7 +227,17 @@
 
           <section class="quiz-result" data-quiz-result aria-live="polite" hidden>
             <span class="result-label">ΑΠΟΤΕΛΕΣΜΑ</span>
-            <div class="result-score"><strong data-score>0/12</strong><span data-result-status></span></div>
+            <div class="result-summary">
+              <div class="result-metric">
+                <span>Σωστές απαντήσεις</span>
+                <strong data-score>0/30</strong>
+              </div>
+              <div class="result-metric result-metric-percentage">
+                <span>Ποσοστό επιτυχίας</span>
+                <strong data-percentage>0%</strong>
+              </div>
+            </div>
+            <strong class="result-status" data-result-status></strong>
             <p data-result-message></p>
           </section>
         </section>
@@ -308,6 +258,6 @@
     </div>
 
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/mathima-01.js?v=1"></script>
+    <script src="assets/js/mathima-01.js?v=3"></script>
   </body>
 </html>
