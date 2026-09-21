@@ -20,9 +20,9 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=6" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=8" />
   </head>
-  <body class="lesson-page">
+  <body class="lesson-page lesson-layout-v8">
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
 
     <div class="site-shell">
@@ -58,56 +58,69 @@
         </nav>
 
         <section class="lesson-hero" aria-labelledby="lesson-title">
-          <div class="lesson-hero-copy">
-            <p class="section-kicker">Δίκτυα και Επικοινωνία Οχημάτων</p>
-            <span class="lesson-index">ΤΕΤΡΑΩΡΟ 01</span>
-            <h1 id="lesson-title">Εισαγωγή στα δίκτυα οχημάτων</h1>
-            <p class="lesson-intro">
-              Πώς συνεργάζονται αισθητήρες, ηλεκτρονικές μονάδες ελέγχου και
-              ενεργοποιητές μέσα σε ένα σύγχρονο όχημα.
-            </p>
-            <dl class="lesson-facts" aria-label="Στοιχεία τετραώρου">
-              <div><dt>4</dt><dd>διδακτικές ώρες</dd></div>
-              <div><dt>01</dt><dd>πρώτη ενότητα</dd></div>
-              <div><dt>30</dt><dd>ερωτήσεις τεστ</dd></div>
-            </dl>
-            <div class="lesson-hero-actions">
-              <a class="button button-primary" href="#test">Έναρξη τεστ</a>
+          <div class="lesson-hero-main">
+            <div class="lesson-hero-copy">
+              <div class="lesson-labels" aria-label="Ταυτότητα μαθήματος">
+                <span>ΤΕΤΡΑΩΡΟ 01</span>
+                <span>ΔΙΚΤΥΑ ΟΧΗΜΑΤΩΝ</span>
+              </div>
+              <h1 id="lesson-title">Εισαγωγή στα δίκτυα οχημάτων</h1>
+              <p class="lesson-intro">
+                Πώς αισθητήρες, μονάδες ECU και ενεργοποιητές ανταλλάσσουν
+                πληροφορίες μέσα σε ένα σύγχρονο όχημα.
+              </p>
+              <div class="lesson-hero-actions">
+                <a class="button button-primary" href="#test">Έναρξη τεστ</a>
+                <a class="lesson-secondary-link" href="#stoxoi">Προβολή στόχων <span aria-hidden="true">↓</span></a>
+              </div>
             </div>
+
+            <aside class="signal-flow" aria-label="Ροή πληροφορίας από τον αισθητήρα στον ενεργοποιητή">
+              <div class="signal-flow-heading">
+                <span>ΡΟΗ ΣΥΣΤΗΜΑΤΟΣ</span>
+                <strong>Από τη μέτρηση στην ενέργεια</strong>
+              </div>
+              <div class="signal-node">
+                <small>01</small>
+                <strong>Αισθητήρας</strong>
+                <span>Μετρά το φυσικό μέγεθος</span>
+              </div>
+              <span class="signal-line" aria-hidden="true"></span>
+              <div class="signal-node signal-node-accent">
+                <small>02</small>
+                <strong>ECU</strong>
+                <span>Επεξεργάζεται και αποφασίζει</span>
+              </div>
+              <span class="signal-line" aria-hidden="true"></span>
+              <div class="signal-node">
+                <small>03</small>
+                <strong>Ενεργοποιητής</strong>
+                <span>Εκτελεί την εντολή</span>
+              </div>
+            </aside>
           </div>
 
-          <div class="signal-flow" aria-label="Ροή πληροφορίας από τον αισθητήρα στον ενεργοποιητή">
-            <div class="signal-node">
-              <small>01</small>
-              <strong>Αισθητήρας</strong>
-              <span>μετρά</span>
-            </div>
-            <span class="signal-line" aria-hidden="true"></span>
-            <div class="signal-node signal-node-accent">
-              <small>02</small>
-              <strong>ECU</strong>
-              <span>αποφασίζει</span>
-            </div>
-            <span class="signal-line" aria-hidden="true"></span>
-            <div class="signal-node">
-              <small>03</small>
-              <strong>Ενεργοποιητής</strong>
-              <span>εκτελεί</span>
-            </div>
-          </div>
+          <dl class="lesson-facts" aria-label="Στοιχεία τετραώρου">
+            <div><dt>04</dt><dd><strong>Διδακτικές ώρες</strong><span>2 θεωρία + 2 εργαστήριο</span></dd></div>
+            <div><dt>01</dt><dd><strong>Πρώτη ενότητα</strong><span>Βασικές έννοιες δικτύων</span></dd></div>
+            <div><dt>30</dt><dd><strong>Ερωτήσεις τεστ</strong><span>Αυτόματη βαθμολόγηση</span></dd></div>
+          </dl>
         </section>
 
         <section class="lesson-section learning-section" id="stoxoi" aria-labelledby="goals-title">
-          <div class="lesson-section-heading">
-            <p class="section-kicker">Μαθησιακοί στόχοι</p>
-            <h2 id="goals-title">Μετά το τετράωρο θα μπορείς να</h2>
+          <div class="learning-layout">
+            <div class="lesson-section-heading">
+              <p class="section-kicker">Μαθησιακοί στόχοι</p>
+              <h2 id="goals-title">Τι πρέπει να έχεις κατακτήσει</h2>
+              <p class="section-summary">Τέσσερις συγκεκριμένες δεξιότητες πριν περάσεις στην αυτοαξιολόγηση.</p>
+            </div>
+            <div class="goal-list" aria-label="Τέσσερις μαθησιακοί στόχοι">
+              <article class="goal-card"><span>01</span><div><strong>Βασικός ορισμός</strong><p>Μέσο • μήνυμα • πρωτόκολλο</p></div></article>
+              <article class="goal-card"><span>02</span><div><strong>Ρόλοι εξαρτημάτων</strong><p>Αισθητήρας • ECU • ενεργοποιητής</p></div></article>
+              <article class="goal-card"><span>03</span><div><strong>Ροή δεδομένων</strong><p>Μέτρηση → επεξεργασία → ενέργεια</p></div></article>
+              <article class="goal-card"><span>04</span><div><strong>Πρώτοι έλεγχοι</strong><p>Τροφοδοσία • γείωση • συνδέσεις • δίκτυο</p></div></article>
+            </div>
           </div>
-          <ol class="goal-list">
-            <li><span>01</span><div><strong>Βασικός ορισμός</strong><p>Μέσο • μήνυμα • πρωτόκολλο</p></div></li>
-            <li><span>02</span><div><strong>Ρόλοι εξαρτημάτων</strong><p>Αισθητήρας • ECU • ενεργοποιητής</p></div></li>
-            <li><span>03</span><div><strong>Ροή δεδομένων</strong><p>Μέτρηση → επεξεργασία → ενέργεια</p></div></li>
-            <li><span>04</span><div><strong>Πρώτοι έλεγχοι</strong><p>Τροφοδοσία • γείωση • συνδέσεις • δίκτυο</p></div></li>
-          </ol>
         </section>
 
         <section class="lesson-section quiz-section" id="test" aria-labelledby="quiz-title">
