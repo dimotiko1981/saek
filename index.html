@@ -20,9 +20,9 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=10" />
   </head>
-  <body>
+  <body class="home-page home-layout-v10">
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
 
     <div class="site-shell">
@@ -87,45 +87,25 @@
             </dl>
           </div>
 
-          <div class="hero-visual" aria-hidden="true">
-            <div class="visual-grid"></div>
-            <div class="dashboard-card dashboard-card-main">
-              <div class="dashboard-topline">
-                <span>VEHICLE NETWORK</span>
-                <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
-              </div>
-              <div class="network-orbit">
-                <div class="orbit orbit-one"></div>
-                <div class="orbit orbit-two"></div>
-                <div class="core">
-                  <svg viewBox="0 0 48 48">
-                    <rect x="12" y="12" width="24" height="24" rx="5" />
-                    <path d="M17 8v4m7-4v4m7-4v4M17 36v4m7-4v4m7-4v4M8 17h4m-4 7h4m-4 7h4m24-14h4m-4 7h4m-4 7h4" />
-                    <path d="M19 24h10m-5-5v10" />
-                  </svg>
-                </div>
-                <span class="node node-a"></span>
-                <span class="node node-b"></span>
-                <span class="node node-c"></span>
-              </div>
-              <div class="dashboard-label">
-                <small>ΜΑΘΗΜΑ</small>
-                <strong>Δίκτυα &amp; Επικοινωνία Οχημάτων</strong>
-              </div>
-            </div>
-            <div class="dashboard-card dashboard-card-small card-top">
-              <span class="mini-icon">
-                <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 17v3m8-3v3M8 4v3m8-3v3" /></svg>
-              </span>
-              <span><small>ΕΝΟΤΗΤΕΣ</small><strong>15</strong></span>
-            </div>
-            <div class="dashboard-card dashboard-card-small card-bottom">
-              <span class="mini-icon accent">
-                <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
-              </span>
-              <span><small>ΚΑΤΑΣΤΑΣΗ</small><strong>Σε εξέλιξη</strong></span>
-            </div>
-          </div>
+          <figure class="hero-photo-card">
+            <img
+              src="assets/images/mechatronics-diagnostic.webp"
+              width="800"
+              height="800"
+              fetchpriority="high"
+              alt="Τεχνικός πραγματοποιεί διαγνωστικό έλεγχο σε σύγχρονο αυτοκίνητο με φορητό υπολογιστή"
+            />
+            <div class="hero-photo-badge"><span aria-hidden="true"></span> Μάθημα 1 διαθέσιμο</div>
+            <figcaption>
+              <small>ΔΙΚΤΥΑ ΚΑΙ ΕΠΙΚΟΙΝΩΝΙΑ ΟΧΗΜΑΤΩΝ</small>
+              <strong>Διάγνωση στο σύγχρονο συνεργείο</strong>
+              <span>Πραγματικό περιβάλλον εφαρμογής</span>
+            </figcaption>
+            <dl class="hero-photo-data" aria-label="Στοιχεία διαθέσιμου μαθήματος">
+              <div><dt>4</dt><dd>ώρες</dd></div>
+              <div><dt>30</dt><dd>ερωτήσεις</dd></div>
+            </dl>
+          </figure>
         </section>
 
         <section class="specialties-section" id="specialties" aria-labelledby="specialties-title">

@@ -354,7 +354,7 @@ if (quiz) {
     const moduleHeader = document.createElement("div");
     moduleHeader.className = "quiz-module-heading";
     const moduleNumber = document.createElement("span");
-    moduleNumber.textContent = String(moduleIndex + 1).padStart(2, "0");
+    moduleNumber.textContent = String(moduleIndex + 1);
     const moduleCopy = document.createElement("div");
     const moduleTitle = document.createElement("h3");
     moduleTitle.id = `quiz-module-${moduleIndex + 1}`;
@@ -377,7 +377,7 @@ if (quiz) {
       const legend = document.createElement("legend");
       const number = document.createElement("span");
       number.className = "question-number";
-      number.textContent = String(index + 1).padStart(2, "0");
+      number.textContent = String(index + 1);
       const questionText = document.createElement("span");
       questionText.className = "question-text";
       questionText.textContent = item.question;
