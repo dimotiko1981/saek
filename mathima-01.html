@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Μάθημα 1 του γνωστικού αντικειμένου Δίκτυα και Επικοινωνία Οχημάτων: θεωρία, εφαρμογές, εργαστήριο και αυτοαξιολόγηση."
+      content="Διαδραστικό Μάθημα 1: Εισαγωγή στα δίκτυα και την επικοινωνία οχημάτων."
     />
     <meta name="theme-color" content="#071426" />
     <title>Μάθημα 1 | Δίκτυα και Επικοινωνία Οχημάτων</title>
@@ -20,10 +20,10 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=10" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=11" />
   </head>
-  <body class="lesson-page lesson-layout-v10">
-    <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
+  <body class="lesson-page lesson-layout-v11">
+    <a class="skip-link" href="#course-content">Μετάβαση στο μάθημα</a>
 
     <div class="site-shell">
       <header class="site-header lesson-header" aria-label="Κύρια κεφαλίδα">
@@ -40,16 +40,15 @@
           </span>
         </a>
 
-        <nav class="main-nav" aria-label="Πλοήγηση μαθήματος">
-          <a href="#theoria">Θεωρία</a>
-          <a href="#ergastirio">Εργαστήριο</a>
-          <a href="#test">Τεστ</a>
-        </nav>
+        <div class="header-course-title">
+          <span>ΔΙΚΤΥΑ ΚΑΙ ΕΠΙΚΟΙΝΩΝΙΑ ΟΧΗΜΑΤΩΝ</span>
+          <strong>Μάθημα 1</strong>
+        </div>
 
         <a class="header-cta" href="index.html#specialties">Πίσω στα μαθήματα</a>
       </header>
 
-      <main id="main-content">
+      <main id="course-content">
         <nav class="breadcrumbs" aria-label="Διαδρομή περιήγησης">
           <a href="index.html">ΣΑΕΚ</a>
           <span aria-hidden="true">/</span>
@@ -58,374 +57,315 @@
           <span>Μάθημα 1</span>
         </nav>
 
-        <nav class="lesson-route" aria-label="Περιεχόμενα Μαθήματος 1">
-          <a href="#eisagogi">Εισαγωγή</a>
-          <a href="#stoxoi">Στόχοι</a>
-          <a href="#theoria">Θεωρία</a>
-          <a href="#paradeigma">Παράδειγμα</a>
-          <a href="#ergastirio">Εργαστήριο</a>
-          <a href="#yliko">Υλικό</a>
-          <a href="#test">Τεστ</a>
-        </nav>
-
-        <section class="lesson-hero" id="eisagogi" aria-labelledby="lesson-title">
-          <div class="lesson-hero-main">
-            <div class="lesson-hero-copy">
-              <div class="lesson-labels" aria-label="Ταυτότητα μαθήματος">
-                <span>ΜΑΘΗΜΑ 1 ΑΠΟ 15</span>
-                <span>ΔΙΚΤΥΑ ΟΧΗΜΑΤΩΝ</span>
-              </div>
-              <h1 id="lesson-title">Εισαγωγή στα δίκτυα οχημάτων</h1>
-              <p class="lesson-intro">
-                Πώς αισθητήρες, ηλεκτρονικές μονάδες ελέγχου και ενεργοποιητές
-                συνεργάζονται ανταλλάσσοντας δεδομένα μέσα σε ένα σύγχρονο όχημα.
-              </p>
-              <div class="lesson-hero-actions">
-                <a class="button button-primary" href="#theoria">Έναρξη μαθήματος</a>
-                <a class="lesson-secondary-link" href="#test">Μετάβαση στο τεστ <span aria-hidden="true">↓</span></a>
-              </div>
+        <div class="course-player" data-course-player>
+          <aside class="course-sidebar" aria-label="Στάδια μαθήματος">
+            <div class="course-sidebar-heading">
+              <span>ΜΑΘΗΜΑ 1 ΑΠΟ 15</span>
+              <strong>Εισαγωγή στα δίκτυα οχημάτων</strong>
             </div>
 
-            <figure class="lesson-photo">
-              <img
-                src="assets/images/mechatronics-diagnostic.webp"
-                alt="Τεχνικός πραγματοποιεί διαγνωστικό έλεγχο σε όχημα με φορητό υπολογιστή"
-                width="800"
-                height="800"
-              />
-              <figcaption>
-                <span>ΠΡΑΓΜΑΤΙΚΟ ΠΕΡΙΒΑΛΛΟΝ</span>
-                <strong>Η επικοινωνία των ECU είναι βασικό μέρος της διάγνωσης.</strong>
-              </figcaption>
-            </figure>
-          </div>
-
-          <dl class="lesson-facts" aria-label="Στοιχεία μαθήματος">
-            <div><dt>4</dt><dd><strong>Διδακτικές ώρες</strong><span>2 θεωρία + 2 εργαστήριο</span></dd></div>
-            <div><dt>6</dt><dd><strong>Στάδια μάθησης</strong><span>Από την έννοια στη διάγνωση</span></dd></div>
-            <div><dt>30</dt><dd><strong>Ερωτήσεις τεστ</strong><span>Αυτόματη βαθμολόγηση</span></dd></div>
-          </dl>
-        </section>
-
-        <section class="lesson-section learning-section" id="stoxoi" aria-labelledby="goals-title">
-          <div class="section-heading-row">
-            <div class="section-marker" aria-hidden="true">1</div>
-            <div class="lesson-section-heading">
-              <p class="section-kicker">Τι θα μάθεις</p>
-              <h2 id="goals-title">Οι στόχοι του μαθήματος</h2>
-              <p class="section-summary">Με την ολοκλήρωση της διαδρομής θα μπορείς να εξηγείς, να ταξινομείς και να ελέγχεις τις βασικές λειτουργίες ενός δικτύου οχήματος.</p>
+            <div class="course-progress" aria-label="Πρόοδος μαθήματος">
+              <div><span>Πρόοδος</span><strong data-course-progress-text>1/9</strong></div>
+              <div class="course-progress-track"><span data-course-progress-bar></span></div>
             </div>
-          </div>
 
-          <div class="goal-list" aria-label="Μαθησιακοί στόχοι">
-            <article class="goal-card"><span>1</span><div><strong>Ανάγκη δικτύωσης</strong><p>Γιατί οι σύγχρονες ECU πρέπει να ανταλλάσσουν δεδομένα.</p></div></article>
-            <article class="goal-card"><span>2</span><div><strong>Ρόλοι εξαρτημάτων</strong><p>Αισθητήρας, ECU και ενεργοποιητής.</p></div></article>
-            <article class="goal-card"><span>3</span><div><strong>Ροή πληροφορίας</strong><p>Μέτρηση → επεξεργασία → μήνυμα → ενέργεια.</p></div></article>
-            <article class="goal-card"><span>4</span><div><strong>Βασικά πρωτόκολλα</strong><p>J1850, PCI Bus, I²C και CAN Bus.</p></div></article>
-            <article class="goal-card"><span>5</span><div><strong>Αρχική διάγνωση</strong><p>Λογικοί έλεγχοι πριν από την αντικατάσταση μιας ECU.</p></div></article>
-          </div>
-        </section>
+            <nav class="course-nav" role="tablist" aria-label="Περιεχόμενα μαθήματος">
+              <button type="button" role="tab" aria-selected="true" aria-controls="eisagogi" data-stage-target="eisagogi">
+                <span>1</span><div><strong>Εισαγωγή</strong><small>Η εικόνα του μαθήματος</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="stoxoi" data-stage-target="stoxoi">
+                <span>2</span><div><strong>Στόχοι</strong><small>Τι θα κατακτήσεις</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="theoria" data-stage-target="theoria">
+                <span>3</span><div><strong>Γιατί δίκτυα;</strong><small>Από τα καλώδια στον δίαυλο</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="chain" data-stage-target="chain">
+                <span>4</span><div><strong>Βασική αλυσίδα</strong><small>Αισθητήρας • ECU • έξοδος</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="protocols" data-stage-target="protocols">
+                <span>5</span><div><strong>Πρωτόκολλα</strong><small>J1850 • PCI • I²C • CAN</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="paradeigma" data-stage-target="paradeigma">
+                <span>6</span><div><strong>Παράδειγμα</strong><small>Έλεγχος θερμοκρασίας</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="ergastirio" data-stage-target="ergastirio">
+                <span>7</span><div><strong>Εργαστήριο</strong><small>Δίκτυο και διάγνωση</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="yliko" data-stage-target="yliko">
+                <span>8</span><div><strong>Υλικό</strong><small>Αρχεία και ανακεφαλαίωση</small></div>
+              </button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="test" data-stage-target="test">
+                <span>9</span><div><strong>Τεστ</strong><small>30 ερωτήσεις</small></div>
+              </button>
+            </nav>
+          </aside>
 
-        <section class="lesson-section theory-section" id="theoria" aria-labelledby="theory-title">
-          <div class="section-heading-row">
-            <div class="section-marker" aria-hidden="true">2</div>
-            <div class="lesson-section-heading">
-              <p class="section-kicker">Βασική θεωρία</p>
-              <h2 id="theory-title">Από την ξεχωριστή καλωδίωση στο κοινό δίκτυο</h2>
-              <p class="section-summary">Το δίκτυο επιτρέπει σε πολλές μονάδες να χρησιμοποιούν κοινές πληροφορίες χωρίς ξεχωριστό καλώδιο για κάθε λειτουργία.</p>
-            </div>
-          </div>
-
-          <div class="wiring-comparison" aria-label="Σύγκριση παλαιότερης και δικτυωμένης λογικής">
-            <article class="comparison-card comparison-card-legacy">
-              <div class="comparison-heading"><span>ΠΑΛΑΙΟΤΕΡΗ ΛΟΓΙΚΗ</span><strong>Πολλές ειδικές συνδέσεις</strong></div>
-              <div class="legacy-wires" aria-hidden="true">
-                <span>Διακόπτης</span><i></i><span>Μονάδα</span><i></i><span>Λυχνία</span>
-              </div>
-              <ul>
-                <li>Περισσότερα καλώδια και συνδέσεις</li>
-                <li>Μεγαλύτερο βάρος και πολυπλοκότητα</li>
-                <li>Δυσκολότερη επέκταση λειτουργιών</li>
-              </ul>
-            </article>
-
-            <article class="comparison-card comparison-card-network">
-              <div class="comparison-heading"><span>ΔΙΚΤΥΩΜΕΝΗ ΛΟΓΙΚΗ</span><strong>Μία κοινή υποδομή</strong></div>
-              <div class="network-bus" aria-label="Τέσσερις ECU συνδεδεμένες σε κοινό δίαυλο">
-                <div><span>ECU</span><small>Κινητήρας</small></div>
-                <div><span>ECU</span><small>ABS / ESP</small></div>
-                <div><span>ECU</span><small>Όργανα</small></div>
-                <div><span>ECU</span><small>Άνεση</small></div>
-                <b>ΚΟΙΝΟΣ ΔΙΑΥΛΟΣ</b>
-              </div>
-              <ul>
-                <li>Κοινή χρήση της ίδιας μέτρησης</li>
-                <li>Οργανωμένη επικοινωνία πολλών ECU</li>
-                <li>Ευκολότερη διάγνωση και επέκταση</li>
-              </ul>
-            </article>
-          </div>
-
-          <article class="theory-panel" aria-labelledby="chain-title">
-            <div class="theory-panel-copy">
-              <p class="section-kicker">Η βασική αλυσίδα</p>
-              <h3 id="chain-title">Μέτρηση, απόφαση, ενέργεια</h3>
-              <p>Κάθε μέρος έχει διαφορετικό ρόλο. Ο αισθητήρας δεν αποφασίζει και η ECU δεν εκτελεί τη φυσική ενέργεια.</p>
-            </div>
-            <div class="system-chain" aria-label="Αισθητήρας προς ECU προς ενεργοποιητή">
-              <div class="chain-node">
-                <span>1</span><strong>Αισθητήρας</strong><small>Μετρά θερμοκρασία, πίεση, θέση ή ταχύτητα.</small>
-              </div>
-              <i aria-hidden="true">→</i>
-              <div class="chain-node chain-node-focus">
-                <span>2</span><strong>ECU</strong><small>Διαβάζει, συγκρίνει, αποφασίζει και επικοινωνεί.</small>
-              </div>
-              <i aria-hidden="true">→</i>
-              <div class="chain-node">
-                <span>3</span><strong>Ενεργοποιητής</strong><small>Μετατρέπει την εντολή σε πραγματική δράση.</small>
-              </div>
-            </div>
-          </article>
-
-          <div class="network-definition">
-            <div class="definition-heading">
-              <p class="section-kicker">Ορισμός</p>
-              <h3>Τι είναι δίκτυο οχήματος;</h3>
-              <p>Σύστημα ανταλλαγής δεδομένων μεταξύ ηλεκτρονικών μονάδων, με κοινό μέσο και συμφωνημένους κανόνες.</p>
-            </div>
-            <div class="definition-formula" aria-label="Δίκτυο ίσον μέσο συν μήνυμα συν πρωτόκολλο">
-              <div><strong>Μέσο</strong><span>Η φυσική σύνδεση</span></div>
-              <b aria-hidden="true">+</b>
-              <div><strong>Μήνυμα</strong><span>Τα οργανωμένα δεδομένα</span></div>
-              <b aria-hidden="true">+</b>
-              <div><strong>Πρωτόκολλο</strong><span>Οι κανόνες επικοινωνίας</span></div>
-              <b aria-hidden="true">=</b>
-              <div class="definition-result"><strong>Δίκτυο</strong><span>Συντονισμένη ανταλλαγή</span></div>
-            </div>
-          </div>
-
-          <div class="message-and-protocols">
-            <article class="message-card">
-              <div class="compact-heading">
-                <p class="section-kicker">Μήνυμα δικτύου</p>
-                <h3>Τα δεδομένα έχουν δομή</h3>
-              </div>
-              <div class="message-frame" aria-label="Απλοποιημένη δομή μηνύματος">
-                <div><span>ΤΑΥΤΟΤΗΤΑ</span><strong>ID 0x120</strong><small>Τι αφορά</small></div>
-                <div><span>ΔΕΔΟΜΕΝΑ</span><strong>00 36 7A 01</strong><small>Ποια τιμή μεταφέρεται</small></div>
-                <div><span>ΕΛΕΓΧΟΣ</span><strong>Έγκυρο</strong><small>Αν μεταδόθηκε σωστά</small></div>
-              </div>
-              <p class="technical-note">Οι ECU δεν στέλνουν λέξεις. Στέλνουν κωδικοποιημένα δεδομένα που ερμηνεύονται με την κατάλληλη τεκμηρίωση.</p>
-            </article>
-
-            <article class="protocol-card">
-              <div class="compact-heading">
-                <p class="section-kicker">Πρώτη χαρτογράφηση</p>
-                <h3>Τέσσερα πρωτόκολλα, διαφορετικές χρήσεις</h3>
-              </div>
-              <div class="protocol-list">
-                <div><strong>SAE J1850</strong><span>Παλαιότερη δικτύωση και διάγνωση οχημάτων</span><small>LEGACY</small></div>
-                <div><strong>PCI Bus</strong><span>Παλαιότερες λύσεις συγκεκριμένων κατασκευαστών</span><small>ΟΧΗΜΑ</small></div>
-                <div><strong>I²C</strong><span>Μικρή απόσταση, κυρίως μέσα σε ECU ή πλακέτα</span><small>ΕΣΩΤΕΡΙΚΟ</small></div>
-                <div class="protocol-primary"><strong>CAN Bus</strong><span>Βασικός δίαυλος επικοινωνίας μεταξύ ECU</span><small>ΚΥΡΙΟ</small></div>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="lesson-section example-section" id="paradeigma" aria-labelledby="example-title">
-          <div class="section-heading-row">
-            <div class="section-marker" aria-hidden="true">3</div>
-            <div class="lesson-section-heading">
-              <p class="section-kicker">Παράδειγμα από το όχημα</p>
-              <h2 id="example-title">Έλεγχος θερμοκρασίας ψυκτικού</h2>
-              <p class="section-summary">Μία μέτρηση χρησιμοποιείται για δύο διαφορετικές λειτουργίες: ενεργοποίηση ψύξης και ενημέρωση του οδηγού.</p>
-            </div>
-          </div>
-
-          <div class="cooling-scenario">
-            <div class="temperature-card">
-              <span>ΣΥΝΘΗΚΗ</span>
-              <strong>104 °C</strong>
-              <p>Η θερμοκρασία ξεπερνά το καθορισμένο όριο λειτουργίας.</p>
-            </div>
-            <div class="cooling-flow" aria-label="Ροή δεδομένων ελέγχου θερμοκρασίας">
-              <div class="cooling-node"><span>1</span><strong>Αισθητήρας ECT</strong><small>Μετρά 104 °C</small></div>
-              <i aria-hidden="true">→</i>
-              <div class="cooling-node cooling-node-focus"><span>2</span><strong>ECU κινητήρα</strong><small>Συγκρίνει την τιμή με τα όρια</small></div>
-              <i class="flow-split" aria-hidden="true">↗<br />↘</i>
-              <div class="cooling-outputs">
-                <div class="cooling-node"><span>3Α</span><strong>Ανεμιστήρας</strong><small>Λαμβάνει εντολή ενεργοποίησης</small></div>
-                <div class="cooling-node"><span>3Β</span><strong>Πίνακας οργάνων</strong><small>Εμφανίζει την κατάσταση στον οδηγό</small></div>
-              </div>
-            </div>
-            <div class="example-insight">
-              <strong>Τι αποδεικνύει το παράδειγμα;</strong>
-              <p>Ο αισθητήρας παράγει τη μέτρηση, η ECU την αξιολογεί και το ίδιο δεδομένο μπορεί να οδηγήσει σε περισσότερες από μία ενέργειες.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="lesson-section lab-section" id="ergastirio" aria-labelledby="lab-title">
-          <div class="section-heading-row">
-            <div class="section-marker" aria-hidden="true">4</div>
-            <div class="lesson-section-heading">
-              <p class="section-kicker">Εργαστήριο σε υπολογιστές</p>
-              <h2 id="lab-title">Χαρτογράφηση δικτύου και διαγνωστική λογική</h2>
-              <p class="section-summary">Εργασία σε ομάδες 2–3 ατόμων. Δεν απαιτείται όχημα ή διαγνωστικός εξοπλισμός.</p>
-            </div>
-            <div class="duration-badge"><strong>65΄</strong><span>ομαδική εργασία</span></div>
-          </div>
-
-          <ol class="lab-steps">
-            <li><span>1</span><div><small>15΄</small><strong>Ταξινόμησε τα εξαρτήματα</strong><p>Ποιος μετρά, ποιος αποφασίζει και ποιος εκτελεί;</p></div></li>
-            <li><span>2</span><div><small>15΄</small><strong>Σχεδίασε τη ροή ψύξης</strong><p>ECT → ECU → ανεμιστήρας και πίνακας οργάνων.</p></div></li>
-            <li><span>3</span><div><small>15΄</small><strong>Κατασκεύασε απλό δίκτυο ECU</strong><p>Σύνδεσε κινητήρα, ABS, όργανα και μονάδα άνεσης.</p></div></li>
-            <li><span>4</span><div><small>10΄</small><strong>Αντιστοίχισε τα πρωτόκολλα</strong><p>Διάκρινε J1850, PCI Bus, I²C και CAN Bus.</p></div></li>
-            <li><span>5</span><div><small>10΄</small><strong>Ανάλυσε το σφάλμα επικοινωνίας</strong><p>Βάλε στη σωστή σειρά τους ελέγχους για τη μονάδα ABS.</p></div></li>
-          </ol>
-
-          <div class="diagnostic-case">
-            <div class="diagnostic-case-title">
-              <span>ΔΙΑΓΝΩΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</span>
-              <h3>«Δεν υπάρχει επικοινωνία με τη μονάδα ABS»</h3>
-              <p>Το μήνυμα είναι σύμπτωμα — δεν αποδεικνύει ότι η ECU έχει καταστραφεί.</p>
-            </div>
-            <ol class="diagnostic-sequence">
-              <li><span>1</span><strong>Τροφοδοσία και ασφάλειες</strong></li>
-              <li><span>2</span><strong>Γείωση υπό φορτίο</strong></li>
-              <li><span>3</span><strong>Φίσα, υγρασία και οξείδωση</strong></li>
-              <li><span>4</span><strong>Συνέχεια και βραχυκύκλωμα γραμμών</strong></li>
-              <li><span>5</span><strong>Αξιολόγηση της ECU</strong></li>
-            </ol>
-          </div>
-        </section>
-
-        <section class="lesson-section resources-section" id="yliko" aria-labelledby="resources-title">
-          <div class="section-heading-row">
-            <div class="section-marker" aria-hidden="true">5</div>
-            <div class="lesson-section-heading">
-              <p class="section-kicker">Υλικό μαθήματος</p>
-              <h2 id="resources-title">Αρχεία για μελέτη και εργασία</h2>
-              <p class="section-summary">Κατέβασε την παρουσίαση θεωρίας και το φύλλο εργασίας του Μαθήματος 1.</p>
-            </div>
-          </div>
-
-          <div class="resource-grid">
-            <article class="resource-card">
-              <div class="file-type">PPTX</div>
+          <section class="course-stage">
+            <div class="course-stage-topbar">
               <div>
-                <span>ΠΑΡΟΥΣΙΑΣΗ ΘΕΩΡΙΑΣ</span>
-                <h3>Εισαγωγή στα δίκτυα οχημάτων</h3>
-                <p>30 διαφάνειες με ορισμούς, διαγράμματα, παραδείγματα και διαγνωστική λογική.</p>
+                <span>ΜΑΘΗΣΙΑΚΗ ΔΙΑΔΡΟΜΗ</span>
+                <strong data-current-stage-title>Εισαγωγή</strong>
               </div>
-              <a class="file-link file-link-primary" href="downloads/Mathima_1_Parousiasi.pptx" download>Λήψη παρουσίασης</a>
-            </article>
-
-            <article class="resource-card">
-              <div class="file-type file-type-doc">DOCX</div>
-              <div>
-                <span>ΦΥΛΛΟ ΕΡΓΑΣΙΑΣ</span>
-                <h3>Δραστηριότητες εργαστηρίου</h3>
-                <p>Ταξινόμηση, ροή δεδομένων, σχεδίαση δικτύου και διαγνωστικό περιστατικό ABS.</p>
-              </div>
-              <a class="file-link file-link-primary" href="downloads/Mathima_1_Fyllo_Ergasias.docx" download>Λήψη φύλλου</a>
-            </article>
-          </div>
-        </section>
-
-        <section class="lesson-section recap-section" id="anakefalaiosi" aria-labelledby="recap-title">
-          <div class="section-heading-row">
-            <div class="section-marker" aria-hidden="true">6</div>
-            <div class="lesson-section-heading">
-              <p class="section-kicker">Ανακεφαλαίωση</p>
-              <h2 id="recap-title">Τα πέντε σημεία που κρατάμε</h2>
+              <div class="course-stage-status"><i></i><span>Σε εξέλιξη</span></div>
             </div>
-          </div>
 
-          <div class="recap-grid">
-            <article><span>1</span><p>Οι ηλεκτρονικές μονάδες συνεργάζονται μέσω δικτύων επικοινωνίας.</p></article>
-            <article><span>2</span><p>Η βασική αλυσίδα είναι αισθητήρας → ECU → ενεργοποιητής.</p></article>
-            <article><span>3</span><p>Τα μηνύματα μεταφέρουν μετρήσεις, εντολές και διαγνωστικές πληροφορίες.</p></article>
-            <article><span>4</span><p>Τα πρωτόκολλα ορίζουν τη μορφή, τον χρονισμό και τον έλεγχο της επικοινωνίας.</p></article>
-            <article><span>5</span><p>Η σωστή διάγνωση εξετάζει ολόκληρη τη διαδρομή και όχι μόνο τη μονάδα.</p></article>
-          </div>
-        </section>
-
-        <section class="lesson-section quiz-section" id="test" aria-labelledby="quiz-title">
-          <div class="quiz-heading">
-            <div>
-              <p class="section-kicker">Τελική αυτοαξιολόγηση</p>
-              <h2 id="quiz-title">Έλεγξε τι κατέκτησες</h2>
-              <p class="section-summary">Το τεστ ανοίγει μόνο όταν είσαι έτοιμος, ώστε η σελίδα του μαθήματος να παραμένει καθαρή και οργανωμένη.</p>
-              <ul class="quiz-rules" aria-label="Κανόνες τεστ">
-                <li><strong>30</strong><span>ερωτήσεις</span></li>
-                <li><strong>1</strong><span>επιλογή ανά ερώτηση</span></li>
-                <li><strong>24/30</strong><span>όριο επιτυχίας</span></li>
-                <li><strong>%</strong><span>άμεσο τελικό ποσοστό</span></li>
-              </ul>
-            </div>
-            <div class="quiz-counter" aria-hidden="true"><strong>30</strong><span>ερωτήσεις</span></div>
-          </div>
-
-          <details class="quiz-disclosure">
-            <summary>
-              <span><strong>Άνοιγμα τεστ</strong><small>Πέντε θεματικές ενότητες με άμεση ανατροφοδότηση</small></span>
-              <b aria-hidden="true">+</b>
-            </summary>
-            <div class="quiz-workspace">
-              <div class="quiz-progress" aria-live="polite">
-                <div class="quiz-progress-copy">
-                  <span>Πρόοδος τεστ</span>
-                  <strong><span data-progress-current>0</span>/30 απαντημένες</strong>
-                </div>
-                <div class="quiz-progress-track" aria-hidden="true"><span data-progress-bar></span></div>
-              </div>
-
-              <noscript><p class="quiz-warning">Για να λειτουργήσει το αυτοδιορθούμενο τεστ, ενεργοποίησε τη JavaScript στον browser.</p></noscript>
-              <form class="quiz-form" data-quiz novalidate>
-                <p class="quiz-warning" data-quiz-warning role="alert" hidden>Απάντησε και στις 30 ερωτήσεις πριν από την υποβολή.</p>
-                <div class="quiz-controls">
-                  <button class="button button-primary" type="submit">Υποβολή απαντήσεων</button>
-                  <button class="button button-ghost" type="button" data-quiz-reset hidden>Νέα προσπάθεια</button>
-                </div>
-              </form>
-
-              <section class="quiz-result" data-quiz-result aria-live="polite" hidden>
-                <span class="result-label">ΑΠΟΤΕΛΕΣΜΑ</span>
-                <div class="result-summary">
-                  <div class="result-metric">
-                    <span>Σωστές απαντήσεις</span>
-                    <strong data-score>0/30</strong>
+            <div class="course-stage-viewport">
+              <section class="stage-panel intro-panel" id="eisagogi" role="tabpanel" aria-labelledby="lesson-title" data-stage-panel>
+                <div class="intro-grid">
+                  <div class="intro-copy">
+                    <div class="stage-eyebrow"><span>1</span> ΕΙΣΑΓΩΓΗ</div>
+                    <h1 id="lesson-title">Εισαγωγή στα δίκτυα οχημάτων</h1>
+                    <p>Πώς αισθητήρες, ηλεκτρονικές μονάδες ελέγχου και ενεργοποιητές συνεργάζονται ανταλλάσσοντας δεδομένα.</p>
+                    <button class="button button-primary" type="button" data-go-next>Ξεκίνα το μάθημα</button>
                   </div>
-                  <div class="result-metric result-metric-percentage">
-                    <span>Ποσοστό επιτυχίας</span>
-                    <strong data-percentage>0%</strong>
+
+                  <figure class="player-photo">
+                    <img
+                      src="assets/images/mechatronics-diagnostic.webp"
+                      alt="Τεχνικός πραγματοποιεί διαγνωστικό έλεγχο σε όχημα με φορητό υπολογιστή"
+                      width="800"
+                      height="800"
+                    />
+                    <figcaption>Η επικοινωνία των ECU αποτελεί βασικό μέρος της σύγχρονης διάγνωσης.</figcaption>
+                  </figure>
+                </div>
+
+                <div class="player-facts">
+                  <article><strong>4</strong><span>διδακτικές ώρες</span><small>2 θεωρία + 2 εργαστήριο</small></article>
+                  <article><strong>9</strong><span>διαδραστικά στάδια</span><small>Μία οθόνη κάθε φορά</small></article>
+                  <article><strong>30</strong><span>ερωτήσεις</span><small>Αυτόματη βαθμολόγηση</small></article>
+                </div>
+              </section>
+
+              <section class="stage-panel" id="stoxoi" role="tabpanel" aria-labelledby="goals-title" data-stage-panel hidden>
+                <div class="stage-heading">
+                  <div class="stage-eyebrow"><span>2</span> ΜΑΘΗΣΙΑΚΟΙ ΣΤΟΧΟΙ</div>
+                  <h2 id="goals-title">Τι θα μπορείς να κάνεις</h2>
+                  <p>Πέντε σαφείς δεξιότητες που θα ελέγξεις στο τέλος του μαθήματος.</p>
+                </div>
+
+                <div class="player-goals">
+                  <article><span>1</span><div><strong>Εξηγείς την ανάγκη δικτύωσης</strong><p>Γιατί οι σύγχρονες ECU πρέπει να ανταλλάσσουν δεδομένα.</p></div></article>
+                  <article><span>2</span><div><strong>Διακρίνεις τους τρεις ρόλους</strong><p>Αισθητήρας, ECU και ενεργοποιητής.</p></div></article>
+                  <article><span>3</span><div><strong>Ακολουθείς τη ροή πληροφορίας</strong><p>Μέτρηση → επεξεργασία → μήνυμα → ενέργεια.</p></div></article>
+                  <article><span>4</span><div><strong>Αναγνωρίζεις βασικά πρωτόκολλα</strong><p>SAE J1850, PCI Bus, I²C και CAN Bus.</p></div></article>
+                  <article><span>5</span><div><strong>Εφαρμόζεις αρχική διάγνωση</strong><p>Ελέγχεις τροφοδοσία, γείωση, συνδέσεις και δίκτυο.</p></div></article>
+                </div>
+              </section>
+
+              <section class="stage-panel" id="theoria" role="tabpanel" aria-labelledby="network-title" data-stage-panel hidden>
+                <div class="stage-heading">
+                  <div class="stage-eyebrow"><span>3</span> ΓΙΑΤΙ ΧΡΕΙΑΖΟΝΤΑΙ ΔΙΚΤΥΑ;</div>
+                  <h2 id="network-title">Μία κοινή υποδομή αντί για δεκάδες ξεχωριστές γραμμές</h2>
+                </div>
+
+                <div class="player-comparison">
+                  <article class="player-compare-card legacy-card">
+                    <div class="card-label">ΠΑΛΑΙΟΤΕΡΗ ΛΟΓΙΚΗ</div>
+                    <h3>Ξεχωριστή καλωδίωση</h3>
+                    <div class="legacy-wires" aria-hidden="true"><span>Διακόπτης</span><i></i><span>Μονάδα</span><i></i><span>Λυχνία</span></div>
+                    <ul><li>Περισσότερα καλώδια</li><li>Μεγαλύτερο βάρος</li><li>Δυσκολότερη επισκευή</li></ul>
+                  </article>
+
+                  <article class="player-compare-card network-card">
+                    <div class="card-label">ΔΙΚΤΥΩΜΕΝΗ ΛΟΓΙΚΗ</div>
+                    <h3>Κοινός δίαυλος δεδομένων</h3>
+                    <div class="network-bus" aria-label="Τέσσερις ECU σε κοινό δίαυλο">
+                      <div><span>ECU</span><small>Κινητήρας</small></div>
+                      <div><span>ECU</span><small>ABS</small></div>
+                      <div><span>ECU</span><small>Όργανα</small></div>
+                      <div><span>ECU</span><small>Άνεση</small></div>
+                      <b>ΚΟΙΝΟΣ ΔΙΑΥΛΟΣ</b>
+                    </div>
+                    <ul><li>Κοινή χρήση δεδομένων</li><li>Λιγότερες ειδικές συνδέσεις</li><li>Ευκολότερη διάγνωση</li></ul>
+                  </article>
+                </div>
+
+                <div class="benefit-strip">
+                  <span>Λιγότερη καλωδίωση</span><span>Κοινή πληροφορία</span><span>Διάγνωση</span><span>Επεκτασιμότητα</span>
+                </div>
+              </section>
+
+              <section class="stage-panel" id="chain" role="tabpanel" aria-labelledby="chain-title" data-stage-panel hidden>
+                <div class="stage-heading">
+                  <div class="stage-eyebrow"><span>4</span> Η ΒΑΣΙΚΗ ΑΛΥΣΙΔΑ</div>
+                  <h2 id="chain-title">Μέτρηση, απόφαση, ενέργεια</h2>
+                  <p>Κάθε εξάρτημα έχει διαφορετικό ρόλο μέσα στο λειτουργικό σύστημα.</p>
+                </div>
+
+                <div class="player-chain" aria-label="Αισθητήρας προς ECU προς ενεργοποιητή">
+                  <article><span>1</span><strong>Αισθητήρας</strong><b>ΜΕΤΡΑ</b><p>Μετατρέπει θερμοκρασία, πίεση, θέση ή ταχύτητα σε ηλεκτρική πληροφορία.</p></article>
+                  <i aria-hidden="true">→</i>
+                  <article class="chain-focus"><span>2</span><strong>ECU</strong><b>ΑΠΟΦΑΣΙΖΕΙ</b><p>Διαβάζει δεδομένα, τα συγκρίνει και στέλνει εντολές ή νέα μηνύματα.</p></article>
+                  <i aria-hidden="true">→</i>
+                  <article><span>3</span><strong>Ενεργοποιητής</strong><b>ΕΚΤΕΛΕΙ</b><p>Μετατρέπει την ηλεκτρική εντολή σε κίνηση, ροή, πίεση ή άλλη φυσική δράση.</p></article>
+                </div>
+
+                <div class="definition-board">
+                  <div><strong>Μέσο</strong><span>φυσική σύνδεση</span></div><b>+</b>
+                  <div><strong>Μήνυμα</strong><span>οργανωμένα δεδομένα</span></div><b>+</b>
+                  <div><strong>Πρωτόκολλο</strong><span>κανόνες επικοινωνίας</span></div><b>=</b>
+                  <div class="definition-final"><strong>Δίκτυο</strong><span>συντονισμένη ανταλλαγή</span></div>
+                </div>
+              </section>
+
+              <section class="stage-panel" id="protocols" role="tabpanel" aria-labelledby="protocol-title" data-stage-panel hidden>
+                <div class="stage-heading">
+                  <div class="stage-eyebrow"><span>5</span> ΜΗΝΥΜΑΤΑ ΚΑΙ ΠΡΩΤΟΚΟΛΛΑ</div>
+                  <h2 id="protocol-title">Ίδια έννοια, διαφορετική κλίμακα και χρήση</h2>
+                </div>
+
+                <div class="protocol-screen">
+                  <article class="message-screen-card">
+                    <span>ΑΠΛΟΠΟΙΗΜΕΝΟ ΜΗΝΥΜΑ</span>
+                    <div class="message-frame">
+                      <div><span>ΤΑΥΤΟΤΗΤΑ</span><strong>ID 0x120</strong><small>Τι αφορά</small></div>
+                      <div><span>ΔΕΔΟΜΕΝΑ</span><strong>00 36 7A 01</strong><small>Η τιμή</small></div>
+                      <div><span>ΕΛΕΓΧΟΣ</span><strong>Έγκυρο</strong><small>Ορθότητα</small></div>
+                    </div>
+                    <p>Οι ECU μεταδίδουν κωδικοποιημένα δεδομένα — όχι λέξεις.</p>
+                  </article>
+
+                  <div class="protocol-table" role="table" aria-label="Σύγκριση πρωτοκόλλων">
+                    <div role="row"><strong role="cell">SAE J1850</strong><span role="cell">Παλαιότερη δικτύωση και διάγνωση</span><small role="cell">LEGACY</small></div>
+                    <div role="row"><strong role="cell">PCI Bus</strong><span role="cell">Παλαιότερες λύσεις κατασκευαστών</span><small role="cell">ΟΧΗΜΑ</small></div>
+                    <div role="row"><strong role="cell">I²C</strong><span role="cell">Μέσα σε ECU ή ηλεκτρονική πλακέτα</span><small role="cell">ΕΣΩΤΕΡΙΚΟ</small></div>
+                    <div class="protocol-highlight" role="row"><strong role="cell">CAN Bus</strong><span role="cell">Βασικός δίαυλος μεταξύ ECU</span><small role="cell">ΚΥΡΙΟ</small></div>
                   </div>
                 </div>
-                <strong class="result-status" data-result-status></strong>
-                <p data-result-message></p>
+
+                <div class="safety-note"><strong>Σωστή επικοινωνία =</strong><span>σωστή τιμή</span><span>σωστός χρόνος</span><span>σωστός παραλήπτης</span></div>
+              </section>
+
+              <section class="stage-panel" id="paradeigma" role="tabpanel" aria-labelledby="example-title" data-stage-panel hidden>
+                <div class="stage-heading">
+                  <div class="stage-eyebrow"><span>6</span> ΠΑΡΑΔΕΙΓΜΑ ΟΧΗΜΑΤΟΣ</div>
+                  <h2 id="example-title">Έλεγχος θερμοκρασίας ψυκτικού</h2>
+                  <p>Μία μέτρηση χρησιμοποιείται ταυτόχρονα για ψύξη και ενημέρωση του οδηγού.</p>
+                </div>
+
+                <div class="temperature-screen">
+                  <div class="temperature-gauge"><span>ΣΥΝΘΗΚΗ</span><strong>104 °C</strong><small>Υπέρβαση ορίου λειτουργίας</small></div>
+                  <div class="cooling-flow" aria-label="Ροή δεδομένων θερμοκρασίας">
+                    <div class="cooling-node"><span>1</span><strong>Αισθητήρας ECT</strong><small>Μετρά 104 °C</small></div>
+                    <i aria-hidden="true">→</i>
+                    <div class="cooling-node cooling-node-focus"><span>2</span><strong>ECU κινητήρα</strong><small>Συγκρίνει με τα όρια</small></div>
+                    <i class="flow-split" aria-hidden="true">↗<br />↘</i>
+                    <div class="cooling-outputs">
+                      <div class="cooling-node"><span>3Α</span><strong>Ανεμιστήρας</strong><small>Ενεργοποιείται</small></div>
+                      <div class="cooling-node"><span>3Β</span><strong>Πίνακας οργάνων</strong><small>Ενημερώνει τον οδηγό</small></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="lesson-insight"><strong>Κεντρική ιδέα</strong><p>Το ίδιο δεδομένο μπορεί να μεταδοθεί στο δίκτυο και να χρησιμοποιηθεί από περισσότερες από μία ηλεκτρονικές μονάδες.</p></div>
+              </section>
+
+              <section class="stage-panel" id="ergastirio" role="tabpanel" aria-labelledby="lab-title" data-stage-panel hidden>
+                <div class="stage-heading stage-heading-with-meta">
+                  <div>
+                    <div class="stage-eyebrow"><span>7</span> ΕΡΓΑΣΤΗΡΙΟ ΣΕ ΥΠΟΛΟΓΙΣΤΕΣ</div>
+                    <h2 id="lab-title">Χαρτογράφηση δικτύου και διαγνωστική λογική</h2>
+                    <p>Ομάδες 2–3 ατόμων • Χωρίς όχημα ή διαγνωστικό εξοπλισμό</p>
+                  </div>
+                  <div class="time-chip"><strong>65΄</strong><span>συνολικά</span></div>
+                </div>
+
+                <ol class="player-lab-steps">
+                  <li><span>1</span><div><small>15΄</small><strong>Ταξινόμησε εξαρτήματα</strong><p>Αισθητήρας, ECU ή ενεργοποιητής;</p></div></li>
+                  <li><span>2</span><div><small>15΄</small><strong>Σχεδίασε τη ροή ψύξης</strong><p>ECT → ECU → δύο έξοδοι.</p></div></li>
+                  <li><span>3</span><div><small>15΄</small><strong>Κατασκεύασε δίκτυο ECU</strong><p>Κινητήρας, ABS, όργανα και άνεση.</p></div></li>
+                  <li><span>4</span><div><small>10΄</small><strong>Αντιστοίχισε πρωτόκολλα</strong><p>J1850, PCI, I²C και CAN.</p></div></li>
+                  <li><span>5</span><div><small>10΄</small><strong>Διάγνωσε απώλεια επικοινωνίας</strong><p>Βάλε τους ελέγχους στη σωστή σειρά.</p></div></li>
+                </ol>
+
+                <div class="diagnostic-screen">
+                  <div><span>ΠΕΡΙΣΤΑΤΙΚΟ</span><strong>«Δεν υπάρχει επικοινωνία με τη μονάδα ABS»</strong><p>Το μήνυμα είναι σύμπτωμα, όχι απόδειξη κατεστραμμένης ECU.</p></div>
+                  <ol><li>Τροφοδοσία</li><li>Γείωση</li><li>Φίσα</li><li>Καλωδίωση</li><li>ECU</li></ol>
+                </div>
+              </section>
+
+              <section class="stage-panel" id="yliko" role="tabpanel" aria-labelledby="resources-title" data-stage-panel hidden>
+                <div class="stage-heading">
+                  <div class="stage-eyebrow"><span>8</span> ΥΛΙΚΟ ΚΑΙ ΑΝΑΚΕΦΑΛΑΙΩΣΗ</div>
+                  <h2 id="resources-title">Όλα όσα χρειάζεσαι πριν από το τεστ</h2>
+                </div>
+
+                <div class="player-resource-grid">
+                  <article>
+                    <div class="file-type">PPTX</div>
+                    <div><span>ΠΑΡΟΥΣΙΑΣΗ</span><strong>Θεωρία 30 διαφανειών</strong><p>Ορισμοί, τεχνικά διαγράμματα και παραδείγματα.</p></div>
+                    <a href="downloads/Mathima_1_Parousiasi.pptx" download>Λήψη</a>
+                  </article>
+                  <article>
+                    <div class="file-type file-type-doc">DOCX</div>
+                    <div><span>ΦΥΛΛΟ ΕΡΓΑΣΙΑΣ</span><strong>Εργαστηριακές δραστηριότητες</strong><p>Ροή δεδομένων, δίκτυο ECU και διάγνωση ABS.</p></div>
+                    <a href="downloads/Mathima_1_Fyllo_Ergasias.docx" download>Λήψη</a>
+                  </article>
+                </div>
+
+                <div class="player-recap">
+                  <article><span>1</span><p>Οι ECU συνεργάζονται μέσω δικτύων.</p></article>
+                  <article><span>2</span><p>Αισθητήρας → ECU → ενεργοποιητής.</p></article>
+                  <article><span>3</span><p>Τα μηνύματα μεταφέρουν κωδικοποιημένα δεδομένα.</p></article>
+                  <article><span>4</span><p>Τα πρωτόκολλα ορίζουν τους κανόνες.</p></article>
+                  <article><span>5</span><p>Η διάγνωση εξετάζει ολόκληρη τη διαδρομή.</p></article>
+                </div>
+              </section>
+
+              <section class="stage-panel test-panel" id="test" role="tabpanel" aria-labelledby="quiz-title" data-stage-panel hidden>
+                <div class="stage-heading quiz-stage-heading">
+                  <div class="stage-eyebrow"><span>9</span> ΤΕΛΙΚΗ ΑΥΤΟΑΞΙΟΛΟΓΗΣΗ</div>
+                  <h2 id="quiz-title">Τεστ Μαθήματος 1</h2>
+                  <ul class="quiz-rules" aria-label="Κανόνες τεστ">
+                    <li><strong>30</strong><span>ερωτήσεις</span></li>
+                    <li><strong>1</strong><span>επιλογή</span></li>
+                    <li><strong>24/30</strong><span>όριο επιτυχίας</span></li>
+                    <li><strong>%</strong><span>τελικό ποσοστό</span></li>
+                  </ul>
+                </div>
+
+                <div class="quiz-progress" aria-live="polite">
+                  <div class="quiz-progress-copy">
+                    <span>Πρόοδος τεστ</span>
+                    <strong><span data-progress-current>0</span>/30 απαντημένες</strong>
+                  </div>
+                  <div class="quiz-progress-track" aria-hidden="true"><span data-progress-bar></span></div>
+                </div>
+
+                <noscript><p class="quiz-warning">Για να λειτουργήσει το αυτοδιορθούμενο τεστ, ενεργοποίησε τη JavaScript στον browser.</p></noscript>
+                <form class="quiz-form" data-quiz novalidate>
+                  <p class="quiz-warning" data-quiz-warning role="alert" hidden>Απάντησε και στις 30 ερωτήσεις πριν από την υποβολή.</p>
+                  <div class="quiz-controls">
+                    <button class="button button-primary" type="submit">Υποβολή απαντήσεων</button>
+                    <button class="button button-ghost" type="button" data-quiz-reset hidden>Νέα προσπάθεια</button>
+                  </div>
+                </form>
+
+                <section class="quiz-result" data-quiz-result aria-live="polite" hidden>
+                  <span class="result-label">ΑΠΟΤΕΛΕΣΜΑ</span>
+                  <div class="result-summary">
+                    <div class="result-metric"><span>Σωστές απαντήσεις</span><strong data-score>0/30</strong></div>
+                    <div class="result-metric result-metric-percentage"><span>Ποσοστό επιτυχίας</span><strong data-percentage>0%</strong></div>
+                  </div>
+                  <strong class="result-status" data-result-status></strong>
+                  <p data-result-message></p>
+                </section>
               </section>
             </div>
-          </details>
-        </section>
 
-        <nav class="lesson-pagination" aria-label="Πλοήγηση μαθημάτων">
-          <a href="index.html#specialties"><span>Επιστροφή</span><strong>Στα μαθήματα</strong></a>
-          <div aria-disabled="true"><span>Επόμενο</span><strong>Μάθημα 2 — Σύντομα</strong></div>
-        </nav>
-      </main>
-
-      <footer class="site-footer">
-        <div class="footer-brand">
-          <span class="footer-monogram">Σ</span>
-          <div><strong>Εκπαιδευτικό Υλικό ΣΑΕΚ</strong><small>Δίκτυα και Επικοινωνία Οχημάτων</small></div>
+            <div class="course-stage-controls">
+              <button type="button" class="stage-control stage-control-back" data-stage-previous disabled><span aria-hidden="true">←</span><strong>Προηγούμενο</strong></button>
+              <span data-stage-position>Στάδιο 1 από 9</span>
+              <button type="button" class="stage-control stage-control-next" data-stage-next><strong>Επόμενο</strong><span aria-hidden="true">→</span></button>
+            </div>
+          </section>
         </div>
-        <p>© <span data-year></span> EVAGELAK EDU LAB</p>
-      </footer>
+      </main>
     </div>
 
     <script src="assets/js/app.js"></script>
-    <script src="assets/js/mathima-01.js?v=10"></script>
+    <script src="assets/js/lesson-player.js?v=1"></script>
+    <script src="assets/js/mathima-01.js?v=11"></script>
   </body>
 </html>
