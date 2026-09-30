@@ -336,6 +336,7 @@ const quiz = document.querySelector("[data-quiz]");
 if (quiz) {
   quiz.querySelectorAll("[data-question]").forEach((question) => question.remove());
   const questionAnchor = quiz.querySelector("[data-quiz-warning]");
+  const loadingMessage = quiz.querySelector("[data-quiz-loading]");
   const values = ["a", "b", "c", "d"];
   const optionLetters = ["Α", "Β", "Γ", "Δ"];
   const quizModules = [
@@ -413,9 +414,64 @@ if (quiz) {
     quiz.insertBefore(section, questionAnchor);
   });
 
+  loadingMessage?.remove();
   quiz.classList.add("is-ready");
 
   const questions = [...quiz.querySelectorAll("[data-question]")];
+  const modules = [...quiz.querySelectorAll(".quiz-module")];
+  const testPanel = quiz.closest(".test-panel");
+  const lessonViewport = quiz.closest(".course-stage-viewport");
+  const mobileQuizQuery = window.matchMedia("(max-width: 700px)");
+  let mobileQuestionIndex = 0;
+
+  const mobilePager = document.createElement("nav");
+  mobilePager.className = "quiz-mobile-pager";
+  mobilePager.setAttribute("aria-label", "Πλοήγηση ερωτήσεων");
+  mobilePager.innerHTML = `
+    <button type="button" data-question-previous><span aria-hidden="true">←</span> Προηγούμενη</button>
+    <strong><span data-question-position>1</span> από ${questions.length}</strong>
+    <button type="button" data-question-next>Επόμενη <span aria-hidden="true">→</span></button>
+  `;
+  quiz.insertBefore(mobilePager, quiz.querySelector("[data-quiz-warning]"));
+
+  const mobilePrevious = mobilePager.querySelector("[data-question-previous]");
+  const mobileNext = mobilePager.querySelector("[data-question-next]");
+  const mobilePosition = mobilePager.querySelector("[data-question-position]");
+
+  const showMobileQuestion = (index, focusQuestion = false) => {
+    mobileQuestionIndex = Math.max(0, Math.min(index, questions.length - 1));
+    const isMobile = mobileQuizQuery.matches;
+    const activeQuestion = questions[mobileQuestionIndex];
+
+    quiz.classList.toggle("is-mobile-paged", isMobile);
+    quiz.classList.toggle("is-mobile-last", isMobile && mobileQuestionIndex === questions.length - 1);
+    testPanel?.classList.toggle("is-mobile-quiz", isMobile);
+
+    modules.forEach((module) => {
+      module.classList.toggle("is-mobile-active", isMobile && module.contains(activeQuestion));
+    });
+
+    questions.forEach((question, questionIndex) => {
+      const isActive = !isMobile || questionIndex === mobileQuestionIndex;
+      question.classList.toggle("is-mobile-active", isMobile && isActive);
+      question.setAttribute("aria-hidden", String(!isActive));
+    });
+
+    mobilePosition.textContent = String(mobileQuestionIndex + 1);
+    mobilePrevious.hidden = mobileQuestionIndex === 0;
+    mobileNext.hidden = mobileQuestionIndex === questions.length - 1;
+
+    if (isMobile) {
+      if (lessonViewport) lessonViewport.scrollTop = 0;
+      if (focusQuestion) activeQuestion.querySelector("input")?.focus({ preventScroll: true });
+    }
+  };
+
+  mobilePrevious.addEventListener("click", () => showMobileQuestion(mobileQuestionIndex - 1, true));
+  mobileNext.addEventListener("click", () => showMobileQuestion(mobileQuestionIndex + 1, true));
+  mobileQuizQuery.addEventListener?.("change", () => showMobileQuestion(mobileQuestionIndex));
+  showMobileQuestion(0);
+
   const result = document.querySelector("[data-quiz-result]");
   const scoreTarget = document.querySelector("[data-score]");
   const percentageTarget = document.querySelector("[data-percentage]");
@@ -445,6 +501,9 @@ if (quiz) {
     if (unanswered) {
       warning.hidden = false;
       unanswered.classList.add("needs-answer");
+      if (mobileQuizQuery.matches) {
+        showMobileQuestion(questions.indexOf(unanswered), true);
+      }
       unanswered.scrollIntoView({ behavior: "smooth", block: "center" });
       unanswered.querySelector("input")?.focus({ preventScroll: true });
       return;
@@ -517,6 +576,7 @@ if (quiz) {
     resetButton.hidden = true;
     quiz.querySelector('button[type="submit"]').disabled = false;
     updateProgress();
+    showMobileQuestion(0);
     quiz.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }

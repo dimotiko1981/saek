@@ -39,8 +39,14 @@ if (coursePlayer) {
     currentIndex = Math.max(0, Math.min(index, panels.length - 1));
     furthestIndex = Math.max(furthestIndex, currentIndex);
 
+    // Reset immediately so a deeply scrolled previous stage cannot leave an
+    // empty viewport while the next stage is appearing on a phone.
+    viewport.scrollTop = 0;
+
     panels.forEach((panel, panelIndex) => {
-      panel.hidden = panelIndex !== currentIndex;
+      const isActive = panelIndex === currentIndex;
+      panel.hidden = !isActive;
+      panel.setAttribute("aria-hidden", String(!isActive));
     });
 
     tabs.forEach((tab, tabIndex) => {
@@ -63,7 +69,6 @@ if (coursePlayer) {
     nextButton.hidden = currentIndex === panels.length - 1;
 
     updateVisited();
-    viewport.scrollTo({ top: 0, behavior: "smooth" });
     tabs[currentIndex].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
 
     try {
