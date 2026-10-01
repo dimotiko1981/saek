@@ -36,12 +36,12 @@
         <div class="welcome-copy">
           <span class="lab-eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ ΕΙΣΑΓΩΓΗΣ</span>
           <h1 id="intro-welcome-title">Αποκωδικοποίησε το έξυπνο όχημα</h1>
-          <p>Πέρασε από έξι σταθμούς, σύνδεσε τις βασικές έννοιες του μαθήματος και σκέψου σαν τεχνικός πριν φτάσεις στο διαγνωστικό.</p>
+          <p>Απάντησε σε δεκαοκτώ ερωτήσεις και ρεαλιστικά σενάρια μέσα από έξι θεματικές ενότητες, σύνδεσε τις βασικές έννοιες του μαθήματος και σκέψου σαν τεχνικός πριν φτάσεις στο διαγνωστικό.</p>
 
           <div class="mission-facts" aria-label="Στοιχεία εργαστηρίου">
-            <article><strong>6</strong><span>σταθμοί εφαρμογής</span></article>
+            <article><strong>18</strong><span>ερωτήσεις σε 6 ενότητες</span></article>
             <article><strong>100</strong><span>αρχικοί βαθμοί</span></article>
-            <article><strong>10′</strong><span>ενδεικτικός χρόνος</span></article>
+            <article><strong>15′</strong><span>ενδεικτικός χρόνος</span></article>
           </div>
 
           <button class="lab-primary-button" type="button" data-intro-start>
@@ -80,7 +80,7 @@
         <div class="mission-topbar">
           <div class="mission-progress-copy">
             <span>ΠΟΡΕΙΑ ΕΡΓΑΣΤΗΡΙΟΥ</span>
-            <strong>Σταθμός <b data-intro-step-current>1</b> από 6</strong>
+            <strong>Ερώτηση <b data-intro-step-current>1</b> από 18</strong>
           </div>
           <div class="mission-progress-track" aria-hidden="true"><span data-intro-progress></span></div>
           <dl class="mission-metrics">
@@ -91,7 +91,7 @@
 
         <div class="intro-mission-grid">
           <aside class="intro-station-panel" aria-label="Σταθμοί εργαστηρίου">
-            <header><span>01</span><div><small>ΧΑΡΤΗΣ</small><strong>Οι 6 σταθμοί</strong></div></header>
+            <header><span>01</span><div><small>ΧΑΡΤΗΣ</small><strong>Οι 6 ενότητες</strong></div></header>
             <ol data-intro-stations>
               <li class="is-active"><span>1</span><div><strong>Βασική αλυσίδα</strong><small>Μέτρηση • απόφαση • εκτέλεση</small></div></li>
               <li><span>2</span><div><strong>Κοινά δεδομένα</strong><small>Συνεργασία ηλεκτρονικών μονάδων</small></div></li>
@@ -106,7 +106,7 @@
             <header><span>02</span><div><small>ΠΑΡΑΤΗΡΗΣΗ</small><strong id="intro-console-title">Στοιχεία συστήματος</strong></div></header>
             <div class="intro-console-screen" aria-live="polite">
               <div class="intro-console-icon" data-intro-icon aria-hidden="true">↔</div>
-              <span data-intro-console-label>ΣΤΑΘΜΟΣ 1</span>
+              <span data-intro-console-label>ΕΝΟΤΗΤΑ 1</span>
               <strong data-intro-console-value>ΑΙΣΘΗΤΗΡΑΣ • ECU • ΕΝΕΡΓΟΠΟΙΗΤΗΣ</strong>
               <p data-intro-console-detail>Παρατήρησε ποιος μετρά, ποιος αποφασίζει και ποιος εκτελεί.</p>
               <div class="intro-console-chips" data-intro-console-chips>
@@ -122,7 +122,7 @@
           <section class="decision-panel intro-decision-panel" aria-labelledby="intro-mission-title">
             <header><span>03</span><div><small>ΑΠΟΦΑΣΗ</small><strong id="intro-mission-title" data-intro-kicker>Κατανόησε τη λειτουργία</strong></div></header>
             <div class="decision-copy">
-              <span data-intro-step-tag>ΣΤΑΘΜΟΣ 1</span>
+              <span data-intro-step-tag>ΕΝΟΤΗΤΑ 1 • ΕΡΩΤΗΣΗ 1/3</span>
               <h2 data-intro-title>Ποια είναι η σωστή σειρά λειτουργίας;</h2>
               <p data-intro-description>Η θερμοκρασία του ψυκτικού ανεβαίνει και πρέπει να ενεργοποιηθεί ο ηλεκτρικός ανεμιστήρας.</p>
             </div>
@@ -132,14 +132,14 @@
             </div>
             <div class="decision-actions">
               <button type="button" data-intro-hint>Βοήθεια <span>−4 βαθμοί</span></button>
-              <button class="continue-button" type="button" data-intro-continue hidden>Επόμενος σταθμός <span aria-hidden="true">→</span></button>
+              <button class="continue-button" type="button" data-intro-continue hidden>Επόμενη ερώτηση <span aria-hidden="true">→</span></button>
             </div>
           </section>
         </div>
 
         <div class="diagnostic-log intro-lab-log" aria-live="polite">
           <span>ΗΜΕΡΟΛΟΓΙΟ ΑΠΟΣΤΟΛΗΣ</span>
-          <ol data-intro-log><li>Το εργαστήριο ξεκίνησε. Παρατήρησε τα στοιχεία του πρώτου σταθμού.</li></ol>
+          <ol data-intro-log><li>Το εργαστήριο ξεκίνησε. Παρατήρησε τα στοιχεία της πρώτης ενότητας.</li></ol>
         </div>
       </section>
 
@@ -151,7 +151,7 @@
             <small>/100</small>
           </div>
           <div class="result-copy">
-            <span class="lab-eyebrow">ΟΙ 6 ΣΤΑΘΜΟΙ ΟΛΟΚΛΗΡΩΘΗΚΑΝ</span>
+            <span class="lab-eyebrow">ΟΙ 6 ΘΕΜΑΤΙΚΕΣ ΕΝΟΤΗΤΕΣ ΟΛΟΚΛΗΡΩΘΗΚΑΝ</span>
             <h1 id="intro-result-title" data-intro-result-title>Κατάλαβες τη μεγάλη εικόνα</h1>
             <p data-intro-result-message></p>
             <dl>
@@ -176,6 +176,6 @@
       </section>
     </main>
 
-    <script src="assets/js/intro-lab.js?v=1"></script>
+    <script src="assets/js/intro-lab.js?v=3"></script>
   </body>
 </html>
