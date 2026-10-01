@@ -144,6 +144,15 @@ if (lab) {
     return `${minutes}:${remainder}`;
   };
 
+  const shuffleOptions = (options) => {
+    const shuffled = [...options];
+    for (let index = shuffled.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+    }
+    return shuffled;
+  };
+
   const updateScore = (penalty = 0) => {
     score = Math.max(0, score - penalty);
     scoreTarget.textContent = String(score);
@@ -234,7 +243,7 @@ if (lab) {
     progressBar.style.width = `${(stepIndex / steps.length) * 100}%`;
     optionsContainer.replaceChildren();
 
-    step.options.forEach((option, optionIndex) => {
+    shuffleOptions(step.options).forEach((option, optionIndex) => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "decision-option";

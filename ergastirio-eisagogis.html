@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Διαδραστικό εργαστήριο εισαγωγής στα δίκτυα και την επικοινωνία οχημάτων." />
+    <meta name="theme-color" content="#071426" />
+    <title>Εργαστήριο εισαγωγής | Δίκτυα Οχημάτων</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071426'/%3E%3Cpath d='M17 42V22l15-8 15 8v20l-15 8-15-8Z' fill='none' stroke='%232bd9fe' stroke-width='4'/%3E%3Cpath d='M25 26h14M25 33h14M25 40h9' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/diagnostic-lab.css?v=2" />
+    <link rel="stylesheet" href="assets/css/intro-lab.css?v=1" />
+  </head>
+  <body class="diagnostic-page introduction-lab-page">
+    <a class="lab-skip-link" href="#intro-lab-main">Μετάβαση στην εφαρμογή</a>
+
+    <header class="lab-header">
+      <a class="lab-brand" href="index.html" aria-label="ΣΑΕΚ — Αρχική σελίδα">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M12 32V16l12-6 12 6v16l-12 6-12-6Z" /><path d="M18 19h12M18 24h12M18 29h8" /></svg>
+        </span>
+        <div><strong>ΣΑΕΚ</strong><small>Εργαστήριο εισαγωγής</small></div>
+      </a>
+      <div class="lab-header-title"><span>ΔΙΚΤΥΑ ΟΧΗΜΑΤΩΝ</span><strong>Αποκωδικοποίησε το έξυπνο όχημα</strong></div>
+      <a class="lab-back-link" href="eisagogiki-parousiasi.html"><span aria-hidden="true">←</span> Επιστροφή στην εισαγωγή</a>
+    </header>
+
+    <main id="intro-lab-main" class="lab-main" data-intro-lab>
+      <section class="lab-screen lab-welcome intro-lab-welcome" data-intro-screen="welcome" aria-labelledby="intro-welcome-title">
+        <div class="welcome-copy">
+          <span class="lab-eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ ΕΙΣΑΓΩΓΗΣ</span>
+          <h1 id="intro-welcome-title">Αποκωδικοποίησε το έξυπνο όχημα</h1>
+          <p>Πέρασε από έξι σταθμούς, σύνδεσε τις βασικές έννοιες του μαθήματος και σκέψου σαν τεχνικός πριν φτάσεις στο διαγνωστικό.</p>
+
+          <div class="mission-facts" aria-label="Στοιχεία εργαστηρίου">
+            <article><strong>6</strong><span>σταθμοί εφαρμογής</span></article>
+            <article><strong>100</strong><span>αρχικοί βαθμοί</span></article>
+            <article><strong>10′</strong><span>ενδεικτικός χρόνος</span></article>
+          </div>
+
+          <button class="lab-primary-button" type="button" data-intro-start>
+            Έναρξη εργαστηρίου
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+          </button>
+        </div>
+
+        <div class="welcome-visual intro-network-visual" aria-label="Βασικά συστήματα ενός δικτυωμένου οχήματος">
+          <div class="intro-car-map" aria-hidden="true">
+            <svg viewBox="0 0 680 380">
+              <path class="intro-car-shell" d="M86 260h508l-28-92-116-72H245l-109 72-50 92Z" />
+              <path class="intro-car-glass" d="m253 118-74 52h337l-83-52H253Z" />
+              <circle class="intro-wheel" cx="205" cy="266" r="48" />
+              <circle class="intro-wheel" cx="485" cy="266" r="48" />
+              <path class="intro-bus-line" d="M195 205h291" />
+              <path class="intro-bus-line" d="M250 205v-46M340 205v-46M430 205v-46" />
+              <g transform="translate(206 125)"><rect width="88" height="42" rx="10" /><text x="44" y="26">ΑΙΣΘ.</text></g>
+              <g transform="translate(296 125)"><rect width="88" height="42" rx="10" /><text x="44" y="26">ECU</text></g>
+              <g transform="translate(386 125)"><rect width="88" height="42" rx="10" /><text x="44" y="26">ΕΝΕΡΓ.</text></g>
+              <text class="intro-bus-title" x="340" y="231">ΚΟΙΝΟΣ ΔΙΑΥΛΟΣ ΔΕΔΟΜΕΝΩΝ</text>
+            </svg>
+          </div>
+          <div class="intro-flow-strip" aria-hidden="true">
+            <span>ΜΕΤΡΗΣΗ</span><i>→</i><span>ΑΠΟΦΑΣΗ</span><i>→</i><span>ΕΚΤΕΛΕΣΗ</span>
+          </div>
+          <ul>
+            <li>Αναγνώρισε τον ρόλο κάθε εξαρτήματος.</li>
+            <li>Διάλεξε το κατάλληλο δίκτυο για κάθε ανάγκη.</li>
+            <li>Χρησιμοποίησε τα δεδομένα για σωστή διάγνωση.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="lab-screen lab-workspace" data-intro-screen="mission" aria-labelledby="intro-mission-title" hidden>
+        <div class="mission-topbar">
+          <div class="mission-progress-copy">
+            <span>ΠΟΡΕΙΑ ΕΡΓΑΣΤΗΡΙΟΥ</span>
+            <strong>Σταθμός <b data-intro-step-current>1</b> από 6</strong>
+          </div>
+          <div class="mission-progress-track" aria-hidden="true"><span data-intro-progress></span></div>
+          <dl class="mission-metrics">
+            <div><dt>Βαθμοί</dt><dd data-intro-score>100</dd></div>
+            <div><dt>Χρόνος</dt><dd data-intro-timer>00:00</dd></div>
+          </dl>
+        </div>
+
+        <div class="intro-mission-grid">
+          <aside class="intro-station-panel" aria-label="Σταθμοί εργαστηρίου">
+            <header><span>01</span><div><small>ΧΑΡΤΗΣ</small><strong>Οι 6 σταθμοί</strong></div></header>
+            <ol data-intro-stations>
+              <li class="is-active"><span>1</span><div><strong>Βασική αλυσίδα</strong><small>Μέτρηση • απόφαση • εκτέλεση</small></div></li>
+              <li><span>2</span><div><strong>Κοινά δεδομένα</strong><small>Συνεργασία ηλεκτρονικών μονάδων</small></div></li>
+              <li><span>3</span><div><strong>Προτεραιότητα CAN</strong><small>Το κρίσιμο μήνυμα περνά πρώτο</small></div></li>
+              <li><span>4</span><div><strong>Επιλογή δικτύου</strong><small>LIN • CAN • Ethernet</small></div></li>
+              <li><span>5</span><div><strong>OBD και live data</strong><small>Δεδομένα πριν από ανταλλακτικά</small></div></li>
+              <li><span>6</span><div><strong>Συνδεδεμένο όχημα</strong><small>Ασφαλής πρόσβαση και ενημερώσεις</small></div></li>
+            </ol>
+          </aside>
+
+          <section class="intro-console-panel" aria-labelledby="intro-console-title">
+            <header><span>02</span><div><small>ΠΑΡΑΤΗΡΗΣΗ</small><strong id="intro-console-title">Στοιχεία συστήματος</strong></div></header>
+            <div class="intro-console-screen" aria-live="polite">
+              <div class="intro-console-icon" data-intro-icon aria-hidden="true">↔</div>
+              <span data-intro-console-label>ΣΤΑΘΜΟΣ 1</span>
+              <strong data-intro-console-value>ΑΙΣΘΗΤΗΡΑΣ • ECU • ΕΝΕΡΓΟΠΟΙΗΤΗΣ</strong>
+              <p data-intro-console-detail>Παρατήρησε ποιος μετρά, ποιος αποφασίζει και ποιος εκτελεί.</p>
+              <div class="intro-console-chips" data-intro-console-chips>
+                <span>ΜΕΤΡΗΣΗ</span><span>ΑΠΟΦΑΣΗ</span><span>ΕΚΤΕΛΕΣΗ</span>
+              </div>
+            </div>
+            <div class="intro-rule-card">
+              <span>ΚΑΝΟΝΑΣ ΤΕΧΝΙΚΟΥ</span>
+              <p data-intro-rule>Δεν αλλάζουμε εξαρτήματα πριν καταλάβουμε τη ροή της πληροφορίας.</p>
+            </div>
+          </section>
+
+          <section class="decision-panel intro-decision-panel" aria-labelledby="intro-mission-title">
+            <header><span>03</span><div><small>ΑΠΟΦΑΣΗ</small><strong id="intro-mission-title" data-intro-kicker>Κατανόησε τη λειτουργία</strong></div></header>
+            <div class="decision-copy">
+              <span data-intro-step-tag>ΣΤΑΘΜΟΣ 1</span>
+              <h2 data-intro-title>Ποια είναι η σωστή σειρά λειτουργίας;</h2>
+              <p data-intro-description>Η θερμοκρασία του ψυκτικού ανεβαίνει και πρέπει να ενεργοποιηθεί ο ηλεκτρικός ανεμιστήρας.</p>
+            </div>
+            <div class="decision-options" data-intro-options></div>
+            <div class="decision-feedback" data-intro-feedback role="status" hidden>
+              <strong></strong><p></p>
+            </div>
+            <div class="decision-actions">
+              <button type="button" data-intro-hint>Βοήθεια <span>−4 βαθμοί</span></button>
+              <button class="continue-button" type="button" data-intro-continue hidden>Επόμενος σταθμός <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+        </div>
+
+        <div class="diagnostic-log intro-lab-log" aria-live="polite">
+          <span>ΗΜΕΡΟΛΟΓΙΟ ΑΠΟΣΤΟΛΗΣ</span>
+          <ol data-intro-log><li>Το εργαστήριο ξεκίνησε. Παρατήρησε τα στοιχεία του πρώτου σταθμού.</li></ol>
+        </div>
+      </section>
+
+      <section class="lab-screen lab-result intro-lab-result" data-intro-screen="result" aria-labelledby="intro-result-title" hidden>
+        <div class="result-panel">
+          <div class="result-badge">
+            <span>ΤΕΛΙΚΗ ΒΑΘΜΟΛΟΓΙΑ</span>
+            <strong data-intro-final-score>0</strong>
+            <small>/100</small>
+          </div>
+          <div class="result-copy">
+            <span class="lab-eyebrow">ΟΙ 6 ΣΤΑΘΜΟΙ ΟΛΟΚΛΗΡΩΘΗΚΑΝ</span>
+            <h1 id="intro-result-title" data-intro-result-title>Κατάλαβες τη μεγάλη εικόνα</h1>
+            <p data-intro-result-message></p>
+            <dl>
+              <div><dt>Ροή</dt><dd>Αισθητήρας → ECU → ενεργοποιητής.</dd></div>
+              <div><dt>Δίκτυο</dt><dd>Οι μονάδες μοιράζονται δεδομένα με κοινούς κανόνες.</dd></div>
+              <div><dt>Διάγνωση</dt><dd>Το OBD δίνει στοιχεία· ο τεχνικός ελέγχει και αποφασίζει.</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="result-learning">
+          <article><span>1</span><strong>Κατάλαβες τη ροή</strong><p>Μέτρηση, επεξεργασία και εκτέλεση.</p></article>
+          <article><span>2</span><strong>Ξεχώρισες τα δίκτυα</strong><p>Κάθε τεχνολογία εξυπηρετεί διαφορετική ανάγκη.</p></article>
+          <article><span>3</span><strong>Διάβασες τα δεδομένα</strong><p>Ένας κωδικός ή μια τιμή είναι αφετηρία ελέγχου.</p></article>
+          <article><span>4</span><strong>Σκέφτηκες με ασφάλεια</strong><p>Η πρόσβαση στο όχημα απαιτεί σωστές διαδικασίες.</p></article>
+        </div>
+
+        <div class="result-actions">
+          <button class="lab-primary-button" type="button" data-intro-restart>Νέα προσπάθεια</button>
+          <a href="eisagogiki-parousiasi.html">Επιστροφή στην εισαγωγή</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/js/intro-lab.js?v=1"></script>
+  </body>
+</html>
