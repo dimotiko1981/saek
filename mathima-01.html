@@ -4903,6 +4903,38 @@ body.lesson-layout-v11 {
   text-align: center;
 }
 
+.diagnostic-app-launch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  border: 1px solid rgba(43, 217, 254, 0.25);
+  border-radius: 11px;
+  background: rgba(43, 217, 254, 0.055);
+}
+
+.diagnostic-app-launch div {
+  display: grid;
+}
+
+.diagnostic-app-launch span {
+  color: var(--cyan);
+  font-size: 0.51rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.diagnostic-app-launch strong {
+  margin-top: 0.16rem;
+  font-size: 0.7rem;
+}
+
+.diagnostic-app-launch a {
+  flex: 0 0 auto;
+}
+
 .player-resource-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -5542,6 +5574,18 @@ body.lesson-layout-v11 {
   }
 }
 
+@media (max-width: 700px) {
+  .diagnostic-app-launch {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .diagnostic-app-launch a {
+    width: 100%;
+  }
+}
+
     </style>
   </head>
   <body class="lesson-page lesson-layout-v11">
@@ -5834,6 +5878,11 @@ body.lesson-layout-v11 {
                 <div class="diagnostic-screen">
                   <div><span>ΠΕΡΙΣΤΑΤΙΚΟ</span><strong>«Δεν υπάρχει επικοινωνία με τη μονάδα ABS»</strong><p>Το μήνυμα είναι σύμπτωμα, όχι απόδειξη κατεστραμμένης ECU.</p></div>
                   <ol><li>Τροφοδοσία</li><li>Γείωση</li><li>Φίσα</li><li>Καλωδίωση</li><li>ECU</li></ol>
+                </div>
+
+                <div class="diagnostic-app-launch">
+                  <div><span>ΔΙΑΔΡΑΣΤΙΚΗ ΑΠΟΣΤΟΛΗ</span><strong>Διάγνωσε την απώλεια επικοινωνίας με τη μονάδα ABS</strong></div>
+                  <a class="button button-primary" href="diagnostiko-abs.html">Άνοιγμα εφαρμογής</a>
                 </div>
               </section>
 
