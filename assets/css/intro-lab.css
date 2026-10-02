@@ -157,9 +157,11 @@
   display: grid;
   min-height: 0;
   gap: 0.36rem;
-  align-content: center;
+  align-content: start;
   margin: 0;
   padding: 0.65rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   list-style: none;
 }
 
