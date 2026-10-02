@@ -22,6 +22,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
@@ -6468,5 +6469,253 @@ body.lesson-layout-v11 {
 
   .intro-slide-frame {
     width: min(100%, calc((100svh - 220px) * 16 / 9));
+  }
+}
+
+/* Compact desktop mode for laptops with a short viewport (for example
+   1366x768 or Windows display scaling at 125%). */
+@media (min-width: 901px) and (max-height: 820px) {
+  .lesson-layout-v11 .lesson-header {
+    flex-basis: 62px;
+    min-height: 62px;
+  }
+
+  .lesson-layout-v11 .lesson-header .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .lesson-layout-v11 .lesson-header .brand small,
+  .lesson-layout-v11 .breadcrumbs {
+    display: none;
+  }
+
+  .course-player {
+    margin: 0.45rem 0 0.55rem;
+    border-radius: 18px;
+  }
+
+  .course-sidebar-heading {
+    padding: 0.72rem 0.9rem 0.6rem;
+  }
+
+  .course-sidebar-heading strong {
+    margin-top: 0.25rem;
+    font-size: 0.73rem;
+    line-height: 1.28;
+  }
+
+  .course-progress {
+    padding: 0.52rem 0.9rem;
+  }
+
+  .course-progress > div:first-child {
+    margin-bottom: 0.32rem;
+  }
+
+  .course-nav {
+    gap: 0.1rem;
+    padding: 0.32rem;
+  }
+
+  .course-nav button {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 0.5rem;
+    min-height: 41px;
+    padding: 0.3rem 0.48rem;
+  }
+
+  .course-nav button > span {
+    width: 27px;
+    height: 27px;
+  }
+
+  .course-nav button small {
+    display: none;
+  }
+
+  .course-stage {
+    grid-template-rows: 48px minmax(0, 1fr) 52px;
+  }
+
+  .course-stage-topbar,
+  .course-stage-controls {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .course-stage-viewport {
+    padding: 0.9rem 1.1rem;
+  }
+
+  .stage-control {
+    min-height: 34px;
+    padding: 0.42rem 0.72rem;
+  }
+
+  .intro-panel {
+    gap: 0.5rem;
+  }
+
+  .intro-copy {
+    padding: 1.15rem 1.45rem;
+  }
+
+  .intro-copy h1 {
+    margin-top: 0.55rem;
+    font-size: clamp(2rem, 3.4vw, 3.1rem);
+  }
+
+  .intro-copy > p {
+    margin-top: 0.65rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .intro-copy .button {
+    margin-top: 0.85rem;
+  }
+
+  .player-photo figcaption {
+    right: 0.75rem;
+    bottom: 0.65rem;
+    left: 0.75rem;
+    font-size: 0.58rem;
+  }
+
+  .player-facts {
+    gap: 0.45rem;
+  }
+
+  .player-facts article {
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 0.52rem 0.65rem;
+  }
+
+  .player-facts strong {
+    font-size: 1rem;
+  }
+
+  .lesson-layout-v11 .stage-panel:not(.intro-panel) > .stage-heading {
+    max-width: calc(100% - 225px);
+    min-height: 112px;
+    margin-bottom: 0.8rem;
+  }
+
+  .stage-heading h2 {
+    margin-top: 0.45rem;
+    font-size: clamp(1.45rem, 2.4vw, 2rem);
+  }
+
+  .stage-heading > p,
+  .stage-heading > div > p {
+    margin-top: 0.4rem;
+    font-size: 0.69rem;
+    line-height: 1.48;
+  }
+
+  .stage-visual-card {
+    width: 205px;
+  }
+
+  .stage-visual-card figcaption {
+    right: 0.55rem;
+    bottom: 0.42rem;
+    left: 0.55rem;
+    font-size: 0.48rem;
+  }
+}
+
+/* Medium-width desktops and scaled laptop displays. */
+@media (min-width: 901px) and (max-width: 1180px) {
+  .hero {
+    min-height: 560px;
+    gap: 2rem;
+    padding: 3.2rem 0 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .hero-lead {
+    margin-bottom: 1.35rem;
+    font-size: 0.96rem;
+  }
+
+  .hero-stats {
+    margin-top: 1.65rem;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+}
+
+/* Compact introductory presentation on short laptop screens. */
+@media (min-width: 701px) and (max-height: 820px) {
+  .presentation-header {
+    min-height: 62px;
+  }
+
+  .presentation-header .brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+  .presentation-header .brand small,
+  .presentation-breadcrumbs {
+    display: none;
+  }
+
+  .intro-deck {
+    height: calc(100svh - 72px);
+    min-height: 0;
+    margin: 0.4rem 0 0.55rem;
+    border-radius: 18px;
+  }
+
+  .intro-deck-topbar {
+    min-height: 54px;
+    padding: 0.5rem 0.85rem;
+  }
+
+  .intro-deck-topbar > div:first-child span {
+    font-size: 0.52rem;
+  }
+
+  .intro-deck-topbar > div:first-child strong {
+    font-size: 0.8rem;
+  }
+
+  .intro-deck-actions a,
+  .intro-deck-actions button {
+    min-height: 34px;
+    padding: 0.38rem 0.58rem;
+    font-size: 0.62rem;
+  }
+
+  .intro-slide-stage {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    gap: 0.55rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .intro-slide-frame {
+    width: min(100%, calc((100svh - 205px) * 16 / 9));
+  }
+
+  .intro-slide-arrow {
+    width: 42px;
+    border-radius: 11px;
+  }
+
+  .intro-deck-footer {
+    padding: 0.48rem 0.75rem 0.55rem;
+  }
+
+  .intro-slide-dots button {
+    width: 26px;
+    min-width: 26px;
   }
 }

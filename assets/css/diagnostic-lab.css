@@ -23,6 +23,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -1525,5 +1526,141 @@ svg {
 
   .measurement-grid div {
     min-height: 45px;
+  }
+}
+
+/* Compact mode for 1366x768 laptops and Windows display scaling. */
+@media (min-width: 761px) and (max-height: 820px) {
+  .lab-header {
+    height: 58px;
+  }
+
+  .lab-brand > span {
+    width: 38px;
+    border-radius: 10px;
+  }
+
+  .lab-brand svg {
+    width: 24px;
+  }
+
+  .lab-brand small {
+    display: none;
+  }
+
+  .lab-header-title span {
+    font-size: 0.48rem;
+  }
+
+  .lab-header-title strong {
+    font-size: 0.72rem;
+  }
+
+  .lab-main {
+    height: calc(100svh - 58px);
+    padding: 0.42rem 0 0.55rem;
+  }
+
+  .lab-screen {
+    border-radius: 18px;
+  }
+
+  .lab-welcome {
+    gap: 2vw;
+    padding: 1rem 1.4rem;
+  }
+
+  .welcome-copy h1 {
+    margin: 0.35rem 0 0.55rem;
+    font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  }
+
+  .welcome-copy > p {
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  .mission-facts {
+    gap: 0.4rem;
+    margin: 0.75rem 0;
+  }
+
+  .mission-facts article {
+    padding: 0.48rem;
+  }
+
+  .mission-facts strong {
+    font-size: 0.95rem;
+  }
+
+  .mission-facts span {
+    font-size: 0.5rem;
+  }
+
+  .lab-primary-button {
+    min-height: 38px;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.72rem;
+  }
+
+  .welcome-visual {
+    min-height: 0;
+    padding: 0.72rem;
+    border-radius: 15px;
+  }
+
+  .vehicle-outline {
+    min-height: 210px;
+  }
+
+  .fault-banner {
+    gap: 0.45rem;
+    padding: 0.5rem 0.6rem;
+  }
+
+  .welcome-visual ul {
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.58rem;
+  }
+
+  .mission-topbar {
+    gap: 0.6rem;
+    padding: 0.42rem 0.65rem;
+  }
+
+  .mission-metrics div {
+    min-width: 62px;
+    padding: 0.22rem 0.38rem;
+  }
+
+  .mission-grid {
+    gap: 0.45rem;
+    padding: 0.45rem;
+  }
+
+  .mission-grid > section {
+    border-radius: 11px;
+  }
+
+  .mission-grid > section > header {
+    padding: 0.38rem 0.48rem;
+  }
+
+  .mission-grid > section > header > span {
+    width: 24px;
+  }
+
+  .mission-grid > section > header small {
+    font-size: 0.4rem;
+  }
+
+  .mission-grid > section > header strong {
+    font-size: 0.56rem;
+  }
+
+  .diagnostic-log {
+    min-height: 42px;
+    padding: 0.32rem 0.58rem;
   }
 }
