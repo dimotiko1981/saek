@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=10" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=11" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -172,40 +172,54 @@
             </div>
             <div class="specialty-action">
               <button class="round-button" type="button" data-preview-button aria-expanded="false" aria-controls="specialty-preview">
-                <span class="sr-only">Προβολή διαθέσιμου μαθήματος</span>
+                <span class="sr-only">Προβολή διαθέσιμων μαθημάτων</span>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
               </button>
             </div>
           </article>
 
-          <div class="course-preview" id="specialty-preview" hidden>
-            <div>
-              <span class="course-number">1</span>
-              <div>
-                <small>ΔΙΑΘΕΣΙΜΟ ΜΑΘΗΜΑ</small>
-                <strong>Δίκτυα και Επικοινωνία Οχημάτων</strong>
-                <p>12 εισαγωγικές διαφάνειες · 2 διαδραστικά εργαστήρια · Μάθημα 1 · Online τεστ</p>
+          <div class="course-preview course-preview-stack" id="specialty-preview" hidden>
+            <article class="lesson-entry lesson-entry-intro">
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-intro" aria-hidden="true">Ε</span>
+                <div>
+                  <small>ΕΙΣΑΓΩΓΙΚΟ ΜΑΘΗΜΑ</small>
+                  <strong>Γνωριμία με το μάθημα</strong>
+                  <p>12 εισαγωγικές διαφάνειες · 50 σενάρια σε 10 ενότητες</p>
+                </div>
               </div>
-            </div>
-            <div class="course-preview-actions">
-              <span class="progress-badge">Εισαγωγή + Μάθημα 1</span>
-              <a class="course-open-link course-open-link-secondary" href="eisagogiki-parousiasi.html">
-                Εισαγωγική παρουσίαση
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
-              </a>
-              <a class="course-open-link course-open-link-secondary" href="ergastirio-eisagogis.html">
-                Εργαστήριο εισαγωγής
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
-              </a>
-              <a class="course-open-link" href="mathima-01.html">
-                Άνοιγμα μαθήματος
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
-              </a>
-              <a class="course-open-link" href="diagnostiko-abs.html">
-                Εργαστήριο ABS
-                <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
-              </a>
-            </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-secondary" href="eisagogiki-parousiasi.html">
+                  Εισαγωγική παρουσίαση
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary" href="ergastirio-eisagogis.html">
+                  Εργαστήριο εισαγωγής
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry">
+              <div class="lesson-entry-main">
+                <span class="course-number" aria-hidden="true">1</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 1</small>
+                  <strong>Δίκτυα και Επικοινωνία Οχημάτων</strong>
+                  <p>Θεωρία · εκπαιδευτικό υλικό · εργαστήριο ABS · online τεστ</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link" href="mathima-01.html">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link" href="diagnostiko-abs.html">
+                  Εργαστήριο ABS
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
