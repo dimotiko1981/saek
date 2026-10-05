@@ -260,7 +260,7 @@ if (deck) {
     quizToggle.setAttribute("aria-expanded", String(open));
     quizToggleLabel.textContent = open ? "Επιστροφή στις διαφάνειες" : "Τεστ 30 ερωτήσεων";
     slideCounter.hidden = open;
-    title.textContent = open ? "Τεστ εισαγωγικού μαθήματος" : slides[currentIndex];
+    title.textContent = open ? "Τεστ Μαθήματος 1" : slides[currentIndex];
     if (updateHash) history.replaceState(null, "", open ? "#test" : `#slide-${currentIndex + 1}`);
   };
 
