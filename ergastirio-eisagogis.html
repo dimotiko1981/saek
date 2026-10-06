@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Διαδραστικό εργαστήριο του Μαθήματος 1 στα δίκτυα και την επικοινωνία οχημάτων." />
+    <meta name="description" content="Διαδραστικό εργαστήριο 80 σεναρίων του Μαθήματος 1 στα δίκτυα και την επικοινωνία οχημάτων." />
     <meta name="theme-color" content="#071426" />
     <title>Εργαστήριο Μαθήματος 1 | Δίκτυα Οχημάτων</title>
     <link
@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/diagnostic-lab.css?v=3" />
-    <link rel="stylesheet" href="assets/css/intro-lab.css?v=3" />
+    <link rel="stylesheet" href="assets/css/intro-lab.css?v=5" />
   </head>
   <body class="diagnostic-page introduction-lab-page">
     <a class="lab-skip-link" href="#intro-lab-main">Μετάβαση στην εφαρμογή</a>
@@ -36,18 +36,36 @@
         <div class="welcome-copy">
           <span class="lab-eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ ΜΑΘΗΜΑΤΟΣ 1</span>
           <h1 id="intro-welcome-title">Αποκωδικοποίησε το έξυπνο όχημα</h1>
-          <p>Αντιμετώπισε 50 μικρά σενάρια «Τι συμβαίνει αν…» μέσα από 10 θεματικές ενότητες. Σύνδεσε σύμπτωμα, πληροφορία και σωστή ενέργεια, όπως θα έκανε ένας τεχνικός.</p>
+          <p>Δούλεψε με 80 σενάρια «Τι συμβαίνει αν…» οργανωμένα σε τρεις ανεξάρτητες διαδρομές. Ξεκίνα με τα 50 βασικά και συνέχισε, όταν είσαι έτοιμος, με πρόσθετη εξάσκηση και τεχνικές προκλήσεις.</p>
 
           <div class="mission-facts" aria-label="Στοιχεία εργαστηρίου">
-            <article><strong>50</strong><span>σενάρια σε 10 ενότητες</span></article>
-            <article><strong>100</strong><span>αρχικοί βαθμοί</span></article>
-            <article><strong>45′</strong><span>ενδεικτικός χρόνος</span></article>
+            <article><strong>80</strong><span>σενάρια συνολικά</span></article>
+            <article><strong>16</strong><span>θεματικές ενότητες</span></article>
+            <article><strong>3</strong><span>επίπεδα εξάσκησης</span></article>
           </div>
 
-          <button class="lab-primary-button" type="button" data-intro-start>
-            Έναρξη εργαστηρίου
-            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
-          </button>
+          <div class="intro-mode-grid" aria-label="Επιλογή διαδρομής εργαστηρίου">
+            <button class="intro-mode-card is-recommended" type="button" data-intro-start="core">
+              <span>ΠΡΟΤΕΙΝΟΜΕΝΟ ΓΙΑ ΤΟ ΜΑΘΗΜΑ</span>
+              <strong>Βασικό εργαστήριο</strong>
+              <small>50 σενάρια • 10 ενότητες</small>
+            </button>
+            <button class="intro-mode-card" type="button" data-intro-start="extra">
+              <span>ΠΡΟΣΘΕΤΗ ΕΞΑΣΚΗΣΗ</span>
+              <strong>20 νέα σενάρια</strong>
+              <small>PCM • ανάρτηση • Gateway • βλάβες</small>
+            </button>
+            <button class="intro-mode-card is-challenge" type="button" data-intro-start="challenge">
+              <span>ΠΡΟΚΛΗΣΗ ΤΕΧΝΙΚΟΥ</span>
+              <strong>10 δύσκολα σενάρια</strong>
+              <small>Συνδυαστική διάγνωση</small>
+            </button>
+            <button class="intro-mode-card is-all" type="button" data-intro-start="all">
+              <span>ΠΛΗΡΗΣ ΤΡΑΠΕΖΑ</span>
+              <strong>Και οι 80 ερωτήσεις</strong>
+              <small>Για επανάληψη ή ξεχωριστή συνάντηση</small>
+            </button>
+          </div>
         </div>
 
         <div class="welcome-visual intro-network-visual" aria-label="Βασικά συστήματα ενός δικτυωμένου οχήματος">
@@ -80,7 +98,7 @@
         <div class="mission-topbar">
           <div class="mission-progress-copy">
             <span>ΠΟΡΕΙΑ ΕΡΓΑΣΤΗΡΙΟΥ</span>
-            <strong>Ερώτηση <b data-intro-step-current>1</b> από 50</strong>
+            <strong>Ερώτηση <b data-intro-step-current>1</b> από <span data-intro-step-total>50</span></strong>
           </div>
           <div class="mission-progress-track" aria-hidden="true"><span data-intro-progress></span></div>
           <dl class="mission-metrics">
@@ -91,19 +109,8 @@
 
         <div class="intro-mission-grid">
           <aside class="intro-station-panel" aria-label="Σταθμοί εργαστηρίου">
-            <header><span>01</span><div><small>ΧΑΡΤΗΣ</small><strong>Οι 10 ενότητες</strong></div></header>
-            <ol data-intro-stations>
-              <li class="is-active"><span>1</span><div><strong>Βασική αλυσίδα</strong><small>Μέτρηση • απόφαση • εκτέλεση</small></div></li>
-              <li><span>2</span><div><strong>Ρόλοι εξαρτημάτων</strong><small>Αισθητήρας • ECU • ενεργοποιητής</small></div></li>
-              <li><span>3</span><div><strong>Γιατί δίκτυα</strong><small>Κοινά δεδομένα • λιγότερα καλώδια</small></div></li>
-              <li><span>4</span><div><strong>Βασικές έννοιες CAN</strong><small>CAN High • CAN Low • θόρυβος</small></div></li>
-              <li><span>5</span><div><strong>Πρωτόκολλα</strong><small>LIN • CAN • Ethernet • MOST</small></div></li>
-              <li><span>6</span><div><strong>ABS • ESP • EPS</strong><small>Ασφάλεια • ευστάθεια • διεύθυνση</small></div></li>
-              <li><span>7</span><div><strong>Μηνύματα CAN</strong><small>Πλαίσια • ID • προτεραιότητα</small></div></li>
-              <li><span>8</span><div><strong>OBD και διάγνωση</strong><small>DTC • live data • επιβεβαίωση</small></div></li>
-              <li><span>9</span><div><strong>Ασφάλεια λογισμικού</strong><small>Πρόσβαση • ενημερώσεις • τάση</small></div></li>
-              <li><span>10</span><div><strong>Συνδυαστικά σενάρια</strong><small>Σύμπτωμα • δεδομένα • έλεγχος</small></div></li>
-            </ol>
+            <header><span>01</span><div><small>ΧΑΡΤΗΣ</small><strong>Οι ενότητες της διαδρομής</strong></div></header>
+            <ol data-intro-stations></ol>
           </aside>
 
           <section class="intro-console-panel" aria-labelledby="intro-console-title">
@@ -155,7 +162,7 @@
             <small>/100</small>
           </div>
           <div class="result-copy">
-            <span class="lab-eyebrow">ΟΙ 10 ΘΕΜΑΤΙΚΕΣ ΕΝΟΤΗΤΕΣ ΟΛΟΚΛΗΡΩΘΗΚΑΝ</span>
+            <span class="lab-eyebrow" data-intro-result-eyebrow>Η ΔΙΑΔΡΟΜΗ ΟΛΟΚΛΗΡΩΘΗΚΕ</span>
             <h1 id="intro-result-title" data-intro-result-title>Κατάλαβες τη μεγάλη εικόνα</h1>
             <p data-intro-result-message></p>
             <dl>
@@ -174,12 +181,12 @@
         </div>
 
         <div class="result-actions">
-          <button class="lab-primary-button" type="button" data-intro-restart>Νέα προσπάθεια</button>
+          <button class="lab-primary-button" type="button" data-intro-restart>Επανάληψη ίδιας διαδρομής</button>
           <a href="eisagogiki-parousiasi.html">Επιστροφή στο Μάθημα 1</a>
         </div>
       </section>
     </main>
 
-    <script src="assets/js/intro-lab.js?v=4"></script>
+    <script src="assets/js/intro-lab.js?v=5"></script>
   </body>
 </html>

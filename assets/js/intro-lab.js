@@ -162,11 +162,116 @@ if (introLab) {
         { title: "Τι συμβαίνει αν το ESP ζητήσει μείωση ροπής επειδή το όχημα γλιστρά;", description: "Η μονάδα ESP δεν ελέγχει μόνη της τον κινητήρα και πρέπει να συνεργαστεί με την ECU κινητήρα.", hint: "Η εντολή μεταφέρεται ως μήνυμα στο δίκτυο.", answers: ["Η ECU κινητήρα λαμβάνει το αίτημα και μπορεί να μειώσει προσωρινά τη ροπή", "Η BCM ανοίγει τα παράθυρα για να μειωθεί η ταχύτητα", "Ο πίνακας οργάνων φρενάρει μηχανικά τους τροχούς"], success: "Το σενάριο δείχνει πώς δύο διαφορετικές ECU συνεργάζονται μέσω του δικτύου." },
       ],
     },
+    {
+      title: "PCM και συνεργασία μονάδων",
+      short: "Κινητήρας • CAN • κοινά δεδομένα",
+      icon: "⇄",
+      value: "Η PCM ΕΛΕΓΧΕΙ ΤΟΝ ΚΙΝΗΤΗΡΑ ΚΑΙ ΣΥΝΕΡΓΑΖΕΤΑΙ ΜΕ ΑΛΛΕΣ ECU",
+      detail: "Η PCM λαμβάνει δικά της σήματα, ελέγχει ενεργοποιητές του κινητήρα και ανταλλάσσει επιλεγμένα δεδομένα μέσω CAN.",
+      chips: ["PCM", "ΚΙΝΗΤΗΡΑΣ", "CAN"],
+      rule: "Δεν θεωρούμε ότι η PCM ελέγχει κάθε σύστημα· ξεχωρίζουμε ποια μονάδα αποφασίζει και ποια πληροφορεί.",
+      questions: [
+        { title: "Τι συμβαίνει αν ο πίνακας οργάνων δεν δείχνει στροφές, αλλά η PCM τις βλέπει σωστά στο live data;", description: "Ο αισθητήρας στροφών λειτουργεί και ο κινητήρας δουλεύει κανονικά.", hint: "Η μέτρηση υπάρχει ήδη μέσα στην PCM. Αναζήτησε τη διαδρομή προς την ένδειξη.", answers: ["Ελέγχουμε το μήνυμα CAN, την επικοινωνία και τον πίνακα οργάνων", "Αλλάζουμε αμέσως τον αισθητήρα στροφών", "Αλλάζουμε τα αμορτισέρ"], success: "Αφού η PCM βλέπει σωστά τις στροφές, εξετάζουμε τη μετάδοση και την εμφάνιση της πληροφορίας." },
+        { title: "Τι συμβαίνει αν το ESP ζητήσει μείωση ροπής σε ολισθηρό δρόμο;", description: "Η μονάδα ευστάθειας αναγνωρίζει ότι το όχημα αποκλίνει από την επιθυμητή πορεία.", hint: "Το ESP δεν χειρίζεται απευθείας τα μπεκ και την πεταλούδα.", answers: ["Στέλνει αίτημα μέσω CAN και η PCM μειώνει προσωρινά τη ροπή", "Η BCM κόβει μηχανικά το καύσιμο", "Ο πίνακας οργάνων κλείνει την πεταλούδα"], success: "Η μονάδα ESP ζητά και η PCM εκτελεί την επέμβαση στον κινητήρα." },
+        { title: "Τι συμβαίνει αν ενεργοποιηθεί ο κλιματισμός στο ρελαντί;", description: "Ο συμπιεστής αυξάνει το φορτίο του κινητήρα.", hint: "Η PCM πρέπει να πληροφορηθεί για το νέο φορτίο.", answers: ["Η PCM μπορεί να προσαρμόσει ροπή και ρελαντί όταν λάβει το σχετικό αίτημα", "Το ABS αυξάνει μόνο του τις στροφές", "Ο αισθητήρας λάμδα ενεργοποιεί τον συμπιεστή χωρίς ECU"], success: "Οι μονάδες συνεργάζονται ώστε ο κινητήρας να διατηρεί σταθερή λειτουργία με το πρόσθετο φορτίο." },
+        { title: "Τι συμβαίνει αν χαθεί η επικοινωνία της PCM με το δίκτυο, αλλά η ίδια τροφοδοτείται;", description: "Ο κινητήρας μπορεί να λειτουργεί, όμως άλλες μονάδες δεν λαμβάνουν τα δεδομένα του.", hint: "Ξεχώρισε τη λειτουργία του κινητήρα από την ανταλλαγή μηνυμάτων.", answers: ["Μπορούν να εμφανιστούν πολλοί κωδικοί επικοινωνίας και ελλιπείς ενδείξεις σε άλλες ECU", "Όλες οι μονάδες συνεχίζουν να λαμβάνουν κανονικά τα μηνύματα", "Το CAN αντικαθίσταται αυτόματα από μηχανικά καλώδια"], success: "Μία μονάδα μπορεί να έχει τροφοδοσία αλλά να μη μοιράζεται πλέον τα δεδομένα της." },
+        { title: "Τι συμβαίνει αν οι δύο αισθητήρες του ηλεκτρονικού πεντάλ διαφωνούν σημαντικά;", description: "Η PCM συγκρίνει δύο συσχετισμένα σήματα για λόγους ασφάλειας.", hint: "Η ασυμφωνία δεν πρέπει να αγνοηθεί.", answers: ["Η PCM μπορεί να καταγράψει βλάβη και να περιορίσει την απόκριση του γκαζιού", "Η πεταλούδα ανοίγει υποχρεωτικά πλήρως", "Το ESP μετατρέπεται σε αισθητήρα πεντάλ"], success: "Η σύγκριση διπλών σημάτων επιτρέπει στη μονάδα να αναγνωρίζει μη ασφαλή ασυμφωνία." },
+      ],
+    },
+    {
+      title: "Προσαρμοζόμενη ανάρτηση FL5",
+      short: "Αισθητήρες • CAN • 4 αμορτισέρ",
+      icon: "↕",
+      value: "Η ΜΟΝΑΔΑ ΑΝΑΡΤΗΣΗΣ ΑΠΟΦΑΣΙΖΕΙ ΚΑΙ ΕΛΕΓΧΕΙ ΤΑ ΑΜΟΡΤΙΣΕΡ",
+      detail: "Η Adaptive Damper Control Unit συνδυάζει άμεσα σήματα και δεδομένα CAN για να ρυθμίζει την απόσβεση κάθε τροχού.",
+      chips: ["ADAPTIVE", "DAMPERS", "CAN"],
+      rule: "Η PCM πληροφορεί μέσω CAN· η ξεχωριστή μονάδα ανάρτησης ελέγχει απευθείας τις ηλεκτροβαλβίδες.",
+      questions: [
+        { title: "Τι συμβαίνει αν η PCM στείλει μέσω CAN πληροφορία υψηλής ροπής;", description: "Το όχημα επιταχύνει και το αμάξωμα τείνει να μεταφέρει βάρος προς τα πίσω.", hint: "Η PCM πληροφορεί, αλλά δεν οδηγεί τα αμορτισέρ.", answers: ["Η μονάδα ανάρτησης αξιοποιεί το δεδομένο και προσαρμόζει η ίδια την απόσβεση", "Η PCM τροφοδοτεί απευθείας τα τέσσερα αμορτισέρ", "Τα ελατήρια αλλάζουν αυτόματα μήκος"], success: "Η πληροφορία περνά από το CAN, αλλά η απόφαση και η άμεση εντολή ανήκουν στη μονάδα ανάρτησης." },
+        { title: "Τι συμβαίνει αν το όχημα στρίψει γρήγορα;", description: "Η μονάδα ανάρτησης λαμβάνει γωνία τιμονιού, ταχύτητα και κίνηση αμαξώματος.", hint: "Στόχος είναι να περιοριστεί η κλίση χωρίς να χαθεί η επαφή των τροχών.", answers: ["Ρυθμίζει κατάλληλα την απόσβεση των επιμέρους αμορτισέρ", "Αλλάζει τη διάμετρο των τροχών", "Η PCM κλειδώνει μηχανικά τα ελατήρια"], success: "Η ηλεκτρονική απόσβεση μπορεί να προσαρμόζεται ξεχωριστά ανά τροχό ανάλογα με την κατάσταση." },
+        { title: "Τι αλλάζει όταν ο οδηγός επιλέξει +R αντί για Comfort;", description: "Ο οδηγός αλλάζει πρόγραμμα οδήγησης στο Civic Type R FL5.", hint: "Δεν αντικαθίστανται μηχανικά εξαρτήματα κατά την αλλαγή προγράμματος.", answers: ["Αλλάζει η στρατηγική ελέγχου και η απόσβεση γίνεται πιο σφιχτή", "Αλλάζουν αυτόματα τα ελατήρια", "Το αυτοκίνητο αποκτά αερανάρτηση"], success: "Τα προγράμματα μεταβάλλουν τον ηλεκτρονικό έλεγχο των αμορτισέρ, όχι τα ίδια τα ελατήρια." },
+        { title: "Τι συμβαίνει αν διακοπεί το κύκλωμα της ηλεκτροβαλβίδας ενός αμορτισέρ;", description: "Η μονάδα δεν μπορεί να περάσει το προβλεπόμενο ρεύμα στο συγκεκριμένο πηνίο.", hint: "Η βλάβη αφορά μία έξοδο που παρακολουθείται ηλεκτρικά.", answers: ["Μπορεί να καταγραφεί DTC και να περιοριστεί η προσαρμοζόμενη λειτουργία", "Η PCM αλλάζει αυτόματα το αμορτισέρ", "Ο αισθητήρας βροχής αναλαμβάνει την ανάρτηση"], success: "Η μονάδα παρακολουθεί τα κυκλώματα των αμορτισέρ και αναγνωρίζει ηλεκτρικές αστοχίες." },
+        { title: "Τι συμβαίνει αν χαθεί το μήνυμα γωνίας τιμονιού προς τη μονάδα ανάρτησης;", description: "Οι αισθητήρες διαδρομής λειτουργούν, αλλά λείπει μία σημαντική πληροφορία κίνησης.", hint: "Η μονάδα έχει λιγότερα δεδομένα για να προβλέψει τη στροφή.", answers: ["Μπορεί να καταγράψει σφάλμα και να χρησιμοποιήσει ασφαλέστερη περιορισμένη στρατηγική", "Συνεχίζει οπωσδήποτε σαν να έχει όλα τα δεδομένα", "Απενεργοποιείται μόνο το ραδιόφωνο"], success: "Η απώλεια ενός απαραίτητου μηνύματος επηρεάζει τη δυνατότητα προσαρμογής και διαγιγνώσκεται ως σφάλμα." },
+      ],
+    },
+    {
+      title: "Τροφοδοσία, γείωση και δίαυλος",
+      short: "Βασικοί έλεγχοι πριν την ECU",
+      icon: "⏚",
+      value: "ΠΡΩΤΑ ΤΡΟΦΟΔΟΣΙΑ • ΓΕΙΩΣΗ • ΚΑΛΩΔΙΩΣΗ",
+      detail: "Η απώλεια επικοινωνίας δεν αποδεικνύει καμένη ECU. Μια μονάδα χρειάζεται σωστή τροφοδοσία, γείωση και δίαυλο.",
+      chips: ["12 V", "ΓΕΙΩΣΗ", "CAN"],
+      rule: "Πριν αντικαταστήσουμε μονάδα, αποδεικνύουμε ότι τροφοδοτείται και ότι οι γραμμές επικοινωνίας είναι σωστές.",
+      questions: [
+        { title: "Τι συμβαίνει αν μία ECU δεν εμφανίζεται καθόλου στη συνολική σάρωση;", description: "Οι υπόλοιπες μονάδες επικοινωνούν κανονικά.", hint: "Μια ECU χωρίς ρεύμα δεν μπορεί να απαντήσει.", answers: ["Ελέγχουμε πρώτα ασφάλεια, τροφοδοσία, γείωση, φίσα και γραμμές CAN", "Παραγγέλνουμε αμέσως καινούργια ECU", "Αλλάζουμε τον αισθητήρα βροχής"], success: "Η απουσία επικοινωνίας απαιτεί πρώτα βασικούς ηλεκτρικούς ελέγχους." },
+        { title: "Τι συμβαίνει αν εμφανιστούν πολλοί άσχετοι κωδικοί μετά από αδύναμη εκκίνηση;", description: "Η τάση της μπαταρίας έπεσε πολύ χαμηλά κατά τη μίζα.", hint: "Πολλές ECU επηρεάζονται ταυτόχρονα από χαμηλή τάση.", answers: ["Ελέγχουμε πρώτα μπαταρία, πτώση τάσης και φόρτιση πριν καταδικάσουμε μονάδες", "Αλλάζουμε όλες τις ECU", "Θεωρούμε ότι χάλασαν ταυτόχρονα όλοι οι αισθητήρες"], success: "Η χαμηλή τάση μπορεί να δημιουργήσει πολλαπλά παραπλανητικά σφάλματα επικοινωνίας." },
+        { title: "Τι συμβαίνει αν μια οξειδωμένη γείωση δημιουργεί μεγάλη πτώση τάσης;", description: "Η μονάδα λειτουργεί άλλοτε σωστά και άλλοτε επανεκκινείται.", hint: "Η ύπαρξη συνέχειας δεν αρκεί όταν υπάρχει φορτίο.", answers: ["Κάνουμε μέτρηση πτώσης τάσης στη γείωση υπό φορτίο", "Μετράμε μόνο την πίεση ελαστικών", "Διαγράφουμε τους κωδικούς και σταματάμε"], success: "Η δοκιμή υπό φορτίο αποκαλύπτει αντίσταση που μπορεί να μη φανεί με έναν απλό έλεγχο συνέχειας." },
+        { title: "Τι συμβαίνει αν μία μονάδα βραχυκυκλώσει τον κοινό δίαυλο CAN;", description: "Πολλές άλλες ECU σταματούν ξαφνικά να επικοινωνούν.", hint: "Μία κοινή γραμμή μπορεί να επηρεαστεί από έναν μόνο κόμβο.", answers: ["Ένα πρόβλημα σε μία μονάδα ή διακλάδωση μπορεί να ρίξει μεγάλο μέρος του δικτύου", "Έχουν καταστραφεί υποχρεωτικά όλες οι ECU", "Το δίκτυο λειτουργεί καλύτερα με το βραχυκύκλωμα"], success: "Σε κοινό δίαυλο μία βλάβη μπορεί να προκαλέσει πολλά συμπτώματα ταυτόχρονα." },
+        { title: "Τι συμβαίνει αν η αντίσταση ενός απενεργοποιημένου High-Speed CAN μετρηθεί πολύ διαφορετική από περίπου 60 Ω;", description: "Η μέτρηση γίνεται σωστά, με το όχημα απενεργοποιημένο και σύμφωνα με τη διαδικασία.", hint: "Οι δύο τερματικές αντιστάσεις σχηματίζουν τη χαρακτηριστική συνολική τιμή.", answers: ["Υποψιαζόμαστε πρόβλημα τερματισμού, διακοπή ή βραχυκύκλωμα και συνεχίζουμε με μετρήσεις", "Αποδεικνύεται αμέσως ότι χάλασε η PCM", "Η τιμή δεν σχετίζεται ποτέ με τον δίαυλο"], success: "Η αντίσταση είναι διαγνωστική ένδειξη του διαύλου, όχι από μόνη της απόδειξη για συγκεκριμένη ECU." },
+      ],
+    },
+    {
+      title: "Gateway και κοινή πληροφορία",
+      short: "Υποδίκτυα • δρομολόγηση • πρόσβαση",
+      icon: "⌬",
+      value: "ΤΟ GATEWAY ΣΥΝΔΕΕΙ ΔΙΑΦΟΡΕΤΙΚΑ ΔΙΚΤΥΑ",
+      detail: "Το όχημα μπορεί να έχει πολλά υποδίκτυα. Το Gateway προωθεί τα κατάλληλα μηνύματα και ελέγχει τη μεταξύ τους πρόσβαση.",
+      chips: ["GATEWAY", "ΥΠΟΔΙΚΤΥΑ", "ΜΗΝΥΜΑΤΑ"],
+      rule: "Όταν η πληροφορία υπάρχει σε ένα δίκτυο αλλά όχι σε άλλο, εξετάζουμε και τη διαδρομή μέσω Gateway.",
+      questions: [
+        { title: "Τι συμβαίνει αν το Gateway δεν προωθεί ένα μήνυμα από το CAN κινητήρα προς τον πίνακα οργάνων;", description: "Η PCM παράγει σωστά την πληροφορία, αλλά η ένδειξη λείπει.", hint: "Η πηγή μπορεί να είναι σωστή και η διαδρομή να έχει διακοπεί.", answers: ["Ελέγχουμε το Gateway, τα δύο υποδίκτυα και τη δρομολόγηση του μηνύματος", "Αλλάζουμε υποχρεωτικά τον αισθητήρα της PCM", "Τοποθετούμε δεύτερο πεντάλ γκαζιού"], success: "Το Gateway αποτελεί κρίσιμο σημείο στη διαδρομή πληροφορίας μεταξύ υποδικτύων." },
+        { title: "Τι συμβαίνει αν ένας καθρέφτης LIN πρέπει να στείλει κατάσταση σε μονάδα του CAN;", description: "Η τοπική συσκευή δεν είναι απευθείας κόμβος του κεντρικού CAN.", hint: "Χρειάζεται μία μονάδα που λειτουργεί ως LIN master και πύλη.", answers: ["Η τοπική μονάδα συλλέγει την πληροφορία και την προωθεί προς το CAN", "Ο καθρέφτης συνδέεται μόνος του σε κάθε ECU", "Το LIN μετατρέπεται μηχανικά σε οπτική ίνα"], success: "Οι πληροφορίες μπορούν να περάσουν από τοπικό LIN σε άλλο δίκτυο μέσω της κατάλληλης μονάδας." },
+        { title: "Τι συμβαίνει αν πολλές κάμερες πρέπει να μεταδίδουν συνεχώς εικόνα υψηλής ανάλυσης;", description: "Ο όγκος δεδομένων είναι πολύ μεγαλύτερος από ένα απλό μήνυμα θερμοκρασίας.", hint: "Η επιλογή δικτύου εξαρτάται από το απαιτούμενο εύρος ζώνης.", answers: ["Χρησιμοποιείται δίκτυο υψηλού ρυθμού, όπως Automotive Ethernet", "Χρησιμοποιείται πάντα μόνο LIN", "Η εικόνα μεταφέρεται από το καλώδιο της κόρνας"], success: "Οι εφαρμογές εικόνας χρειάζονται πολύ μεγαλύτερη χωρητικότητα από τις απλές λειτουργίες αμαξώματος." },
+        { title: "Τι συμβαίνει αν ο διαγνωστικός εξοπλισμός βλέπει μόνο ένα μέρος των ECU;", description: "Ορισμένα υποδίκτυα απαντούν και άλλα παραμένουν αόρατα.", hint: "Αναζήτησε το κοινό σημείο πρόσβασης προς τα υποδίκτυα που λείπουν.", answers: ["Εξετάζουμε Gateway, τροφοδοσία και επικοινωνία των συγκεκριμένων υποδικτύων", "Αλλάζουμε όλα τα εξαρτήματα των ορατών ECU", "Θεωρούμε ότι το OBD λειτουργεί μόνο για τον κινητήρα"], success: "Η μερική πρόσβαση μπορεί να δείχνει πρόβλημα στη διασύνδεση συγκεκριμένων δικτύων." },
+        { title: "Τι συμβαίνει αν άγνωστη συσκευή συνδεθεί στη θύρα OBD και ζητήσει προστατευμένες λειτουργίες;", description: "Δεν γνωρίζουμε την προέλευση, την άδεια ή το λογισμικό της συσκευής.", hint: "Η φυσική πρόσβαση στη θύρα δεν σημαίνει αυτόματα εξουσιοδότηση.", answers: ["Δεν επιτρέπουμε την πρόσβαση και χρησιμοποιούμε εγκεκριμένο, εξουσιοδοτημένο εξοπλισμό", "Παρακάμπτουμε όλες τις προστασίες", "Δίνουμε στη συσκευή πλήρη δικαιώματα επειδή συνδέθηκε"], success: "Η διαγνωστική πρόσβαση πρέπει να είναι ελεγχόμενη, εξουσιοδοτημένη και ιχνηλάσιμη." },
+      ],
+    },
+    {
+      title: "Πρόκληση διάγνωσης",
+      short: "Κοινή αιτία • μέτρηση • απόδειξη",
+      icon: "⚠",
+      value: "ΠΟΛΛΑ ΣΥΜΠΤΩΜΑΤΑ ΔΕΝ ΣΗΜΑΙΝΟΥΝ ΠΟΛΛΕΣ ΒΛΑΒΕΣ",
+      detail: "Τα δύσκολα σενάρια απαιτούν να βρούμε την κοινή πληροφορία και να επιβεβαιώσουμε την υπόθεση με στοιχεία.",
+      chips: ["DTC", "LIVE DATA", "ΚΟΙΝΗ ΑΙΤΙΑ"],
+      rule: "Συγκρίνουμε δεδομένα μεταξύ μονάδων και ξεκινάμε από την απλούστερη κοινή αιτία.",
+      questions: [
+        { title: "Ανάβουν ABS και ESP και ταυτόχρονα χάνεται η ένδειξη ταχύτητας. Ποιος είναι ο καλύτερος πρώτος έλεγχος;", description: "Τρία συστήματα παρουσιάζουν συμπτώματα την ίδια στιγμή.", hint: "Αναζήτησε την πληροφορία που χρησιμοποιούν από κοινού.", answers: ["Συγκρίνουμε τις ταχύτητες τροχών στο live data και ελέγχουμε το κοινό σήμα/δίκτυο", "Αλλάζουμε τρεις ECU μαζί", "Ξεκινάμε από το μοτέρ υαλοκαθαριστήρων"], success: "Η κοινή πληροφορία ταχύτητας μπορεί να εξηγήσει και τα τρία συμπτώματα." },
+        { title: "Ο κινητήρας είναι ζεστός, αλλά το live data δείχνει −40 °C και ο ανεμιστήρας δουλεύει συνεχώς. Τι υποψιαζόμαστε;", description: "Η ένδειξη είναι αδύνατη για την πραγματική κατάσταση.", hint: "Η πολύ χαμηλή τιμή συχνά δείχνει πρόβλημα στο κύκλωμα εισόδου.", answers: ["Ανοικτό κύκλωμα, φίσα, καλωδίωση ή αισθητήρα θερμοκρασίας", "Βλάβη αποκλειστικά στο ABS", "Λανθασμένη πίεση ελαστικών"], success: "Η PCM μπορεί να ενεργοποιεί προστατευτικά τον ανεμιστήρα όταν δεν εμπιστεύεται τη μέτρηση." },
+        { title: "Η PCM βλέπει σωστά τη θερμοκρασία, αλλά ο πίνακας δείχνει παύλες. Πού συνεχίζουμε;", description: "Η αρχική μέτρηση και η επεξεργασία της από την PCM είναι σωστές.", hint: "Η βλάβη βρίσκεται μετά την πηγή της πληροφορίας.", answers: ["Στην επικοινωνία CAN, στο Gateway και στον πίνακα οργάνων", "Στην αντλία καυσίμου", "Στα ελατήρια της ανάρτησης"], success: "Ακολουθούμε το δεδομένο από την PCM προς τον τελικό χρήστη του μηνύματος." },
+        { title: "Το τιμόνι βαραίνει και το διαγνωστικό δεν επικοινωνεί με το EPS. Τι ελέγχουμε πρώτο;", description: "Η λυχνία EPS είναι αναμμένη και η υποβοήθηση έχει χαθεί.", hint: "Η μη επικοινωνία δεν αποδεικνύει αμέσως εσωτερική βλάβη μονάδας.", answers: ["Ασφάλεια, ισχυρή τροφοδοσία, γείωση, φίσα και γραμμές CAN του EPS", "Μόνο την ευθυγράμμιση τροχών", "Αλλάζουμε πρώτα την PCM κινητήρα"], success: "Το EPS χρειάζεται σωστή τροφοδοσία και επικοινωνία πριν μπορέσει να λειτουργήσει ή να απαντήσει." },
+        { title: "Το +R επιλέγεται στην οθόνη, αλλά η ανάρτηση δεν αλλάζει και υπάρχει DTC μονάδας ανάρτησης. Τι κάνουμε;", description: "Το αίτημα του οδηγού φαίνεται να καταγράφεται σωστά.", hint: "Εξέτασε τη μονάδα που εφαρμόζει πραγματικά την αλλαγή.", answers: ["Ελέγχουμε μονάδα ανάρτησης, αισθητήρες, κυκλώματα αμορτισέρ και σχετικά μηνύματα CAN", "Αλλάζουμε μόνο το κουμπί +R", "Αφαιρούμε τα ελατήρια"], success: "Το πρόγραμμα είναι αίτημα· η Adaptive Damper Control Unit πρέπει να έχει δεδομένα και λειτουργικές εξόδους για να το εφαρμόσει." },
+      ],
+    },
+    {
+      title: "Τελική πρόκληση τεχνικού",
+      short: "Σωστή σειρά ελέγχων",
+      icon: "✓",
+      value: "ΠΑΡΑΤΗΡΩ → ΚΑΤΑΓΡΑΦΩ → ΜΕΤΡΩ → ΕΠΙΒΕΒΑΙΩΝΩ",
+      detail: "Η τελική διάγνωση βασίζεται σε οργανωμένη σειρά ενεργειών και όχι σε τυχαίες αντικαταστάσεις.",
+      chips: ["ΣΑΡΩΣΗ", "ΜΕΤΡΗΣΗ", "ΕΠΑΛΗΘΕΥΣΗ"],
+      rule: "Η επισκευή τελειώνει μόνο όταν το σύμπτωμα δεν επιστρέφει και τα δεδομένα επιβεβαιώνουν σωστή λειτουργία.",
+      questions: [
+        { title: "Μετά από επισκευή σύγκρουσης εμφανίζονται πολλοί κωδικοί U επικοινωνίας. Ποια είναι η σωστή αρχή;", description: "Οι κωδικοί εμφανίστηκαν όλοι μετά την ίδια εργασία.", hint: "Αναζήτησε πρώτα κάτι κοινό που μετακινήθηκε ή αποσυνδέθηκε.", answers: ["Ελέγχουμε φίσες, γειώσεις, τροφοδοσίες και καλωδίωση στις περιοχές της επισκευής", "Αλλάζουμε κάθε ECU που αναφέρεται", "Διαγράφουμε τους κωδικούς χωρίς καταγραφή"], success: "Η χρονική σχέση με την επισκευή κατευθύνει τον πρώτο οπτικό και ηλεκτρικό έλεγχο." },
+        { title: "Το A/C ζητά λειτουργία, αλλά ο συμπιεστής δεν ενεργοποιείται. Τι κάνουμε πριν τον αντικαταστήσουμε;", description: "Η εντολή μπορεί να αποκλείεται από πίεση, θερμοκρασία ή άλλη συνθήκη προστασίας.", hint: "Μην εξετάζεις μόνο τον τελικό ενεργοποιητή.", answers: ["Ελέγχουμε αίτημα, συνθήκες ενεργοποίησης, DTC, πιέσεις, τροφοδοσία και εντολή εξόδου", "Αλλάζουμε αμέσως τον συμπιεστή", "Αποσυνδέουμε το ABS"], success: "Ο τεχνικός επιβεβαιώνει ολόκληρη την αλυσίδα πριν κατηγορήσει τον ενεργοποιητή." },
+        { title: "Η ενημέρωση ECU διακόπηκε όταν έπεσε η τάση. Ποια είναι η ασφαλής συνέχεια;", description: "Η μονάδα δεν ολοκλήρωσε την εγγραφή του λογισμικού.", hint: "Αποφεύγουμε τυχαίες επαναλήψεις με ασταθή τροφοδοσία.", answers: ["Σταθεροποιούμε την τάση και ακολουθούμε την εγκεκριμένη διαδικασία ανάκτησης", "Δοκιμάζουμε τυχαία αρχεία μέχρι να λειτουργήσει", "Βραχυκυκλώνουμε τις γραμμές CAN"], success: "Η αποκατάσταση προγραμματισμού απαιτεί σταθερή τροφοδοσία και επίσημη διαδικασία." },
+        { title: "Μετά την επισκευή ενός κομμένου καλωδίου ο DTC διαγράφηκε. Πότε θεωρείται ολοκληρωμένη η εργασία;", description: "Η λυχνία έχει σβήσει, αλλά δεν έχει γίνει δοκιμή λειτουργίας.", hint: "Η διαγραφή κωδικού δεν είναι απόδειξη.", answers: ["Μετά από επανέλεγχο, δοκιμή στις συνθήκες της βλάβης και επιβεβαίωση ότι ο κωδικός δεν επιστρέφει", "Αμέσως μόλις πατηθεί η διαγραφή", "Όταν αποσυνδεθεί η μπαταρία"], success: "Η τεκμηριωμένη επιβεβαίωση είναι το τελευταίο βήμα της διάγνωσης." },
+        { title: "Ποια σειρά περιγράφει καλύτερα μια επαγγελματική διάγνωση δικτύου;", description: "Το όχημα έχει πολλαπλές ενδείξεις και άγνωστη αρχική αιτία.", hint: "Ξεκίνα από καταγραφή και βασικούς ελέγχους πριν από αντικατάσταση.", answers: ["Καταγραφή συμπτώματος → πλήρης σάρωση → τροφοδοσίες/γειώσεις → μετρήσεις δικτύου → επιβεβαίωση", "Αλλαγή ECU → διαγραφή → δοκιμή αν περισσέψει χρόνος", "Αποσύνδεση όλων των μονάδων χωρίς σχέδιο"], success: "Η σωστή σειρά περιορίζει τις υποθέσεις και οδηγεί σε τεκμηριωμένο συμπέρασμα." },
+      ],
+    },
   ];
 
-  const steps = modules.flatMap((module, moduleIndex) =>
-    module.questions.map((question, questionIndex) => ({
+  const labModes = {
+    core: { key: "core", short: "Βασικό", label: "Βασικό εργαστήριο", moduleIndexes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },
+    extra: { key: "extra", short: "Εξάσκηση", label: "Πρόσθετη εξάσκηση", moduleIndexes: [10, 11, 12, 13] },
+    challenge: { key: "challenge", short: "Πρόκληση", label: "Πρόκληση τεχνικού", moduleIndexes: [14, 15] },
+    all: { key: "all", short: "Πλήρες", label: "Πλήρης τράπεζα", moduleIndexes: modules.map((_, index) => index) },
+  };
+
+  const buildSteps = (moduleIndexes) => moduleIndexes.flatMap((moduleIndex, modulePosition) => {
+    const module = modules[moduleIndex];
+    return module.questions.map((question, questionIndex) => ({
       moduleIndex,
+      modulePosition,
       questionIndex,
       kicker: module.title,
       title: question.title,
@@ -181,22 +286,22 @@ if (introLab) {
       success: question.success,
       console: {
         icon: module.icon,
-        label: `ΕΝΟΤΗΤΑ ${moduleIndex + 1} ΑΠΟ ${modules.length}`,
+        label: `ΕΝΟΤΗΤΑ ${modulePosition + 1} ΑΠΟ ${moduleIndexes.length}`,
         value: module.value,
         detail: module.detail,
         chips: module.chips,
       },
       rule: module.rule,
-      log: `Ενότητα ${moduleIndex + 1}, ερώτηση ${questionIndex + 1}: σωστή εφαρμογή της έννοιας.`,
-    })),
-  );
+      log: `Ενότητα ${modulePosition + 1}, ερώτηση ${questionIndex + 1}: σωστή εφαρμογή της έννοιας.`,
+    }));
+  });
 
   const screens = {
     welcome: introLab.querySelector('[data-intro-screen="welcome"]'),
     mission: introLab.querySelector('[data-intro-screen="mission"]'),
     result: introLab.querySelector('[data-intro-screen="result"]'),
   };
-  const startButton = introLab.querySelector("[data-intro-start]");
+  const startButtons = [...introLab.querySelectorAll("[data-intro-start]")];
   const restartButton = introLab.querySelector("[data-intro-restart]");
   const optionsContainer = introLab.querySelector("[data-intro-options]");
   const feedback = introLab.querySelector("[data-intro-feedback]");
@@ -205,6 +310,7 @@ if (introLab) {
   const scoreTarget = introLab.querySelector("[data-intro-score]");
   const timerTarget = introLab.querySelector("[data-intro-timer]");
   const stepCurrent = introLab.querySelector("[data-intro-step-current]");
+  const stepTotal = introLab.querySelector("[data-intro-step-total]");
   const progressBar = introLab.querySelector("[data-intro-progress]");
   const stepTag = introLab.querySelector("[data-intro-step-tag]");
   const kicker = introLab.querySelector("[data-intro-kicker]");
@@ -216,13 +322,18 @@ if (introLab) {
   const consoleDetail = introLab.querySelector("[data-intro-console-detail]");
   const consoleChips = introLab.querySelector("[data-intro-console-chips]");
   const rule = introLab.querySelector("[data-intro-rule]");
-  const stationItems = [...introLab.querySelectorAll("[data-intro-stations] li")];
+  const stationList = introLab.querySelector("[data-intro-stations]");
   const missionLog = introLab.querySelector("[data-intro-log]");
   const finalScore = introLab.querySelector("[data-intro-final-score]");
   const resultTitle = introLab.querySelector("[data-intro-result-title]");
   const resultMessage = introLab.querySelector("[data-intro-result-message]");
+  const resultEyebrow = introLab.querySelector("[data-intro-result-eyebrow]");
   const letters = ["Α", "Β", "Γ"];
+  const answerPattern = [1, 2, 0, 2, 0, 1];
 
+  let activeMode = labModes.core;
+  let steps = buildSteps(activeMode.moduleIndexes);
+  let stationItems = [];
   let stepIndex = 0;
   let score = 100;
   let elapsedSeconds = 0;
@@ -230,6 +341,7 @@ if (introLab) {
   let resolved = false;
   let hintUsed = false;
   let attempted = new Set();
+  let answerOffset = 0;
 
   const showScreen = (name) => {
     Object.entries(screens).forEach(([screenName, screen]) => {
@@ -250,6 +362,14 @@ if (introLab) {
       [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
     }
     return shuffled;
+  };
+
+  const arrangeOptions = (options, questionPosition) => {
+    const correctOption = options.find((option) => option.correct);
+    const wrongOptions = shuffleOptions(options.filter((option) => !option.correct));
+    const correctPosition = (answerPattern[questionPosition % answerPattern.length] + answerOffset) % letters.length;
+    wrongOptions.splice(correctPosition, 0, correctOption);
+    return wrongOptions;
   };
 
   const updateScore = (penalty = 0) => {
@@ -285,8 +405,21 @@ if (introLab) {
     rule.textContent = step.rule;
   };
 
+  const renderStationList = () => {
+    stationList.replaceChildren();
+    activeMode.moduleIndexes.forEach((moduleIndex, index) => {
+      const module = modules[moduleIndex];
+      const item = document.createElement("li");
+      item.innerHTML = `<span>${index + 1}</span><div><strong></strong><small></small></div>`;
+      item.querySelector("strong").textContent = module.title;
+      item.querySelector("small").textContent = module.short;
+      stationList.append(item);
+    });
+    stationItems = [...stationList.querySelectorAll("li")];
+  };
+
   const updateStations = () => {
-    const activeModule = steps[stepIndex].moduleIndex;
+    const activeModule = steps[stepIndex].modulePosition;
     stationItems.forEach((item, index) => {
       item.classList.toggle("is-active", index === activeModule);
       item.classList.toggle("is-done", index < activeModule);
@@ -329,7 +462,7 @@ if (introLab) {
     continueButton.hidden = true;
     hintButton.disabled = false;
     stepCurrent.textContent = String(stepIndex + 1);
-    stepTag.textContent = `ΕΝΟΤΗΤΑ ${step.moduleIndex + 1}/${modules.length} • ΕΡΩΤΗΣΗ ${step.questionIndex + 1}/${modules[step.moduleIndex].questions.length}`;
+    stepTag.textContent = `${activeMode.short.toUpperCase()} • ΕΝΟΤΗΤΑ ${step.modulePosition + 1}/${activeMode.moduleIndexes.length} • ΕΡΩΤΗΣΗ ${step.questionIndex + 1}/${modules[step.moduleIndex].questions.length}`;
     kicker.textContent = step.kicker;
     title.textContent = step.title;
     description.textContent = step.description;
@@ -338,7 +471,7 @@ if (introLab) {
     updateStations();
     optionsContainer.replaceChildren();
 
-    shuffleOptions(step.options).forEach((option, optionIndex) => {
+    arrangeOptions(step.options, stepIndex).forEach((option, optionIndex) => {
       const button = document.createElement("button");
       button.type = "button";
       button.className = "decision-option";
@@ -355,15 +488,16 @@ if (introLab) {
     timerId = null;
     progressBar.style.width = "100%";
     finalScore.textContent = String(score);
+    resultEyebrow.textContent = `${activeMode.label.toUpperCase()} • ${steps.length} ΣΕΝΑΡΙΑ ΟΛΟΚΛΗΡΩΘΗΚΑΝ`;
     if (score >= 90) {
       resultTitle.textContent = "Άριστη κατανόηση της μεγάλης εικόνας";
-      resultMessage.textContent = `Ολοκλήρωσες και τα 50 σενάρια σε ${formatTime(elapsedSeconds)} και συνέδεσες σωστά τις βασικές έννοιες της εισαγωγής.`;
+      resultMessage.textContent = `Ολοκλήρωσες και τα ${steps.length} σενάρια σε ${formatTime(elapsedSeconds)} και συνέδεσες σωστά τις βασικές έννοιες της εισαγωγής.`;
     } else if (score >= 75) {
       resultTitle.textContent = "Πολύ καλή πρώτη διαδρομή";
       resultMessage.textContent = `Ολοκλήρωσες το εργαστήριο σε ${formatTime(elapsedSeconds)}. Είσαι έτοιμος να περάσεις από τη γενική εικόνα στις λεπτομέρειες του Μαθήματος 1.`;
     } else if (score >= 60) {
       resultTitle.textContent = "Η βασική εικόνα σχηματίστηκε";
-      resultMessage.textContent = `Ολοκλήρωσες τα 50 σενάρια σε ${formatTime(elapsedSeconds)}, αλλά αξίζει να επαναλάβεις τις έννοιες των δικτύων και της διάγνωσης.`;
+      resultMessage.textContent = `Ολοκλήρωσες τα ${steps.length} σενάρια σε ${formatTime(elapsedSeconds)}, αλλά αξίζει να επαναλάβεις τις έννοιες των δικτύων και της διάγνωσης.`;
     } else {
       resultTitle.textContent = "Χρειάζεται μία ακόμη προσπάθεια";
       resultMessage.textContent = "Δες ξανά τις εισαγωγικές διαφάνειες και επανάλαβε το εργαστήριο εστιάζοντας στις εξηγήσεις κάθε σταθμού.";
@@ -371,13 +505,18 @@ if (introLab) {
     showScreen("result");
   };
 
-  const startLab = () => {
+  const startLab = (modeKey = activeMode.key) => {
     window.clearInterval(timerId);
+    activeMode = labModes[modeKey] || labModes.core;
+    steps = buildSteps(activeMode.moduleIndexes);
+    answerOffset = Math.floor(Math.random() * letters.length);
+    renderStationList();
     stepIndex = 0;
     score = 100;
     elapsedSeconds = 0;
     scoreTarget.textContent = "100";
     timerTarget.textContent = "00:00";
+    stepTotal.textContent = String(steps.length);
     missionLog.innerHTML = "<li>Το εργαστήριο ξεκίνησε. Διάβασε προσεκτικά το πρώτο σενάριο.</li>";
     renderStep();
     showScreen("mission");
@@ -406,6 +545,8 @@ if (introLab) {
     renderStep();
   });
 
-  startButton.addEventListener("click", startLab);
-  restartButton.addEventListener("click", startLab);
+  startButtons.forEach((button) => {
+    button.addEventListener("click", () => startLab(button.dataset.introStart || "core"));
+  });
+  restartButton.addEventListener("click", () => startLab(activeMode.key));
 }
