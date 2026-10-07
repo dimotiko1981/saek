@@ -10,6 +10,7 @@ if (deck) {
   const dotsContainer = deck.querySelector("[data-slide-dots]");
   const frame = deck.querySelector("[data-slide-frame]");
   const fullscreenButton = deck.querySelector("[data-fullscreen]");
+  const quizView = deck.querySelector("[data-lesson-quiz-view]");
   let currentIndex = 0;
   let touchStartX = 0;
 
@@ -67,6 +68,7 @@ if (deck) {
   nextButtons.forEach((button) => button.addEventListener("click", () => showSlide(currentIndex + 1)));
 
   document.addEventListener("keydown", (event) => {
+    if (quizView && !quizView.hidden) return;
     if (event.key === "ArrowLeft") showSlide(currentIndex - 1);
     if (event.key === "ArrowRight") showSlide(currentIndex + 1);
   });
