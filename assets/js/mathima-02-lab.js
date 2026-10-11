@@ -344,15 +344,15 @@ if (lessonTwoLab) {
   ];
 
   const labModes = {
-    core: { key: "core", short: "Επίπεδο 1", label: "Μαθητευόμενος", moduleIndexes: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9] },
-    extra: { key: "extra", short: "Επίπεδο 2", label: "Διαγνωστικός τεχνικός", moduleIndexes: [10, 11, 12, 13, 14, 15] },
-    challenge: { key: "challenge", short: "Επίπεδο 3", label: "Αρχιτεχνίτης διάγνωσης", moduleIndexes: [16, 17, 18, 19] },
+    core: { key: "core", short: "Επίπεδο 1", label: "Μαθητευόμενος", moduleIndexes: [0, 1, 2, 3] },
+    extra: { key: "extra", short: "Επίπεδο 2", label: "Διαγνωστικός τεχνικός", moduleIndexes: [4, 5, 6, 7, 8, 9, 10, 11, 12, 13] },
+    challenge: { key: "challenge", short: "Επίπεδο 3", label: "Αρχιτεχνίτης διάγνωσης", moduleIndexes: [14, 15, 16, 17, 18, 19] },
     all: { key: "all", short: "Πλήρες", label: "Πλήρης τράπεζα", moduleIndexes: modules.map((_, index) => index) },
   };
 
   const difficultyForModule = (moduleIndex) => {
-    if (moduleIndex < 10) return { label: "ΕΠΙΠΕΔΟ 1 • ΕΥΚΟΛΟ", short: "ΕΥΚΟΛΟ" };
-    if (moduleIndex < 16) return { label: "ΕΠΙΠΕΔΟ 2 • ΜΕΤΡΙΟ", short: "ΜΕΤΡΙΟ" };
+    if (moduleIndex < 4) return { label: "ΕΠΙΠΕΔΟ 1 • ΒΑΣΙΚΟ", short: "ΒΑΣΙΚΟ" };
+    if (moduleIndex < 14) return { label: "ΕΠΙΠΕΔΟ 2 • ΜΕΤΡΙΟ", short: "ΜΕΤΡΙΟ" };
     return { label: "ΕΠΙΠΕΔΟ 3 • ΔΥΣΚΟΛΟ", short: "ΔΥΣΚΟΛΟ" };
   };
 
