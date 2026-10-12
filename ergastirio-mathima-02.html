@@ -12,6 +12,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/diagnostic-lab.css?v=3" />
     <link rel="stylesheet" href="assets/css/intro-lab.css?v=5" />
+    <style>
+      /* Separate new mission, immediately below the four existing training modes. */
+      .intro-workshop-shift {
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        width: min(100%, 570px);
+        margin-top: .7rem;
+        padding: .85rem .95rem;
+        border: 1px solid rgba(43, 217, 254, .6);
+        border-radius: 12px;
+        background: linear-gradient(105deg, rgba(10, 111, 164, .37), rgba(6, 34, 58, .95));
+        color: #f3faff;
+        text-decoration: none;
+        box-shadow: 0 8px 26px rgba(43, 217, 254, .07);
+        transition: border-color .16s, background .16s, transform .16s;
+      }
+      .intro-workshop-shift:hover, .intro-workshop-shift:focus-visible {
+        border-color: #42def4;
+        background: linear-gradient(105deg, rgba(10, 111, 164, .58), rgba(6, 43, 66, .96));
+        transform: translateY(-1px);
+      }
+      .intro-workshop-shift:focus-visible { outline: 2px solid #42def4; outline-offset: 3px; }
+      .intro-shift-icon {
+        display: grid;
+        flex: 0 0 2.25rem;
+        height: 2.25rem;
+        place-items: center;
+        border-radius: 10px;
+        background: rgba(43, 217, 254, .14);
+        color: #67e8fb;
+        font-size: 1.15rem;
+      }
+      .intro-shift-copy { display: grid; gap: .2rem; min-width: 0; }
+      .intro-shift-kicker { color: #67e8fb; font-size: .48rem; font-weight: 900; letter-spacing: .08em; }
+      .intro-shift-copy strong { font-size: .8rem; line-height: 1.3; }
+      .intro-shift-copy small { color: #b9d4e2; font-size: .56rem; line-height: 1.45; }
+      .intro-shift-arrow { margin-left: auto; color: #67e8fb; font-size: 1.4rem; }
+      @media (max-width: 520px) {
+        .intro-workshop-shift { padding: .8rem .7rem; gap: .6rem; }
+        .intro-shift-icon { flex-basis: 2rem; height: 2rem; }
+      }
+    </style>
   </head>
   <body class="diagnostic-page introduction-lab-page">
     <a class="lab-skip-link" href="#lesson-two-lab-main">Μετάβαση στην εφαρμογή</a>
@@ -32,7 +76,7 @@
         <div class="welcome-copy">
           <span class="lab-eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ ΜΑΘΗΜΑΤΟΣ 2</span>
           <h1 id="lesson-two-welcome-title">Ακολούθησε το σήμα — βρες τη βλάβη</h1>
-          <p>Δούλεψε με 100 πραγματικά σενάρια συνεργείου «Τι ελέγχεις πρώτα;». Διάλεξε βαθμό δυσκολίας, παρατήρησε τα δεδομένα, χρησιμοποίησε το σωστό εργαλείο και κατέληξε σε συμπέρασμα μόνο όταν έχεις στοιχεία.</p>
+          <p>Εξασκήσου σε 100 ρεαλιστικά σενάρια συνεργείου, επιλέγοντας επίπεδο δυσκολίας, ή ανάλαβε τη «Βάρδια συνεργείου» με 25 τυχαία περιστατικά από την ίδια τράπεζα ερωτήσεων. Δοκίμασε επίσης την τελική διαγνωστική αποστολή ABS/ESP σε 10 βήματα. Παρατήρησε τις ενδείξεις, επίλεξε τις κατάλληλες μετρήσεις και τεκμηρίωσε τη διάγνωσή σου.</p>
 
           <div class="mission-facts" aria-label="Στοιχεία εργαστηρίου">
             <article><strong>100</strong><span>σενάρια συνεργείου</span></article>
@@ -40,7 +84,6 @@
             <article><strong>3</strong><span>επίπεδα εξάσκησης</span></article>
           </div>
 
-          <a href="diagnostiki-vardia.html" style="display:block;padding:16px 21px;margin:18px 0;border:1px solid #42def4;border-radius:13px;background:#10344b;color:#d8f9ff;text-decoration:none;font-weight:800">🔧 ΝΕΟ • Βάρδια συνεργείου (25 τυχαία σενάρια) + Τελικό περιστατικό ABS/ESP (10 βήματα) →</a>
           <div class="intro-mode-grid" aria-label="Επιλογή διαδρομής εργαστηρίου">
             <button class="intro-mode-card is-recommended" type="button" data-intro-start="core">
               <span>ΕΠΙΠΕΔΟ 1 • ΒΑΣΙΚΟ</span>
@@ -63,6 +106,16 @@
               <small>20 σταθμοί • όλα τα επίπεδα</small>
             </button>
           </div>
+
+          <a class="intro-workshop-shift" href="diagnostiki-vardia.html" aria-label="Έναρξη Βάρδιας συνεργείου: 25 τυχαία σενάρια ή τελικό περιστατικό ABS/ESP 10 βημάτων">
+            <span class="intro-shift-icon" aria-hidden="true">⚙</span>
+            <span class="intro-shift-copy">
+              <span class="intro-shift-kicker">ΝΕΑ ΔΙΑΓΝΩΣΤΙΚΗ ΠΡΟΣΟΜΟΙΩΣΗ</span>
+              <strong>Βάρδια συνεργείου</strong>
+              <small>25 τυχαία περιστατικά ή τελική αποστολή ABS/ESP σε 10 βήματα</small>
+            </span>
+            <span class="intro-shift-arrow" aria-hidden="true">→</span>
+          </a>
         </div>
 
         <div class="welcome-visual intro-network-visual" aria-label="Ροή δεδομένων και διάγνωσης">
