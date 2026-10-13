@@ -1,0 +1,108 @@
+/* SAEK CLASSROOM MODE v1 · Opt-in only, never affects phone/tablet layout by default. */
+.saek-classroom-toolbar{
+  max-width:1190px;margin:0 auto;padding:12px 24px 0;
+  display:flex;justify-content:flex-end;align-items:center;
+}
+.saek-classroom-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:44px;padding:9px 17px;border-radius:12px;
+  border:1px solid #3b677e;background:#123349;color:#e6f8ff;
+  font:700 14px/1.35 Inter,Manrope,system-ui,-apple-system,'Segoe UI',sans-serif;
+  letter-spacing:0;cursor:pointer;transition:background .16s,border-color .16s,box-shadow .16s;
+}
+.saek-classroom-toggle:hover{background:#1b4c62;border-color:#78dfe9;box-shadow:0 3px 18px #35d5e322}
+.saek-classroom-toggle:focus-visible{outline:3px solid #a1f7ff;outline-offset:3px}
+.saek-classroom-toggle[aria-pressed="true"]{background:#144c4b;color:#e2fff7;border-color:#65cdb5}
+.saek-classroom-toggle .screen-symbol{font-size:19px;line-height:1}
+@media(max-width:899px){.saek-classroom-toolbar{display:none}}
+@media(prefers-reduced-motion:reduce){.saek-classroom-toggle{transition:none}}
+@media print{.saek-classroom-toolbar{display:none!important}}
+
+/* Magnification is deliberately applied ONLY when the teacher opts in AND the display is large. */
+@media(min-width:900px){
+  /* Five vehicle cases; preserve the existing visual system, images and responsive breakpoints. */
+  html.saek-classroom-mode body{font-size:18px}
+  html.saek-classroom-mode .wrap{max-width:1450px}
+  html.saek-classroom-mode main.wrap{padding-top:23px}
+  html.saek-classroom-mode .hero{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+  html.saek-classroom-mode .hero p{font-size:19px;line-height:1.62}
+  html.saek-classroom-mode .kicker{font-size:14px;letter-spacing:.12em}
+  html.saek-classroom-mode .panel{padding:clamp(23px,3vw,35px)}
+  html.saek-classroom-mode .lead{font-size:21px}
+  html.saek-classroom-mode .choice-pill{font-size:19px;padding:19px}
+  html.saek-classroom-mode .choice-pill input{width:19px;height:19px}
+  html.saek-classroom-mode .btn{font-size:18px;min-height:52px;padding:12px 22px}
+  html.saek-classroom-mode input[type=text],html.saek-classroom-mode textarea{font-size:18px}
+  html.saek-classroom-mode .hud{font-size:15px;letter-spacing:.035em}
+  html.saek-classroom-mode .case-header h2{font-size:clamp(31px,3.2vw,44px)}
+  html.saek-classroom-mode .case-header p{font-size:20px;line-height:1.7}
+  html.saek-classroom-mode .two{grid-template-columns:minmax(0,1fr) minmax(380px,.95fr);gap:24px}
+  html.saek-classroom-mode .answers{gap:15px}
+  html.saek-classroom-mode .answer{font-size:19px;line-height:1.65;padding:19px 21px;overflow-wrap:anywhere}
+  html.saek-classroom-mode .answer b{font-size:18px;padding:5px 11px}
+  html.saek-classroom-mode .note,html.saek-classroom-mode .safe{font-size:16px}
+  html.saek-classroom-mode .feedback{font-size:19px;line-height:1.65}
+  html.saek-classroom-mode .feedback p{font-size:18px}
+  html.saek-classroom-mode .data{min-width:0}
+  html.saek-classroom-mode .data .topline{font-size:14px}
+  html.saek-classroom-mode .display{font-size:18px;line-height:1.65;overflow-wrap:anywhere}
+  html.saek-classroom-mode .display strong{font-size:clamp(34px,3.8vw,56px)}
+  html.saek-classroom-mode .read-row{font-size:17px;flex-wrap:wrap}
+  html.saek-classroom-mode .meter-val{font-size:clamp(42px,5vw,64px)}
+  html.saek-classroom-mode .callout{font-size:16px}
+  html.saek-classroom-mode .sim-badge{font-size:29px}
+  html.saek-classroom-mode .sim-note{font-size:14px}
+  html.saek-classroom-mode .tablet-brand{font-size:14px;height:auto;min-height:43px;flex-wrap:wrap;gap:4px}
+  html.saek-classroom-mode .tablet-screen{font-size:17px;line-height:1.55}
+  html.saek-classroom-mode .tablet-screen .titlebar{font-size:15px;flex-wrap:wrap}
+  html.saek-classroom-mode .tablet-screen .row{font-size:17px;flex-wrap:wrap;overflow-wrap:anywhere}
+  html.saek-classroom-mode .tablet-footer{font-size:13px;flex-wrap:wrap;gap:4px}
+  html.saek-classroom-mode .review-item summary{font-size:19px}
+  html.saek-classroom-mode .review-item p{font-size:18px}
+  html.saek-classroom-mode .score{font-size:70px}
+  html.saek-classroom-mode .confidence label{font-size:17px;line-height:1.55}
+  html.saek-classroom-mode .confidence input{width:19px;height:19px}
+  html.saek-classroom-mode #case-report label{font-size:17px}
+  html.saek-classroom-mode #submission .final-confidence legend{font-size:15px}
+  /* Main diagnostic center / 25 independent cases / tool academy. */
+  html.saek-classroom-mode .page{max-width:1450px}
+  html.saek-classroom-mode .game-panel,html.saek-classroom-mode .results-panel{max-width:1140px}
+  html.saek-classroom-mode .game-panel h2{font-size:clamp(34px,3.4vw,46px)}
+  html.saek-classroom-mode .case-description{font-size:20px;line-height:1.75}
+  html.saek-classroom-mode .game-panel .hud{font-size:16px}
+  html.saek-classroom-mode .game-panel .overline{font-size:15px}
+  html.saek-classroom-mode .game-panel .difficulty{font-size:15px}
+  html.saek-classroom-mode .game-panel .form-title{font-size:16px}
+  html.saek-classroom-mode .game-panel .answers button{font-size:20px;padding:21px 23px;line-height:1.6}
+  html.saek-classroom-mode .game-panel .feedback{font-size:19px}
+  html.saek-classroom-mode .game-panel .feedback strong{font-size:21px}
+  html.saek-classroom-mode .game-panel .visual-header{font-size:15px}
+  html.saek-classroom-mode .game-panel .visual-body{gap:23px}
+  html.saek-classroom-mode .game-panel .visual-readout h3{font-size:17px}
+  html.saek-classroom-mode .game-panel .digital-line{font-size:18px;flex-wrap:wrap}
+  html.saek-classroom-mode .game-panel .digital-line b{font-size:20px}
+  html.saek-classroom-mode .game-panel .meter-value{font-size:clamp(42px,5vw,70px)}
+  html.saek-classroom-mode .game-panel .osc-note,html.saek-classroom-mode .game-panel .simulation-note{font-size:16px}
+  html.saek-classroom-mode .game-panel .report summary{font-size:18px}
+  html.saek-classroom-mode .game-panel .report summary span{font-size:16px}
+  html.saek-classroom-mode .game-panel .report-grid label{font-size:18px}
+  html.saek-classroom-mode .game-panel .report-grid textarea{font-size:18px}
+  html.saek-classroom-mode .game-panel .primary,html.saek-classroom-mode .game-panel .secondary,
+  html.saek-classroom-mode .page-toolbar .back-btn,html.saek-classroom-mode .game-head .back-btn,
+  html.saek-classroom-mode .game-head .link-btn{font-size:18px;min-height:51px;padding:13px 20px}
+  html.saek-classroom-mode .submission-panel,html.saek-classroom-mode .results-panel{font-size:19px}
+  html.saek-classroom-mode .results-panel .review-item summary{font-size:19px}
+  html.saek-classroom-mode .results-panel .review-item p{font-size:18px}
+  html.saek-classroom-mode .tool-detail p{font-size:19px}
+  html.saek-classroom-mode .tool-select b{font-size:18px}
+  html.saek-classroom-mode .tool-select small{font-size:15px}
+  html.saek-classroom-mode .tool-facts .fact b{font-size:14px}
+  html.saek-classroom-mode .tool-facts .fact span{font-size:18px}
+  html.saek-classroom-mode .mini-options button{font-size:18px}
+  html.saek-classroom-mode .mini-feedback{font-size:18px}
+}
+@media(min-width:900px) and (max-width:1150px){
+  html.saek-classroom-mode .two{grid-template-columns:minmax(0,1fr) minmax(340px,.85fr)}
+  html.saek-classroom-mode .case-header h2{font-size:34px}
+  html.saek-classroom-mode .answer{font-size:18px}
+}
