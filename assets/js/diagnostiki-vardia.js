@@ -350,7 +350,7 @@ $('print-report').addEventListener('click',()=>{
     }))
   });
 });
-$('export').addEventListener('click',()=>{const blob=new Blob(['\ufeff'+makeReport()],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='saek-anafora-diagnosis.txt';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);});$('again').addEventListener('click',()=>show('home'));
+$('again').addEventListener('click',()=>show('home'));
 // Tools and the 10-step mission work even if the separate bank file is unavailable.
 (async()=>{try{const response=await fetch('assets/js/mathima-02-bank.json',{cache:'no-cache'});if(!response.ok)throw Error('HTTP '+response.status);const data=await response.json();if(!Array.isArray(data)||data.length!==100||![1,2,3].every((l)=>data.filter(q=>Number(q.level)===l).length>=[0,5,12,8][l]))throw Error('Μη έγκυρη σύνθεση τράπεζας');bank=data;bankReady=true;}catch(e){const button=document.querySelector('[data-open="shift"]');button.disabled=true;button.title='Δεν φορτώθηκε η τράπεζα των 100 σεναρίων. Βεβαιώσου ότι υπάρχει το assets/js/mathima-02-bank.json.';const note=document.querySelector('#home .context-note');note.textContent+=' ΠΡΟΣΟΧΗ: Η Βάρδια 25 περιστατικών απαιτεί το υπάρχον αρχείο assets/js/mathima-02-bank.json.';console.error('SAEK bank load:',e);}})();
 })();
