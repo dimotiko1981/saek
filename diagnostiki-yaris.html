@@ -83,8 +83,9 @@
 <div id="submission-result" class="hidden" aria-live="polite"></div>
 <h3>Ανασκόπηση διαγνωστικών αποφάσεων</h3><div id="review"></div>
 <div id="finish-report-slot"><details id="case-report" style="margin-top:20px"><summary>Προαιρετικό δελτίο διάγνωσης</summary><label>Συμπτώματα / αρχικές ενδείξεις<textarea rows="2" data-report="Συμπτώματα"></textarea></label><label>Πιθανή αιτία<textarea rows="2" data-report="Πιθανή αιτία"></textarea></label><label>Επιλεγμένα εργαλεία και μετρήσεις<textarea rows="2" data-report="Εργαλεία / μετρήσεις"></textarea></label><label>Τεκμηριωμένο συμπέρασμα<textarea rows="2" data-report="Συμπέρασμα"></textarea></label></details></div>
-<div class="control-row"><button id="export" type="button" class="btn primary">Εξαγωγή αναφοράς .txt ↓</button><button id="retry" type="button" class="btn">Νέα προσπάθεια ↻</button><a class="btn outline" href="diagnostiki-vardia.html">Πίσω στο Κέντρο</a></div></section>
+<div class="control-row"><button id="print-report" type="button" class="btn primary">Εκτυπώσιμη αναφορά / PDF ↗</button><button id="export" type="button" class="btn primary">Εξαγωγή αναφοράς .txt ↓</button><button id="retry" type="button" class="btn">Νέα προσπάθεια ↻</button><a class="btn outline" href="diagnostiki-vardia.html">Πίσω στο Κέντρο</a></div></section>
 </main>
+<script src="assets/js/saek-service-report.js"></script>
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id);
@@ -251,6 +252,23 @@ $('submit-final').addEventListener('click',()=>{
 $('cancel-final').addEventListener('click',()=>{if(confirm('Θέλεις να σταματήσεις; Η πρόοδος θα χαθεί.'))show('start')});
 $('quit').addEventListener('click',()=>{if(confirm('Θέλεις να σταματήσεις; Η πρόοδος θα χαθεί.'))show('start')});
 $('retry').addEventListener('click',()=>show('start'));
+function openPrintableReport(){
+  if(document.getElementById('finish').classList.contains('hidden') || records.length!==steps.length) return;
+  const readings=s=>{
+    const temp=document.createElement('div');temp.innerHTML=visual(s);
+    return [...temp.querySelectorAll('.meter-val, .display strong, .read-row, .tablet-screen .row, .sim-badge, .osc-note')].map(x=>x.textContent.trim().replace(/\s+/g,' ')).filter(Boolean).slice(0,9).join(' · ');
+  };
+  SAEKServiceReport.open({
+    title:'Toyota Yaris (2016) · Τροφοδοσία 12V / U-codes',name:name,mode:mode,correct:correct,total:steps.length,
+    finalDiagnosis:mode==='assessment'?finalDiagnosis:'',confidence:mode==='assessment'?finalConfidence:'',
+    notes:[...document.querySelectorAll('[data-report]')].filter(e=>e.value.trim()).map(e=>({label:e.dataset.report,value:e.value.trim()})),
+    items:records.map(r=>{const s=steps[r.stage-1];return {
+      title:r.title,description:[s.text,s.note].filter(Boolean).join('\n'),reading:readings(s),
+      choice:r.choice,right:r.right,why:r.why,correct:r.correct
+    };})
+  });
+}
+$('print-report').addEventListener('click',openPrintableReport);
 $('export').addEventListener('click',()=>{const blob=new Blob(['\ufeff'+report()],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='saek-yaris-diagnosis.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
 })();
 </script>
