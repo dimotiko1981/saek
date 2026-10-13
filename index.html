@@ -96,6 +96,44 @@
   }
 }
     </style>
+    <style id="saek-home-vehicle-art">
+/* Στοχευμένη αντικατάσταση του εσωτερικού Vehicle Network γραφικού.
+   Διατηρούνται η διάταξη των καρτών, οι ετικέτες και όλα τα responsive breakpoints. */
+.hero-visual .dashboard-card-main { overflow: hidden; }
+.hero-visual .home-network-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0.65rem auto 0.75rem;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #061629;
+  box-shadow: inset 0 0 0 1px rgba(67, 207, 249, 0.12), 0 0 26px rgba(34, 152, 231, 0.09);
+}
+.hero-visual .home-network-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.hero-visual .dashboard-label,
+.hero-visual .dashboard-topline { position: relative; z-index: 1; }
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .hero-visual .home-network-art img { animation: saekHomeNetworkBreath 10s ease-in-out infinite; }
+  @keyframes saekHomeNetworkBreath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.035); }
+  }
+}
+@media (max-width: 650px) {
+  .hero-visual .home-network-art { margin: 0.55rem auto 0.65rem; border-radius: 12px; }
+}
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -167,19 +205,8 @@
                 <span>VEHICLE NETWORK</span>
                 <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
               </div>
-              <div class="network-orbit">
-                <div class="orbit orbit-one"></div>
-                <div class="orbit orbit-two"></div>
-                <div class="core">
-                  <svg viewBox="0 0 48 48">
-                    <rect x="12" y="12" width="24" height="24" rx="5" />
-                    <path d="M17 8v4m7-4v4m7-4v4M17 36v4m7-4v4m7-4v4M8 17h4m-4 7h4m-4 7h4m24-14h4m-4 7h4m-4 7h4" />
-                    <path d="M19 24h10m-5-5v10" />
-                  </svg>
-                </div>
-                <span class="node node-a"></span>
-                <span class="node node-b"></span>
-                <span class="node node-c"></span>
+              <div class="home-network-art">
+                <img src="assets/images/vehicle-network-hero.webp" width="1120" height="840" alt="" decoding="async" fetchpriority="high" />
               </div>
               <div class="dashboard-label">
                 <small>ΜΑΘΗΜΑ</small>
