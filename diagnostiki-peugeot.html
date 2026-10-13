@@ -36,6 +36,17 @@
 .tablet-footer{background:#172f3c;padding:7px 12px;color:#bed4e0;font-size:9px;display:flex;justify-content:space-between}
 @media(max-width:850px){.vehicle-photo>img{min-height:200px;max-height:260px}.vehicle-photo figcaption{padding-top:25px}.tablet-screen{min-height:170px}}
 .flow-cell{display:inline-block;padding:7px 8px;border:1px solid #2b99ad;background:#163f50;border-radius:8px;color:#adf2e3;font-size:12px;font-weight:750;min-width:66px}.flow-cell small{font-size:10px;color:#b9d5db}.photo-fallback a{color:#9ce8f0}.photo-fallback[hidden]{display:none!important}.vehicle-photo{min-height:245px}@media(max-width:480px){.flow-cell{min-width:55px;font-size:11px;padding:6px}.hero{gap:15px}.vehicle-photo>img{min-height:190px}.hud{font-size:10px}}
+
+/* Final assessment: distinct handoff before any correctness feedback. */
+#submission .conclusion-label{display:block;margin:23px 0 10px;font-weight:750;color:var(--ink)}
+#submission .conclusion-label textarea{display:block;margin-top:9px;max-width:850px}
+#submission .final-confidence{border:0;padding:0;margin:22px 0 0}
+#submission .final-confidence legend{line-height:1.6}
+#submission .submission-error{color:#ffe0d7;background:#4b2630;border:1px solid #b77979;padding:11px 14px;border-radius:9px;margin:15px 0}
+#submission-result{background:#0b2b38;border-left:3px solid var(--bright);padding:14px 18px;border-radius:0 10px 10px 0;margin:17px 0}
+#submission-result strong{display:block;color:var(--bright)}
+#submission-result p{white-space:pre-wrap;overflow-wrap:anywhere;margin:9px 0;color:var(--ink)}
+#submission-report-slot #case-report{margin-top:18px}
 </style>
 </head>
 <body>
@@ -50,13 +61,29 @@
 <p class="note">Εκτιμώμενη διάρκεια: 12–18 λεπτά. Το μοντέλο Peugeot 208 είναι πραγματικό, αλλά οι εικονιζόμενες σκηνές, τα δεδομένα του διαγνωστικού, τα συμπτώματα και η βλάβη είναι εκπαιδευτικές αναπαραστάσεις. Οι εικόνες βρίσκονται τοπικά στον φάκελο assets/images. <a href="https://public.servicebox.peugeot.com/APddb/modeles/208/eGuide_208_208_ed01-17/pdfs/9999_9999_035_en-GB.pdf" target="_blank" rel="noopener noreferrer">Εγχειρίδιο Peugeot 208 · Parking sensors ↗</a></p></section>
 <section id="game" class="hidden"><div class="hud"><span id="mode-tag"></span><span id="progress-tag"></span><span id="points-tag"></span></div><div class="bar"><div id="bar-fill"></div></div>
 <div class="two"><article class="panel"><div class="case-header"><span class="kicker" id="step-tag"></span><h2 id="step-title"></h2><p id="step-text"></p></div><div class="extra" id="task-note"></div>
-<fieldset style="border:0;padding:0;margin:22px 0 0"><legend class="kicker" style="margin-bottom:8px">ΔΗΛΩΣΗ ΒΕΒΑΙΟΤΗΤΑΣ</legend><div class="confidence"><label><input type="radio" name="confidence" value="Σίγουρος/η"> Σίγουρος/η</label><label><input type="radio" name="confidence" value="Με αμφιβολία"> Με αμφιβολία</label><label><input type="radio" name="confidence" value="Χρειάζομαι βοήθεια"> Χρειάζομαι βοήθεια</label></div></fieldset>
+
 <span class="kicker">ΕΠΙΛΕΞΕ ΤΟ ΕΠΟΜΕΝΟ ΒΗΜΑ</span><div id="answers" class="answers"></div><div class="feedback hidden" id="feedback" aria-live="polite"></div>
 <div class="control-row"><button id="next" class="btn primary" type="button" disabled>Επόμενο στάδιο →</button><button id="quit" class="btn outline" type="button">Διακοπή</button></div></article>
 <aside class="data" id="visual" aria-label="Εικονικά διαγνωστικά ευρήματα"></aside></div><p class="safe">Όλα τα ευρήματα είναι υποθετικά. Δεν μετράμε αντίσταση σε ενεργοποιημένο κύκλωμα και δεν αποσυνδέουμε/τρυπάμε αγωγούς χωρίς προδιαγεγραμμένη διαδικασία. Κατά τον έλεγχο με όπισθεν διασφαλίζουμε ακινησία, επαρκή χώρο και προστασία ανθρώπων. Ο αισθητήρας δεν αντικαθιστά τον έλεγχο του οδηγού.</p></section>
+<section id="submission" class="panel hidden" aria-labelledby="submission-title">
+  <span class="kicker">ΤΕΛΙΚΗ ΔΙΑΓΝΩΣΗ / ΠΡΙΝ ΑΠΟ ΤΑ ΑΠΟΤΕΛΕΣΜΑΤΑ</span>
+  <h2 id="submission-title">Ολοκλήρωσε τη διάγνωσή σου</h2>
+  <p class="lead">Οι απαντήσεις σου καταχωρίστηκαν. Πριν δεις βαθμολογία και λύσεις, γράψε το τελικό σου συμπέρασμα με βάση τους ελέγχους που πραγματοποίησες.</p>
+  <label for="final-diagnosis" class="conclusion-label">Τελική διάγνωση <span aria-hidden="true">*</span>
+    <textarea id="final-diagnosis" rows="4" maxlength="1500" placeholder="Ποια θεωρείς ότι είναι η αιτία και ποια ευρήματα την τεκμηριώνουν;" required></textarea>
+  </label>
+  <fieldset class="final-confidence"><legend class="kicker">ΠΟΣΟ ΒΕΒΑΙΟΣ/Η ΕΙΣΑΙ ΓΙΑ ΤΗΝ ΤΕΛΙΚΗ ΔΙΑΓΝΩΣΗ; *</legend>
+    <div class="confidence"><label><input type="radio" name="confidence" value="Σίγουρος/η"> Σίγουρος/η</label><label><input type="radio" name="confidence" value="Με αμφιβολία"> Με αμφιβολία</label><label><input type="radio" name="confidence" value="Χρειάζομαι βοήθεια"> Χρειάζομαι βοήθεια</label></div>
+  </fieldset>
+  <p class="note">Το αναλυτικό δελτίο διάγνωσης είναι προαιρετικό. Η βεβαιότητα και το ελεύθερο κείμενο δεν αλλάζουν την αυτόματη βαθμολογία των διαγνωστικών επιλογών.</p>
+  <div id="submission-report-slot"></div>
+  <div id="submission-error" class="submission-error hidden" role="alert" aria-live="polite"></div>
+  <div class="control-row"><button id="submit-final" class="btn primary" type="button">Οριστική υποβολή · Προβολή αποτελεσμάτων →</button><button id="cancel-final" type="button" class="btn outline">Διακοπή</button></div>
+</section>
 <section id="finish" class="panel hidden"><span class="kicker">END OF SERVICE / ΤΕΛΟΣ ΒΑΡΔΙΑΣ</span><div class="end-top"><div class="score" id="score"></div><div><h2 id="result-head"></h2><p id="result-meta"></p></div></div>
+<div id="submission-result" class="hidden" aria-live="polite"></div>
 <h3>Ανασκόπηση διαγνωστικών αποφάσεων</h3><div id="review"></div>
-<details id="case-report" style="margin-top:20px"><summary>Προαιρετικό δελτίο διάγνωσης</summary><label>Συμπτώματα / αρχικές ενδείξεις<textarea rows="2" data-report="Συμπτώματα"></textarea></label><label>Πιθανή αιτία<textarea rows="2" data-report="Πιθανή αιτία"></textarea></label><label>Επιλεγμένα εργαλεία και μετρήσεις<textarea rows="2" data-report="Εργαλεία / μετρήσεις"></textarea></label><label>Τεκμηριωμένο συμπέρασμα<textarea rows="2" data-report="Συμπέρασμα"></textarea></label></details>
+<div id="finish-report-slot"><details id="case-report" style="margin-top:20px"><summary>Προαιρετικό δελτίο διάγνωσης</summary><label>Συμπτώματα / αρχικές ενδείξεις<textarea rows="2" data-report="Συμπτώματα"></textarea></label><label>Πιθανή αιτία<textarea rows="2" data-report="Πιθανή αιτία"></textarea></label><label>Επιλεγμένα εργαλεία και μετρήσεις<textarea rows="2" data-report="Εργαλεία / μετρήσεις"></textarea></label><label>Τεκμηριωμένο συμπέρασμα<textarea rows="2" data-report="Συμπέρασμα"></textarea></label></details></div>
 <div class="control-row"><button id="export" type="button" class="btn primary">Εξαγωγή αναφοράς .txt ↓</button><button id="retry" type="button" class="btn">Νέα προσπάθεια ↻</button><a class="btn outline" href="diagnostiki-vardia.html">Πίσω στο Κέντρο</a></div></section>
 </main>
 <script>
@@ -155,9 +182,9 @@ const steps=[
     "other": "Μία επιτυχής ενεργοποίηση ή η τεχνητή ακινητοποίηση της καλωδίωσης δεν αποκλείουν επανεμφάνιση διακοπτόμενης επαφής."
   }
 ];
-let index=0,mode='training',name='',correct=0,answered=false,selected=null,records=[];
+let index=0,mode='training',name='',correct=0,answered=false,selected=null,records=[],finalDiagnosis='',finalConfidence='';
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a};
-const show=id=>{['start','game','finish'].forEach(k=>$(k).classList.toggle('hidden',k!==id));window.scrollTo({top:0,behavior:'instant'});};
+const show=id=>{['start','game','submission','finish'].forEach(k=>$(k).classList.toggle('hidden',k!==id));window.scrollTo({top:0,behavior:'instant'});};
 const clean=s=>String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
 function visual(s){
 const top='<div class="topline">SAEK · PEUGEOT 208 / ΕΚΠΑΙΔΕΥΤΙΚΗ ΠΡΟΣΟΜΟΙΩΣΗ</div>';
@@ -172,13 +199,57 @@ if(s.type==='network')body='<div class="display"><div style="color:#9bd5d5;font-
 if(s.type==='verify')body=tab('POST-REPAIR / VERIFICATION',[['PARK AID MODULE','ONLINE'],['REAR LH OUTER','RESPONDING'],['OTHER CHANNELS','RESPONDING'],['ACTIVE FAULT','NONE IN SIMULATION'],['PHYSICAL TEST','REQUIRED']]);
 return top+body+'<div class="callout">Οι απεικονίσεις και οι ενδείξεις είναι αποκλειστικά εκπαιδευτικές. Τα πραγματικά βήματα και οι ακροδέκτες εξαρτώνται από εξοπλισμό και τεχνικές οδηγίες κατασκευαστή.</div>';
 }
-function draw(){const s=steps[index];answered=false;selected=null;$('step-tag').textContent=s.tag;$('step-title').textContent=s.title;$('step-text').textContent=s.text;$('task-note').textContent=s.note;$('visual').innerHTML=visual(s);$('progress-tag').textContent=`ΣΤΑΔΙΟ ${index+1} / ${steps.length}`;$('mode-tag').textContent=mode==='training'?'ΛΕΙΤΟΥΡΓΙΑ ΕΚΠΑΙΔΕΥΣΗΣ':'ΛΕΙΤΟΥΡΓΙΑ ΑΞΙΟΛΟΓΗΣΗΣ';$('points-tag').textContent=mode==='training'?`${correct}/${index} ΣΩΣΤΕΣ`:'ΑΠΟΤΕΛΕΣΜΑΤΑ ΣΤΟ ΤΕΛΟΣ';$('bar-fill').style.width=(100*index/steps.length)+'%';$('feedback').classList.add('hidden');$('feedback').classList.remove('bad');$('feedback').replaceChildren();$('next').disabled=true;$('next').textContent=index===steps.length-1?'Ολοκλήρωση περιστατικού →':'Επόμενο στάδιο →';document.querySelectorAll('input[name="confidence"]').forEach(x=>x.checked=false);const options=shuffle(s.options.map((value,i)=>({value,correct:i===s.correct})));$('answers').replaceChildren();for(const [i,opt] of options.entries()){let b=document.createElement('button');b.type='button';b.className='answer';b.innerHTML='<b>'+['Α','Β','Γ'][i]+'</b><span>'+clean(opt.value)+'</span>';b.addEventListener('click',()=>submitAnswer(opt,b,options));$('answers').appendChild(b);}}
-function submitAnswer(opt,b,options){if(answered)return;const confidence=document.querySelector('input[name="confidence"]:checked');if(!confidence){window.alert('Δήλωσε πρώτα τον βαθμό βεβαιότητάς σου.');return;}answered=true;selected=opt;const s=steps[index];if(opt.correct)correct++;records.push({stage:index+1,title:s.title,choice:opt.value,correct:opt.correct,right:s.options[s.correct],why:s.why,other:s.other,confidence:confidence.value});for(let i=0;i<options.length;i++){const el=$('answers').children[i];el.disabled=true;if(mode==='training'&&options[i].correct)el.classList.add('right');}if(mode==='training'){if(!opt.correct)b.classList.add('wrong');$('points-tag').textContent=correct+'/'+(index+1)+' ΣΩΣΤΕΣ';const f=$('feedback');f.classList.toggle('bad',!opt.correct);f.innerHTML='<strong>'+(opt.correct?'✓ Σωστή διαγνωστική απόφαση':'✕ Χρειάζεται επανεξέταση')+'</strong><p>'+clean(s.why)+'</p><p><b>Γιατί όχι οι άλλες επιλογές:</b> '+clean(s.other)+'</p>';f.classList.remove('hidden');}else{const f=$('feedback');f.innerHTML='<strong>Η απάντηση καταχωρίστηκε.</strong><p>Η λύση και η αιτιολόγηση θα παρουσιαστούν μετά το έκτο στάδιο.</p>';f.classList.remove('hidden');}$('next').disabled=false;}
-function done(){show('finish');$('score').textContent=Math.round(correct*100/steps.length)+'%';$('result-head').textContent=correct===steps.length?'Η διαγνωστική αποστολή ολοκληρώθηκε άριστα.':'Η διαγνωστική αποστολή ολοκληρώθηκε.';$('result-meta').textContent=`${name} · ${correct}/${steps.length} σωστές αποφάσεις · ${mode==='training'?'Εκπαίδευση':'Αξιολόγηση'}`;$('review').replaceChildren();records.forEach(r=>{const d=document.createElement('details');d.className='review-item';const summary=document.createElement('summary');summary.textContent=(r.correct?'✓':'✕')+` Στάδιο ${r.stage} — ${r.title}`;d.append(summary);for(const text of [`Επιλογή: ${r.choice}`,`Σωστή διαγνωστική απόφαση: ${r.right}`,r.why,`Οι άλλες επιλογές: ${r.other}`,`Βεβαιότητα: ${r.confidence}`]){const p=document.createElement('p');p.textContent=text;d.append(p);}$('review').append(d);});}
-function report(){let lines=['ΣΑΕΚ · ΤΕΤΑΡΤΗ ΔΙΑΓΝΩΣΤΙΚΗ ΑΠΟΣΤΟΛΗ','Peugeot 208 (2016) — υποθετικό σενάριο αισθητήρων στάθμευσης',`Συμμετοχή: ${name}`,`Λειτουργία: ${mode}`,`Αποτέλεσμα: ${correct}/6`];for(const r of records)lines.push(`\nΣτάδιο ${r.stage} — ${r.title}`,`Απάντηση: ${r.choice}`,`Ορθότητα: ${r.correct?'ΣΩΣΤΟ':'ΛΑΘΟΣ'}`,`Βεβαιότητα: ${r.confidence}`,`Σωστή απάντηση: ${r.right}`,`Αιτιολόγηση: ${r.why}`);for(const e of document.querySelectorAll('[data-report]'))if(e.value.trim())lines.push(`${e.dataset.report}: ${e.value.trim()}`);return lines.join('\n');}
-$('begin').addEventListener('click',()=>{index=0;correct=0;records=[];mode=document.querySelector('input[name="mode"]:checked').value;const pair=document.querySelector('input[name="team"]:checked').value==='pair';name=[$('student').value.trim()||'Καταρτιζόμενος',...(pair?[$('student2').value.trim()||'Συνεργάτης']:[])].join(' & ');draw();show('game');});
+function draw(){const s=steps[index];answered=false;selected=null;$('step-tag').textContent=s.tag;$('step-title').textContent=s.title;$('step-text').textContent=s.text;$('task-note').textContent=s.note;$('visual').innerHTML=visual(s);$('progress-tag').textContent=`ΣΤΑΔΙΟ ${index+1} / ${steps.length}`;$('mode-tag').textContent=mode==='training'?'ΛΕΙΤΟΥΡΓΙΑ ΕΚΠΑΙΔΕΥΣΗΣ':'ΛΕΙΤΟΥΡΓΙΑ ΑΞΙΟΛΟΓΗΣΗΣ';$('points-tag').textContent=mode==='training'?`${correct}/${index} ΣΩΣΤΕΣ`:'ΑΠΟΤΕΛΕΣΜΑΤΑ ΣΤΟ ΤΕΛΟΣ';$('bar-fill').style.width=(100*index/steps.length)+'%';$('feedback').classList.add('hidden');$('feedback').classList.remove('bad');$('feedback').replaceChildren();$('next').disabled=true;$('next').textContent=index===steps.length-1?(mode==='assessment'?'Σύνταξη τελικής διάγνωσης →':'Ολοκλήρωση περιστατικού →'):'Επόμενο στάδιο →';const options=shuffle(s.options.map((value,i)=>({value,correct:i===s.correct})));$('answers').replaceChildren();for(const [i,opt] of options.entries()){let b=document.createElement('button');b.type='button';b.className='answer';b.innerHTML='<b>'+['Α','Β','Γ'][i]+'</b><span>'+clean(opt.value)+'</span>';b.addEventListener('click',()=>submitAnswer(opt,b,options));$('answers').appendChild(b);}}
+function submitAnswer(opt,b,options){if(answered)return;answered=true;selected=opt;const s=steps[index];if(opt.correct)correct++;records.push({stage:index+1,title:s.title,choice:opt.value,correct:opt.correct,right:s.options[s.correct],why:s.why,other:s.other});for(let i=0;i<options.length;i++){const el=$('answers').children[i];el.disabled=true;if(mode==='training'&&options[i].correct)el.classList.add('right');}if(mode==='training'){if(!opt.correct)b.classList.add('wrong');$('points-tag').textContent=correct+'/'+(index+1)+' ΣΩΣΤΕΣ';const f=$('feedback');f.classList.toggle('bad',!opt.correct);f.innerHTML='<strong>'+(opt.correct?'✓ Σωστή διαγνωστική απόφαση':'✕ Χρειάζεται επανεξέταση')+'</strong><p>'+clean(s.why)+'</p><p><b>Γιατί όχι οι άλλες επιλογές:</b> '+clean(s.other)+'</p>';f.classList.remove('hidden');}else{const f=$('feedback');f.innerHTML='<strong>Η απάντηση καταχωρίστηκε.</strong><p>Οι λύσεις και η βαθμολογία θα εμφανιστούν μόνο μετά την οριστική υποβολή της τελικής διάγνωσης.</p>';f.classList.remove('hidden');}$('next').disabled=false;}
+function done(){
+ show('finish');
+ $('score').textContent=Math.round(correct*100/steps.length)+'%';
+ $('result-head').textContent=correct===steps.length?'Η διαγνωστική αποστολή ολοκληρώθηκε άριστα.':'Η διαγνωστική αποστολή ολοκληρώθηκε.';
+ $('result-meta').textContent=`${name} · ${correct}/${steps.length} σωστές αποφάσεις · ${mode==='training'?'Εκπαίδευση':'Αξιολόγηση'}`;
+ const conclusion=$('submission-result');conclusion.replaceChildren();
+ if(mode==='assessment'){
+   const head=document.createElement('strong');head.textContent='Η τελική διάγνωση που υπέβαλες';
+   const p=document.createElement('p');p.textContent=finalDiagnosis;
+   const conf=document.createElement('small');conf.textContent='Δηλωμένη βεβαιότητα: '+finalConfidence;
+   conclusion.append(head,p,conf);conclusion.classList.remove('hidden');
+ }else conclusion.classList.add('hidden');
+ $('review').replaceChildren();records.forEach(r=>{
+  const d=document.createElement('details');d.className='review-item';
+  const summary=document.createElement('summary');summary.textContent=(r.correct?'✓':'✕')+` Στάδιο ${r.stage} — ${r.title}`;d.append(summary);
+  for(const text of [`Επιλογή: ${r.choice}`,`Σωστή διαγνωστική απόφαση: ${r.right}`,r.why,`Οι άλλες επιλογές: ${r.other}`]){
+   const p=document.createElement('p');p.textContent=text;d.append(p);
+  }$('review').append(d);
+ });
+}
+function report(){let lines=['ΣΑΕΚ · ΤΕΤΑΡΤΗ ΔΙΑΓΝΩΣΤΙΚΗ ΑΠΟΣΤΟΛΗ','Peugeot 208 (2016) — υποθετικό σενάριο αισθητήρων στάθμευσης',`Συμμετοχή: ${name}`,`Λειτουργία: ${mode}`,`Αποτέλεσμα: ${correct}/6`];if(mode==='assessment')lines.push(`Τελική διάγνωση: ${finalDiagnosis}`,`Βεβαιότητα τελικής διάγνωσης: ${finalConfidence}`);for(const r of records)lines.push(`\nΣτάδιο ${r.stage} — ${r.title}`,`Απάντηση: ${r.choice}`,`Ορθότητα: ${r.correct?'ΣΩΣΤΟ':'ΛΑΘΟΣ'}`,`Σωστή απάντηση: ${r.right}`,`Αιτιολόγηση: ${r.why}`);for(const e of document.querySelectorAll('[data-report]'))if(e.value.trim())lines.push(`${e.dataset.report}: ${e.value.trim()}`);return lines.join('\n');}
+$('begin').addEventListener('click',()=>{index=0;correct=0;records=[];mode=document.querySelector('input[name="mode"]:checked').value;const pair=document.querySelector('input[name="team"]:checked').value==='pair';name=[$('student').value.trim()||'Καταρτιζόμενος',...(pair?[$('student2').value.trim()||'Συνεργάτης']:[])].join(' & ');finalDiagnosis='';finalConfidence='';
+ $('final-diagnosis').value='';$('submission-error').textContent='';$('submission-error').classList.add('hidden');
+ document.querySelectorAll('input[name="confidence"]').forEach(x=>x.checked=false);
+ document.querySelectorAll('[data-report]').forEach(x=>{x.value='';x.readOnly=false;});
+ $('case-report').open=false;$('case-report').querySelector('summary').textContent='Προαιρετικό δελτίο διάγνωσης';
+ (mode==='assessment'?$('submission-report-slot'):$('finish-report-slot')).appendChild($('case-report'));
+ draw();show('game');});
 document.querySelectorAll('input[name="team"]').forEach(r=>r.addEventListener('change',()=>{$('pair-wrap').classList.toggle('hidden',document.querySelector('input[name="team"]:checked').value!=='pair')}));
-$('next').addEventListener('click',()=>{if(!answered)return;if(index===steps.length-1)done();else{index++;draw();window.scrollTo({top:0,behavior:'instant'})}});
+$('next').addEventListener('click',()=>{if(!answered)return;if(index===steps.length-1){if(mode==='assessment')show('submission');else done();}else{index++;draw();window.scrollTo({top:0,behavior:'instant'})}});
+
+$('submit-final').addEventListener('click',()=>{
+ if(mode!=='assessment'||!answered||index!==steps.length-1)return;
+ const diagnosis=$('final-diagnosis').value.trim();
+ const conf=document.querySelector('input[name="confidence"]:checked');
+ if(!diagnosis||!conf){
+   $('submission-error').textContent='Για να υποβάλεις την αξιολόγηση, συμπλήρωσε την τελική διάγνωση και επίλεξε έναν βαθμό βεβαιότητας.';
+   $('submission-error').classList.remove('hidden');
+   if(!diagnosis)$('final-diagnosis').focus();
+   return;
+ }
+ finalDiagnosis=diagnosis;finalConfidence=conf.value;
+ $('submission-error').classList.add('hidden');
+ $('finish-report-slot').appendChild($('case-report'));
+ document.querySelectorAll('[data-report]').forEach(x=>x.readOnly=true);
+ $('case-report').querySelector('summary').textContent='Υποβληθέν προαιρετικό δελτίο διάγνωσης';
+ done();
+});
+$('cancel-final').addEventListener('click',()=>{if(confirm('Θέλεις να σταματήσεις; Η πρόοδος θα χαθεί.'))show('start')});
 $('quit').addEventListener('click',()=>{if(confirm('Θέλεις να σταματήσεις; Η πρόοδος θα χαθεί.'))show('start')});
 $('retry').addEventListener('click',()=>show('start'));
 $('export').addEventListener('click',()=>{const blob=new Blob(['\ufeff'+report()],{type:'text/plain;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='saek-peugeot-parking-diagnosis.txt';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)});
