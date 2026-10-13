@@ -41,3 +41,17 @@
 .tool-photo-frame img{object-fit:contain;object-position:center}
 @media(max-width:850px){.tool-select-photo{flex-basis:64px;width:64px;height:60px}}
 @media(max-width:700px){.tool-photo-frame{min-height:250px;height:250px}}
+
+/* Evaluation coherence v9 — scoped additions; existing layout, cards and colors preserved. */
+.submission-panel{max-width:860px;margin:auto}
+.submission-panel h2{font-size:clamp(27px,4vw,40px);letter-spacing:-.035em;margin:12px 0}
+#submission-description{color:#b9d2e2;line-height:1.75;font-size:14px;max-width:750px}
+.submission-label{display:block;margin:23px 0 10px;font-weight:800;font-size:14px;color:#e2f4ff}
+.submission-label textarea{display:block;width:100%;margin-top:10px;resize:vertical;min-height:130px;border:1px solid #3e6c82;background:#071928;color:#fff;border-radius:12px;padding:15px;font-size:14px;line-height:1.7}
+.submission-panel .confidence{margin:22px 0 14px}
+.submission-note{color:#b2cad9;font-size:12px;line-height:1.7}
+.submission-error{padding:13px 15px;background:#452630;color:#ffe1df;border:1px solid #ac686e;border-radius:10px;margin-top:15px;font-size:13px}
+.submitted-conclusion{padding:17px;margin:18px 0 20px;background:#0e3141;border-left:3px solid #52d8df;border-radius:12px}
+.submitted-conclusion p{color:#d6eafa;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.7}
+.submitted-conclusion small{color:#a5c5d9}
+@media(max-width:620px){.submission-panel .game-actions{flex-direction:column-reverse}.submission-panel .game-actions button{width:100%}}

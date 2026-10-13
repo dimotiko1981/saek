@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#061521">
   <meta name="description" content="Εκπαιδευτικός διαγνωστικός προσομοιωτής οχημάτων για το μάθημα Δίκτυα και Επικοινωνία Οχημάτων του ΣΑΕΚ.">
   <title>Κέντρο διαγνωστικής εκπαίδευσης | ΣΑΕΚ</title>
-  <link rel="stylesheet" href="assets/css/diagnostiki-vardia.css?v=7">
-  <script src="assets/js/diagnostiki-vardia.js?v=8" defer></script>
+  <link rel="stylesheet" href="assets/css/diagnostiki-vardia.css?v=9">
+  <script src="assets/js/diagnostiki-vardia.js?v=10" defer></script>
   <style>
     /* Local styling only for the four trial cards; all other site styles remain unchanged. */
     .sim-cases{display:grid;gap:16px;margin-top:22px}
@@ -162,7 +162,6 @@
       <div class="case-tag-row"><span class="overline" id="station"></span><span id="difficulty" class="difficulty"></span></div>
       <h2 id="question"></h2><p id="description" class="case-description"></p>
       <div id="case-visual" class="case-visual" aria-label="Προσομοιωμένα διαγνωστικά δεδομένα"></div>
-      <fieldset class="confidence"><legend>Πόσο βέβαιος/η είσαι πριν απαντήσεις;</legend><label><input type="radio" name="confidence" value="Σίγουροι"> Είμαι σίγουρος/η</label><label><input type="radio" name="confidence" value="Αμφιβολία"> Έχω αμφιβολία</label><label><input type="radio" name="confidence" value="Βοήθεια"> Χρειάζομαι βοήθεια</label></fieldset>
       <span class="form-title">ΕΠΙΛΕΞΕ ΔΙΑΓΝΩΣΤΙΚΗ ΑΠΟΦΑΣΗ</span><div id="answers" class="answers"></div>
       <div id="feedback" class="feedback hidden" aria-live="polite"></div>
       <details id="report" class="report"><summary>Δελτίο διάγνωσης <span>(προαιρετική τεκμηρίωση)</span></summary><div class="report-grid"><label>Τι παρατήρησες;<textarea data-report="observation" rows="2"></textarea></label><label>Πιθανή αιτία<textarea data-report="cause" rows="2"></textarea></label><label>Εργαλείο / μέθοδος<textarea data-report="tool" rows="2"></textarea></label><label>Αναμενόμενη μέτρηση<textarea data-report="expected" rows="2"></textarea></label><label>Τελικό συμπέρασμα<textarea data-report="conclusion" rows="2"></textarea></label></div></details>
@@ -170,7 +169,27 @@
     </div>
   </section>
 
-  <section id="finish" class="view hidden" aria-labelledby="finish-title"><div class="panel results-panel"><span class="overline">SERVICE REPORT / MISSION COMPLETE</span><h2 id="finish-title">Αναφορά διαγνωστικής αποστολής</h2><div id="summary"></div><div id="review"></div><div class="game-actions"><button type="button" id="export" class="primary">Εξαγωγή αναφοράς (.txt)</button><button type="button" id="again" class="secondary">Νέα αποστολή</button></div></div></section>
+  <section id="submission" class="view hidden" aria-labelledby="submission-title">
+    <div class="page-toolbar"><span class="section-code">FINAL SUBMISSION / BEFORE RESULTS</span></div>
+    <div class="panel submission-panel">
+      <span class="overline">ΟΡΙΣΤΙΚΗ ΥΠΟΒΟΛΗ · ΧΩΡΙΣ ΑΠΟΚΑΛΥΨΗ ΛΥΣΕΩΝ</span>
+      <h2 id="submission-title">Τελική τεχνική εκτίμηση</h2>
+      <p id="submission-description">Οι απαντήσεις έχουν καταχωριστεί. Τεκμηρίωσε τη διαγνωστική σκέψη σου πριν εμφανιστούν οι σωστές επιλογές και η βαθμολογία.</p>
+      <label class="submission-label" for="final-diagnosis"><span id="final-diagnosis-label">Τελικό συμπέρασμα</span> <span aria-hidden="true">*</span>
+        <textarea id="final-diagnosis" maxlength="1800" rows="5" required placeholder="Τι προκύπτει από τα δεδομένα και ποιους ελέγχους θεωρείς καθοριστικούς;"></textarea>
+      </label>
+      <fieldset class="confidence"><legend id="final-confidence-label">Πόσο βέβαιος/η είσαι για την τελική σου εκτίμηση; *</legend>
+        <label><input type="radio" name="confidence" value="Σίγουρος/η"> Σίγουρος/η</label>
+        <label><input type="radio" name="confidence" value="Με αμφιβολία"> Με αμφιβολία</label>
+        <label><input type="radio" name="confidence" value="Χρειάζομαι βοήθεια"> Χρειάζομαι βοήθεια</label>
+      </fieldset>
+      <p class="submission-note">Οι προαιρετικές καταγραφές ανά περιστατικό διατηρούνται. Το ελεύθερο κείμενο και η βεβαιότητα δεν μεταβάλλουν αυτόματα τη βαθμολογία των επιλογών.</p>
+      <div class="submission-error hidden" role="alert" aria-live="polite" id="submission-error"></div>
+      <div class="game-actions"><button type="button" id="cancel-final" class="secondary">Διακοπή</button><button type="button" id="submit-final" class="primary">Οριστική υποβολή · Προβολή αποτελεσμάτων →</button></div>
+    </div>
+  </section>
+
+  <section id="finish" class="view hidden" aria-labelledby="finish-title"><div class="panel results-panel"><span class="overline">SERVICE REPORT / MISSION COMPLETE</span><h2 id="finish-title">Αναφορά διαγνωστικής αποστολής</h2><div id="summary"></div><div id="submission-result" class="submitted-conclusion hidden"></div><div id="review"></div><div class="game-actions"><button type="button" id="export" class="primary">Εξαγωγή αναφοράς (.txt)</button><button type="button" id="again" class="secondary">Νέα αποστολή</button></div></div></section>
 </main>
 <footer class="footer"><span>ΣΑΕΚ · Εκπαιδευτική προσομοίωση, όχι πραγματική διάγνωση ή οδηγία επισκευής.</span><span>DESIGNED FOR LEARNING / LAB 02</span></footer>
 </body>
