@@ -28,8 +28,22 @@
       align-items:center;justify-content:center;gap:7px;text-align:center;white-space:nowrap;
       background:var(--case-accent);color:var(--case-ink);border-radius:12px;
       font-size:13px;font-weight:900;text-decoration:none;line-height:1.3;
-      transition:transform .16s ease,filter .16s ease,box-shadow .16s ease}
-    .sim-case__action:hover{color:var(--case-ink);text-decoration:none;transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 8px 20px #0004}
+      box-shadow:0 3px 9px #0002;
+      transition:background-color .2s ease,transform .2s ease,box-shadow .2s ease}
+    /* Hover: clearly lighter shade of the SAME color for each vehicle. */
+    .sim-case__action:is(:hover,:focus-visible){
+      background-color:color-mix(in srgb,var(--case-accent) 77%,white);
+      color:var(--case-ink);text-decoration:none;
+      transform:translateY(-2px);
+      box-shadow:0 12px 25px color-mix(in srgb,var(--case-accent) 25%,transparent),0 8px 18px #0004}
+    /* Press: slightly deeper shade and physical push feedback. */
+    .sim-case__action:active{
+      background-color:color-mix(in srgb,var(--case-accent) 84%,black);
+      color:var(--case-ink);transform:translateY(1px) scale(.985);
+      box-shadow:0 2px 7px #0005}
+    .sim-case__action span[aria-hidden="true"]{display:inline-block;transition:transform .2s ease}
+    .sim-case__action:is(:hover,:focus-visible) span[aria-hidden="true"]{transform:translateX(4px)}
+    .sim-case__action:active span[aria-hidden="true"]{transform:translateX(1px)}
     .sim-case__action:focus-visible{outline:3px solid white;outline-offset:4px}
     @media(min-width:701px) and (max-width:950px){.sim-case{min-height:194px}}
     @media(max-width:700px){
@@ -37,7 +51,11 @@
       .sim-case__action{width:100%;min-height:52px}
       .sim-case__title{font-size:20px}
     }
-    @media(prefers-reduced-motion:reduce){.sim-case__action{transition:none}}
+    @media(prefers-reduced-motion:reduce){
+      .sim-case__action,.sim-case__action span[aria-hidden="true"]{transition:none}
+      .sim-case__action:is(:hover,:focus-visible),.sim-case__action:active{transform:none}
+      .sim-case__action:is(:hover,:focus-visible) span[aria-hidden="true"]{transform:none}
+    }
   </style>
 </head>
 <body>
