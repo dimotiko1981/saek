@@ -1,0 +1,164 @@
+/* SAEK · Visual polish for navigation links and retry buttons.
+   This stylesheet changes appearance only; it does not change link targets or JS.
+   Scope: homepage, lesson navigation, diagnostic labs, workshop hub and case attempts. */
+:root{
+  --ui-nav-cyan:#61ddf3;
+  --ui-nav-soft:rgba(73,211,237,.12);
+  --ui-nav-border:rgba(100,218,244,.36);
+  --ui-retry-gold:#f5d29c;
+  --ui-retry-soft:rgba(245,199,128,.095);
+  --ui-retry-border:rgba(245,199,128,.5);
+  --ui-focus:#f6df9a;
+}
+/* HOME · common size / contrast for course links. */
+body:not(.diagnostic-page) .course-preview-stack .course-open-link{
+  box-sizing:border-box;
+  width:clamp(190px,17vw,244px);
+  min-height:58px;
+  height:58px;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 13px;
+  border-radius:12px;
+  font-size:.79rem;
+  line-height:1.4;
+  box-shadow:inset 0 1px rgba(255,255,255,.06);
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+body:not(.diagnostic-page) .course-preview-stack .course-open-link svg{
+  flex:0 0 17px;
+  transition:transform .2s ease;
+}
+body:not(.diagnostic-page) .course-preview-stack .course-open-link:not(.course-open-link-secondary){
+  border-color:rgba(80,204,237,.43);
+  background:linear-gradient(110deg,rgba(43,217,254,.13),rgba(43,217,254,.055));
+}
+body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-secondary{
+  border-color:rgba(84,222,182,.43);
+  background:linear-gradient(110deg,rgba(71,230,174,.115),rgba(71,230,174,.045));
+}
+/* HOME · hero CTA, nav and expanding specialty arrow. */
+body:not(.diagnostic-page) .main-nav a,
+body:not(.diagnostic-page) .header-cta,
+body:not(.diagnostic-page) .hero-actions .button-primary,
+body:not(.diagnostic-page) .round-button{
+  transition:background .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+body:not(.diagnostic-page) .header-cta{min-height:44px;display:inline-flex;align-items:center;justify-content:center;}
+body:not(.diagnostic-page) .main-nav a{border-radius:8px;padding:8px 10px;}
+body:not(.diagnostic-page) .main-nav a.active::after{left:10px;right:10px;bottom:2px;}
+/* Return links across slide lessons. */
+.presentation-header .header-cta,
+.lab-back-link,
+.result-actions a,
+a.back,
+.back-btn,
+#tools-back,#setup-back{
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+.presentation-header .header-cta,
+.lab-back-link,
+.result-actions a,
+a.back{
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  border-color:var(--ui-nav-border);
+  background:var(--ui-nav-soft);
+  border-radius:11px;
+  color:#b6efff;
+}
+/* Retry actions: secondary/warm, distinct from 'start', 'submit', or 'back'. */
+[data-quiz-reset],
+[data-intro-quiz-reset],
+[data-lesson-quiz-reset],
+button[data-intro-restart],
+button[data-restart-mission],
+button#retry,
+button#again{
+  min-height:44px;
+  border:1px solid var(--ui-retry-border);
+  border-radius:11px;
+  background:var(--ui-retry-soft);
+  color:var(--ui-retry-gold);
+  box-shadow:inset 0 1px rgba(255,255,255,.045);
+  font-weight:800;
+  cursor:pointer;
+  transition:background-color .2s ease,border-color .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+button[data-intro-restart],button[data-restart-mission]{
+  box-shadow:inset 0 1px rgba(255,255,255,.045);
+}
+/* Consistent accessibility: visible focus on keyboard navigation. */
+:where(.main-nav a,.header-cta,.hero-actions .button-primary,.round-button,.course-open-link,.lab-back-link,.result-actions a,.back,.back-btn,[data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],[data-intro-restart],[data-restart-mission],#retry,#again):focus-visible{
+  outline:3px solid var(--ui-focus);
+  outline-offset:3px;
+}
+/* Hover is intentionally reserved for a real pointing device. */
+@media(hover:hover) and (pointer:fine){
+  body:not(.diagnostic-page) .course-preview-stack .course-open-link:hover,
+  body:not(.diagnostic-page) .course-preview-stack .course-open-link:focus-visible{
+    transform:translateY(-2px);
+    color:#e1fcff;
+    border-color:#6de5fb;
+    background:rgba(44,216,250,.2);
+    box-shadow:0 10px 24px rgba(43,217,254,.14);
+  }
+  body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-secondary:hover,
+  body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-secondary:focus-visible{
+    color:#d4fff0;
+    border-color:#86f1cb;
+    background:rgba(71,230,174,.19);
+    box-shadow:0 10px 24px rgba(71,230,174,.13);
+  }
+  .course-preview-stack .course-open-link:hover svg{transform:translateX(4px);}
+  body:not(.diagnostic-page) .main-nav a:hover{color:#d5f9ff;background:rgba(43,217,254,.085);}
+  body:not(.diagnostic-page) .header-cta:hover,
+  body:not(.diagnostic-page) .hero-actions .button-primary:hover,
+  body:not(.diagnostic-page) .round-button:hover,
+  .presentation-header .header-cta:hover,
+  .lab-back-link:hover,
+  .result-actions a:hover,
+  a.back:hover,.back-btn:hover{
+    border-color:#7ae8f8;
+    box-shadow:0 8px 23px rgba(43,217,254,.12);
+    transform:translateY(-2px);
+  }
+  .presentation-header .header-cta:hover,.lab-back-link:hover,.result-actions a:hover,a.back:hover,.back-btn:hover{
+    background:rgba(43,217,254,.2);
+    color:#e0fcff;
+  }
+  :is([data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],button[data-intro-restart],button[data-restart-mission],button#retry,button#again):hover:not(:disabled){
+    background:rgba(245,199,128,.2);
+    border-color:#ffe0aa;
+    color:#fff0d8;
+    box-shadow:0 8px 23px rgba(240,191,118,.11);
+    transform:translateY(-2px);
+  }
+}
+:where(.course-open-link,.header-cta,.round-button,.button-primary,.lab-back-link,.result-actions a,a.back,.back-btn,[data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],button[data-intro-restart],button[data-restart-mission],button#retry,button#again):active:not(:disabled){
+  transform:translateY(1px);
+  box-shadow:none;
+}
+/* Keep original responsive layout: links fill the existing single-column slot. */
+@media(max-width:900px){
+  body:not(.diagnostic-page) .course-preview-stack .course-open-link{
+    width:min(100%,244px);
+  }
+}
+@media(max-width:650px){
+  /* Preserve the intentionally hidden header CTA on narrow screens. */
+  body:not(.diagnostic-page) .site-header .header-cta{display:none;}
+  body:not(.diagnostic-page) .course-preview-stack .course-open-link{
+    width:100%;min-height:56px;height:56px;
+  }
+  .presentation-header .header-cta,.lab-back-link,.result-actions a,a.back{
+    max-width:100%;font-size:clamp(.67rem,2.7vw,.8rem);
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  :where(.course-open-link,.header-cta,.round-button,.button-primary,.lab-back-link,.result-actions a,.back,.back-btn,[data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],[data-intro-restart],[data-restart-mission],#retry,#again){transition:none!important;}
+  :where(.course-open-link,.header-cta,.round-button,.button-primary,.lab-back-link,.result-actions a,.back,.back-btn,[data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],[data-intro-restart],[data-restart-mission],#retry,#again):hover{transform:none!important;}
+}
