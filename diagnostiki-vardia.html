@@ -8,6 +8,37 @@
   <title>Κέντρο διαγνωστικής εκπαίδευσης | ΣΑΕΚ</title>
   <link rel="stylesheet" href="assets/css/diagnostiki-vardia.css?v=7">
   <script src="assets/js/diagnostiki-vardia.js?v=8" defer></script>
+  <style>
+    /* Local styling only for the four trial cards; all other site styles remain unchanged. */
+    .sim-cases{display:grid;gap:16px;margin-top:22px}
+    .sim-case{--case-accent:#81e6c0;--case-ink:#092d28;--case-border:#318d7e;--case-shade:#103a38;
+      display:grid;grid-template-columns:minmax(0,1fr) 254px;align-items:center;column-gap:28px;
+      min-height:160px;padding:23px 27px;border:1px solid var(--case-border);border-radius:18px;
+      background:linear-gradient(110deg,var(--case-shade) 0%,#102834 74%,#0b2635 100%);
+      box-shadow:0 13px 30px rgba(0,0,0,.13)}
+    .sim-case--yaris{--case-accent:#7fe4b8;--case-ink:#082b24;--case-border:#319884;--case-shade:#103c36}
+    .sim-case--focus{--case-accent:#f5cb86;--case-ink:#342410;--case-border:#b68e58;--case-shade:#3b3128}
+    .sim-case--peugeot{--case-accent:#c3afff;--case-ink:#251b46;--case-border:#8e79d0;--case-shade:#2a2849}
+    .sim-case--corsa{--case-accent:#ffaaa4;--case-ink:#422326;--case-border:#c87773;--case-shade:#432b31}
+    .sim-case__content{min-width:0}
+    .sim-case__tag{display:block;color:var(--case-accent);font-size:11px;font-weight:900;letter-spacing:.09em;line-height:1.45}
+    .sim-case__title{color:#fff;font-size:clamp(19px,2vw,23px);line-height:1.3;letter-spacing:-.025em;margin:7px 0 6px;font-weight:800}
+    .sim-case__desc{color:#c6d7e4;font-size:13px;line-height:1.65;margin:0;max-width:800px}
+    .sim-case__action{box-sizing:border-box;width:254px;min-height:56px;padding:13px 12px;display:flex;
+      align-items:center;justify-content:center;gap:7px;text-align:center;white-space:nowrap;
+      background:var(--case-accent);color:var(--case-ink);border-radius:12px;
+      font-size:13px;font-weight:900;text-decoration:none;line-height:1.3;
+      transition:transform .16s ease,filter .16s ease,box-shadow .16s ease}
+    .sim-case__action:hover{color:var(--case-ink);text-decoration:none;transform:translateY(-2px);filter:brightness(1.07);box-shadow:0 8px 20px #0004}
+    .sim-case__action:focus-visible{outline:3px solid white;outline-offset:4px}
+    @media(min-width:701px) and (max-width:950px){.sim-case{min-height:194px}}
+    @media(max-width:700px){
+      .sim-case{grid-template-columns:minmax(0,1fr);gap:17px;padding:21px 19px;min-height:0}
+      .sim-case__action{width:100%;min-height:52px}
+      .sim-case__title{font-size:20px}
+    }
+    @media(prefers-reduced-motion:reduce){.sim-case__action{transition:none}}
+  </style>
 </head>
 <body>
 <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
@@ -51,21 +82,39 @@
         <span class="mission-foot"><span>10 ΣΤΑΔΙΑ</span><span aria-hidden="true">↗</span></span>
       </a>
     </div>
-    <div style="margin:22px 0 0;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:22px 24px;border:1px solid #2fa68a;background:linear-gradient(110deg,#103a39,#092735);border-radius:16px;box-shadow:0 14px 35px #0003">
-      <div style="flex:1;min-width:240px"><div style="color:#7de8bf;font-size:11px;letter-spacing:.1em;font-weight:900">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</div><h3 style="margin:7px 0 4px;color:#fff;font-size:22px">Toyota Yaris (2016) · Τροφοδοσία 12V / U-codes</h3><p style="margin:0;color:#bbd6e1;font-size:14px">6 στάδια: βλάβη εκκίνησης, πτώση τάσης 8,7 V, επιλογή διαγνωστικών εργαλείων, σάρωση ECU και επαλήθευση επισκευής.</p></div>
-      <a href="diagnostiki-yaris.html" style="display:inline-block;text-decoration:none;background:#7ee5c0;color:#082f31;border-radius:12px;padding:14px 19px;font-size:14px;font-weight:900;white-space:nowrap">Άνοιγμα Toyota Yaris →</a>
-    </div>
-    <div style="margin:14px 0 0;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:22px 24px;border:1px solid #d9b774;background:linear-gradient(110deg,#342c20,#102736);border-radius:16px;box-shadow:0 14px 35px #0003">
-      <div style="flex:1;min-width:0"><div style="color:#f6d396;font-size:11px;letter-spacing:.1em;font-weight:900">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</div><h3 style="margin:7px 0 4px;color:#fff;font-size:22px">Ford Focus Mk3 (2017) · Αισθητήρας ECT / δεδομένα ECU</h3><p style="margin:0;color:#bbd6e1;font-size:14px">6 στάδια: πραγματική φωτογραφία Ford Focus, αισθητήρας θερμοκρασίας, live data PCM, πολύμετρο και μετάδοση πληροφορίας στο ταμπλό.</p></div>
-      <a href="diagnostiki-focus.html" style="display:inline-block;text-decoration:none;background:#f2ce88;color:#30230c;border-radius:12px;padding:14px 19px;font-size:14px;font-weight:900;white-space:normal;max-width:100%">Άνοιγμα Ford Focus →</a>
-    </div>
-    <div style="margin:14px 0 0;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:22px 24px;border:1px solid #67b9d4;background:linear-gradient(110deg,#103444,#102736);border-radius:16px;box-shadow:0 14px 35px #0003">
-      <div style="flex:1;min-width:0"><div style="color:#94e9fa;font-size:11px;letter-spacing:.1em;font-weight:900">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</div><h3 style="margin:7px 0 4px;color:#fff;font-size:22px">Peugeot 208 (2016) · Αισθητήρες παρκαρίσματος</h3><p style="margin:0;color:#bbd6e1;font-size:14px">6 απαιτητικά στάδια: παραλαβή, διάγνωση συστήματος, live data, έλεγχος φίσας/καλωδίωσης και επαλήθευση επισκευής. Εκπαίδευση ή Αξιολόγηση.</p></div>
-      <a href="diagnostiki-peugeot.html" style="display:inline-block;text-decoration:none;background:#8ce4f4;color:#082a35;border-radius:12px;padding:14px 19px;font-size:14px;font-weight:900;white-space:normal;max-width:100%">Άνοιγμα Peugeot 208 →</a>
-    </div>
-    <div style="margin:14px 0 0;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:22px 24px;border:1px solid #39bad4;background:linear-gradient(110deg,#113745,#082434);border-radius:16px;box-shadow:0 14px 35px #0003">
-      <div style="flex:1;min-width:240px"><div style="color:#66dcf0;font-size:11px;letter-spacing:.1em;font-weight:900">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</div><h3 style="margin:7px 0 4px;color:#fff;font-size:22px">Opel Corsa E (2017) · ABS / CAN</h3><p style="margin:0;color:#bbd6e1;font-size:14px">6 στάδια διαγνωστικής εξάσκησης με επιλογή εργαλείων, κωδικό βλάβης και μετρήσεις. Ανεξάρτητο από τις 25 ερωτήσεις.</p></div>
-      <a href="diagnostiki-pilot.html" style="display:inline-block;text-decoration:none;background:#42d9f2;color:#052331;border-radius:12px;padding:14px 19px;font-size:14px;font-weight:900;white-space:nowrap">Άνοιγμα περιστατικού →</a>
+    <div class="sim-cases" aria-label="Δοκιμαστικά διαγνωστικά περιστατικά">
+      <article class="sim-case sim-case--yaris">
+        <div class="sim-case__content">
+          <span class="sim-case__tag">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</span>
+          <h3 class="sim-case__title">Toyota Yaris (2016) · Τροφοδοσία 12V / U-codes</h3>
+          <p class="sim-case__desc">6 στάδια · Εκκίνηση, πτώση τάσης 8,7 V, τροφοδοσία 12V, σάρωση ECU και επαλήθευση. Εκπαίδευση ή Αξιολόγηση.</p>
+        </div>
+        <a class="sim-case__action" href="diagnostiki-yaris.html" aria-label="Άνοιγμα διαγνωστικού περιστατικού Toyota Yaris"><span>Άνοιγμα Toyota Yaris</span><span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sim-case sim-case--focus">
+        <div class="sim-case__content">
+          <span class="sim-case__tag">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</span>
+          <h3 class="sim-case__title">Ford Focus Mk3 (2017) · Αισθητήρας ECT / δεδομένα ECU</h3>
+          <p class="sim-case__desc">6 στάδια · Έλεγχος ECT, δεδομένα PCM, μετρήσεις με πολύμετρο και ένδειξη ταμπλό. Εκπαίδευση ή Αξιολόγηση.</p>
+        </div>
+        <a class="sim-case__action" href="diagnostiki-focus.html" aria-label="Άνοιγμα διαγνωστικού περιστατικού Ford Focus"><span>Άνοιγμα Ford Focus</span><span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sim-case sim-case--peugeot">
+        <div class="sim-case__content">
+          <span class="sim-case__tag">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</span>
+          <h3 class="sim-case__title">Peugeot 208 (2016) · Αισθητήρες παρκαρίσματος</h3>
+          <p class="sim-case__desc">6 στάδια · Έλεγχος αισθητήρων, διαγνωστικά δεδομένα, φύσες, καλωδίωση και επαλήθευση. Εκπαίδευση ή Αξιολόγηση.</p>
+        </div>
+        <a class="sim-case__action" href="diagnostiki-peugeot.html" aria-label="Άνοιγμα διαγνωστικού περιστατικού Peugeot 208"><span>Άνοιγμα Peugeot 208</span><span aria-hidden="true">→</span></a>
+      </article>
+      <article class="sim-case sim-case--corsa">
+        <div class="sim-case__content">
+          <span class="sim-case__tag">ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΣΤΑΤΙΚΟ</span>
+          <h3 class="sim-case__title">Opel Corsa E (2017) · ABS / CAN</h3>
+          <p class="sim-case__desc">6 στάδια · Έλεγχος ABS, κωδικός βλάβης, τροφοδοσία, γείωση και επικοινωνία CAN. Εκπαίδευση ή Αξιολόγηση.</p>
+        </div>
+        <a class="sim-case__action" href="diagnostiki-pilot.html" aria-label="Άνοιγμα διαγνωστικού περιστατικού Opel Corsa"><span>Άνοιγμα Opel Corsa</span><span aria-hidden="true">→</span></a>
+      </article>
     </div>
     <p class="context-note">Οι διαγνωστικές τιμές είναι εκπαιδευτικά παραδείγματα. Στο πραγματικό συνεργείο απαιτούνται οι προδιαγραφές του κατασκευαστή και οι προβλεπόμενοι κανόνες ασφάλειας.</p>
   </section>
