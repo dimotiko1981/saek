@@ -162,3 +162,68 @@ button[data-intro-restart],button[data-restart-mission]{
   :where(.course-open-link,.header-cta,.round-button,.button-primary,.lab-back-link,.result-actions a,.back,.back-btn,[data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],[data-intro-restart],[data-restart-mission],#retry,#again){transition:none!important;}
   :where(.course-open-link,.header-cta,.round-button,.button-primary,.lab-back-link,.result-actions a,.back,.back-btn,[data-quiz-reset],[data-intro-quiz-reset],[data-lesson-quiz-reset],[data-intro-restart],[data-restart-mission],#retry,#again):hover{transform:none!important;}
 }
+
+
+/* SAEK DIAGNOSTIC HUB / MISSION IDENTITY (PATCH 12)
+   Chapter 2 colour family: mint = tools, cyan-blue = shift, amber = final challenge.
+   The four individual car cases keep their own colours and hover effects.
+   No layout, sizing, breakpoints, links or JavaScript changed. */
+body .mission-grid > .mission-card {
+  --saek-mission-accent:#7fdff8;
+  --saek-mission-outline:rgba(100,216,242,.52);
+  --saek-mission-glow:rgba(50,177,239,.15);
+  border-color:var(--saek-mission-outline);
+  transition:background .2s ease,border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+}
+/* Tools: workshop / learning mint. */
+body .mission-grid > .mission-card.mission-tools {
+  --saek-mission-accent:#82efd0;
+  --saek-mission-outline:rgba(113,229,194,.56);
+  --saek-mission-glow:rgba(64,210,162,.15);
+  background:radial-gradient(circle at 90% 0%,#165347 0%,#113b3e 44%,#092a39 100%);
+}
+/* Shift: primary blue / cyan, matching lesson 2. */
+body .mission-grid > .mission-card[data-open="shift"] {
+  --saek-mission-accent:#8cdbff;
+  --saek-mission-outline:rgba(98,204,250,.55);
+  --saek-mission-glow:rgba(65,172,240,.2);
+  background:linear-gradient(145deg,#124765 0%,#0d3151 55%,#0a2439 100%);
+}
+/* Golf: final advanced challenge is the warm accent. */
+body .mission-grid > .mission-card[href="diagnostiki-golf.html"] {
+  --saek-mission-accent:#f7cc8d;
+  --saek-mission-outline:rgba(237,191,123,.55);
+  --saek-mission-glow:rgba(238,180,104,.17);
+  background:linear-gradient(145deg,#45372d 0%,#252c35 55%,#102638 100%);
+}
+body .mission-grid > .mission-card :is(.mission-num,.mission-icon,.mission-foot) {
+  color:var(--saek-mission-accent);
+}
+body .mission-grid > .mission-card .mission-foot {
+  border-top-color:var(--saek-mission-outline);
+}
+body .mission-grid > .mission-card[href="diagnostiki-golf.html"] .pill.muted {
+  background:rgba(247,204,141,.1);
+  border-color:rgba(247,204,141,.36);
+  color:#ffdfae;
+}
+body .mission-grid > .mission-card:focus-visible {
+  outline:3px solid var(--saek-mission-accent);
+  outline-offset:4px;
+}
+@media(hover:hover) and (pointer:fine) {
+  body .mission-grid > .mission-card:hover {
+    border-color:var(--saek-mission-accent);
+    box-shadow:0 16px 38px var(--saek-mission-glow),0 10px 28px rgba(0,0,0,.21);
+    transform:translateY(-3px);
+  }
+}
+body .mission-grid > .mission-card:active {
+  box-shadow:0 4px 14px var(--saek-mission-glow);
+  transform:translateY(1px);
+}
+@media(prefers-reduced-motion:reduce) {
+  body .mission-grid > .mission-card {transition:none;}
+  body .mission-grid > .mission-card:hover,
+  body .mission-grid > .mission-card:active {transform:none;}
+}
