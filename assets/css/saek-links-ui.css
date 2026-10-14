@@ -227,3 +227,137 @@ body .mission-grid > .mission-card:active {
   body .mission-grid > .mission-card:hover,
   body .mission-grid > .mission-card:active {transform:none;}
 }
+
+/* SAEK PATCH 14 — One consistent return / navigation button across the site.
+   Applies to links and buttons whose role is going back to a lesson, the homepage,
+   the diagnostic hub, or the preceding diagnostic screen. Does NOT modify
+   lesson launch buttons, quiz answers, reset actions or the classroom toggle.
+   Works in the existing layouts for desktop, tablet and mobile. */
+:root {
+  --saek-return-ink: #d3f7ff;
+  --saek-return-border: rgba(103, 213, 240, .49);
+  --saek-return-surface: rgba(39, 144, 186, .115);
+  --saek-return-glow: rgba(45, 199, 236, .15);
+  --saek-return-focus: #a4f0ff;
+}
+/* Common shape and color for every explicit RETURN / BACK navigation control. */
+:is(
+  .site-header .header-cta,
+  .lab-back-link,
+  .result-actions a[href],
+  .topbar nav a.hub-nav__link,
+  .topbar nav a:not(.hub-nav__link),
+  a.back,
+  button.back-btn,
+  a.btn.outline[href="diagnostiki-vardia.html"]
+) {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--saek-return-border);
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(29, 115, 152, .18), var(--saek-return-surface));
+  color: var(--saek-return-ink);
+  font-size: clamp(11px, .92vw, 13px);
+  font-weight: 800;
+  line-height: 1.35;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .055), 0 3px 12px rgba(3, 22, 39, .12);
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease,
+    box-shadow .2s ease, transform .2s ease;
+}
+/* Arrow or house icon consistency for existing icons, without duplicating them. */
+:is(.site-header .header-cta,.lab-back-link,.topbar nav a.hub-nav__link,a.back,button.back-btn,a.btn.outline[href="diagnostiki-vardia.html"]) svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+}
+/* Results have a plain text return link: supply only the missing arrow. */
+.result-actions a[href]::before,
+a.btn.outline[href="diagnostiki-vardia.html"]::before {
+  content: "←";
+  display: inline-block;
+  flex: 0 0 auto;
+  color: #8feaff;
+  font-size: 17px;
+  line-height: 1;
+}
+/* Keep the existing phone header behavior: hidden header CTA stays hidden. */
+@media (hover: hover) and (pointer: fine) {
+  :is(
+    .site-header .header-cta,
+    .lab-back-link,
+    .result-actions a[href],
+    .topbar nav a.hub-nav__link,
+    .topbar nav a:not(.hub-nav__link),
+    a.back,
+    button.back-btn,
+    a.btn.outline[href="diagnostiki-vardia.html"]
+  ):hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(43, 169, 215, .29), rgba(40, 135, 175, .23));
+    border-color: #8cecff;
+    color: #f1fcff;
+    text-decoration: none;
+    box-shadow: 0 9px 24px var(--saek-return-glow), inset 0 1px 0 rgba(255, 255, 255, .09);
+    transform: translateY(-2px);
+  }
+}
+:is(
+  .site-header .header-cta,
+  .lab-back-link,
+  .result-actions a[href],
+  .topbar nav a.hub-nav__link,
+  .topbar nav a:not(.hub-nav__link),
+  a.back,
+  button.back-btn,
+  a.btn.outline[href="diagnostiki-vardia.html"]
+):focus-visible {
+  outline: 3px solid var(--saek-return-focus);
+  outline-offset: 3px;
+  border-color: #a4f0ff;
+  color: #f1fcff;
+}
+:is(
+  .site-header .header-cta,
+  .lab-back-link,
+  .result-actions a[href],
+  .topbar nav a.hub-nav__link,
+  .topbar nav a:not(.hub-nav__link),
+  a.back,
+  button.back-btn,
+  a.btn.outline[href="diagnostiki-vardia.html"]
+):active:not(:disabled) {
+  transform: translateY(1px);
+  background: rgba(23, 107, 145, .32);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,.16);
+}
+@media (max-width: 650px) {
+  :is(.lab-back-link,.result-actions a[href],.topbar nav a.hub-nav__link,
+      .topbar nav a:not(.hub-nav__link),a.back,button.back-btn,
+      a.btn.outline[href="diagnostiki-vardia.html"]) {
+    min-height: 46px;
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.site-header .header-cta,.lab-back-link,.result-actions a[href],
+      .topbar nav a.hub-nav__link,.topbar nav a:not(.hub-nav__link),
+      a.back,button.back-btn,a.btn.outline[href="diagnostiki-vardia.html"]) {
+    transition: none;
+  }
+  :is(.site-header .header-cta,.lab-back-link,.result-actions a[href],
+      .topbar nav a.hub-nav__link,.topbar nav a:not(.hub-nav__link),
+      a.back,button.back-btn,a.btn.outline[href="diagnostiki-vardia.html"]):hover {
+    transform: none;
+  }
+}
