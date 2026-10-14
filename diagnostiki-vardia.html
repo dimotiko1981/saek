@@ -61,12 +61,62 @@
 <link rel="stylesheet" href="assets/css/saek-classroom-mode.css?v=1">
 <script defer src="assets/js/saek-classroom-mode.js?v=1"></script>
   <link rel="stylesheet" href="assets/css/saek-links-ui.css?v=1" />
+  <style id="saek-hub-top-navigation">
+    /* Κέντρο διαγνωστικής εκπαίδευσης: μόνο τα 2 κουμπιά επάνω δεξιά. */
+    .topbar .hub-nav {
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end;
+      gap:10px; font-size:12px;
+    }
+    .topbar .hub-nav__link {
+      box-sizing:border-box; display:inline-flex; align-items:center; justify-content:center;
+      gap:9px; min-height:46px; min-width:156px; padding:10px 15px;
+      border:1px solid rgba(97,211,236,.42); border-radius:12px;
+      background:linear-gradient(130deg,rgba(22,101,131,.30),rgba(11,49,77,.36));
+      color:#d1f4ff; font-size:12px; font-weight:800; line-height:1.3; text-align:center;
+      text-decoration:none; white-space:nowrap;
+      box-shadow:inset 0 1px rgba(255,255,255,.06);
+      transition:background .2s ease,border-color .2s ease,color .2s ease,
+                 box-shadow .2s ease,transform .2s ease;
+    }
+    .topbar .hub-nav__link--home {
+      min-width:128px;
+      border-color:rgba(99,225,239,.56);
+      background:linear-gradient(130deg,rgba(29,128,157,.38),rgba(14,72,102,.35));
+      color:#effdff;
+    }
+    .topbar .hub-nav__symbol {font-size:19px;line-height:1;display:inline-block;transition:transform .2s ease}
+    .topbar .hub-nav__home-icon {width:18px;height:18px;flex:0 0 auto;transition:transform .2s ease}
+    .topbar .hub-nav__link:focus-visible {outline:3px solid #f6df9a;outline-offset:3px}
+    @media(hover:hover) and (pointer:fine) {
+      .topbar .hub-nav__link:hover {
+        border-color:#89edfa; color:#fff; text-decoration:none;
+        background:linear-gradient(130deg,rgba(40,163,196,.44),rgba(16,82,125,.41));
+        box-shadow:0 9px 24px rgba(38,205,238,.17),inset 0 1px rgba(255,255,255,.08);
+        transform:translateY(-2px);
+      }
+      .topbar .hub-nav__link--return:hover .hub-nav__symbol {transform:translateX(-3px)}
+      .topbar .hub-nav__link--home:hover .hub-nav__home-icon {transform:translateY(-2px)}
+    }
+    .topbar .hub-nav__link:active {transform:translateY(1px);box-shadow:inset 0 2px 8px rgba(0,0,0,.2)}
+    @media(max-width:650px) {
+      .topbar {flex-wrap:wrap;gap:12px}
+      .topbar .hub-nav {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%;gap:9px}
+      .topbar .hub-nav__link {min-width:0;width:100%;min-height:46px;padding:10px 7px;font-size:12px;white-space:normal}
+    }
+    @media(prefers-reduced-motion:reduce) {
+      .topbar .hub-nav__link,.topbar .hub-nav__symbol,.topbar .hub-nav__home-icon {transition:none}
+      .topbar .hub-nav__link:hover,.topbar .hub-nav__link:active {transform:none}
+    }
+  </style>
 </head>
 <body>
 <a class="skip" href="#main">Μετάβαση στο περιεχόμενο</a>
 <header class="topbar">
   <a class="brand" href="ergastirio-mathima-02.html"><span class="brand-symbol" aria-hidden="true">⬡</span><span><b>ΣΑΕΚ</b><small>Δίκτυα και Επικοινωνία Οχημάτων</small></span></a>
-  <nav aria-label="Κύρια πλοήγηση"><a href="ergastirio-mathima-02.html">← Εργαστήριο 2</a><a href="index.html">Αρχική</a></nav>
+  <nav class="hub-nav" aria-label="Κύρια πλοήγηση">
+    <a class="hub-nav__link hub-nav__link--return" href="ergastirio-mathima-02.html"><span class="hub-nav__symbol" aria-hidden="true">←</span><span>Εργαστήριο 2</span></a>
+    <a class="hub-nav__link hub-nav__link--home" href="index.html"><svg class="hub-nav__home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 9v11h14V9"/><path d="M9 20v-7h6v7"/></svg><span>Αρχική</span></a>
+  </nav>
 </header>
 <div class="saek-classroom-toolbar" role="group" aria-label="Επιλογές προβολής για την τάξη"><button class="saek-classroom-toggle" data-classroom-toggle type="button" aria-pressed="false" title="Μεγαλύτερα γράμματα και διαγνωστικές ενδείξεις για προβολή στον πίνακα"><span class="screen-symbol" aria-hidden="true">▣</span><span data-classroom-label>Προβολή τάξης</span></button></div>
 <main id="main" class="page">
