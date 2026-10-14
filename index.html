@@ -137,47 +137,81 @@
   
     <style id="saek-home-course-button-colors">
 /* Κουμπιά μαθημάτων στην αρχική:
-   Μάθημα 1 = πράσινη/μέντα ταυτότητα
-   Μάθημα 2 = μπλε/κυανή ταυτότητα */
+   Μάθημα 1 = πράσινη/μέντα οικογένεια
+   Μάθημα 2 = μπλε/κυανή οικογένεια
+   Κάθε λειτουργία έχει δική της απόχρωση, αλλά παραμένει μέσα στην ταυτότητα του μαθήματος. */
 .course-open-link.course-open-link-lesson-1 {
-  background: linear-gradient(135deg, rgba(28, 115, 92, 0.28), rgba(20, 73, 60, 0.2));
-  border-color: rgba(111, 243, 197, 0.42);
-  color: #cffff1;
+  color: #e9fff8;
   box-shadow: 0 10px 24px rgba(9, 33, 29, 0.22), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .course-open-link.course-open-link-lesson-1 svg { color: #96ffd9; }
 .course-open-link.course-open-link-lesson-1:hover,
 .course-open-link.course-open-link-lesson-1:focus-visible {
-  background: linear-gradient(135deg, rgba(43, 163, 129, 0.42), rgba(27, 106, 84, 0.3));
-  border-color: rgba(146, 255, 219, 0.78);
-  color: #f2fffb;
+  color: #f8fffd;
   box-shadow: 0 16px 32px rgba(15, 80, 63, 0.3), 0 0 0 1px rgba(146, 255, 219, 0.16);
+}
+/* Μάθημα 1 · Παρουσίαση */
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation {
+  background: linear-gradient(135deg, rgba(28, 115, 92, 0.24), rgba(18, 82, 65, 0.18));
+  border-color: rgba(111, 243, 197, 0.34);
+}
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:hover,
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:focus-visible {
+  background: linear-gradient(135deg, rgba(43, 163, 129, 0.38), rgba(27, 106, 84, 0.28));
+  border-color: rgba(146, 255, 219, 0.7);
+}
+/* Μάθημα 1 · Εργαστήριο */
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-lab {
+  background: linear-gradient(135deg, rgba(21, 91, 74, 0.3), rgba(13, 61, 50, 0.2));
+  border-color: rgba(102, 232, 189, 0.42);
+}
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-lab:hover,
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-lab:focus-visible {
+  background: linear-gradient(135deg, rgba(34, 145, 116, 0.42), rgba(20, 93, 74, 0.3));
+  border-color: rgba(129, 245, 206, 0.78);
 }
 
 .course-open-link.course-open-link-lesson-2 {
-  background: linear-gradient(135deg, rgba(20, 87, 143, 0.32), rgba(8, 44, 92, 0.22));
-  border-color: rgba(92, 202, 255, 0.42);
-  color: #dff7ff;
+  color: #e4f9ff;
   box-shadow: 0 10px 24px rgba(7, 25, 49, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 .course-open-link.course-open-link-lesson-2 svg { color: #86ddff; }
 .course-open-link.course-open-link-lesson-2:hover,
 .course-open-link.course-open-link-lesson-2:focus-visible {
-  background: linear-gradient(135deg, rgba(36, 132, 214, 0.46), rgba(14, 78, 150, 0.32));
-  border-color: rgba(126, 221, 255, 0.82);
   color: #f4fcff;
   box-shadow: 0 16px 32px rgba(8, 46, 92, 0.32), 0 0 0 1px rgba(126, 221, 255, 0.18);
 }
-
+/* Μάθημα 2 · Θεωρία */
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-main {
+  background: linear-gradient(135deg, rgba(20, 87, 143, 0.32), rgba(8, 44, 92, 0.22));
+  border-color: rgba(92, 202, 255, 0.42);
+}
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-main:hover,
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-main:focus-visible {
+  background: linear-gradient(135deg, rgba(36, 132, 214, 0.46), rgba(14, 78, 150, 0.32));
+  border-color: rgba(126, 221, 255, 0.82);
+}
+/* Μάθημα 2 · Εργαστήριο */
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-lab {
+  background: linear-gradient(135deg, rgba(16, 104, 114, 0.32), rgba(8, 56, 82, 0.24));
+  border-color: rgba(98, 232, 248, 0.42);
+}
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-lab:hover,
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-lab:focus-visible {
+  background: linear-gradient(135deg, rgba(32, 150, 173, 0.46), rgba(10, 87, 126, 0.32));
+  border-color: rgba(133, 240, 255, 0.82);
+}
+/* Μάθημα 2 · Βάρδια Συνεργείου */
 .course-open-link.course-open-link-lesson-2.course-open-link-shift {
-  background: linear-gradient(135deg, rgba(25, 112, 172, 0.36), rgba(10, 62, 116, 0.26));
-  border-color: rgba(111, 227, 255, 0.5);
+  background: linear-gradient(135deg, rgba(24, 116, 162, 0.38), rgba(9, 63, 122, 0.28));
+  border-color: rgba(111, 227, 255, 0.52);
 }
 .course-open-link.course-open-link-lesson-2.course-open-link-shift:hover,
 .course-open-link.course-open-link-lesson-2.course-open-link-shift:focus-visible {
-  background: linear-gradient(135deg, rgba(52, 160, 224, 0.5), rgba(17, 94, 164, 0.34));
+  background: linear-gradient(135deg, rgba(52, 160, 224, 0.52), rgba(17, 94, 164, 0.36));
+  border-color: rgba(153, 235, 255, 0.88);
 }
-    </style>
+</style>
 
   </head>
   <body>
@@ -334,11 +368,11 @@
                 </div>
               </div>
               <div class="course-preview-actions">
-                <a class="course-open-link course-open-link-secondary course-open-link-lesson-1" href="eisagogiki-parousiasi.html">
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-1 course-open-link-lesson-1-presentation" href="eisagogiki-parousiasi.html">
                   Παρουσίαση Μαθήματος 1
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
-                <a class="course-open-link course-open-link-secondary course-open-link-lesson-1" href="ergastirio-eisagogis.html">
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-1 course-open-link-lesson-1-lab" href="ergastirio-eisagogis.html">
                   Εργαστήριο Μαθήματος 1
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
@@ -355,16 +389,16 @@
                 </div>
               </div>
               <div class="course-preview-actions">
-                <a class="course-open-link course-open-link-lesson-2" href="mathima-02.html?v=20261007-2">
+                <a class="course-open-link course-open-link-lesson-2 course-open-link-lesson-2-main" href="mathima-02.html?v=20261007-2">
                   Άνοιγμα μαθήματος
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
-                <a class="course-open-link course-open-link-secondary course-open-link-lesson-2" href="ergastirio-mathima-02.html?v=2">
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-lesson-2-lab" href="ergastirio-mathima-02.html?v=2">
                   Εργαστήριο Μαθήματος 2
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-shift" href="diagnostiki-vardia.html">
-                  Βάρδια Συνεργείου
+                  Μάθημα 2 · Βάρδια Συνεργείου
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
               </div>
