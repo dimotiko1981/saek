@@ -177,3 +177,68 @@
     margin-top:6px;
   }
 }
+
+
+/* PATCH 23: Η Ακαδημία στην ειδικότητα εμφανίζεται ως μια σειρά μαθημάτων. */
+.course-preview-stack .lesson-entry.lesson-entry-academy.academy-entry-link{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:1rem;
+  border-color:rgba(98,209,229,.36);
+  background:linear-gradient(110deg,rgba(26,93,117,.24),rgba(7,23,40,.76));
+  padding:1rem 1.1rem;
+}
+.course-preview-stack .academy-entry-link .academy-entry-actions{
+  flex:0 0 auto;
+}
+.course-preview-stack .academy-entry-link .academy-entry-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  width:clamp(190px,17vw,244px);
+  min-height:58px;
+  padding:10px 13px;
+  border:1px solid rgba(106,220,240,.5);
+  border-radius:12px;
+  color:#e6faff;
+  background:linear-gradient(125deg,rgba(23,117,141,.38),rgba(11,62,102,.34));
+  font-size:.79rem;
+  font-weight:800;
+  line-height:1.4;
+  box-shadow:inset 0 1px rgba(255,255,255,.045);
+  transition:transform .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;
+}
+.course-preview-stack .academy-entry-link .academy-entry-cta svg{
+  flex:0 0 17px;
+  width:17px;
+  stroke:currentColor;
+  stroke-width:2;
+  fill:none;
+  transition:transform .2s ease;
+}
+.course-preview-stack .academy-entry-link .academy-entry-cta:hover,
+.course-preview-stack .academy-entry-link .academy-entry-cta:focus-visible{
+  border-color:#9af2ff;
+  background:linear-gradient(125deg,rgba(36,145,179,.55),rgba(12,76,121,.5));
+  box-shadow:0 10px 25px rgba(43,217,254,.13);
+  transform:translateY(-2px);
+}
+.course-preview-stack .academy-entry-link .academy-entry-cta:hover svg{transform:translateX(3px)}
+.course-preview-stack .academy-entry-link .academy-entry-cta:focus-visible{outline:3px solid #f6df9a;outline-offset:3px}
+@media(max-width:900px){
+  .course-preview-stack .lesson-entry.lesson-entry-academy.academy-entry-link{
+    grid-template-columns:1fr;
+  }
+  .course-preview-stack .academy-entry-link .academy-entry-actions{justify-content:flex-start}
+}
+@media(max-width:650px){
+  .course-preview-stack .academy-entry-link .academy-entry-actions,
+  .course-preview-stack .academy-entry-link .academy-entry-cta{width:100%}
+  .course-preview-stack .academy-entry-link .academy-entry-cta{min-height:50px}
+}
+@media(prefers-reduced-motion:reduce){
+  .course-preview-stack .academy-entry-link .academy-entry-cta,
+  .course-preview-stack .academy-entry-link .academy-entry-cta svg{transition:none}
+}
