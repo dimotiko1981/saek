@@ -35,11 +35,19 @@
     .academy-directory .academy-section .academy-card{transition:transform .2s ease,border-color .2s ease}
     .academy-directory .academy-section .academy-card h2{font-family:Manrope,system-ui,sans-serif;font-size:clamp(1.15rem,2vw,1.58rem);font-weight:800;margin:18px 0 0;letter-spacing:-.02em;color:#fff}
     .academy-directory .academy-section .academy-card .academy-pending{display:block;margin-top:13px;padding:7px 12px;border:1px solid #426372;border-radius:100px;background:rgba(43,118,150,.1);font-size:.69rem;font-weight:700;color:#a6d7e5}
+    /* PATCH 30 · Μόνο η κάρτα Golf 8 γίνεται ενεργός σύνδεσμος. */
+    .academy-directory .academy-section .academy-card-available{border-color:rgba(94,216,238,.34)}
+    .academy-directory .academy-section .academy-card-available:hover{transform:translateY(-3px);border-color:rgba(130,235,249,.86);box-shadow:0 22px 42px rgba(0,0,0,.34),0 0 20px rgba(74,188,215,.09)}
+    .academy-directory .academy-section .academy-card-link{display:flex;flex:1;min-width:0;flex-direction:column;align-items:stretch;color:inherit;text-decoration:none;cursor:pointer;border-radius:20px}
+    .academy-directory .academy-section .academy-card-link:focus-visible{outline:3px solid #ffe0a0;outline-offset:7px}
+    .academy-directory .academy-section .academy-card-available .academy-card-info{flex:1}
+    .academy-directory .academy-section .academy-open{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;max-width:100%;margin:14px auto 0;padding:9px 13px;border:1px solid rgba(112,217,237,.56);border-radius:10px;background:rgba(38,146,183,.19);color:#c8f5ff;font-size:.78rem;font-weight:800;text-align:center;transition:background .2s,border-color .2s}
+    .academy-directory .academy-section .academy-card-link:hover .academy-open,.academy-directory .academy-section .academy-card-link:focus-visible .academy-open{border-color:#93eaff;background:rgba(50,171,206,.33)}
     .academy-directory .academy-note{display:flex;align-items:flex-start;justify-content:center;gap:10px;color:#91a7b5;font-size:.78rem;max-width:700px;margin:27px auto 0;text-align:center}
     .academy-directory .academy-footer{color:#8497a8;font-size:.75rem;text-align:center;border-top:1px solid var(--line);padding:27px 0 34px}
     @media(max-width:830px){.academy-directory .academy-section .academy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.academy-directory .academy-section .academy-card:last-child{grid-column:auto;max-width:none;width:auto}}
     @media(max-width:580px){.academy-shell{width:min(100% - 28px,1180px)}.academy-topbar{min-height:76px}.academy-brand{font-size:.79rem}.academy-brand-badge{width:38px;height:38px}.academy-brand small{font-size:.62rem}.academy-back{font-size:.72rem;padding:8px 10px;min-height:43px}.academy-directory .academy-section .academy-grid{grid-template-columns:1fr;gap:14px}.academy-directory .academy-section{padding:15px;margin:27px 0 45px}.academy-directory .academy-section .academy-card:last-child{grid-column:auto}.academy-directory .academy-section .academy-card h2{font-size:1.35rem}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.academy-directory .academy-section .academy-card,.academy-back{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.academy-directory .academy-section .academy-card,.academy-directory .academy-section .academy-open,.academy-back{transition:none}}
   </style>
 </head>
 <body class="academy-directory">
@@ -63,9 +71,11 @@
             <div class="academy-photo"><img src="assets/images/academy-yaris.webp?v=25" width="2244" height="1782" decoding="async" alt="Μπλε Toyota Yaris hatchback, εμπρός τρία τέταρτα" /></div>
             <div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris</h2><span class="academy-pending">Σε προετοιμασία</span></div>
           </article>
-          <article class="academy-card" aria-labelledby="academy-golf-title">
-            <div class="academy-photo"><img src="assets/images/academy-golf.webp?v=25" width="2244" height="1782" decoding="async" alt="Μπλε Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
-            <div class="academy-card-info"><h2 id="academy-golf-title">VW Golf 8</h2><span class="academy-pending">Σε προετοιμασία</span></div>
+          <article class="academy-card academy-card-available" aria-labelledby="academy-golf-title">
+            <a class="academy-card-link" href="akadimia-tablo-golf8.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Volkswagen Golf 8">
+              <div class="academy-photo"><img src="assets/images/academy-golf.webp?v=25" width="2244" height="1782" decoding="async" alt="Μπλε Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
+              <div class="academy-card-info"><h2 id="academy-golf-title">VW Golf 8</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div>
+            </a>
           </article>
           <article class="academy-card" aria-labelledby="academy-mercedes-title">
             <div class="academy-photo"><img src="assets/images/academy-mercedes.webp?v=25" width="2244" height="1782" decoding="async" alt="Μπλε Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div>
@@ -74,7 +84,7 @@
           <!-- Νέα οχήματα: προσθέτουμε μία νέα <article class="academy-card"> εδώ.
                Οι στήλες προσαρμόζονται αυτόματα, δεν αλλάζει η αρχική σελίδα. -->
         </div>
-        <p class="academy-note">Οι δραστηριότητες θα ενεργοποιούνται σταδιακά, μετά τον έλεγχο των λυχνιών και των πηγών κάθε κατασκευαστή.</p>
+        <p class="academy-note">Το Volkswagen Golf 8 είναι διαθέσιμο. Περισσότερα μοντέλα και δραστηριότητες θα προστεθούν σταδιακά.</p>
       </section>
     </main>
     <footer class="academy-footer">© <span id="academy-year"></span> EVAGELAK EDU LAB · Εκπαιδευτικό Υλικό ΣΑΕΚ</footer>
