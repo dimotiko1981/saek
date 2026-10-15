@@ -43,6 +43,9 @@
     .academy-directory .academy-section .academy-card-available .academy-card-info{flex:1}
     .academy-directory .academy-section .academy-open{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;max-width:100%;margin:14px auto 0;padding:9px 13px;border:1px solid rgba(112,217,237,.56);border-radius:10px;background:rgba(38,146,183,.19);color:#c8f5ff;font-size:.78rem;font-weight:800;text-align:center;transition:background .2s,border-color .2s}
     .academy-directory .academy-section .academy-card-link:hover .academy-open,.academy-directory .academy-section .academy-card-link:focus-visible .academy-open{border-color:#93eaff;background:rgba(50,171,206,.33)}
+    /* Honda Civic 2018: επιπλέον φωτογραφία και σαφής απόδοση δημιουργού. */
+    .academy-directory .academy-section .academy-photo-credit{margin:13px auto 0;max-width:760px;text-align:center;font-size:.68rem;line-height:1.6;color:#8e9baa}
+    .academy-directory .academy-section .academy-photo-credit a{color:#a6d8e5;text-decoration:underline;text-underline-offset:2px}
     .academy-directory .academy-note{display:flex;align-items:flex-start;justify-content:center;gap:10px;color:#91a7b5;font-size:.78rem;max-width:700px;margin:27px auto 0;text-align:center}
     .academy-directory .academy-footer{color:#8497a8;font-size:.75rem;text-align:center;border-top:1px solid var(--line);padding:27px 0 34px}
     @media(max-width:830px){.academy-directory .academy-section .academy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.academy-directory .academy-section .academy-card:last-child{grid-column:auto;max-width:none;width:auto}}
@@ -81,10 +84,15 @@
             <div class="academy-photo"><img src="assets/images/academy-mercedes.webp?v=25" width="2244" height="1782" decoding="async" alt="Μπλε Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div>
             <div class="academy-card-info"><h2 id="academy-mercedes-title">Mercedes W206</h2><span class="academy-pending">Σε προετοιμασία</span></div>
           </article>
+          <article class="academy-card academy-card-honda" aria-labelledby="academy-honda-title">
+            <div class="academy-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/2018_Honda_Civic_LX_Hatchback_in_Aegean_Blue_Metallic%2C_front_left%2C_2024-10-28.jpg/1280px-2018_Honda_Civic_LX_Hatchback_in_Aegean_Blue_Metallic%2C_front_left%2C_2024-10-28.jpg" width="1280" height="678" loading="lazy" decoding="async" referrerpolicy="no-referrer" alt="Γνήσια φωτογραφία μπλε Honda Civic 2018 hatchback, εμπρός αριστερά" /></div>
+            <div class="academy-card-info"><h2 id="academy-honda-title">Honda Civic 2018</h2><span class="academy-pending">Σε προετοιμασία</span></div>
+          </article>
           <!-- Νέα οχήματα: προσθέτουμε μία νέα <article class="academy-card"> εδώ.
                Οι στήλες προσαρμόζονται αυτόματα, δεν αλλάζει η αρχική σελίδα. -->
         </div>
         <p class="academy-note">Το Volkswagen Golf 8 είναι διαθέσιμο. Περισσότερα μοντέλα και δραστηριότητες θα προστεθούν σταδιακά.</p>
+        <p class="academy-photo-credit">Φωτογραφία Honda Civic: <a href="https://commons.wikimedia.org/wiki/File:2018_Honda_Civic_LX_Hatchback_in_Aegean_Blue_Metallic,_front_left,_2024-10-28.jpg" target="_blank" rel="noopener noreferrer">Elise240SX / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Η εικόνα προβάλλεται από το Wikimedia Commons χωρίς τροποποίηση.</p>
       </section>
     </main>
     <footer class="academy-footer">© <span id="academy-year"></span> EVAGELAK EDU LAB · Εκπαιδευτικό Υλικό ΣΑΕΚ</footer>
