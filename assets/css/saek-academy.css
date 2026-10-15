@@ -43,3 +43,137 @@
   .academy-section .academy-footnote{margin-top:21px;}
 }
 @media (prefers-reduced-motion:reduce){.academy-section{scroll-behavior:auto;}}
+
+/* PATCH 22: academy appears as the first, self-contained item INSIDE the specialty list.
+   No separate homepage section and no site-wide navigation entry. */
+.course-preview-stack .lesson-entry.lesson-entry-academy{
+  display:grid;
+  grid-template-columns:minmax(0,1fr);
+  gap:18px;
+  padding:clamp(16px,2.4vw,24px);
+  border:1px solid rgba(122,212,230,.34);
+  background:linear-gradient(125deg,rgba(17,55,73,.62),rgba(7,18,30,.83));
+  align-items:stretch;
+}
+.course-preview-stack .lesson-entry-academy .academy-entry-heading{
+  gap:13px;
+  align-items:center;
+}
+.course-preview-stack .lesson-entry-academy .academy-entry-heading small{
+  color:#84dff1;
+  font-size:.68rem;
+  letter-spacing:.12em;
+}
+.course-preview-stack .lesson-entry-academy .academy-entry-heading strong{
+  color:#f3fbff;
+  font-size:clamp(1.04rem,1.9vw,1.3rem);
+  letter-spacing:-.025em;
+  line-height:1.25;
+}
+.course-preview-stack .lesson-entry-academy .academy-entry-heading p{
+  margin:5px 0 0;
+  color:#a5bcca;
+  font-size:clamp(.72rem,1.1vw,.84rem);
+  line-height:1.55;
+}
+.course-preview-stack .lesson-entry-academy .academy-course-symbol{
+  width:50px;
+  height:50px;
+  border:1px solid rgba(105,214,241,.32);
+  background:linear-gradient(145deg,rgba(23,126,155,.27),rgba(18,75,119,.17));
+  color:#83e2f5;
+}
+.course-preview-stack .lesson-entry-academy .academy-course-symbol svg{
+  width:27px;
+  height:27px;
+}
+.course-preview-stack .lesson-entry-academy .academy-section{
+  min-width:0;
+  width:100%;
+  margin:0;
+  padding:clamp(14px,2.2vw,24px);
+  border:1px solid rgba(119,176,202,.19);
+  border-radius:19px;
+  box-shadow:none;
+  background:#0a0d12;
+  scroll-margin-top:20px;
+}
+.course-preview-stack .lesson-entry-academy .academy-grid{
+  gap:clamp(10px,1.5vw,17px);
+}
+.course-preview-stack .lesson-entry-academy .academy-card{
+  padding:clamp(9px,1.35vw,16px);
+  border-radius:clamp(14px,1.8vw,21px);
+}
+.course-preview-stack .lesson-entry-academy .academy-photo{
+  border-radius:clamp(11px,1.4vw,17px);
+}
+.course-preview-stack .lesson-entry-academy .academy-card h3{
+  font-size:clamp(.9rem,1.5vw,1.2rem);
+  margin:12px 0 0;
+}
+.course-preview-stack .lesson-entry-academy .academy-card .academy-level{
+  font-size:clamp(.84rem,1.2vw,1rem);
+  margin:6px 0 0;
+}
+.course-preview-stack .lesson-entry-academy .academy-card .academy-pending{
+  margin:10px 0 0;
+  font-size:.68rem;
+}
+.course-preview-stack .lesson-entry-academy .academy-footnote{
+  margin:15px auto 0;
+  font-size:.72rem;
+}
+@media(max-width:840px){
+  .course-preview-stack .lesson-entry-academy .academy-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+  .course-preview-stack .lesson-entry-academy .academy-card:last-child{
+    grid-column:auto;
+    max-width:none;
+    width:auto;
+  }
+}
+@media(max-width:650px){
+  .course-preview-stack .lesson-entry.lesson-entry-academy{
+    padding:13px;
+    gap:14px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-course-symbol{
+    width:42px;
+    height:42px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-course-symbol svg{
+    width:23px;
+    height:23px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-section{
+    padding:12px;
+    border-radius:13px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-grid{
+    grid-template-columns:1fr;
+    max-width:390px;
+    gap:11px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-card:last-child{
+    grid-column:auto;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-card{
+    padding:12px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-photo{
+    aspect-ratio:1.75/1;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-card h3{
+    font-size:1.08rem;
+    margin-top:9px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-card .academy-level{
+    font-size:.87rem;
+    margin-top:5px;
+  }
+  .course-preview-stack .lesson-entry-academy .academy-card .academy-pending{
+    margin-top:6px;
+  }
+}

@@ -236,7 +236,6 @@
         <nav class="main-nav" aria-label="Κύρια πλοήγηση">
           <a class="active" href="#top">Αρχική</a>
           <a href="#specialties">Ειδικότητες</a>
-          <a href="#academy">Ακαδημία</a>
         </nav>
 
         <a class="header-cta" href="#specialties">Προβολή υλικού</a>
@@ -360,6 +359,49 @@
           </article>
 
           <div class="course-preview course-preview-stack" id="specialty-preview" hidden>
+            <!-- ΑΚΑΔΗΜΙΑ: ξεχωριστό πλαίσιο ειδικότητας, πριν από το Μάθημα 1 -->
+            <article class="lesson-entry lesson-entry-academy" aria-labelledby="academy-title">
+              <div class="lesson-entry-main academy-entry-heading">
+                <span class="course-number academy-course-symbol" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 12 8.5 8.5M12 12l4-4M12 12v5"/><circle cx="12" cy="12" r="1.6"/></svg>
+                </span>
+                <div>
+                  <small>ΑΚΑΔΗΜΙΑ · ΔΙΑΔΡΑΣΤΙΚΗ ΕΚΠΑΙΔΕΥΣΗ</small>
+                  <strong id="academy-title">Ακαδημία Πινάκων Οργάνων</strong>
+                  <p>Γνώρισε τις προειδοποιητικές λυχνίες και εξασκήσου στη διαγνωστική σκέψη.</p>
+                </div>
+              </div>
+              <section class="academy-section" id="academy" aria-label="Οχήματα της Ακαδημίας">
+                <div class="academy-grid" aria-label="Οχήματα της Ακαδημίας">
+                <article class="academy-card" aria-labelledby="academy-yaris-title">
+                <div class="academy-photo"><img src="assets/images/academy-yaris.webp" width="748" height="594" loading="lazy" decoding="async" alt="Μπλε Toyota Yaris hatchback, εμπρός τρία τέταρτα" /></div>
+                <div class="academy-card-info">
+                <h3 id="academy-yaris-title">Toyota Yaris</h3>
+                <p class="academy-level">Βασικό</p>
+                <p class="academy-pending">Σε προετοιμασία</p>
+                </div>
+                </article>
+                <article class="academy-card" aria-labelledby="academy-golf-title">
+                <div class="academy-photo"><img src="assets/images/academy-golf.webp" width="748" height="594" loading="lazy" decoding="async" alt="Μπλε Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
+                <div class="academy-card-info">
+                <h3 id="academy-golf-title">VW Golf 8</h3>
+                <p class="academy-level">Μεσαίο</p>
+                <p class="academy-pending">Σε προετοιμασία</p>
+                </div>
+                </article>
+                <article class="academy-card" aria-labelledby="academy-mercedes-title">
+                <div class="academy-photo"><img src="assets/images/academy-mercedes.webp" width="748" height="594" loading="lazy" decoding="async" alt="Μπλε Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div>
+                <div class="academy-card-info">
+                <h3 id="academy-mercedes-title">Mercedes W206</h3>
+                <p class="academy-level">Προχωρημένο</p>
+                <p class="academy-pending">Σε προετοιμασία</p>
+                </div>
+                </article>
+                </div>
+                <p class="academy-footnote">Οι κάρτες λειτουργούν προς το παρόν ως κατάλογος οχημάτων. Θα ενεργοποιηθούν όταν ολοκληρώσουμε τις αντίστοιχες δραστηριότητες.</p>
+              </section>
+            </article>
+
             <article class="lesson-entry lesson-entry-intro">
               <div class="lesson-entry-main">
                 <span class="course-number course-number-intro" aria-hidden="true">1</span>
@@ -408,41 +450,6 @@
           </div>
         </section>
 
-        <!-- ΑΚΑΔΗΜΙΑ ΠΙΝΑΚΩΝ ΟΡΓΑΝΩΝ | PATCH 21: ΜΟΝΟ ΔΙΑΤΑΞΗ, ΧΩΡΙΣ ΣΥΝΔΕΣΜΟΥΣ ΑΣΚΗΣΕΩΝ -->
-        <section class="academy-section" id="academy" aria-labelledby="academy-title">
-          <div class="academy-header">
-            <div class="academy-kicker"><span aria-hidden="true"></span> ΔΙΑΔΡΑΣΤΙΚΗ ΕΚΠΑΙΔΕΥΣΗ</div>
-            <h2 id="academy-title">Ακαδημία Πινάκων Οργάνων</h2>
-            <p>Διάλεξε όχημα, γνώρισε τις λυχνίες του και εξασκήσου στη διαγνωστική σκέψη. Οι εφαρμογές θα προστεθούν σταδιακά.</p>
-          </div>
-          <div class="academy-grid" aria-label="Οχήματα της Ακαδημίας">
-            <article class="academy-card" aria-labelledby="academy-yaris-title">
-              <div class="academy-photo"><img src="assets/images/academy-yaris.webp" width="748" height="594" loading="lazy" decoding="async" alt="Μπλε Toyota Yaris hatchback, εμπρός τρία τέταρτα" /></div>
-              <div class="academy-card-info">
-                <h3 id="academy-yaris-title">Toyota Yaris</h3>
-                <p class="academy-level">Βασικό</p>
-                <p class="academy-pending">Σε προετοιμασία</p>
-              </div>
-            </article>
-            <article class="academy-card" aria-labelledby="academy-golf-title">
-              <div class="academy-photo"><img src="assets/images/academy-golf.webp" width="748" height="594" loading="lazy" decoding="async" alt="Μπλε Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
-              <div class="academy-card-info">
-                <h3 id="academy-golf-title">VW Golf 8</h3>
-                <p class="academy-level">Μεσαίο</p>
-                <p class="academy-pending">Σε προετοιμασία</p>
-              </div>
-            </article>
-            <article class="academy-card" aria-labelledby="academy-mercedes-title">
-              <div class="academy-photo"><img src="assets/images/academy-mercedes.webp" width="748" height="594" loading="lazy" decoding="async" alt="Μπλε Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div>
-              <div class="academy-card-info">
-                <h3 id="academy-mercedes-title">Mercedes W206</h3>
-                <p class="academy-level">Προχωρημένο</p>
-                <p class="academy-pending">Σε προετοιμασία</p>
-              </div>
-            </article>
-          </div>
-          <p class="academy-footnote">Οι κάρτες λειτουργούν προς το παρόν ως κατάλογος οχημάτων. Θα ενεργοποιηθούν όταν ολοκληρώσουμε τις αντίστοιχες δραστηριότητες.</p>
-        </section>
 
       </main>
 
