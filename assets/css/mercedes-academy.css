@@ -36,3 +36,15 @@
 .detail h2{font-size:19px}
 .icon-frame.adblue-illustration{--indicator:#f6f6f6;--glow:#eeeeee2a}
 @media(max-width:650px){.lamp{min-height:144px;padding-inline:6px}.lamp .icon-frame{width:51px;height:51px}}
+
+/* Πιστά σύμβολα από το PDF του χρήστη. Χωρίς γενικά σχεδιασμένα SVG. */
+.icon-frame .oem-icon.verified-manual{filter:none!important;object-fit:contain;width:100%;height:100%;position:static;display:block}
+.icon-frame.text-only{filter:none!important;border:1px dashed #637d90!important;color:#cddae7!important;background:transparent!important}
+.manual-text-fallback{font-size:8px;line-height:1.2;text-align:center;font-weight:900;letter-spacing:.02em;white-space:normal;overflow-wrap:anywhere}
+.detail .manual-text-fallback{font-size:9px}
+
+/* Πιστά σύμβολα από το PDF του χρήστη. Χωρίς γενικά σχεδιασμένα SVG. */
+.icon-frame .oem-icon.verified-manual{filter:none!important;object-fit:contain;width:100%;height:100%;position:static;display:block}
+.icon-frame.text-only{filter:none!important;border:1px dashed #637d90!important;color:#cddae7!important;background:transparent!important}
+.manual-text-fallback{font-size:8px;line-height:1.2;text-align:center;font-weight:900;letter-spacing:.02em;white-space:normal;overflow-wrap:anywhere}
+.detail .manual-text-fallback{font-size:9px}
