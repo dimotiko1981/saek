@@ -35,28 +35,18 @@
     .academy-directory .academy-section .academy-card{transition:transform .2s ease,border-color .2s ease}
     .academy-directory .academy-section .academy-card h2{font-family:Manrope,system-ui,sans-serif;font-size:clamp(1.15rem,2vw,1.58rem);font-weight:800;margin:18px 0 0;letter-spacing:-.02em;color:#fff}
     .academy-directory .academy-section .academy-card .academy-pending{display:block;margin-top:13px;padding:7px 12px;border:1px solid #426372;border-radius:100px;background:rgba(43,118,150,.1);font-size:.69rem;font-weight:700;color:#a6d7e5}
-    /* PATCH 30 · Μόνο η κάρτα Golf 8 γίνεται ενεργός σύνδεσμος. */
     .academy-directory .academy-section .academy-card-available{border-color:rgba(94,216,238,.34)}
     .academy-directory .academy-section .academy-card-available:hover{transform:translateY(-3px);border-color:rgba(130,235,249,.86);box-shadow:0 22px 42px rgba(0,0,0,.34),0 0 20px rgba(74,188,215,.09)}
-    .academy-directory .academy-section .academy-card-link{display:flex;flex:1;min-width:0;flex-direction:column;align-items:stretch;color:inherit;text-decoration:none;cursor:pointer;border-radius:20px}
+    .academy-directory .academy-section .academy-card{height:100%}
+    .academy-directory .academy-section .academy-card-link{display:flex;flex:1;min-width:0;flex-direction:column;align-items:stretch;color:inherit;text-decoration:none;cursor:pointer;border-radius:20px;height:100%}
     .academy-directory .academy-section .academy-card-link:focus-visible{outline:3px solid #ffe0a0;outline-offset:7px}
-    .academy-directory .academy-section .academy-card-available .academy-card-info{flex:1}
+    .academy-directory .academy-section .academy-card-info{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:space-between}
+    .academy-directory .academy-section .academy-card h2{min-height:3.1rem;display:flex;align-items:flex-start;justify-content:center;text-align:center;line-height:1.22}
+    .academy-directory .academy-section .academy-photo{background:#fff;padding:12px;border:1px solid rgba(11,20,30,.08)}
+    .academy-directory .academy-section .academy-photo img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
     .academy-directory .academy-section .academy-open{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;max-width:100%;margin:14px auto 0;padding:9px 13px;border:1px solid rgba(112,217,237,.56);border-radius:10px;background:rgba(38,146,183,.19);color:#c8f5ff;font-size:.78rem;font-weight:800;text-align:center;transition:background .2s,border-color .2s}
     .academy-directory .academy-section .academy-card-link:hover .academy-open,.academy-directory .academy-section .academy-card-link:focus-visible .academy-open{border-color:#93eaff;background:rgba(50,171,206,.33)}
-    /* Golf 8: ολόκληρη η φωτογραφία, χωρίς περικοπή στο πίσω μέρος. */
-    .academy-directory .academy-section .academy-card-yaris .academy-photo{background:#fff}
-    .academy-directory .academy-section .academy-card-yaris .academy-photo img{object-fit:contain;object-position:center center}
-    .academy-directory .academy-section .academy-card-golf .academy-photo{background:#9095a0}
-    .academy-directory .academy-section .academy-card-golf .academy-photo img{object-fit:contain;object-position:center center}
-    /* Η φωτογραφία Clio είναι πανοραμική: ολόκληρο το όχημα χωρίς περικοπή. */
-    .academy-directory .academy-section .academy-card-clio .academy-photo{background:#f9f9f9}
-    .academy-directory .academy-section .academy-card-clio .academy-photo img{object-fit:contain}
-    /* Honda Civic: ολόκληρη η φωτογραφία χωρίς περικοπή. */
-    .academy-directory .academy-section .academy-card-honda .academy-photo{background:#fff}
-    .academy-directory .academy-section .academy-card-honda .academy-photo img{object-fit:contain}
-    .academy-directory .academy-section .academy-card-mercedes .academy-photo{background:#fff}
-    .academy-directory .academy-section .academy-card-mercedes .academy-photo img{object-fit:contain;object-position:center center}
-    /* Honda Civic 2018: επιπλέον φωτογραφία και σαφής απόδοση δημιουργού. */
+    .academy-directory .academy-section .academy-pending{margin-inline:auto}
     .academy-directory .academy-section .academy-photo-credit{margin:13px auto 0;max-width:760px;text-align:center;font-size:.68rem;line-height:1.6;color:#8e9baa}
     .academy-directory .academy-section .academy-photo-credit a{color:#a6d8e5;text-decoration:underline;text-underline-offset:2px}
     .academy-directory .academy-note{display:flex;align-items:flex-start;justify-content:center;gap:10px;color:#91a7b5;font-size:.78rem;max-width:700px;margin:27px auto 0;text-align:center}
@@ -83,10 +73,10 @@
       </div>
       <section class="academy-section" aria-label="Κατάλογος οχημάτων της Ακαδημίας">
         <div class="academy-grid">
-          <article class="academy-card academy-card-available academy-card-yaris" aria-labelledby="academy-yaris-title"><a class="academy-card-link" href="akadimia-tablo-toyota-yaris-2023.html" aria-label="Άνοιγμα δραστηριότητας Toyota Yaris Hybrid"><div class="academy-photo"><img src="assets/images/academy-yaris-productshot.webp?v=3" width="1280" height="1000" style="object-fit:contain;object-position:center center" decoding="async" alt="Μπλε Toyota Yaris Hybrid 130, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
+          <article class="academy-card academy-card-available academy-card-yaris" aria-labelledby="academy-yaris-title"><a class="academy-card-link" href="akadimia-tablo-toyota-yaris-2023.html" aria-label="Άνοιγμα δραστηριότητας Toyota Yaris Hybrid"><div class="academy-photo"><img src="assets/images/academy-yaris-productshot.webp?v=3" width="1280" height="1000" loading="lazy" decoding="async" alt="Μπλε Toyota Yaris Hybrid 130, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
           <article class="academy-card academy-card-available academy-card-golf" aria-labelledby="academy-golf-title">
             <a class="academy-card-link" href="akadimia-tablo-golf8.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Volkswagen Golf 8">
-              <div class="academy-photo"><img src="assets/images/academy-golf-user.png?v=4" width="1419" height="1108" style="object-fit:contain;object-position:center" decoding="async" alt="Λευκό Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
+              <div class="academy-photo"><img src="assets/images/academy-golf-user.png?v=4" width="1419" height="1108" loading="lazy" decoding="async" alt="Λευκό Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
               <div class="academy-card-info"><h2 id="academy-golf-title">VW Golf 8</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div>
             </a>
           </article>
@@ -98,18 +88,18 @@
           </article>
           <article class="academy-card academy-card-available academy-card-clio" aria-labelledby="academy-clio-title">
             <a class="academy-card-link" href="akadimia-tablo-renault-clio-2024.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Renault Clio 2024">
-              <div class="academy-photo"><img src="assets/images/academy-clio-productshot.webp?v=3" width="1280" height="1000" style="object-fit:contain;object-position:center center" loading="lazy" decoding="async" alt="Μεταλλικό γκρι Renault Clio σε λευκό φόντο, ολόκληρο το αυτοκίνητο σε λήψη εμπρός τρία τέταρτα" /></div>
+              <div class="academy-photo"><img src="assets/images/academy-clio-productshot.webp?v=3" width="1280" height="1000" loading="lazy" decoding="async" alt="Μεταλλικό γκρι Renault Clio σε λευκό φόντο, ολόκληρο το αυτοκίνητο σε λήψη εμπρός τρία τέταρτα" /></div>
               <div class="academy-card-info"><h2 id="academy-clio-title">Renault Clio 2024</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div>
             </a>
           </article>
           <article class="academy-card academy-card-mercedes" aria-labelledby="academy-mercedes-title">
-            <div class="academy-photo"><img src="assets/images/academy-mercedes-productshot.png?v=1" width="1280" height="1000" style="object-fit:contain;object-position:center center" decoding="async" alt="Ασημί Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div>
+            <div class="academy-photo"><img src="assets/images/academy-mercedes-productshot.png?v=1" width="1280" height="1000" loading="lazy" decoding="async" alt="Ασημί Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div>
             <div class="academy-card-info"><h2 id="academy-mercedes-title">Mercedes W206</h2><span class="academy-pending">Σε προετοιμασία</span></div>
           </article>
           <!-- Νέα οχήματα: προσθέτουμε μία νέα <article class="academy-card"> εδώ.
                Οι στήλες προσαρμόζονται αυτόματα, δεν αλλάζει η αρχική σελίδα. -->
         </div>
-        <p class="academy-note">Τα VW Golf 8, Honda Civic 2018 και Renault Clio 2024 είναι διαθέσιμα. Περισσότερα μοντέλα και δραστηριότητες θα προστεθούν σταδιακά.</p>
+        <p class="academy-note">Διαθέσιμα αυτή τη στιγμή: Toyota Yaris, VW Golf 8, Honda Civic 2018 και Renault Clio 2024. Η Mercedes W206 παραμένει σε προετοιμασία.</p>
       </section>
     </main>
     <footer class="academy-footer">© <span id="academy-year"></span> EVAGELAK EDU LAB · Εκπαιδευτικό Υλικό ΣΑΕΚ</footer>
