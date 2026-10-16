@@ -1,0 +1,115 @@
+﻿Α/Α,ID,Ένδειξη / μήνυμα,Τύπος,Χρώμα εφαρμογής,Σελίδα εγχειριδίου,Αρχείο εικόνας,Απεικόνιση
+1,restraint,SRS – σύστημα συγκράτησης,lamp,red,952,mercedes-oem-verified-2023/restraint.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+2,belt,Ζώνη ασφαλείας,lamp,red,953,mercedes-oem-verified-2023/belt.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+3,presence-white,Υπενθύμιση παρουσίας – λευκή,lamp,info,954,mercedes-oem-verified-2023/presence-white.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+4,presence-yellow,Υπενθύμιση παρουσίας – κίτρινη,lamp,amber,954,mercedes-oem-verified-2023/presence-yellow.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+5,power-reduced,Χελώνα – περιορισμένη ισχύς κίνησης,lamp,amber,954,mercedes-oem-verified-2023/power-reduced.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+6,system-error,Σφάλμα συστήματος κίνησης,lamp,red,954,mercedes-oem-verified-2023/system-error.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+7,electrical,Ηλεκτρική βλάβη,lamp,red,954,mercedes-oem-verified-2023/electrical.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+8,trailer,Κοτσαδόρος – βλάβη,lamp,red,955,mercedes-oem-verified-2023/trailer.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+9,steering-yellow,Υποβοήθηση τιμονιού – κίτρινη,lamp,amber,955,mercedes-oem-verified-2023/steering-yellow.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+10,steering-red,Υποβοήθηση τιμονιού – κόκκινη,lamp,red,955,mercedes-oem-verified-2023/steering-red.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+11,rearsteer-yellow,Πίσω διεύθυνση – κίτρινη,lamp,amber,956,mercedes-oem-verified-2023/rearsteer-yellow.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+12,rearsteer-red,Πίσω διεύθυνση — STOP άμεσα (μήνυμα),message,red,908,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+13,coolant-red,Θερμοκρασία ψυκτικού – κόκκινη,lamp,red,956,mercedes-oem-verified-2023/coolant-red.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+14,coolant-yellow,Θερμοκρασία ψυκτικού – κίτρινη,lamp,amber,958,mercedes-oem-verified-2023/coolant-yellow.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+15,mil,Έλεγχος κινητήρα – Engine Diagnostics,lamp,amber,958,mercedes-oem-verified-2023/mil.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+16,fuel,Εφεδρεία καυσίμου,lamp,amber,959,mercedes-oem-verified-2023/fuel.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+17,parking-yellow,Ηλεκτρικό χειρόφρενο – κίτρινο,lamp,amber,959,mercedes-oem-verified-2023/parking-yellow.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+18,brakes-yellow,Σύστημα φρένων – κίτρινη,lamp,amber,959,mercedes-oem-verified-2023/brakes-yellow.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+19,brakes-red,Σύστημα φρένων – κόκκινη,lamp,red,960,mercedes-oem-verified-2023/brakes-red.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+20,abs,ABS,lamp,amber,961,mercedes-oem-verified-2023/abs.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+21,esp-solid,ESP – μόνιμα αναμμένο,lamp,amber,962,mercedes-oem-verified-2023/esp-solid.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+22,attention,ATTENTION ASSIST,lamp,info,965,mercedes-oem-verified-2023/attention.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+23,traffic-sign,Traffic Sign Assist – βλάβη,lamp,info,965,mercedes-oem-verified-2023/traffic-sign.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+24,speed-limit,Speed Limit Assist – βλάβη,lamp,info,965,mercedes-oem-verified-2023/speed-limit.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+25,distance,Προειδοποίηση απόστασης,lamp,red,965,mercedes-oem-verified-2023/distance.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+26,active-brake-unavailable,Active Brake Assist – μη διαθέσιμο,lamp,info,965,mercedes-oem-verified-2023/active-brake-unavailable.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+27,active-brake-off,Active Brake Assist – απενεργοποιημένο,lamp,info,965,mercedes-oem-verified-2023/active-brake-off.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+28,active-brake-learn,Active Brake Assist – προσαρμογή,lamp,info,966,mercedes-oem-verified-2023/active-brake-learn.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+29,rear-level,Ρύθμιση ύψους πίσω άξονα,lamp,amber,966,mercedes-oem-verified-2023/rear-level.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+30,ecall,Mercedes-Benz Emergency Call,lamp,info,967,mercedes-oem-verified-2023/ecall.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+31,tpms-solid,TPMS – χαμηλή πίεση,lamp,amber,967,mercedes-oem-verified-2023/tpms-solid.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+32,tpms-blink,TPMS – αναβοσβήνει,lamp,amber,967,mercedes-oem-verified-2023/tpms-blink.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+33,engine-blue,Μπλε κινητήρας με θερμόμετρο – κρύος κινητήρας,status,blue,958,mercedes-oem-verified-2023/engine-blue.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+34,preglow,Προθέρμανση diesel,status,amber,951,mercedes-oem-verified-2023/preglow-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+35,parking-red,Ηλεκτρικό χειρόφρενο – κόκκινο,status,red,959,mercedes-oem-verified-2023/parking-red.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+36,esp-flash,ESP – αναβοσβήνει,status,amber,962,mercedes-oem-verified-2023/esp-flash.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+37,esp-off,ESP OFF,status,amber,963,mercedes-oem-verified-2023/esp-off.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+38,esp-sport,ESP SPORT,status,amber,964,mercedes-oem-verified-2023/esp-sport.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+39,drift,DRIFT MODE,status,amber,966,mercedes-oem-verified-2023/drift.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+40,sidelights,Φώτα θέσης,status,green,290,mercedes-oem-verified-2023/sidelights-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+41,lowbeam,Φώτα διασταύρωσης,status,green,290,mercedes-oem-verified-2023/lowbeam-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+42,highbeam,Μεγάλη σκάλα,status,blue,291,mercedes-oem-verified-2023/highbeam-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+43,turn,Φλας,status,green,291,mercedes-oem-verified-2023/turn-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+44,rearfog,Πίσω φως ομίχλης,status,amber,290,mercedes-oem-verified-2023/rearfog-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+45,distronic,DISTRONIC – ενεργό,status,info,540,mercedes-oem-verified-2023/distronic-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+46,cruise,Cruise control,status,info,540,mercedes-oem-verified-2023/cruise-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+47,limiter,Περιοριστής ταχύτητας,status,info,540,mercedes-oem-verified-2023/limiter-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+48,steer-assist,Active Steering Assist,status,info,540,mercedes-oem-verified-2023/steer-assist-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+49,lane-keeping,Active Lane Keeping Assist,status,info,540,mercedes-oem-verified-2023/lane-keeping-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+50,parking-available,Active Parking Assist – διαθέσιμο,status,info,540,mercedes-oem-verified-2023/parking-available-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+51,parking-found,Θέση στάθμευσης εντοπίστηκε,status,info,540,mercedes-oem-verified-2023/parking-found-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+52,parktronic-off,PARKTRONIC – απενεργοποιημένο,status,info,540,mercedes-oem-verified-2023/parktronic-off-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+53,hold,HOLD – ενεργό,status,info,540,mercedes-oem-verified-2023/hold-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+54,eco-startstop,ECO Start/Stop,status,info,540,mercedes-oem-verified-2023/eco-startstop-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+55,e-drive,Plug-in hybrid – ηλεκτρική λειτουργία,status,info,540,mercedes-oem-verified-2023/e-drive-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+56,power-recuperation,Ανάκτηση ενέργειας,status,info,539,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+57,eco48,Υποβοήθηση 48 V,status,info,538,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+58,blindspot,Blind Spot Assist – κατάσταση,status,info,540,mercedes-oem-verified-2023/blindspot-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+59,stopandgo,Active Stop-and-Go Assist,status,info,541,mercedes-oem-verified-2023/stopandgo-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+60,speed-sign,Αναγνωρισμένο όριο ταχύτητας,status,info,541,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+61,slippery,Ολισθηρό οδόστρωμα,status,info,541,mercedes-oem-verified-2023/slippery-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+62,amg-temp-blue,AMG – μπλε θερμοκρασία λειτουργίας,status,blue,958,mercedes-oem-verified-2023/amg-temp-blue.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+63,esp-off-alt,ESP OFF – εναλλακτικό σύμβολο AMG,status,amber,964,mercedes-oem-verified-2023/esp-off-alt.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+64,turn-left,Φλας αριστερά,status,green,291,mercedes-oem-verified-2023/turn-left-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+65,turn-right,Φλας δεξιά,status,green,291,mercedes-oem-verified-2023/turn-right-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+66,driveaway,Drive Away Assist – προειδοποίηση,status,info,952,mercedes-oem-verified-2023/driveaway-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+67,rear-cross,Rear Cross Traffic – ειδοποίηση,status,info,952,mercedes-oem-verified-2023/rear-cross-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+68,maneuver-brake,Manoeuvring Brake – ένδειξη,status,info,952,mercedes-oem-verified-2023/maneuver-brake-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+69,pedestrian-status,Αναγνώριση πεζού (στην οθόνη Assist),status,info,540,mercedes-oem-verified-2023/pedestrian-status-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+70,distronic-distance,DISTRONIC – επιλεγμένη απόσταση,status,info,540,mercedes-oem-verified-2023/distronic-distance-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+71,aeb-status-off,Active Brake Assist – απενεργοποιημένο (status),status,info,540,mercedes-oem-verified-2023/aeb-status-off-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+72,aeb-status-impaired,Active Brake Assist – περιορισμένο (status),status,info,540,mercedes-oem-verified-2023/aeb-status-impaired-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+73,lane-change,Active Lane Change Assist – κατάσταση,status,info,540,mercedes-oem-verified-2023/lane-change-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+74,blindspot-basic,Blind Spot Assist – ένδειξη,status,info,540,mercedes-oem-verified-2023/blindspot-basic-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+75,haptic-gas,Haptic accelerator – ειδοποίηση,status,info,540,mercedes-oem-verified-2023/haptic-gas-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+76,adaptive-beam,Adaptive Highbeam Assist – κατάσταση,status,info,540,mercedes-oem-verified-2023/adaptive-beam-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+77,adaptive-beam-plus,Adaptive Highbeam Assist Plus – κατάσταση,status,info,540,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+78,maxspeed,Υπέρβαση μέγιστης επιτρεπτής ταχύτητας,status,info,540,mercedes-oem-verified-2023/maxspeed-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+79,amg-engine-temp,AMG – κατάσταση θερμοκρασίας,status,info,543,mercedes-oem-verified-2023/amg-engine-temp-status.png,Απομόνωση συμβόλου από το εγχειρίδιο· το χρώμα ορίζεται από τον κατάλογο.
+80,eco-startstop-unavailable,ECO Start/Stop – προσωρινά μη διαθέσιμο,status,info,348,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+81,adblue-diesel-message,AdBlue – σύμβολο αναπλήρωσης (όχι μπλε λυχνία),message,info,945–947,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+82,oil-pressure,Χαμηλή πίεση λαδιού – STOP,message,red,949,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+83,oil-low,Στάθμη λαδιού – πολύ χαμηλή,message,red,948,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+84,oil-add,Στάθμη λαδιού – συμπλήρωση 1 λίτρου,message,amber,947,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+85,oil-high,Στάθμη λαδιού – υπερβολικά υψηλή,message,amber,948,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+86,oil-sensor,Δεν είναι δυνατή η μέτρηση λαδιού,message,amber,949,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+87,oil-diesel-quality,Πετρέλαιο – ποιότητα λαδιού / αλλαγή,message,amber,949,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+88,adblue-low,AdBlue – χαμηλή στάθμη,message,amber,945,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+89,adblue-limp,AdBlue – επικείμενος περιορισμός ισχύος,message,amber,945,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+90,adblue-empty,AdBlue – αδυναμία επανεκκίνησης,message,red,946,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+91,adblue-fault,AdBlue – δυσλειτουργία συστήματος SCR,message,amber,946,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+92,adblue-plug-electric,Plug-in diesel – μόνο ηλεκτρική κίνηση λόγω AdBlue,message,amber,947,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+93,48v-low,48 V – χαμηλή φόρτιση,message,amber,940,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+94,12v-service,Δίκτυο 12 V – επίσκεψη σε συνεργείο,message,amber,939,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+95,12v-charge,12 V – σταματήστε / αφήστε σε λειτουργία,message,amber,940,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+96,hv-hot,Υψηλή τάση – μπαταρία υπερθερμάνθηκε,message,red,897,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+97,hv-fault,Υψηλή τάση – βλάβη συστήματος,message,red,897,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+98,hv-prep,Plug-in – έλεγχος μόνωσης στην εκκίνηση,message,info,897,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+99,ev-reduced,Plug-in – μειωμένη απόδοση συστήματος κίνησης,message,amber,896,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+100,ev-only-emptyfuel,Plug-in – μόνο ηλεκτρικά λόγω άδειου ρεζερβουάρ,message,amber,896,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+101,ev-unavailable,Plug-in – πρόγραμμα Electric προσωρινά μη διαθέσιμο,message,info,896,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+102,ev-charging-cable,Plug-in – καλώδιο φόρτισης συνδεδεμένο,message,info,895,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+103,ev-charge-fail,Plug-in – βλάβη φόρτισης AC/DC,message,amber,895–896,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+104,hybrid-climate-low,Plug-in – προκλιματισμός μη διαθέσιμος,message,info,894,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+105,ebd-abs,EBD / ABS – σύνθετη βλάβη πέδησης,message,red,922–925,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+106,park-brake-message,Χειρόφρενο – δυσλειτουργία / απελευθέρωση,message,amber,917–919,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+107,transmission-stop,Μετάδοση – σταματήστε/επανεκκινήστε,message,red,916,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+108,door-open,Πόρτα ανοικτή,message,amber,909,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+109,light-fail,Εξωτερικός φωτισμός – δυσλειτουργία,message,amber,887–893,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+110,cluster-lamp-fail,Λυχνία Driver Display – μη λειτουργική,message,amber,893,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+111,key-battery,Κλειδί – χαμηλή μπαταρία,message,amber,885–886,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+112,tyre-radio,TPMS – προσωρινά μη διαθέσιμο,message,amber,944,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+113,tyre-hot,Ελαστικό – υπερθέρμανση,message,red,945,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.
+114,drive-assist-unavailable,ADAS – προσωρινά μη διαθέσιμο,message,info,928–938,,Μόνο περιγραφή· δεν χρησιμοποιείται επινοημένο σύμβολο.

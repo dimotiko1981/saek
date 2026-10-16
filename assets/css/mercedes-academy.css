@@ -48,3 +48,10 @@
 .icon-frame.text-only{filter:none!important;border:1px dashed #637d90!important;color:#cddae7!important;background:transparent!important}
 .manual-text-fallback{font-size:8px;line-height:1.2;text-align:center;font-weight:900;letter-spacing:.02em;white-space:normal;overflow-wrap:anywhere}
 .detail .manual-text-fallback{font-size:9px}
+
+/* Πιστά σύμβολα Mercedes από PDF και σαφή θέματα κειμενικών μηνυμάτων */
+.icon-frame .oem-icon.verified-manual{object-fit:contain;filter:none!important}
+.icon-frame.text-only.descriptive-label{width:100%;min-width:48px;max-width:66px;background:rgba(15,37,52,.85)!important;border:1px solid #526b7c!important;filter:none!important;border-radius:10px;padding:4px}
+.manual-text-fallback{font-size:8px!important;font-weight:750;letter-spacing:0;line-height:1.22;overflow-wrap:anywhere;hyphens:auto;color:#c2dce6}
+.detail .icon-frame.text-only.descriptive-label{width:86px;max-width:86px;height:76px;padding:7px}
+.detail .manual-text-fallback{font-size:10px!important}
