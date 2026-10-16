@@ -44,6 +44,8 @@
     .academy-directory .academy-section .academy-open{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;max-width:100%;margin:14px auto 0;padding:9px 13px;border:1px solid rgba(112,217,237,.56);border-radius:10px;background:rgba(38,146,183,.19);color:#c8f5ff;font-size:.78rem;font-weight:800;text-align:center;transition:background .2s,border-color .2s}
     .academy-directory .academy-section .academy-card-link:hover .academy-open,.academy-directory .academy-section .academy-card-link:focus-visible .academy-open{border-color:#93eaff;background:rgba(50,171,206,.33)}
     /* Golf 8: ολόκληρη η φωτογραφία, χωρίς περικοπή στο πίσω μέρος. */
+    .academy-directory .academy-section .academy-card-yaris .academy-photo{background:#fff}
+    .academy-directory .academy-section .academy-card-yaris .academy-photo img{object-fit:contain;object-position:center center}
     .academy-directory .academy-section .academy-card-golf .academy-photo{background:#9095a0}
     .academy-directory .academy-section .academy-card-golf .academy-photo img{object-fit:contain;object-position:center center}
     /* Η φωτογραφία Clio είναι πανοραμική: ολόκληρο το όχημα χωρίς περικοπή. */
@@ -79,7 +81,7 @@
       </div>
       <section class="academy-section" aria-label="Κατάλογος οχημάτων της Ακαδημίας">
         <div class="academy-grid">
-          <article class="academy-card academy-card-available" aria-labelledby="academy-yaris-title"><a class="academy-card-link" href="akadimia-tablo-toyota-yaris-2023.html" aria-label="Άνοιγμα δραστηριότητας Toyota Yaris Hybrid"><div class="academy-photo"><img src="assets/images/academy-yaris-user.jpg?v=2" width="554" height="419" decoding="async" alt="Μπλε Toyota Yaris Hybrid 130, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
+          <article class="academy-card academy-card-available academy-card-yaris" aria-labelledby="academy-yaris-title"><a class="academy-card-link" href="akadimia-tablo-toyota-yaris-2023.html" aria-label="Άνοιγμα δραστηριότητας Toyota Yaris Hybrid"><div class="academy-photo"><img src="assets/images/academy-yaris-productshot.webp?v=3" width="1280" height="1000" style="object-fit:contain;object-position:center center" decoding="async" alt="Μπλε Toyota Yaris Hybrid 130, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
           <article class="academy-card academy-card-available academy-card-golf" aria-labelledby="academy-golf-title">
             <a class="academy-card-link" href="akadimia-tablo-golf8.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Volkswagen Golf 8">
               <div class="academy-photo"><img src="assets/images/academy-golf-user.png?v=4" width="1419" height="1108" style="object-fit:contain;object-position:center" decoding="async" alt="Λευκό Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
