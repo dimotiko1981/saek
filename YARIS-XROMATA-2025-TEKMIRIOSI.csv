@@ -1,0 +1,60 @@
+﻿ID,Ένδειξη,Χρώμα τωρινής κατηγορίας,Ρητά τεκμηριωμένο χρώμα 2025,Σελίδες,Ειδικές καταστάσεις / επιφύλαξη
+brake-red,Φρένα – κόκκινη προειδοποίηση,red,red,"94, 428",Η προειδοποίηση συστήματος φρένων αναφέρεται ως Red. 
+brake-yellow,Φρένα – κίτρινη προειδοποίηση,amber,amber,"94, 428",Η προειδοποίηση συστήματος φρένων αναφέρεται ως Yellow. 
+coolant,Υψηλή θερμοκρασία ψυκτικού,red,ΟΧΙ,, 
+hybrid-overheat,Υπερθέρμανση υβριδικού συστήματος,red,ΟΧΙ,, 
+charge,Σύστημα φόρτισης 12 V,red,ΟΧΙ,, 
+oil,Χαμηλή πίεση λαδιού κινητήρα,red,ΟΧΙ,, 
+check,Check Engine / MIL,amber,ΟΧΙ,, 
+srs,SRS / αερόσακοι,amber,ΟΧΙ,, 
+abs,ABS,amber,ΟΧΙ,, 
+pedal,Μη κατάλληλος χειρισμός πεντάλ,amber,ΟΧΙ,, 
+eps-red,EPS – κόκκινη,red,red,"95, 431",Η προειδοποίηση EPS αναφέρεται ως Red. 
+eps-yellow,EPS – κίτρινη,amber,amber,"95, 431",Η προειδοποίηση EPS αναφέρεται ως Yellow. 
+fuel,Χαμηλή στάθμη καυσίμου,amber,ΟΧΙ,, 
+belt-front,Ζώνη οδηγού/εμπρός συνοδηγού,red,ΟΧΙ,, 
+belt-back,Ζώνες πίσω επιβατών,red,ΟΧΙ,, 
+tpms,TPMS – πίεση ελαστικών,amber,ΟΧΙ,, 
+lta-alert,LTA – προειδοποίηση,amber,amber,"95, 432",Η προειδοποιητική ένδειξη LTA αναφέρεται ως Yellow. 
+park-off-flash,Parking assist OFF – αναβοσβήνει,amber,ΟΧΙ,, 
+rcta-flash,RCTA OFF – αναβοσβήνει,amber,ΟΧΙ,, 
+pksb-flash,PKSB OFF – προειδοποίηση,amber,ΟΧΙ,, 
+pcs-warning,PCS – προειδοποίηση,amber,ΟΧΙ,, 
+slip-warn,Ολίσθηση – σταθερή ένδειξη,amber,ΟΧΙ,, 
+handbrake-flash,Χειρόφρενο – αναβοσβήνει,red,ΟΧΙ,, 
+brake-hold-flash,Brake Hold – αναβοσβήνει,amber,ΟΧΙ,, 
+turn-left,Αριστερό φλας,green,ΟΧΙ,, 
+turn-right,Δεξί φλας,green,ΟΧΙ,, 
+tail,Φώτα θέσης,green,ΟΧΙ,, 
+high,Μεγάλη σκάλα,blue,ΟΧΙ,, 
+auto-high,Αυτόματη μεγάλη σκάλα (AHB),green,ΟΧΙ,, 
+fogfront,Εμπρός ομίχλης,green,ΟΧΙ,, 
+fogrear,Πίσω ομίχλης,amber,ΟΧΙ,, 
+cruise,Cruise Control – ενεργό,green,green,"96, 279","Το Cruise Control έχει πράσινη κατάσταση· υπάρχουν και λευκή και κίτρινη, ανά λειτουργία. 2025 σ. 95–96: κίτρινο σε προειδοποίηση, πράσινο ή λευκό σε ενδείξεις λειτουργίας."
+adaptive-cruise,Dynamic Radar Cruise Control,green,green,"96, 268","Το Dynamic Radar Cruise Control έχει πράσινη κατάσταση· το 2025 αναφέρει και λευκή. 2025 σ. 95–96: κίτρινο σε προειδοποίηση, πράσινο ή λευκό σε ενδείξεις λειτουργίας."
+cruise-set,Cruise SET,green,ΟΧΙ,, 
+lta-status,LTA – κατάσταση,green,green,"96, 252","Η ένδειξη LTA έχει πράσινη κατάσταση· το 2025 αναφέρει και λευκή. 2025 σ. 95–96: κίτρινο σε προειδοποίηση, πράσινο ή λευκό σε ενδείξεις λειτουργίας."
+bsm,BSM – ένδειξη καθρέφτη,amber,ΟΧΙ,, 
+bsm-off,BSM OFF,amber,ΟΧΙ,, 
+park-off,Parking assist OFF – σταθερή,amber,ΟΧΙ,, 
+rcta-off,RCTA OFF – σταθερή,amber,ΟΧΙ,, 
+pksb-off,PKSB OFF – σταθερή,amber,ΟΧΙ,, 
+limiter,Περιοριστής ταχύτητας,green,ΟΧΙ,, 2025 σ. 96 και 282: κίτρινο ή λευκό ανά κατάσταση. Δεν επιβεβαιώνεται πράσινο για το 2025· χρειάζεται η ακριβής έκδοση.
+slip-active,Ολίσθηση – αναβοσβήνει,amber,ΟΧΙ,, 
+vsc-off,VSC OFF,amber,ΟΧΙ,, 
+smart,Smart Entry & Start,green,ΟΧΙ,, 
+ready,READY,green,ΟΧΙ,, 
+ev-mode,EV drive mode,green,ΟΧΙ,, 
+ev-active,EV Indicator,green,ΟΧΙ,, 
+park-set,Χειρόφρενο – ενεργό,red,ΟΧΙ,, 
+hold-standby,Brake Hold – αναμονή,green,green,"97, 212","Η αναμονή Brake Hold δηλώνεται ρητά πράσινη. 2025 σ. 212: πράσινο όταν βρίσκεται σε αναμονή, κίτρινο όταν συγκρατεί."
+hold-active,Brake Hold – συγκράτηση,amber,amber,"97, 212","Η ενεργή συγκράτηση Brake Hold δηλώνεται ρητά κίτρινη. 2025 σ. 212: πράσινο όταν βρίσκεται σε αναμονή, κίτρινο όταν συγκρατεί."
+ice,Χαμηλή εξωτερική θερμοκρασία,amber,ΟΧΙ,, 
+security,Immobilizer / security,red,ΟΧΙ,, 
+pass-airbag,Passenger airbag ON / OFF,amber,ΟΧΙ,, 
+eco,ECO Drive Mode,green,ΟΧΙ,, 
+power,POWER Mode,green,ΟΧΙ,, 
+battery-flow,CHG / ECO / PWR – υβριδικό όργανο,info,ΟΧΙ,, 
+gear,Επιλεγμένη σχέση P/R/N/D/B,info,ΟΧΙ,, 
+oil-service,Υπενθύμιση αλλαγής λαδιού,amber,ΟΧΙ,, 
+message,Προειδοποιητικό μήνυμα οθόνης,amber,ΟΧΙ,, 
