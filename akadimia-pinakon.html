@@ -28,6 +28,18 @@
     .academy-eyebrow{font-weight:800;letter-spacing:.16em;font-size:.72rem;color:#82dded;margin-bottom:11px}
     .academy-hero h1{font-size:clamp(2rem,5vw,4rem);line-height:1.1;letter-spacing:-.05em;margin:0 0 16px;font-weight:800}
     .academy-hero p{color:var(--muted);max-width:710px;margin:0 auto;font-size:clamp(.87rem,1.5vw,1.03rem)}
+    .academy-mission{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(22px,4vw,50px);align-items:center;margin:clamp(28px,5vw,58px) 0 0;padding:clamp(22px,4vw,42px);border:1px solid rgba(128,221,242,.28);border-radius:24px;background:radial-gradient(circle at 0 0,rgba(48,166,197,.18),transparent 46%),linear-gradient(145deg,rgba(12,35,54,.96),rgba(7,19,33,.94));box-shadow:0 24px 60px rgba(0,0,0,.22)}
+    .academy-mission-tag{margin:0 0 8px;color:#83e5f4;font-size:.69rem;font-weight:800;letter-spacing:.15em}
+    .academy-mission h2{margin:0 0 11px;font-size:clamp(1.45rem,3vw,2.35rem);line-height:1.16;letter-spacing:-.035em}
+    .academy-mission-copy>p:not(.academy-mission-tag){margin:0;color:#abc0cf;font-size:.9rem}
+    .academy-mission ol{display:grid;gap:10px;margin:0;padding:0;list-style:none;counter-reset:mission-step}
+    .academy-mission li{position:relative;min-height:57px;padding:12px 14px 12px 57px;border:1px solid rgba(125,191,220,.2);border-radius:14px;background:rgba(4,15,26,.5);color:#b9cbd7;font-size:.79rem}
+    .academy-mission li::before{counter-increment:mission-step;content:counter(mission-step);position:absolute;left:13px;top:50%;display:grid;width:31px;height:31px;place-items:center;transform:translateY(-50%);border:1px solid rgba(121,229,247,.42);border-radius:9px;background:rgba(71,183,207,.15);color:#9cebf7;font-weight:800}
+    .academy-mission li strong{display:block;color:#f2f8fc;font-size:.82rem}
+    .academy-mission-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .academy-mission-actions a{display:inline-flex;min-height:42px;align-items:center;justify-content:center;padding:9px 14px;border:1px solid rgba(121,229,247,.45);border-radius:11px;background:rgba(42,145,177,.17);color:#d9f9ff;font-size:.75rem;font-weight:800}
+    .academy-mission-actions a:first-child{background:linear-gradient(135deg,rgba(43,177,206,.42),rgba(31,105,156,.38));border-color:rgba(139,235,250,.68)}
+    .academy-mission-actions a:hover,.academy-mission-actions a:focus-visible{background:rgba(58,174,207,.32);border-color:#a4f0ff}
     /* Οι κάρτες έχουν την ίδια μορφή με τη μακέτα που επιλέχθηκε.
        Το grid υποστηρίζει όσα οχήματα προσθέσουμε αργότερα. */
     .academy-directory .academy-section{margin:clamp(30px,5vw,60px) 0 70px;padding:clamp(20px,3.3vw,39px);background:#0a0c10}
@@ -52,8 +64,8 @@
     .academy-directory .academy-section .academy-photo-credit a{color:#a6d8e5;text-decoration:underline;text-underline-offset:2px}
     .academy-directory .academy-note{display:flex;align-items:flex-start;justify-content:center;gap:10px;color:#91a7b5;font-size:.78rem;max-width:700px;margin:27px auto 0;text-align:center}
     .academy-directory .academy-footer{color:#8497a8;font-size:.75rem;text-align:center;border-top:1px solid var(--line);padding:27px 0 34px}
-    @media(max-width:830px){.academy-directory .academy-section .academy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.academy-directory .academy-section .academy-card:last-child{grid-column:auto;max-width:none;width:auto}}
-    @media(max-width:580px){.academy-shell{width:min(100% - 28px,1180px)}.academy-topbar{min-height:76px}.academy-brand{font-size:.79rem}.academy-brand-badge{width:38px;height:38px}.academy-brand small{font-size:.62rem}.academy-back{font-size:.72rem;padding:8px 10px;min-height:43px}.academy-directory .academy-section .academy-grid{grid-template-columns:1fr;gap:14px}.academy-directory .academy-section{padding:15px;margin:27px 0 45px}.academy-directory .academy-section .academy-card:last-child{grid-column:auto}.academy-directory .academy-section .academy-card h2{font-size:1.35rem}}
+    @media(max-width:830px){.academy-mission{grid-template-columns:1fr}.academy-directory .academy-section .academy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.academy-directory .academy-section .academy-card:last-child{grid-column:auto;max-width:none;width:auto}}
+    @media(max-width:580px){.academy-shell{width:min(100% - 28px,1180px)}.academy-topbar{min-height:76px}.academy-brand{font-size:.79rem}.academy-brand-badge{width:38px;height:38px}.academy-brand small{font-size:.62rem}.academy-back{font-size:.72rem;padding:8px 10px;min-height:43px}.academy-mission{padding:18px;border-radius:18px}.academy-mission-actions{flex-direction:column}.academy-mission-actions a{width:100%}.academy-directory .academy-section .academy-grid{grid-template-columns:1fr;gap:14px}.academy-directory .academy-section{padding:15px;margin:27px 0 45px}.academy-directory .academy-section .academy-card:last-child{grid-column:auto}.academy-directory .academy-section .academy-card h2{font-size:1.35rem}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.academy-directory .academy-section .academy-card,.academy-directory .academy-section .academy-open,.academy-back{transition:none}}
   </style>
 </head>
@@ -72,32 +84,48 @@
         <h1>Ακαδημία Πινάκων Οργάνων</h1>
         <p>Επίλεξε όχημα για να γνωρίσεις τις προειδοποιητικές λυχνίες, να κατανοήσεις τα ηλεκτρονικά συστήματα και να εξασκηθείς σε διαγνωστικές αποφάσεις.</p>
       </div>
-      <section class="academy-section" aria-label="Κατάλογος οχημάτων της Ακαδημίας">
+      <section class="academy-mission" aria-labelledby="academy-mission-title">
+        <div class="academy-mission-copy">
+          <p class="academy-mission-tag">ΚΑΘΟΔΗΓΟΥΜΕΝΗ ΑΠΟΣΤΟΛΗ · ΜΑΘΗΜΑ 3</p>
+          <h2 id="academy-mission-title">Από τη λυχνία στον κόμβο και στο δίκτυο</h2>
+          <p>Διάλεξε ένα όχημα και μην αρκεστείς στο όνομα της ένδειξης. Ακολούθησε την πληροφορία μέχρι τη μονάδα που τη χρησιμοποιεί και σκέψου αν η βλάβη είναι τοπική ή κοινή.</p>
+          <div class="academy-mission-actions">
+            <a href="#academy-vehicles">Επιλογή οχήματος ↓</a>
+            <a href="mathima-03.html">Θεωρία Μαθήματος 3 →</a>
+          </div>
+        </div>
+        <ol aria-label="Βήματα αποστολής">
+          <li><strong>Παρατήρησε</strong>Διάλεξε μία λυχνία ή ένα μήνυμα και εξήγησε τι βλέπει ο οδηγός.</li>
+          <li><strong>Βρες τον κόμβο</strong>Διάβασε ποια ECU, ποιος αισθητήρας ή ποιο σύστημα συνδέεται με την ένδειξη.</li>
+          <li><strong>Σκέψου σαν τεχνικός</strong>Αποφάσισε αν ξεκινάς από τοπικό έλεγχο ή από κοινή τροφοδοσία, Gateway και δίκτυο.</li>
+        </ol>
+      </section>
+      <section class="academy-section" id="academy-vehicles" aria-label="Κατάλογος οχημάτων της Ακαδημίας">
         <div class="academy-grid">
-          <article class="academy-card academy-card-available academy-card-yaris" aria-labelledby="academy-yaris-title"><a class="academy-card-link" href="akadimia-tablo-toyota-yaris-2023.html" aria-label="Άνοιγμα δραστηριότητας Toyota Yaris Hybrid"><div class="academy-photo"><img src="assets/images/academy-yaris-productshot.webp?v=3" width="1280" height="1000" loading="lazy" decoding="async" alt="Μπλε Toyota Yaris Hybrid 130, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris<span class="academy-year">2023</span></h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
+          <article class="academy-card academy-card-available academy-card-yaris" aria-labelledby="academy-yaris-title"><a class="academy-card-link" href="akadimia-tablo-toyota-yaris-2023.html?v=2" aria-label="Άνοιγμα δραστηριότητας Toyota Yaris Hybrid"><div class="academy-photo"><img src="assets/images/academy-yaris-productshot.webp?v=3" width="1280" height="1000" loading="lazy" decoding="async" alt="Μπλε Toyota Yaris Hybrid 130, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-yaris-title">Toyota Yaris<span class="academy-year">2023</span></h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
           <article class="academy-card academy-card-available academy-card-golf" aria-labelledby="academy-golf-title">
-            <a class="academy-card-link" href="akadimia-tablo-golf8.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Volkswagen Golf 8">
-              <div class="academy-photo"><img src="assets/images/academy-golf-user.png?v=4" width="1419" height="1108" loading="lazy" decoding="async" alt="Λευκό Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
+            <a class="academy-card-link" href="akadimia-tablo-golf8.html?v=2" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Volkswagen Golf 8">
+              <div class="academy-photo"><img src="assets/images/academy-golf-user.webp?v=1" width="1419" height="1108" loading="lazy" decoding="async" alt="Λευκό Volkswagen Golf 8 hatchback, εμπρός τρία τέταρτα" /></div>
               <div class="academy-card-info"><h2 id="academy-golf-title">Volkswagen Golf 8<span class="academy-year">2020+</span></h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div>
             </a>
           </article>
 <article class="academy-card academy-card-available academy-card-honda" aria-labelledby="academy-honda-title">
-            <a class="academy-card-link" href="akadimia-tablo-honda-civic-2018.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Honda Civic 2018">
+            <a class="academy-card-link" href="akadimia-tablo-honda-civic-2018.html?v=2" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Honda Civic 2018">
               <div class="academy-photo"><img src="assets/images/academy-honda-civic-user.jpg?v=1" width="581" height="284" loading="lazy" decoding="async" alt="Λευκό Honda Civic 10ης γενιάς sedan, εμπρός τρία τέταρτα" /></div>
               <div class="academy-card-info"><h2 id="academy-honda-title">Honda Civic<span class="academy-year">2018</span></h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div>
             </a>
           </article>
           <article class="academy-card academy-card-available academy-card-clio" aria-labelledby="academy-clio-title">
-            <a class="academy-card-link" href="akadimia-tablo-renault-clio-2024.html" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Renault Clio 2024">
+            <a class="academy-card-link" href="akadimia-tablo-renault-clio-2024.html?v=2" aria-label="Άνοιγμα διαδραστικής δραστηριότητας Renault Clio 2024">
               <div class="academy-photo"><img src="assets/images/academy-clio-productshot.webp?v=3" width="1280" height="1000" loading="lazy" decoding="async" alt="Μεταλλικό γκρι Renault Clio σε λευκό φόντο, ολόκληρο το αυτοκίνητο σε λήψη εμπρός τρία τέταρτα" /></div>
               <div class="academy-card-info"><h2 id="academy-clio-title">Renault Clio<span class="academy-year">2024</span></h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div>
             </a>
           </article>
-          <article class="academy-card academy-card-available academy-card-mercedes" aria-labelledby="academy-mercedes-title"><a class="academy-card-link" href="akadimia-tablo-mercedes-w206-2023.html" aria-label="Άνοιγμα δραστηριότητας Mercedes-Benz C-Class W206 (2023)"><div class="academy-photo"><img src="assets/images/academy-mercedes-w206-correct.webp?v=2" width="1280" height="1000" style="object-fit:contain;object-position:center" loading="lazy" decoding="async" alt="Ασημί Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-mercedes-title">Mercedes-Benz C-Class W206 · 2023</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
+          <article class="academy-card academy-card-available academy-card-mercedes" aria-labelledby="academy-mercedes-title"><a class="academy-card-link" href="akadimia-tablo-mercedes-w206-2023.html?v=2" aria-label="Άνοιγμα δραστηριότητας Mercedes-Benz C-Class W206 (2023)"><div class="academy-photo"><img src="assets/images/academy-mercedes-w206-correct.webp?v=2" width="1280" height="1000" style="object-fit:contain;object-position:center" loading="lazy" decoding="async" alt="Ασημί Mercedes-Benz C-Class W206 sedan, εμπρός τρία τέταρτα" /></div><div class="academy-card-info"><h2 id="academy-mercedes-title">Mercedes-Benz C-Class W206 · 2023</h2><span class="academy-open">Άνοιγμα δραστηριότητας <span aria-hidden="true">→</span></span></div></a></article>
           <!-- Νέα οχήματα: προσθέτουμε μία νέα <article class="academy-card"> εδώ.
                Οι στήλες προσαρμόζονται αυτόματα, δεν αλλάζει η αρχική σελίδα. -->
         </div>
-        <p class="academy-note">Διαθέσιμα και τα πέντε οχήματα: Toyota Yaris, Volkswagen Golf 8, Honda Civic, Renault Clio και Mercedes-Benz C-Class W206. Το «+» δηλώνει έτος έναρξης γενιάς, όχι αποκλειστικά έτος της φωτογραφίας.</p>
+        <p class="academy-note">Διαθέσιμα και τα πέντε οχήματα: Toyota Yaris, Volkswagen Golf 8, Honda Civic, Renault Clio και Mercedes-Benz C-Class W206. Οι επιλογές των αξιολογήσεων ανακατεύονται σε κάθε νέα προσπάθεια. Το «+» δηλώνει έτος έναρξης γενιάς, όχι αποκλειστικά έτος της φωτογραφίας.</p>
       </section>
     </main>
     <footer class="academy-footer">© <span id="academy-year"></span> EVAGELAK EDU LAB · Εκπαιδευτικό Υλικό ΣΑΕΚ</footer>

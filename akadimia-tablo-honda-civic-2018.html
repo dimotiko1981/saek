@@ -60,6 +60,23 @@ const catLabel={lamps:'Εργοστασιακές λυχνίες',messages:'Μη
 const catSeverity={red:'Σοβαρή / άμεσης προσοχής',amber:'Προειδοποίηση / έλεγχος',green:'Κατάσταση λειτουργίας',blue:'Κατάσταση φωτισμού',info:'Πληροφοριακή ένδειξη'};
 let filter='lamps',selected='h01',current=0,submitted=false;
 const answers=Object.create(null);const TOTAL_QUESTIONS=SCENARIOS.reduce((n,c)=>n+c.questions.length,0);
+function shuffleAssessmentOptions(){
+  let position=Math.floor(Math.random()*7);
+  SCENARIOS.forEach(scenario=>scenario.questions.forEach(question=>{
+    const correct=question.options[question.answer];
+    const distractors=question.options.filter((_,index)=>index!==question.answer);
+    for(let i=distractors.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [distractors[i],distractors[j]]=[distractors[j],distractors[i]];
+    }
+    const target=position%question.options.length;
+    question.options=[...distractors];
+    question.options.splice(target,0,correct);
+    question.answer=target;
+    position++;
+  }));
+}
+shuffleAssessmentOptions();
 function sprite(rec,big=false){if(rec.kind==='message')return `<span class="icon-hold ${big?'big':''}" aria-hidden="true"><span class="message-sprite" style="background-position:${rec.spriteX}px ${rec.spriteY}px"></span></span>`;return `<span class="icon-hold ${big?'big':''}" aria-hidden="true"><span class="sprite" style="background-position:${rec.spriteX}px ${rec.spriteY}px"></span></span>`;}
 function clean(v){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function get(id){return RECORDS.find(r=>r.id===id)}
@@ -75,6 +92,6 @@ function renderExam(){if(submitted){renderResults();return;}const c=SCENARIOS[cu
  $('prev').onclick=()=>{if(current>0){current--;renderExam();scrollExam()}};
  $('next').onclick=()=>{if(current<SCENARIOS.length-1){current++;renderExam();scrollExam();}else{if(totalAnswered()<TOTAL_QUESTIONS){$('submitMsg').textContent=`Έχεις απαντήσει σε ${totalAnswered()} από ${TOTAL_QUESTIONS} ερωτήσεις. Μπορείς να επιστρέψεις στα περιστατικά ή να υποβάλεις με κενές απαντήσεις.`;$('submitDialog').classList.remove('hidden');}else{$('submitMsg').textContent='Η αξιολόγηση ολοκληρώθηκε. Θέλεις να δεις τη βαθμολογία και τις αιτιολογήσεις;';$('submitDialog').classList.remove('hidden');}}};}
 function scrollExam(){document.querySelector('.tabs').scrollIntoView({block:'start',behavior:'smooth'})}
-function renderResults(){let score=0,miss=0;let rows=[];SCENARIOS.forEach((sc,i)=>sc.questions.forEach((q,j)=>{const a=answers[answerKey(i,j)];const yes=a===q.answer;if(yes)score++;if(a===undefined)miss++;rows.push(`<div class="review"><strong class="${yes?'correct':'wrong'}">${yes?'✓ Σωστό':'✕ '+(a===undefined?'Χωρίς απάντηση':'Χρειάζεται επανεξέταση')} — ${clean(sc.title)}, ερώτηση ${j+1}</strong><p>${clean(q.question)}</p><p><b>Σωστή απάντηση:</b> ${clean(q.options[q.answer])}</p><p><b>Αιτιολόγηση:</b> ${clean(q.explanation)}</p></div>`)}));$('examMeta').innerHTML='';$('examContent').innerHTML=`<div class="exam-card results"><div class="eyeline">ΤΕΛΙΚΟ ΑΠΟΤΕΛΕΣΜΑ</div><h2>Η διαγνωστική αξιολόγηση ολοκληρώθηκε</h2><div class="score">${score} / ${TOTAL_QUESTIONS}</div><p>${Math.round(score/TOTAL_QUESTIONS*100)}% σωστές τεχνικές αποφάσεις${miss?' · '+miss+' χωρίς απάντηση':''}.</p><p class="warning-note">Τα σενάρια είναι υποθετικά και δεν υποκαθιστούν επίσημη διαδικασία επισκευής.</p><button class="action main" id="retry">Νέα προσπάθεια</button><h3>Αναλυτική ανασκόπηση</h3>${rows.join('')}</div>`;$('retry').onclick=()=>{Object.keys(answers).forEach(k=>delete answers[k]);current=0;submitted=false;renderExam();scrollExam()};}
+function renderResults(){let score=0,miss=0;let rows=[];SCENARIOS.forEach((sc,i)=>sc.questions.forEach((q,j)=>{const a=answers[answerKey(i,j)];const yes=a===q.answer;if(yes)score++;if(a===undefined)miss++;rows.push(`<div class="review"><strong class="${yes?'correct':'wrong'}">${yes?'✓ Σωστό':'✕ '+(a===undefined?'Χωρίς απάντηση':'Χρειάζεται επανεξέταση')} — ${clean(sc.title)}, ερώτηση ${j+1}</strong><p>${clean(q.question)}</p><p><b>Σωστή απάντηση:</b> ${clean(q.options[q.answer])}</p><p><b>Αιτιολόγηση:</b> ${clean(q.explanation)}</p></div>`)}));$('examMeta').innerHTML='';$('examContent').innerHTML=`<div class="exam-card results"><div class="eyeline">ΤΕΛΙΚΟ ΑΠΟΤΕΛΕΣΜΑ</div><h2>Η διαγνωστική αξιολόγηση ολοκληρώθηκε</h2><div class="score">${score} / ${TOTAL_QUESTIONS}</div><p>${Math.round(score/TOTAL_QUESTIONS*100)}% σωστές τεχνικές αποφάσεις${miss?' · '+miss+' χωρίς απάντηση':''}.</p><p class="warning-note">Τα σενάρια είναι υποθετικά και δεν υποκαθιστούν επίσημη διαδικασία επισκευής.</p><button class="action main" id="retry">Νέα προσπάθεια</button><h3>Αναλυτική ανασκόπηση</h3>${rows.join('')}</div>`;$('retry').onclick=()=>{Object.keys(answers).forEach(k=>delete answers[k]);current=0;submitted=false;shuffleAssessmentOptions();renderExam();scrollExam()};}
 $('tabExplore').onclick=()=>selectTab('explore');$('tabExam').onclick=()=>selectTab('exam');$('query').addEventListener('input',renderGrid);document.querySelectorAll('button[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;document.querySelectorAll('button[data-filter]').forEach(x=>{x.classList.toggle('active',x===b);x.setAttribute('aria-pressed',x===b?'true':'false')});renderGrid()});$('cancelSubmit').onclick=()=>{$('submitDialog').classList.add('hidden')};$('confirmSubmit').onclick=()=>{$('submitDialog').classList.add('hidden');submitted=true;renderResults();scrollExam()};renderGrid();renderDetail();
 </script></body></html>

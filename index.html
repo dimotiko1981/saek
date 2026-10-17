@@ -20,7 +20,7 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+    <link rel="stylesheet" href="assets/css/styles.css?v=12" />
     <link rel="stylesheet" href="assets/css/saek-links-ui.css?v=1" />
     <link rel="stylesheet" href="assets/css/saek-academy.css?v=1" />
     <style id="saek-home-mobile-layout">
@@ -140,6 +140,7 @@
 /* Κουμπιά μαθημάτων στην αρχική:
    Μάθημα 1 = πράσινη/μέντα οικογένεια
    Μάθημα 2 = μπλε/κυανή οικογένεια
+   Μάθημα 3 = μωβ/κυανή οικογένεια
    Κάθε λειτουργία έχει δική της απόχρωση, αλλά παραμένει μέσα στην ταυτότητα του μαθήματος. */
 .course-open-link.course-open-link-lesson-1 {
   color: #e9fff8;
@@ -211,6 +212,21 @@
 .course-open-link.course-open-link-lesson-2.course-open-link-shift:focus-visible {
   background: linear-gradient(135deg, rgba(52, 160, 224, 0.52), rgba(17, 94, 164, 0.36));
   border-color: rgba(153, 235, 255, 0.88);
+}
+
+.course-open-link.course-open-link-lesson-3 {
+  color: #f4eeff;
+  background: linear-gradient(135deg, rgba(111, 72, 188, 0.36), rgba(37, 87, 132, 0.25));
+  border-color: rgba(184, 148, 255, 0.48);
+  box-shadow: 0 10px 24px rgba(25, 15, 58, 0.27), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.course-open-link.course-open-link-lesson-3 svg { color: #cdb3ff; }
+.course-open-link.course-open-link-lesson-3:hover,
+.course-open-link.course-open-link-lesson-3:focus-visible {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(137, 91, 224, 0.5), rgba(43, 119, 178, 0.36));
+  border-color: rgba(210, 185, 255, 0.88);
+  box-shadow: 0 16px 32px rgba(53, 31, 112, 0.34), 0 0 0 1px rgba(205, 179, 255, 0.18);
 }
 </style>
 
@@ -342,7 +358,7 @@
               <ul class="specialty-meta" aria-label="Περιεχόμενο ειδικότητας">
                 <li>
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h12v12H4zM7 8h6m-6 4h4" /></svg>
-                  2 διαθέσιμα μαθήματα
+                  3 διαθέσιμα μαθήματα
                 </li>
                 <li>
                   <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" /><path d="M10 6v4l3 2" /></svg>
@@ -372,7 +388,7 @@
                 </div>
               </div>
               <div class="course-preview-actions academy-entry-actions">
-                <a class="course-open-link academy-entry-cta" href="akadimia-pinakon.html">
+                <a class="course-open-link academy-entry-cta" href="akadimia-pinakon.html?v=2">
                   Είσοδος στην Ακαδημία
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
@@ -420,6 +436,23 @@
                 </a>
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-shift" href="diagnostiki-vardia.html">
                   Βάρδια Συνεργείου
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry lesson-entry-3">
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-lesson-3" aria-hidden="true">3</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 3</small>
+                  <strong>Αρχιτεκτονική και τοπολογίες δικτύων</strong>
+                  <p>30 διαφάνειες · κόμβοι, δίαυλος, Gateway και διάγνωση τοπολογίας</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-lesson-3" href="mathima-03.html?v=1">
+                  Άνοιγμα μαθήματος
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
               </div>
