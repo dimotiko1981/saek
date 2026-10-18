@@ -1,4 +1,4 @@
-const lessonTest = document.querySelector("[data-lesson-test]");
+const lessonTest = document.querySelector("[data-lesson-deck]");
 
 if (lessonTest) {
   const quizData = [
@@ -343,8 +343,30 @@ if (lessonTest) {
   ];
 
   const letters = ["Α", "Β", "Γ", "Δ"];
+  const slidesView = lessonTest.querySelector("[data-lesson-slides-view]");
+  const quizView = lessonTest.querySelector("[data-lesson-quiz-view]");
+  const quizToggle = lessonTest.querySelector("[data-lesson-test-toggle]");
+  const quizToggleLabel = lessonTest.querySelector("[data-lesson-test-toggle-label]");
+  const slideCounter = lessonTest.querySelector(".intro-slide-counter");
+  const title = lessonTest.querySelector("[data-slide-title]");
+  const currentSlide = lessonTest.querySelector("[data-slide-current]");
   const quiz = lessonTest.querySelector("[data-lesson-quiz]");
   const questionsContainer = lessonTest.querySelector("[data-lesson-quiz-questions]");
+
+  const showQuiz = (open, updateHash = true) => {
+    slidesView.hidden = open;
+    quizView.hidden = !open;
+    lessonTest.classList.toggle("is-quiz-mode", open);
+    quizToggle.setAttribute("aria-expanded", String(open));
+    quizToggleLabel.textContent = open ? "Επιστροφή στις διαφάνειες" : "Τεστ 30 ερωτήσεων";
+    slideCounter.hidden = open;
+    title.textContent = open
+      ? "Τεστ Μαθήματος 3"
+      : "Αρχιτεκτονική και τοπολογίες δικτύων · Διαφάνεια " + currentSlide.textContent;
+    if (updateHash) {
+      history.replaceState(null, "", open ? "#test" : "#slide-" + currentSlide.textContent);
+    }
+  };
 
   moduleData.forEach((module, moduleIndex) => {
     const section = document.createElement("section");
@@ -356,7 +378,7 @@ if (lessonTest) {
     const moduleNumber = document.createElement("span");
     moduleNumber.textContent = String(moduleIndex + 1);
     const headingText = document.createElement("div");
-    const headingTitle = document.createElement("h2");
+    const headingTitle = document.createElement("h3");
     headingTitle.id = "lesson-module-" + (moduleIndex + 1);
     headingTitle.textContent = module.title;
     const headingMeta = document.createElement("p");
@@ -460,6 +482,7 @@ if (lessonTest) {
 
   previousQuestion.addEventListener("click", () => showMobileQuestion(mobileQuestionIndex - 1, true));
   nextQuestion.addEventListener("click", () => showMobileQuestion(mobileQuestionIndex + 1, true));
+  quizToggle.addEventListener("click", () => showQuiz(quizView.hidden));
   if (mobileQuery.addEventListener) {
     mobileQuery.addEventListener("change", () => showMobileQuestion(mobileQuestionIndex));
   } else {
@@ -558,4 +581,5 @@ if (lessonTest) {
 
   showMobileQuestion(0);
   updateProgress();
+  showQuiz(window.location.hash === "#test", false);
 }
