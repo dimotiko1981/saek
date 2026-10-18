@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Διαδραστικό εργαστήριο 80 εκπαιδευτικών σεναρίων για την αρχιτεκτονική, τις τοπολογίες και τη διάγνωση δικτύων οχημάτων."
+    />
+    <meta name="theme-color" content="#071426" />
+    <title>Εργαστήριο Μαθήματος 3 | Χάρτης Δικτύου</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23071426'/%3E%3Cpath d='M17 42V22l15-8 15 8v20l-15 8-15-8Z' fill='none' stroke='%232bd9fe' stroke-width='4'/%3E%3Cpath d='M25 26h14M25 33h14M25 40h9' stroke='%23fff' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/diagnostic-lab.css?v=3" />
+    <link rel="stylesheet" href="assets/css/mathima-03-lab.css?v=1" />
+    <link rel="stylesheet" href="assets/css/saek-links-ui.css?v=1" />
+  </head>
+  <body class="diagnostic-page topology-lab-page">
+    <a class="lab-skip-link" href="#lesson-three-lab-main">Μετάβαση στην εφαρμογή</a>
+
+    <header class="lab-header">
+      <a class="lab-brand" href="index.html" aria-label="ΣΑΕΚ — Αρχική σελίδα">
+        <span aria-hidden="true">
+          <svg viewBox="0 0 48 48"><path d="M12 32V16l12-6 12 6v16l-12 6-12-6Z" /><path d="M18 19h12M18 24h12M18 29h8" /></svg>
+        </span>
+        <div><strong>ΣΑΕΚ</strong><small>Εργαστήριο Μαθήματος 3</small></div>
+      </a>
+      <div class="lab-header-title">
+        <span>ΑΡΧΙΤΕΚΤΟΝΙΚΗ ΚΑΙ ΤΟΠΟΛΟΓΙΕΣ</span>
+        <strong>Χάρτης Δικτύου — Εντόπισε τη βλάβη</strong>
+      </div>
+      <a class="lab-back-link" href="mathima-03.html?v=3"><span aria-hidden="true">←</span> Επιστροφή στο Μάθημα 3</a>
+    </header>
+
+    <main id="lesson-three-lab-main" class="lab-main" data-topology-lab>
+      <section class="lab-screen topology-welcome" data-topology-screen="welcome" aria-labelledby="topology-welcome-title">
+        <div class="topology-welcome-copy">
+          <span class="lab-eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ ΜΑΘΗΜΑΤΟΣ 3</span>
+          <h1 id="topology-welcome-title">Χάρτης Δικτύου</h1>
+          <p>
+            Δες ποιοι κόμβοι επικοινωνούν, αναγνώρισε την τοπολογία και βρες το κοινό σημείο της βλάβης
+            πριν αντικαταστήσεις οποιαδήποτε μονάδα.
+          </p>
+
+          <div class="mission-facts" aria-label="Στοιχεία εργαστηρίου">
+            <article><strong>80</strong><span>σενάρια συνεργείου</span></article>
+            <article><strong>25</strong><span>περιστατικά ανά βάρδια</span></article>
+            <article><strong>8</strong><span>μοντέλα οχημάτων</span></article>
+          </div>
+
+          <div class="topology-mode-grid" aria-label="Επιλογή λειτουργίας">
+            <button class="topology-mode-card is-recommended" type="button" data-topology-start="training">
+              <span>ΠΡΟΤΕΙΝΟΜΕΝΟ</span>
+              <strong>Λειτουργία Εκπαίδευσης</strong>
+              <small>25 τυχαία περιστατικά · βοήθεια και άμεση εξήγηση</small>
+            </button>
+            <button class="topology-mode-card" type="button" data-topology-start="assessment">
+              <span>ΑΞΙΟΛΟΓΗΣΗ</span>
+              <strong>Διαγνωστική Δοκιμασία</strong>
+              <small>25 τυχαία περιστατικά · αποτελέσματα και ανασκόπηση στο τέλος</small>
+            </button>
+            <button class="topology-mode-card is-bank" type="button" data-topology-start="all">
+              <span>ΠΛΗΡΗΣ ΤΡΑΠΕΖΑ</span>
+              <strong>Και τα 80 σενάρια</strong>
+              <small>Όλα τα μοντέλα, οι τοπολογίες και τα επίπεδα δυσκολίας</small>
+            </button>
+          </div>
+
+          <p class="topology-note">
+            Τα διαγράμματα είναι εκπαιδευτικά απλοποιημένα. Δεν αποτελούν εργοστασιακά σχέδια καλωδίωσης των συγκεκριμένων μοντέλων.
+          </p>
+        </div>
+
+        <div class="topology-showcase" aria-label="Οχήματα και δίκτυα του εργαστηρίου">
+          <div class="topology-car-grid">
+            <figure>
+              <img src="assets/images/ford-focus-2017.webp" alt="Κόκκινο Ford Focus 2017" />
+              <figcaption>Ford Focus</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/images/academy-golf-productshot-fixed.webp" alt="Λευκό Volkswagen Golf 8" />
+              <figcaption>Volkswagen Golf</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/images/academy-mercedes-w206-correct.webp" alt="Λευκή Mercedes-Benz C-Class" />
+              <figcaption>Mercedes-Benz</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/images/academy-yaris-productshot.webp" alt="Μπλε Toyota Yaris Hybrid" />
+              <figcaption>Toyota Yaris</figcaption>
+            </figure>
+          </div>
+          <div class="topology-showcase-network" aria-hidden="true">
+            <span>ECU</span><i></i><span>GATEWAY</span><i></i><span>ABS</span>
+            <b>ΧΑΡΤΗΣ → ΟΡΙΟ ΒΛΑΒΗΣ → ΜΕΤΡΗΣΗ</b>
+          </div>
+        </div>
+      </section>
+
+      <section class="lab-screen topology-workspace" data-topology-screen="mission" aria-labelledby="topology-question-title" hidden>
+        <div class="topology-progress">
+          <div>
+            <span data-topology-mode-label>ΕΚΠΑΙΔΕΥΣΗ</span>
+            <strong>Περιστατικό <b data-topology-current>1</b> από <b data-topology-total>25</b></strong>
+          </div>
+          <div class="topology-progress-track" aria-hidden="true"><span data-topology-progress-bar></span></div>
+          <dl>
+            <div><dt>Σωστές</dt><dd data-topology-correct>0</dd></div>
+            <div><dt>Βαθμός</dt><dd data-topology-score>0%</dd></div>
+          </dl>
+        </div>
+
+        <div class="topology-case-scroll" data-topology-case-scroll>
+          <div class="topology-case-grid">
+            <section class="topology-vehicle-panel" aria-labelledby="topology-vehicle-title">
+              <header><span>01</span><div><small>ΟΧΗΜΑ</small><strong id="topology-vehicle-title" data-topology-vehicle>Ford Focus 2017</strong></div></header>
+              <figure class="topology-vehicle-photo">
+                <img data-topology-vehicle-image src="assets/images/ford-focus-2017.webp" alt="" />
+                <figcaption>
+                  <span data-topology-case-id>ΠΕΡΙΣΤΑΤΙΚΟ T01</span>
+                  <b data-topology-difficulty>ΕΥΚΟΛΟ</b>
+                </figcaption>
+              </figure>
+              <div class="topology-case-copy">
+                <span>ΠΑΡΑΠΟΝΟ / ΣΥΜΠΤΩΜΑ</span>
+                <h2 data-topology-case-title>Αναγνώριση κοινού διαύλου</h2>
+                <p data-topology-symptom></p>
+              </div>
+              <div class="topology-scan-card">
+                <span>ΣΥΝΟΛΙΚΗ ΣΑΡΩΣΗ</span>
+                <p data-topology-scan></p>
+              </div>
+            </section>
+
+            <section class="topology-network-panel" aria-labelledby="topology-network-title">
+              <header><span>02</span><div><small>ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΧΑΡΤΗΣ</small><strong id="topology-network-title" data-topology-name>Γραμμική τοπολογία</strong></div></header>
+              <div class="topology-network-canvas" data-topology-network aria-live="polite"></div>
+              <div class="topology-legend" aria-label="Υπόμνημα χάρτη">
+                <span><i class="is-online"></i>Επικοινωνεί</span>
+                <span><i class="is-offline"></i>Δεν επικοινωνεί</span>
+                <span><i class="is-suspect"></i>Ύποπτο σημείο</span>
+              </div>
+              <p class="topology-map-disclaimer">Απλοποιημένο εκπαιδευτικό διάγραμμα — χρησιμοποίησε το εργοστασιακό σχέδιο στην πραγματική διάγνωση.</p>
+            </section>
+
+            <section class="topology-decision-panel">
+              <header><span>03</span><div><small data-topology-category>ΤΟΠΟΛΟΓΙΑ</small><strong>Διαγνωστική απόφαση</strong></div></header>
+              <div class="topology-question-copy">
+                <span data-topology-question-tag>ΑΝΑΓΝΩΡΙΣΗ ΤΟΠΟΛΟΓΙΑΣ</span>
+                <h2 id="topology-question-title" data-topology-question></h2>
+              </div>
+              <div class="topology-options" data-topology-options></div>
+              <div class="topology-feedback" data-topology-feedback role="status" hidden>
+                <strong></strong>
+                <p></p>
+              </div>
+              <div class="topology-actions">
+                <button type="button" data-topology-hint>Βοήθεια <span>−1 μονάδα</span></button>
+                <button class="topology-next" type="button" data-topology-next hidden>Επόμενο περιστατικό <span aria-hidden="true">→</span></button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+
+      <section class="lab-screen topology-result" data-topology-screen="result" aria-labelledby="topology-result-title" hidden>
+        <div class="topology-result-summary">
+          <div class="topology-result-score">
+            <span>ΤΕΛΙΚΗ ΕΠΙΔΟΣΗ</span>
+            <strong data-topology-final-score>0%</strong>
+            <small><b data-topology-final-correct>0</b>/<b data-topology-final-total>25</b> σωστές</small>
+          </div>
+          <div>
+            <span class="lab-eyebrow" data-topology-result-eyebrow>Η ΒΑΡΔΙΑ ΟΛΟΚΛΗΡΩΘΗΚΕ</span>
+            <h1 id="topology-result-title" data-topology-result-title>Διάβασες τον χάρτη του δικτύου</h1>
+            <p data-topology-result-message></p>
+            <div class="topology-result-bars" data-topology-result-bars></div>
+          </div>
+        </div>
+
+        <div class="topology-review">
+          <header>
+            <div><span>ΑΝΑΣΚΟΠΗΣΗ</span><strong>Τα σημεία που χρειάζονται επανάληψη</strong></div>
+            <button type="button" data-topology-review-toggle aria-expanded="false">Προβολή λαθών</button>
+          </header>
+          <div data-topology-review-list hidden></div>
+        </div>
+
+        <div class="topology-result-actions">
+          <button class="lab-primary-button" type="button" data-topology-restart>Νέα τυχαία βάρδια</button>
+          <a href="mathima-03.html?v=3">Επιστροφή στο Μάθημα 3</a>
+          <a href="index.html#specialties">Επιστροφή στα μαθήματα</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/js/mathima-03-lab.js?v=1"></script>
+  </body>
+</html>
