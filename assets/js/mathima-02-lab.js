@@ -572,7 +572,6 @@ if (lessonTwoLab) {
   const resultMessage = lessonTwoLab.querySelector("[data-intro-result-message]");
   const resultEyebrow = lessonTwoLab.querySelector("[data-intro-result-eyebrow]");
   const letters = ["Α", "Β", "Γ"];
-  const answerPattern = [1, 2, 0, 2, 0, 1];
 
   let activeMode = labModes.core;
   let steps = buildSteps(activeMode.moduleIndexes);
@@ -584,7 +583,7 @@ if (lessonTwoLab) {
   let resolved = false;
   let hintUsed = false;
   let attempted = new Set();
-  let answerOffset = 0;
+  let answerSlots = [];
 
   const showScreen = (name) => {
     Object.entries(screens).forEach(([screenName, screen]) => {
@@ -607,10 +606,26 @@ if (lessonTwoLab) {
     return shuffled;
   };
 
+  const longestAnswerRun = (slots) => slots.reduce((state, slot, index) => {
+    const run = index > 0 && slot === slots[index - 1] ? state.run + 1 : 1;
+    return { run, max: Math.max(state.max, run) };
+  }, { run: 0, max: 0 }).max;
+
+  const buildBalancedAnswerSlots = (count) => {
+    const base = Array.from({ length: count }, (_, index) => index % letters.length);
+    let slots = shuffleOptions(base);
+    let attempts = 0;
+    while (longestAnswerRun(slots) > 2 && attempts < 40) {
+      slots = shuffleOptions(base);
+      attempts += 1;
+    }
+    return slots;
+  };
+
   const arrangeOptions = (options, questionPosition) => {
     const correctOption = options.find((option) => option.correct);
     const wrongOptions = shuffleOptions(options.filter((option) => !option.correct));
-    const correctPosition = (answerPattern[questionPosition % answerPattern.length] + answerOffset) % letters.length;
+    const correctPosition = answerSlots[questionPosition];
     wrongOptions.splice(correctPosition, 0, correctOption);
     return wrongOptions;
   };
@@ -752,7 +767,7 @@ if (lessonTwoLab) {
     window.clearInterval(timerId);
     activeMode = labModes[modeKey] || labModes.core;
     steps = buildSteps(activeMode.moduleIndexes);
-    answerOffset = Math.floor(Math.random() * letters.length);
+    answerSlots = buildBalancedAnswerSlots(steps.length);
     renderStationList();
     stepIndex = 0;
     score = 100;

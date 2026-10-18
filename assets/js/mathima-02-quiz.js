@@ -184,6 +184,41 @@ if (lessonDeck) {
     },
   ];
 
+  const shuffleQuizItems = (items) => {
+    const copy = [...items];
+    for (let index = copy.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      [copy[index], copy[randomIndex]] = [copy[randomIndex], copy[index]];
+    }
+    return copy;
+  };
+
+  const longestAnswerRun = (slots) => slots.reduce((state, slot) => {
+    const run = slot === state.previous ? state.run + 1 : 1;
+    return { previous: slot, run, longest: Math.max(state.longest, run) };
+  }, { previous: -1, run: 0, longest: 0 }).longest;
+
+  const balancedAnswerSlots = (count, optionCount) => {
+    const base = Array.from({ length: count }, (_, index) => index % optionCount);
+    let slots = shuffleQuizItems(base);
+    let attempts = 0;
+    while (longestAnswerRun(slots) > 2 && attempts < 40) {
+      slots = shuffleQuizItems(base);
+      attempts += 1;
+    }
+    return slots;
+  };
+
+  const answerSlots = balancedAnswerSlots(quizData.length, 4);
+  quizData.forEach((item, questionIndex) => {
+    const correctText = item.options[item.correct];
+    const distractors = shuffleQuizItems(item.options.filter((_, optionIndex) => optionIndex !== item.correct));
+    const target = answerSlots[questionIndex];
+    item.options = [...distractors];
+    item.options.splice(target, 0, correctText);
+    item.correct = target;
+  });
+
   const moduleData = [
     { title: "Δεδομένα και σήματα", meta: "δεδομένο · πληροφορία · αισθητήρας · αναλογικό · ψηφιακό", start: 0, end: 6 },
     { title: "Bit, byte και μετάδοση", meta: "δυαδικές τιμές · κωδικοποίηση · ρυθμός μετάδοσης", start: 6, end: 12 },
@@ -386,24 +421,7 @@ if (lessonDeck) {
   });
 
   resetButton.addEventListener("click", () => {
-    quiz.reset();
-    questions.forEach((question) => {
-      question.classList.remove("is-correct", "is-incorrect", "needs-answer");
-      question.querySelectorAll("label").forEach((label) => label.classList.remove("selected-answer", "correct-answer"));
-      question.querySelector("[data-lesson-feedback]").hidden = true;
-      question.querySelectorAll("input").forEach((input) => { input.disabled = false; });
-    });
-    result.hidden = true;
-    resetButton.hidden = true;
-    submitButton.disabled = false;
-    warning.hidden = true;
-    scoreTarget.textContent = "0/30";
-    gradeTarget.textContent = "0/20";
-    percentageTarget.textContent = "0%";
-    statusTarget.textContent = "";
-    resultMessage.textContent = "";
-    updateProgress();
-    showMobileQuestion(0);
+    window.location.reload();
   });
 
   showMobileQuestion(0);
