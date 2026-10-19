@@ -61,20 +61,20 @@ const catSeverity={red:'Σοβαρή / άμεσης προσοχής',amber:'Π�
 let filter='lamps',selected='h01',current=0,submitted=false;
 const answers=Object.create(null);const TOTAL_QUESTIONS=SCENARIOS.reduce((n,c)=>n+c.questions.length,0);
 function shuffleAssessmentOptions(){
-  const shuffle=items=>{const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy};
-  const questions=SCENARIOS.flatMap(scenario=>scenario.questions);
-  const maxRun=slots=>slots.reduce((state,slot,index)=>{const run=index&&slot===slots[index-1]?state.run+1:1;return {run,max:Math.max(state.max,run)}},{run:0,max:0}).max;
-  const base=questions.map((_,index)=>index%4);
-  let slots=shuffle(base),attempts=0;
-  while(maxRun(slots)>2&&attempts<40){slots=shuffle(base);attempts++}
-  questions.forEach((question,index)=>{
+  let position=Math.floor(Math.random()*7);
+  SCENARIOS.forEach(scenario=>scenario.questions.forEach(question=>{
     const correct=question.options[question.answer];
-    const distractors=shuffle(question.options.filter((_,optionIndex)=>optionIndex!==question.answer));
-    const target=slots[index]%question.options.length;
-    question.options=distractors;
+    const distractors=question.options.filter((_,index)=>index!==question.answer);
+    for(let i=distractors.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [distractors[i],distractors[j]]=[distractors[j],distractors[i]];
+    }
+    const target=position%question.options.length;
+    question.options=[...distractors];
     question.options.splice(target,0,correct);
     question.answer=target;
-  });
+    position++;
+  }));
 }
 shuffleAssessmentOptions();
 function sprite(rec,big=false){if(rec.kind==='message')return `<span class="icon-hold ${big?'big':''}" aria-hidden="true"><span class="message-sprite" style="background-position:${rec.spriteX}px ${rec.spriteY}px"></span></span>`;return `<span class="icon-hold ${big?'big':''}" aria-hidden="true"><span class="sprite" style="background-position:${rec.spriteX}px ${rec.spriteY}px"></span></span>`;}

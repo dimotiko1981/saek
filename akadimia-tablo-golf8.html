@@ -46,18 +46,19 @@ function setTab(v){tab=v;$('explore').classList.toggle('hidden',v!=='explore');$
 $('search').oninput=e=>{query=e.target.value;pageN=24;renderCatalog()};document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;pageN=24;document.querySelectorAll('[data-filter]').forEach(t=>t.setAttribute('aria-pressed',String(t===b)));renderCatalog()});$('variants').onchange=e=>{variant=e.target.checked;pageN=24;renderCatalog()};$('more').onclick=()=>{pageN+=24;renderCatalog()};$('tab-explore').onclick=()=>setTab('explore');$('tab-cases').onclick=()=>setTab('cases');
 let allQuestions=CASES.flatMap((c,ci)=>c.questions.map((q,qi)=>({...q,ci,qi})));
 function shuffleAssessmentOptions(){
-  const shuffle=items=>{const copy=[...items];for(let i=copy.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[copy[i],copy[j]]=[copy[j],copy[i]]}return copy};
-  const maxRun=slots=>slots.reduce((state,slot,index)=>{const run=index&&slot===slots[index-1]?state.run+1:1;return {run,max:Math.max(state.max,run)}},{run:0,max:0}).max;
-  const base=allQuestions.map((_,index)=>index%4);
-  let slots=shuffle(base),attempts=0;
-  while(maxRun(slots)>2&&attempts<40){slots=shuffle(base);attempts++}
-  allQuestions.forEach((question,index)=>{
+  let position=Math.floor(Math.random()*7);
+  allQuestions.forEach(question=>{
     const correct=question.options[question.a];
-    const distractors=shuffle(question.options.filter((_,optionIndex)=>optionIndex!==question.a));
-    const target=slots[index]%question.options.length;
-    question.options=distractors;
+    const distractors=question.options.filter((_,index)=>index!==question.a);
+    for(let i=distractors.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [distractors[i],distractors[j]]=[distractors[j],distractors[i]];
+    }
+    const target=position%question.options.length;
+    question.options=[...distractors];
     question.options.splice(target,0,correct);
     question.a=target;
+    position++;
   });
 }
 shuffleAssessmentOptions();
