@@ -577,14 +577,46 @@ if (lessonThreeLab) {
     });
   };
 
+  const splitTopologyLabel = (label, maxLineLength = 11) => {
+    const words = String(label).trim().split(/\s+/).filter(Boolean);
+    if (words.length <= 1 && label.length <= maxLineLength) return [label];
+    const lines = [];
+    let current = "";
+    words.forEach((word) => {
+      const candidate = current ? `${current} ${word}` : word;
+      if (candidate.length <= maxLineLength || !current) {
+        current = candidate;
+      } else {
+        lines.push(current);
+        current = word;
+      }
+    });
+    if (current) lines.push(current);
+    if (lines.length <= 2) return lines;
+    return [lines[0], lines.slice(1).join(" ")];
+  };
+
+  const renderTopologyLabel = (label, shape) => {
+    const lines = splitTopologyLabel(label, shape === "circle" ? 10 : 12).slice(0, 2);
+    const safeLines = lines.map((line) => escapeXml(line));
+    if (safeLines.length === 1) {
+      return shape === "circle"
+        ? `<text y="4"><tspan x="0" dy="0">${safeLines[0]}</tspan></text>`
+        : `<text x="46" y="24"><tspan x="46" dy="0">${safeLines[0]}</tspan></text>`;
+    }
+    return shape === "circle"
+      ? `<text y="-5"><tspan x="0" dy="0">${safeLines[0]}</tspan><tspan x="0" dy="13">${safeLines[1]}</tspan></text>`
+      : `<text x="46" y="18"><tspan x="46" dy="0">${safeLines[0]}</tspan><tspan x="46" dy="13">${safeLines[1]}</tspan></text>`;
+  };
+
   const svgNode = (item, x, y, shape = "rect") => {
     const stateClass = item.state === "offline" ? "is-offline" : item.state === "suspect" ? "is-suspect" : "";
     const roleClass = item.role === "gateway" ? "is-gateway" : "";
-    const safeLabel = escapeXml(item.label.length > 14 ? `${item.label.slice(0, 13)}…` : item.label);
+    const labelMarkup = renderTopologyLabel(item.label, shape);
     if (shape === "circle") {
-      return `<g class="topology-map-node ${stateClass} ${roleClass}" transform="translate(${x} ${y})"><circle r="31"/><text y="4">${safeLabel}</text></g>`;
+      return `<g class="topology-map-node ${stateClass} ${roleClass}" transform="translate(${x} ${y})"><circle r="34"/>${labelMarkup}</g>`;
     }
-    return `<g class="topology-map-node ${stateClass} ${roleClass}" transform="translate(${x - 39} ${y - 20})"><rect width="78" height="40" rx="9"/><text x="39" y="25">${safeLabel}</text></g>`;
+    return `<g class="topology-map-node ${stateClass} ${roleClass}" transform="translate(${x - 46} ${y - 23})"><rect width="92" height="46" rx="10"/>${labelMarkup}</g>`;
   };
 
   const renderBus = (scenario) => {
@@ -602,18 +634,18 @@ if (lessonThreeLab) {
     const centerIndex = Math.max(0, scenario.nodes.findIndex((item) => item.role === "gateway"));
     const center = scenario.nodes[centerIndex];
     const outer = scenario.nodes.filter((_, index) => index !== centerIndex);
-    const positions = [[180, 42], [315, 130], [180, 218], [45, 130], [70, 45], [290, 215]];
+    const positions = [[180, 58], [300, 130], [180, 206], [60, 130], [84, 62], [276, 198]];
     const lines = outer.map((item, index) => `<line class="topology-map-line ${item.state === "suspect" ? "is-suspect" : item.state === "offline" ? "is-offline" : ""}" x1="180" y1="130" x2="${positions[index][0]}" y2="${positions[index][1]}"/>`).join("");
     const nodes = outer.map((item, index) => svgNode(item, positions[index][0], positions[index][1], "circle")).join("");
-    return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης τοπολογίας αστέρα"><text class="topology-map-caption" x="180" y="16">ΚΕΝΤΡΙΚΟ ΣΗΜΕΙΟ ΚΑΙ ΚΛΑΔΟΙ</text>${lines}${svgNode(center, 180, 130)}${nodes}</svg>`;
+    return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης τοπολογίας αστέρα"><text class="topology-map-caption" x="180" y="18">ΚΕΝΤΡΙΚΟ ΣΗΜΕΙΟ ΚΑΙ ΚΛΑΔΟΙ</text>${lines}${svgNode(center, 180, 130)}${nodes}</svg>`;
   };
 
   const renderRing = (scenario) => {
-    const positions = [[180, 48], [306, 130], [180, 212], [54, 130], [95, 55], [265, 205]];
+    const positions = [[180, 58], [300, 130], [180, 204], [60, 130], [95, 62], [265, 198]];
     const used = positions.slice(0, scenario.nodes.length);
     const points = used.map(([x, y]) => `${x},${y}`).join(" ");
     const nodes = scenario.nodes.map((item, index) => svgNode(item, used[index][0], used[index][1], "circle")).join("");
-    return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης τοπολογίας δακτυλίου"><text class="topology-map-caption" x="180" y="17">ΚΛΕΙΣΤΗ ΔΙΑΔΡΟΜΗ</text><polygon class="topology-map-line ${scenario.lineState === "suspect" ? "is-suspect" : scenario.lineState === "offline" ? "is-offline" : ""}" points="${points}"/>${nodes}</svg>`;
+    return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης τοπολογίας δακτυλίου"><text class="topology-map-caption" x="180" y="18">ΚΛΕΙΣΤΗ ΔΙΑΔΡΟΜΗ</text><polygon class="topology-map-line ${scenario.lineState === "suspect" ? "is-suspect" : scenario.lineState === "offline" ? "is-offline" : ""}" points="${points}"/>${nodes}</svg>`;
   };
 
   const renderHybrid = (scenario) => {

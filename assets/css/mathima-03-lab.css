@@ -507,8 +507,13 @@
 
 .topology-map-node text {
   fill: #f4f8fb;
-  font: 800 12px "Manrope", sans-serif;
+  font: 800 11px "Manrope", sans-serif;
   text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.topology-map-node tspan {
+  dominant-baseline: middle;
 }
 
 .topology-map-node.is-offline rect,
@@ -533,9 +538,9 @@
 
 .topology-map-caption {
   fill: #7f98aa;
-  font: 700 9px "Manrope", sans-serif;
+  font: 700 8.5px "Manrope", sans-serif;
   text-anchor: middle;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
 }
 
 .topology-legend {
