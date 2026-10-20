@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="Διαδραστική εκπαιδευτική άσκηση σχεδίασης υποδικτύων σε σύγχρονο όχημα.">
+  <title>Σχεδίασε το δίκτυο του οχήματος — Μάθημα 3</title>
+  <style>
+    :root{color-scheme:dark;--bg:#071426;--panel:#102238;--panel2:#0b1b2e;--line:#29435e;--muted:#a9bdd0;--text:#eff7ff;--cyan:#43d9f5;--green:#68e6b2;--red:#ff988b;--gold:#f4c77c}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#142b42 0,transparent 45%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}
+    a{color:inherit}.shell{max-width:1160px;margin:auto;padding:20px}.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0 20px;border-bottom:1px solid #20364d}.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800}.mark{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--cyan);border-radius:12px;color:var(--cyan)}.top-link{color:#b9d2e8;text-decoration:none;border:1px solid var(--line);padding:9px 13px;border-radius:10px;font-size:.9rem}
+    .crumb{color:var(--muted);font-size:.88rem;margin:18px 0}.crumb a{text-decoration:none}.hero{padding:24px 0 18px}.eyebrow{color:var(--cyan);font-size:.76rem;font-weight:800;letter-spacing:.14em}.hero h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.12;margin:8px 0 12px}.hero p{color:#c2d2e1;max-width:78ch;margin:0}.note{margin:18px 0 0;padding:12px 14px;background:#0a1b2e;border:1px solid #214058;border-left:3px solid var(--gold);border-radius:10px;color:#d7e5f0;font-size:.91rem}
+    .workspace{display:grid;grid-template-columns:minmax(240px,.78fr) minmax(0,1.6fr);gap:16px;margin:12px 0}.panel{background:linear-gradient(160deg,rgba(19,42,65,.98),rgba(11,27,46,.98));border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 14px 36px rgba(0,0,0,.16)}.panel h2{font-size:1.05rem;margin:0 0 5px}.subhead{color:var(--muted);font-size:.88rem;margin:0 0 14px}.units{display:grid;gap:9px}.unit{width:100%;text-align:left;padding:11px 12px;border:1px solid #36516c;border-radius:11px;background:#11263c;color:var(--text);cursor:pointer;transition:.16s}.unit:hover,.unit:focus-visible{border-color:var(--cyan);outline:none;transform:translateY(-1px)}.unit[aria-pressed=true]{border-color:var(--cyan);box-shadow:0 0 0 2px #43d9f533}.unit small{display:block;color:#9eb4c8;font-size:.78rem}.unit.is-correct{border-color:var(--green)}.unit.is-wrong{border-color:var(--red)}.unit[hidden]{display:none}
+    .instruction{color:#d4e3ef;font-size:.9rem;min-height:2.8em;margin:0 0 12px}.zones{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.zone{min-height:146px;padding:12px;border:1px solid #36516c;border-radius:13px;background:rgba(7,20,38,.56);transition:.16s}.zone-target{display:block;width:100%;padding:0;border:0;background:transparent;color:var(--text);text-align:left;cursor:pointer}.zone-target:focus-visible{outline:2px solid var(--cyan);outline-offset:4px;border-radius:4px}.zone:hover{border-color:var(--cyan);background:#142e47}.zone strong{display:block;font-size:.96rem}.zone .desc{display:block;color:var(--muted);font-size:.78rem;min-height:2.5em;margin:4px 0 8px}.zone.is-correct{border-color:var(--green);box-shadow:inset 0 0 0 1px #68e6b244}.zone.is-wrong{border-color:var(--red);box-shadow:inset 0 0 0 1px #ff988b44}.chips{display:flex;flex-wrap:wrap;gap:5px}.chip{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #3d5b76;border-radius:999px;background:#152e47;color:#d9e8f4;font-size:.75rem}.chip.is-correct{border-color:var(--green);color:#b8ffdf}.chip.is-wrong{border-color:var(--red);color:#ffd0c9}.empty{color:#7890a5;font-size:.76rem;font-style:italic}
+    .diagram-panel{margin:16px 0}.diagram-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.diagram-head p{margin:0;color:var(--muted);font-size:.88rem}.gateway{width:max-content;margin:16px auto 12px;padding:10px 18px;border:1px solid var(--cyan);border-radius:999px;background:#0c3043;color:#c9f8ff;font-weight:800;box-shadow:0 0 24px #43d9f522}.gateway small{display:block;font-size:.68rem;letter-spacing:.1em;color:#8deafa;text-align:center}.topo-lines{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.topo-line{height:18px;position:relative}.topo-line:before{content:"";position:absolute;height:18px;border-left:1px solid #3b637d;left:50%;top:0}.topo-line:after{content:"";position:absolute;width:100%;border-top:1px solid #3b637d;left:0;top:17px}.topo-labels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.topo-label{padding:8px;text-align:center;border:1px solid #294760;border-radius:9px;background:#0c1e32;color:#aac1d4;font-size:.74rem}.topo-label.active{border-color:var(--cyan);color:#d4faff}
+    .choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:12px}.choice{padding:10px 8px;border:1px solid #36516c;border-radius:10px;background:#11263c;color:#dce9f3;cursor:pointer;font:inherit;font-size:.82rem}.choice:hover,.choice:focus-visible{border-color:var(--cyan);outline:none}.choice[aria-pressed=true]{border-color:var(--cyan);background:#123b50;box-shadow:inset 0 0 0 1px #43d9f544;color:#e1fbff}.choice small{display:block;color:#a5bacd;font-size:.7rem;margin-top:3px}
+    .controls{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0 0}.btn{border:1px solid #54708b;background:transparent;color:var(--text);border-radius:10px;padding:10px 15px;font:inherit;font-weight:700;cursor:pointer}.btn:hover,.btn:focus-visible{border-color:var(--cyan);outline:none}.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#071426}.btn.primary:hover{background:#83ecfb}.btn:disabled{opacity:.45;cursor:not-allowed}.result{margin-top:14px;padding:13px 15px;background:#081a2c;border:1px solid #29435e;border-radius:11px;color:#ceddea;min-height:52px}.result.success{border-color:#367d67}.result.partial{border-color:#a77845}.result strong{color:var(--text)}.review{margin:8px 0 0;padding-left:20px}.review li{margin:4px 0}.score{font-variant-numeric:tabular-nums;color:var(--cyan);font-weight:900}.footer-note{text-align:center;color:#8197ab;font-size:.78rem;padding:18px}
+    @media(max-width:760px){.workspace{grid-template-columns:1fr}.zones{grid-template-columns:repeat(2,minmax(0,1fr))}.choices{grid-template-columns:repeat(2,minmax(0,1fr))}.topbar{align-items:flex-start}.top-link{font-size:.78rem}.shell{padding:13px}}
+    @media(max-width:420px){.zones{grid-template-columns:1fr}.zone{min-height:112px}.topo-labels{grid-template-columns:repeat(2,minmax(0,1fr))}.topo-lines{display:none}.hero{padding-top:17px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="index.html" aria-label="Επιστροφή στην αρχική">
+        <span class="mark" aria-hidden="true">Σ</span><span>ΣΑΕΚ <small style="display:block;color:#9db1c5;font-weight:500">Εκπαιδευτικό Υλικό</small></span>
+      </a>
+      <a class="top-link" href="index.html#specialties">← Επιστροφή στα μαθήματα</a>
+    </header>
+    <nav class="crumb" aria-label="Διαδρομή"><a href="index.html">Αρχική</a> / Μάθημα 3 / Άσκηση σχεδίασης</nav>
+    <main>
+      <section class="hero">
+        <div class="eyebrow">ΜΑΘΗΜΑ 3 · ΔΙΑΔΡΑΣΤΙΚΗ ΑΣΚΗΣΗ</div>
+        <h1>Σχεδίασε το δίκτυο του οχήματος</h1>
+        <p>Οργάνωσε τις ηλεκτρονικές μονάδες σε υποδίκτυα και επίλεξε πώς θα επικοινωνούν μεταξύ τους. Εδώ σχεδιάζεις την αρχιτεκτονική· δεν ψάχνεις βλάβη.</p>
+        <div class="note"><strong>Εκπαιδευτικό παράδειγμα:</strong> Η άσκηση χρησιμοποιεί μια απλοποιημένη αρχιτεκτονική υβριδικού οχήματος. Οι πραγματικές διατάξεις διαφέρουν ανά κατασκευαστή και μοντέλο.</div>
+      </section>
+      <div class="workspace">
+        <section class="panel" aria-labelledby="units-title">
+          <h2 id="units-title">1. Επίλεξε μονάδα</h2>
+          <p class="subhead">Πάτησε μια μονάδα και μετά διάλεξε υποδίκτυο.</p>
+          <p class="instruction" id="instruction" aria-live="polite">Επίλεξε την πρώτη μονάδα για να ξεκινήσεις.</p>
+          <div class="units" id="units"></div>
+        </section>
+        <section class="panel" aria-labelledby="zones-title">
+          <h2 id="zones-title">2. Οργάνωσε τα υποδίκτυα</h2>
+          <p class="subhead">Τοποθέτησε κάθε μονάδα στο υποδίκτυο που εξυπηρετεί τη λειτουργία της.</p>
+          <div class="zones" id="zones"></div>
+        </section>
+      </div>
+      <section class="panel diagram-panel" aria-labelledby="diagram-title">
+        <div class="diagram-head"><div><h2 id="diagram-title">3. Επίλεξε αρχιτεκτονική επικοινωνίας</h2><p>Πώς θα ανταλλάσσουν δεδομένα τα επιμέρους υποδίκτυα;</p></div></div>
+        <div class="gateway"><small>ΚΕΝΤΡΙΚΟ ΣΗΜΕΙΟ ΔΙΑΣΥΝΔΕΣΗΣ</small>Gateway</div>
+        <div class="topo-lines" aria-hidden="true"><i class="topo-line"></i><i class="topo-line"></i><i class="topo-line"></i><i class="topo-line"></i></div>
+        <div class="topo-labels" id="topo-labels"></div>
+        <div class="choices" id="choices" role="group" aria-label="Επιλογή αρχιτεκτονικής"></div>
+        <div class="controls">
+          <button class="btn primary" type="button" id="check">Έλεγξε τη σχεδίαση</button>
+          <button class="btn" type="button" id="reset">Ξεκίνα ξανά</button>
+        </div>
+        <div class="result" id="result" role="status" aria-live="polite">Η βαθμολογία εμφανίζεται αφού τοποθετήσεις όλες τις μονάδες και επιλέξεις αρχιτεκτονική.</div>
+      </section>
+    </main>
+    <footer class="footer-note">Άσκηση σχεδίασης για το Μάθημα 3 · Εκπαιδευτική προσομοίωση, όχι εργοστασιακό διάγραμμα</footer>
+  </div>
+<script>
+(() => {
+  const modules = [
+    {id:"engine", name:"ECU κινητήρα", subnet:"power", why:"Συμμετέχει στον έλεγχο του κινητήρα και της μετάδοσης κίνησης."},
+    {id:"abs", name:"Μονάδα ABS/ESP", subnet:"chassis", why:"Αφορά πέδηση και δυναμική ευστάθεια του οχήματος."},
+    {id:"eps", name:"Ηλεκτρική υποβοήθηση τιμονιού (EPS)", subnet:"chassis", why:"Αφορά τη διεύθυνση και τη δυναμική συμπεριφορά του οχήματος."},
+    {id:"bcm", name:"Μονάδα αμαξώματος (BCM)", subnet:"body", why:"Διαχειρίζεται λειτουργίες αμαξώματος και άνεσης."},
+    {id:"cluster", name:"Πίνακας οργάνων", subnet:"body", why:"Παρουσιάζει στον οδηγό ενδείξεις και πληροφορίες οχήματος."},
+    {id:"media", name:"Σύστημα πολυμέσων", subnet:"media", why:"Ανήκει στο υποσύστημα ενημέρωσης και ψυχαγωγίας."}
+  ];
+  const subnets = [
+    {id:"power", title:"Κίνηση / κινητήρας", detail:"Έλεγχος κινητήρα και μετάδοσης"},
+    {id:"chassis", title:"Πλαίσιο / ασφάλεια", detail:"Πέδηση, ευστάθεια, διεύθυνση"},
+    {id:"body", title:"Αμάξωμα / ενδείξεις", detail:"Άνεση, λειτουργίες αμαξώματος, οδηγός"},
+    {id:"media", title:"Πολυμέσα", detail:"Ενημέρωση και ψυχαγωγία"}
+  ];
+  const architectures = [
+    {id:"bus", label:"Κοινός δίαυλος", detail:"Όλες οι μονάδες στο ίδιο δίκτυο"},
+    {id:"star", label:"Αστέρας", detail:"Όλοι οι κόμβοι σε κεντρικό σημείο"},
+    {id:"ring", label:"Δακτύλιος", detail:"Κάθε κόμβος συνδέεται με δύο γείτονες"},
+    {id:"hybrid", label:"Υβριδική με Gateway", detail:"Ξεχωριστά υποδίκτυα με διασύνδεση"}
+  ];
+  const placed = new Map();
+  let selected = null;
+  let architecture = "";
+  let checked = false;
+  const unitsEl = document.querySelector("#units");
+  const zonesEl = document.querySelector("#zones");
+  const choicesEl = document.querySelector("#choices");
+  const resultEl = document.querySelector("#result");
+  const instructionEl = document.querySelector("#instruction");
+  const labelsEl = document.querySelector("#topo-labels");
+
+  function render() {
+    unitsEl.innerHTML = modules.filter(m => !placed.has(m.id)).map(m =>
+      `<button type="button" class="unit ${selected===m.id?"is-selected":""}" data-unit="${m.id}" aria-pressed="${selected===m.id}">${m.name}<small>Πάτησε για επιλογή</small></button>`
+    ).join("") || `<p class="empty">Όλες οι μονάδες έχουν τοποθετηθεί.</p>`;
+    zonesEl.innerHTML = subnets.map(s => {
+      const chips = modules.filter(m=>placed.get(m.id)===s.id).map(m=>{
+        const mark = checked ? (m.subnet===s.id?"is-correct":"is-wrong") : "";
+        return `<button type="button" class="chip ${mark}" data-reassign="${m.id}" title="Πάτησε για αλλαγή υποδικτύου">${m.name}${checked?(m.subnet===s.id?" ✓":" !"):""}</button>`;
+      }).join("");
+      const zoneClass = checked ? (modules.some(m=>placed.get(m.id)===s.id&&m.subnet!==s.id)?"is-wrong":"is-correct") : "";
+      return `<div class="zone ${zoneClass}"><button type="button" class="zone-target" data-zone="${s.id}" aria-label="Τοποθέτηση στο ${s.title}"><strong>${s.title}</strong><span class="desc">${s.detail}</span></button><span class="chips">${chips||'<span class="empty">Δεν έχει τοποθετηθεί μονάδα</span>'}</span></div>`;
+    }).join("");
+    choicesEl.innerHTML = architectures.map(a=>`<button type="button" class="choice" data-architecture="${a.id}" aria-pressed="${architecture===a.id}">${a.label}<small>${a.detail}</small></button>`).join("");
+    labelsEl.innerHTML = subnets.map(s=>`<div class="topo-label ${architecture==="hybrid"?"active":""}">${s.title}</div>`).join("");
+    unitsEl.querySelectorAll("[data-unit]").forEach(b=>b.addEventListener("click",()=>{
+      selected=b.dataset.unit;
+      const m=modules.find(x=>x.id===selected);
+      instructionEl.textContent=`Επίλεξες «${m.name}». Τώρα πάτησε το κατάλληλο υποδίκτυο.`;
+      render();
+    }));
+    zonesEl.querySelectorAll("[data-zone]").forEach(b=>b.addEventListener("click",()=>{
+      if(!selected){instructionEl.textContent="Πρώτα επίλεξε μία μονάδα από τη λίστα ή πάτησε μονάδα που έχει ήδη τοποθετηθεί για να την αλλάξεις.";return;}
+      placed.set(selected,b.dataset.zone);
+      const m=modules.find(x=>x.id===selected);
+      selected=null;checked=false;
+      instructionEl.textContent=`Τοποθετήθηκε η «${m.name}». Συνέχισε με την επόμενη μονάδα.`;
+      resultEl.className="result";resultEl.textContent="Η βαθμολογία εμφανίζεται αφού τοποθετήσεις όλες τις μονάδες και επιλέξεις αρχιτεκτονική.";
+      render();
+    }));
+    zonesEl.querySelectorAll("[data-reassign]").forEach(b=>b.addEventListener("click",e=>{
+      e.stopPropagation(); selected=b.dataset.reassign; placed.delete(selected); checked=false;
+      const m=modules.find(x=>x.id===selected); instructionEl.textContent=`Επίλεξες ξανά «${m.name}». Πάτησε άλλο υποδίκτυο για να αλλάξεις την τοποθέτησή της.`; render();
+    }));
+    choicesEl.querySelectorAll("[data-architecture]").forEach(b=>b.addEventListener("click",()=>{architecture=b.dataset.architecture;checked=false;resultEl.className="result";resultEl.textContent="Η βαθμολογία εμφανίζεται αφού τοποθετήσεις όλες τις μονάδες και επιλέξεις αρχιτεκτονική.";render();}));
+  }
+  document.querySelector("#check").addEventListener("click",()=>{
+    if(placed.size!==modules.length){resultEl.className="result partial";resultEl.textContent=`Έχουν τοποθετηθεί ${placed.size} από τις ${modules.length} μονάδες. Ολοκλήρωσε πρώτα την οργάνωση των υποδικτύων.`;return;}
+    if(!architecture){resultEl.className="result partial";resultEl.textContent="Επίλεξε πρώτα αρχιτεκτονική επικοινωνίας.";return;}
+    checked=true;
+    const correct=modules.filter(m=>placed.get(m.id)===m.subnet).length;
+    const archPoint=architecture==="hybrid"?1:0;
+    const score=correct+archPoint;
+    const wrong=modules.filter(m=>placed.get(m.id)!==m.subnet);
+    const archText=archPoint?"Σωστά: το Gateway διασυνδέει τα επιμέρους υποδίκτυα στην υβριδική αρχιτεκτονική.":"Σε αυτό το εκπαιδευτικό παράδειγμα, η κατάλληλη επιλογή είναι η υβριδική αρχιτεκτονική με Gateway.";
+    const corrections=wrong.length?`<ul class="review">${wrong.map(m=>`<li><strong>${m.name}</strong> → ${subnets.find(s=>s.id===m.subnet).title}. ${m.why}</li>`).join("")}</ul>`:"<p>Και οι έξι μονάδες τοποθετήθηκαν σωστά.</p>";
+    resultEl.className=`result ${score===7?"success":"partial"}`;
+    resultEl.innerHTML=`<strong>Αποτέλεσμα: <span class="score">${score}/7</span></strong><br>${archText}${corrections}`;
+    instructionEl.textContent="Έλεγχος ολοκληρώθηκε. Τα πράσινα σημάδια δείχνουν σωστές τοποθετήσεις· τα κόκκινα χρειάζονται διόρθωση.";
+    render();
+  });
+  document.querySelector("#reset").addEventListener("click",()=>{
+    placed.clear();selected=null;architecture="";checked=false;
+    instructionEl.textContent="Επίλεξε την πρώτη μονάδα για να ξεκινήσεις.";
+    resultEl.className="result";resultEl.textContent="Η βαθμολογία εμφανίζεται αφού τοποθετήσεις όλες τις μονάδες και επιλέξεις αρχιτεκτονική.";
+    render();
+  });
+  render();
+})();
+</script>
+</body>
+</html>
