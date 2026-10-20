@@ -35,7 +35,8 @@
         <div class="eyebrow">ΜΑΘΗΜΑ 3 · ΔΙΑΔΡΑΣΤΙΚΗ ΑΣΚΗΣΗ</div>
         <h1>Σχεδίασε το δίκτυο του οχήματος</h1>
         <p>Οργάνωσε τις ηλεκτρονικές μονάδες σε υποδίκτυα και επίλεξε πώς θα επικοινωνούν μεταξύ τους. Εδώ σχεδιάζεις την αρχιτεκτονική· δεν ψάχνεις βλάβη.</p>
-        <div class="note"><strong>Εκπαιδευτικό παράδειγμα:</strong> Η άσκηση χρησιμοποιεί μια απλοποιημένη αρχιτεκτονική υβριδικού οχήματος. Οι πραγματικές διατάξεις διαφέρουν ανά κατασκευαστή και μοντέλο.</div>
+        <div class="note"><strong>Εκπαιδευτικό παράδειγμα:</strong> Οι πραγματικές διατάξεις διαφέρουν ανά κατασκευαστή και μοντέλο. Το Gateway είναι λειτουργία διασύνδεσης δικτύων, όχι από μόνο του τοπολογία.</div>
+        <div class="note" style="border-left-color:var(--cyan)"><strong>Οι απαιτήσεις αυτής της άσκησης:</strong> Κράτησε τα τέσσερα υποδίκτυα χωριστά, επέτρεψε την ανταλλαγή των απαραίτητων δεδομένων μέσω Gateway και φρόντισε μια βλάβη στα πολυμέσα να μην αποσυνδέει το ABS/ESP. Με αυτά τα συγκεκριμένα κριτήρια, αναζήτησε την κατάλληλη λύση.</div>
       </section>
       <div class="workspace">
         <section class="panel" aria-labelledby="units-title">
@@ -51,7 +52,7 @@
         </section>
       </div>
       <section class="panel diagram-panel" aria-labelledby="diagram-title">
-        <div class="diagram-head"><div><h2 id="diagram-title">3. Επίλεξε αρχιτεκτονική επικοινωνίας</h2><p>Πώς θα ανταλλάσσουν δεδομένα τα επιμέρους υποδίκτυα;</p></div></div>
+        <div class="diagram-head"><div><h2 id="diagram-title">3. Επίλεξε αρχιτεκτονική για το σενάριο</h2><p>Διάλεξε αυτή που ικανοποιεί τις απαιτήσεις που διάβασες παραπάνω.</p></div></div>
         <div class="gateway"><small>ΚΕΝΤΡΙΚΟ ΣΗΜΕΙΟ ΔΙΑΣΥΝΔΕΣΗΣ</small>Gateway</div>
         <div class="topo-lines" aria-hidden="true"><i class="topo-line"></i><i class="topo-line"></i><i class="topo-line"></i><i class="topo-line"></i></div>
         <div class="topo-labels" id="topo-labels"></div>
@@ -82,10 +83,10 @@
     {id:"media", title:"Πολυμέσα", detail:"Ενημέρωση και ψυχαγωγία"}
   ];
   const architectures = [
-    {id:"bus", label:"Κοινός δίαυλος", detail:"Όλες οι μονάδες στο ίδιο δίκτυο"},
-    {id:"star", label:"Αστέρας", detail:"Όλοι οι κόμβοι σε κεντρικό σημείο"},
-    {id:"ring", label:"Δακτύλιος", detail:"Κάθε κόμβος συνδέεται με δύο γείτονες"},
-    {id:"hybrid", label:"Υβριδική με Gateway", detail:"Ξεχωριστά υποδίκτυα με διασύνδεση"}
+    {id:"bus", label:"Κοινός δίαυλος", detail:"Ένα κοινό δίκτυο για όλες τις μονάδες"},
+    {id:"star", label:"Αστέρας", detail:"Όλες οι μονάδες σε ένα κεντρικό σημείο"},
+    {id:"ring", label:"Δακτύλιος", detail:"Όλες οι μονάδες σε κλειστό κύκλο"},
+    {id:"hybrid", label:"Υποδίκτυα + Gateway", detail:"Χωριστά δίκτυα με ελεγχόμενη διασύνδεση"}
   ];
   const placed = new Map();
   let selected = null;
@@ -141,7 +142,7 @@
     const archPoint=architecture==="hybrid"?1:0;
     const score=correct+archPoint;
     const wrong=modules.filter(m=>placed.get(m.id)!==m.subnet);
-    const archText=archPoint?"Σωστά: το Gateway διασυνδέει τα επιμέρους υποδίκτυα στην υβριδική αρχιτεκτονική.":"Σε αυτό το εκπαιδευτικό παράδειγμα, η κατάλληλη επιλογή είναι η υβριδική αρχιτεκτονική με Gateway.";
+    const archText=archPoint?"Για τις απαιτήσεις αυτού του σεναρίου, η λύση με χωριστά υποδίκτυα και Gateway επιτρέπει ελεγχόμενη επικοινωνία χωρίς να τα ενώνει σε ένα δίκτυο.":"Αυτή η αρχιτεκτονική μπορεί να χρησιμοποιείται σε άλλα δίκτυα, αλλά δεν ικανοποιεί τον συγκεκριμένο στόχο διαχωρισμού των τεσσάρων υποδικτύων με ελεγχόμενη επικοινωνία μέσω Gateway.";
     const corrections=wrong.length?`<ul class="review">${wrong.map(m=>`<li><strong>${m.name}</strong> → ${subnets.find(s=>s.id===m.subnet).title}. ${m.why}</li>`).join("")}</ul>`:"<p>Και οι έξι μονάδες τοποθετήθηκαν σωστά.</p>";
     resultEl.className=`result ${score===7?"success":"partial"}`;
     resultEl.innerHTML=`<strong>Αποτέλεσμα: <span class="score">${score}/7</span></strong><br>${archText}${corrections}`;
