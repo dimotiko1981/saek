@@ -241,14 +241,17 @@
 }
 </style>
     <style id="saek-lesson-3-actions-layout">
-      /* Κρατά τον τίτλο του Μαθήματος 3 σε πλήρες πλάτος και οργανώνει τους τέσσερις συνδέσμους από κάτω. */
+      /* Μάθημα 3: ίδιο μοτίβο με το Μάθημα 2 — περιγραφή αριστερά, ενέργειες δεξιά. */
       .course-preview-stack .lesson-entry-3 {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.8fr);
+      }
+      .course-preview-stack .lesson-entry-3 .lesson-entry-main,
+      .course-preview-stack .lesson-entry-3 .course-preview-actions {
+        min-width: 0;
       }
       .course-preview-stack .lesson-entry-3 .course-preview-actions {
         display: grid;
         width: 100%;
-        min-width: 0;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
         justify-content: stretch;
@@ -264,12 +267,9 @@
         min-height: 58px;
         justify-content: space-between;
       }
-      @media (max-width: 900px) {
-        .course-preview-stack .lesson-entry-3 .course-preview-actions {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
-          grid-column: auto;
+      @media (max-width: 1000px) {
+        .course-preview-stack .lesson-entry-3 {
+          grid-template-columns: minmax(0, 1fr);
         }
       }
       @media (max-width: 650px) {
