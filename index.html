@@ -249,10 +249,13 @@
         display: grid;
         width: 100%;
         min-width: 0;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
         justify-content: stretch;
         gap: 0.65rem;
+      }
+      .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
+        grid-column: 2;
       }
       .course-preview-stack .lesson-entry-3 .course-open-link {
         width: 100%;
@@ -265,10 +268,20 @@
         .course-preview-stack .lesson-entry-3 .course-preview-actions {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
+        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
+          grid-column: auto;
+        }
       }
       @media (max-width: 650px) {
         .course-preview-stack .lesson-entry-3 .course-preview-actions {
           grid-template-columns: minmax(0, 1fr);
+        }
+        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
+          grid-column: 1;
+          grid-row: 3;
+        }
+        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-design {
+          grid-row: 4;
         }
       }
     </style>
@@ -502,7 +515,7 @@
                   Εξερεύνηση τοπολογιών δικτύου
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
-                <a class="course-open-link course-open-link-secondary course-open-link-lesson-3" href="sxediasmos-diktyou.html">
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-3 course-open-link-lesson-3-design" href="sxediasmos-diktyou.html">
                   Άσκηση σχεδίασης δικτύου
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
