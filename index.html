@@ -299,7 +299,7 @@
                 <dd>Γνωστικό αντικείμενο</dd>
               </div>
               <div>
-                <dt>3</dt>
+                <dt data-available-lessons-count>3</dt>
                 <dd>Διαθέσιμα μαθήματα</dd>
               </div>
             </dl>
@@ -369,7 +369,7 @@
               <ul class="specialty-meta" aria-label="Περιεχόμενο ειδικότητας">
                 <li>
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h12v12H4zM7 8h6m-6 4h4" /></svg>
-                  3 διαθέσιμα μαθήματα
+                  <span data-available-lessons-count>3</span> διαθέσιμα μαθήματα
                 </li>
                 <li>
                   <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" /><path d="M10 6v4l3 2" /></svg>
@@ -406,7 +406,7 @@
               </div>
             </article>
 
-            <article class="lesson-entry lesson-entry-intro">
+            <article class="lesson-entry lesson-entry-intro" data-lesson>
               <div class="lesson-entry-main">
                 <span class="course-number course-number-intro" aria-hidden="true">1</span>
                 <div>
@@ -427,7 +427,7 @@
               </div>
             </article>
 
-            <article class="lesson-entry">
+            <article class="lesson-entry" data-lesson>
               <div class="lesson-entry-main">
                 <span class="course-number" aria-hidden="true">2</span>
                 <div>
@@ -452,7 +452,7 @@
               </div>
             </article>
 
-            <article class="lesson-entry lesson-entry-3">
+            <article class="lesson-entry lesson-entry-3" data-lesson>
               <div class="lesson-entry-main">
                 <span class="course-number course-number-lesson-3" aria-hidden="true">3</span>
                 <div>
@@ -490,6 +490,16 @@
       </footer>
     </div>
 
+    <script>
+      // Τα άρθρα μαθημάτων μέσα στην προεπισκόπηση φέρουν data-lesson.
+      // Όταν προστεθεί μάθημα, προσθέστε το ίδιο γνώρισμα στο νέο article.
+      (() => {
+        const total = document.querySelectorAll("#specialty-preview [data-lesson]").length;
+        document.querySelectorAll("[data-available-lessons-count]").forEach((element) => {
+          element.textContent = String(total);
+        });
+      })();
+    </script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>
