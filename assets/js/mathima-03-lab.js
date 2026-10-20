@@ -621,13 +621,15 @@ if (lessonThreeLab) {
 
   const renderBus = (scenario) => {
     const count = scenario.nodes.length;
-    const positions = scenario.nodes.map((_, index) => 42 + index * (276 / Math.max(1, count - 1)));
+    const margin = 60;
+    const span = 240;
+    const positions = scenario.nodes.map((_, index) => margin + index * (span / Math.max(1, count - 1)));
     const nodes = scenario.nodes.map((item, index) => {
       const y = index % 2 === 0 ? 66 : 198;
       const branchEnd = index % 2 === 0 ? 86 : 178;
       return `<line class="topology-map-line ${item.state === "suspect" ? "is-suspect" : item.state === "offline" ? "is-offline" : ""}" x1="${positions[index]}" y1="130" x2="${positions[index]}" y2="${branchEnd}"/>${svgNode(item, positions[index], y)}`;
     }).join("");
-    return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης τοπολογίας διαύλου"><text class="topology-map-caption" x="180" y="20">ΚΟΙΝΟΣ ΔΙΑΥΛΟΣ</text><line class="topology-map-line ${scenario.lineState === "suspect" ? "is-suspect" : scenario.lineState === "offline" ? "is-offline" : ""}" x1="24" y1="130" x2="336" y2="130"/>${nodes}</svg>`;
+    return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης τοπολογίας διαύλου"><text class="topology-map-caption" x="180" y="20">ΚΟΙΝΟΣ ΔΙΑΥΛΟΣ</text><line class="topology-map-line ${scenario.lineState === "suspect" ? "is-suspect" : scenario.lineState === "offline" ? "is-offline" : ""}" x1="36" y1="130" x2="324" y2="130"/>${nodes}</svg>`;
   };
 
   const renderStar = (scenario) => {
@@ -660,9 +662,27 @@ if (lessonThreeLab) {
     return `<svg viewBox="0 0 360 260" role="img" aria-label="Απλοποιημένος χάρτης υβριδικού δικτύου"><text class="topology-map-caption" x="75" y="22">ΥΠΟΔΙΚΤΥΟ Α</text><text class="topology-map-caption" x="285" y="22">ΥΠΟΔΙΚΤΥΟ Β</text>${side(left, leftPos, 125)}${side(right, rightPos, 235)}${svgNode(gateway, 180, 130)}</svg>`;
   };
 
+  const fitNetworkNodeLabels = () => {
+    // SVG symbols have fixed logical dimensions. A few real module names
+    // (e.g. M DIFFERENTIAL) are longer than the usable width of a circle.
+    // Fit only the overflowing labels; preserve the standard size elsewhere.
+    const canvas = $("[data-topology-network]");
+    canvas.querySelectorAll(".topology-map-node").forEach((node) => {
+      const label = node.querySelector("text");
+      const shape = node.querySelector("rect, circle");
+      if (!label || !shape) return;
+      const maxWidth = shape.tagName.toLowerCase() === "circle" ? 57 : 82;
+      const measured = label.getBBox().width;
+      if (measured > maxWidth) {
+        label.style.fontSize = `${(11 * maxWidth / measured * 0.985).toFixed(2)}px`;
+      }
+    });
+  };
+
   const renderNetwork = (scenario) => {
     const renderers = { bus: renderBus, star: renderStar, ring: renderRing, hybrid: renderHybrid };
     $("[data-topology-network]").innerHTML = renderers[scenario.topology](scenario);
+    fitNetworkNodeLabels();
   };
 
   const updateLiveScore = () => {
