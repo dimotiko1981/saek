@@ -240,6 +240,38 @@
   border-color: rgba(132, 255, 222, 0.86);
 }
 </style>
+    <style id="saek-lesson-3-actions-layout">
+      /* Κρατά τον τίτλο του Μαθήματος 3 σε πλήρες πλάτος και οργανώνει τους τέσσερις συνδέσμους από κάτω. */
+      .course-preview-stack .lesson-entry-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .course-preview-stack .lesson-entry-3 .course-preview-actions {
+        display: grid;
+        width: 100%;
+        min-width: 0;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: stretch;
+        justify-content: stretch;
+        gap: 0.65rem;
+      }
+      .course-preview-stack .lesson-entry-3 .course-open-link {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 58px;
+        justify-content: space-between;
+      }
+      @media (max-width: 900px) {
+        .course-preview-stack .lesson-entry-3 .course-preview-actions {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      @media (max-width: 650px) {
+        .course-preview-stack .lesson-entry-3 .course-preview-actions {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
 
   </head>
   <body>
