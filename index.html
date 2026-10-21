@@ -285,6 +285,41 @@
         }
       }
     </style>
+    <style id="saek-lesson-4-actions-layout">
+      /* Μάθημα 4: τα κουμπιά μπαίνουν οριζόντια δεξιά από την περιγραφή, όπως στο Μάθημα 2. */
+      .course-preview-stack .lesson-entry-4 {
+        grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.8fr);
+      }
+      .course-preview-stack .lesson-entry-4 .lesson-entry-main,
+      .course-preview-stack .lesson-entry-4 .course-preview-actions {
+        min-width: 0;
+      }
+      .course-preview-stack .lesson-entry-4 .course-preview-actions {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: stretch;
+        justify-content: stretch;
+        gap: 0.65rem;
+      }
+      .course-preview-stack .lesson-entry-4 .course-open-link {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 58px;
+        justify-content: space-between;
+      }
+      @media (max-width: 1000px) {
+        .course-preview-stack .lesson-entry-4 {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .course-preview-stack .lesson-entry-4 .course-preview-actions {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+    </style>
 
   </head>
   <body>
@@ -532,12 +567,16 @@
                 <div>
                   <small>ΜΑΘΗΜΑ 4 · ΕΒΔΟΜΑΔΑ 5</small>
                   <strong>CAN: Φυσικό επίπεδο</strong>
-                  <p>30 διαφάνειες · CAN-H/CAN-L · διαφορικό σήμα και διάγνωση</p>
+                  <p>30 διαφάνειες · τεστ 30 ερωτήσεων · εργαστήριο 12 βημάτων</p>
                 </div>
               </div>
               <div class="course-preview-actions">
                 <a class="course-open-link course-open-link-lesson-4" href="mathima-04.html?v=20261020-1">
                   Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-4" href="ergastirio-mathima-04.html">
+                  Εργαστήριο 4 · Μετρήσεις CAN
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
               </div>
