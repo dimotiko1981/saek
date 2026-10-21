@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Διαδραστική γνωριμία με το πολύμετρο, τις αντιστάσεις τερματισμού CAN και τη διαγνωστική φίσα OBD." />
+    <meta name="theme-color" content="#071426" />
+    <title>Γνώρισε τα εργαλεία CAN — Μάθημα 4</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/mathima-04-can-builder.css?v=4" />
+  </head>
+  <body>
+    <header class="builder-header">
+      <a class="builder-brand" href="index.html" aria-label="ΣΑΕΚ — Αρχική σελίδα"><span class="brand-mark">Σ</span><span><strong>ΣΑΕΚ</strong><small>Εργαστήριο Μαθήματος 4</small></span></a>
+      <div class="header-title"><span>CAN · ΠΡΙΝ ΑΠΟ ΤΗ ΔΙΑΓΝΩΣΗ</span><strong>Γνώρισε τα εργαλεία CAN</strong></div>
+      <a class="back-link" href="ergastirio-mathima-04.html">← Επιλογή δραστηριότητας</a>
+    </header>
+
+    <main class="tour-shell" data-tool-tour>
+      <section class="tour-intro">
+        <span class="eyebrow">ΠΡΩΤΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ · ΕΞΟΙΚΕΙΩΣΗ</span>
+        <h1>Πρώτα τα εργαλεία.<br /><em>Μετά η διάγνωση.</em></h1>
+        <p>Δοκίμασε το πολύμετρο, γνώρισε τις αντιστάσεις τερματισμού και δες πώς επικοινωνεί το διαγνωστικό μέσω OBD. Εδώ πειραματίζεσαι χωρίς βαθμολογία.</p>
+      </section>
+
+      <nav class="tour-tabs" aria-label="Εργαλεία CAN">
+        <button type="button" data-tour-tab="meter" aria-selected="true"><b>1</b> Πολύμετρο</button>
+        <button type="button" data-tour-tab="terminators" aria-selected="false"><b>2</b> Αντιστάσεις</button>
+        <button type="button" data-tour-tab="obd" aria-selected="false"><b>3</b> Διαγνωστικό OBD</button>
+      </nav>
+
+      <section class="tour-panel" data-tour-panel="meter">
+        <div class="tour-copy">
+          <span class="eyebrow">ΕΡΓΑΛΕΙΟ 1</span><h2>Το πολύμετρο μετρά την αντίσταση</h2>
+          <p>Για μέτρηση αντίστασης, το κύκλωμα πρέπει να είναι απενεργοποιημένο. Βάζουμε τις ακίδες του πολυμέτρου ανάμεσα στις γραμμές CAN-H και CAN-L.</p>
+          <div class="plain-note"><strong>Τι θα παρατηρήσεις;</strong><span>Δοκίμασε να προσθέσεις ή να αφαιρέσεις τους τερματισμούς 120 Ω και πάτησε «Μέτρηση».</span></div>
+        </div>
+        <div class="tour-demo">
+          <div class="demo-bus">
+            <span class="demo-line-label">CAN-H</span><i></i><span class="demo-term" data-demo-term="a">120 Ω</span><i></i><span class="demo-term" data-demo-term="b">120 Ω</span><i></i><span class="demo-line-label">CAN-L</span>
+          </div>
+          <div class="demo-switches">
+            <label class="demo-switch"><input type="checkbox" data-demo-resistor="a"><span>Αντίσταση 120 Ω · Α</span></label>
+            <label class="demo-switch"><input type="checkbox" data-demo-resistor="b"><span>Αντίσταση 120 Ω · Β</span></label>
+            <label class="demo-switch"><input type="checkbox" data-demo-power><span>Κύκλωμα ενεργό</span></label>
+          </div>
+          <div class="demo-meter">
+            <span>ΠΟΛΥΜΕΤΡΟ · ΛΕΙΤΟΥΡΓΙΑ Ω</span>
+            <strong data-demo-reading>— —</strong>
+            <small data-demo-reading-note>Κύκλωμα απενεργοποιημένο · έτοιμο για μέτρηση</small>
+          </div>
+          <button type="button" class="instrument-button" data-demo-measure>Μέτρηση ανάμεσα σε CAN-H και CAN-L</button>
+          <p class="demo-explain" data-demo-explain>Πάτησε «Μέτρηση» για να δεις την ένδειξη.</p>
+        </div>
+      </section>
+
+      <section class="tour-panel" data-tour-panel="terminators" hidden>
+        <div class="tour-copy">
+          <span class="eyebrow">ΕΞΑΡΤΗΜΑ 2</span><h2>Οι αντιστάσεις τερματισμού</h2>
+          <p>Στο εκπαιδευτικό δίκτυο, κάθε τερματισμός είναι 120 Ω. Οι δύο αντιστάσεις μπαίνουν στα δύο άκρα του κορμού του διαύλου.</p>
+          <div class="plain-note"><strong>Γιατί υπάρχουν;</strong><span>Βοηθούν να περιοριστούν οι ανακλάσεις του σήματος. Η θέση τους έχει σημασία, όχι μόνο η συνολική τιμή.</span></div>
+        </div>
+        <div class="tour-demo">
+          <div class="topology-demo">
+            <div class="topology-end" data-topology-slot="left"><b>ΑΚΡΟ Α</b><span>—</span></div>
+            <div class="topology-branch" data-topology-slot="branch-a"><b>ΚΛΑΔΟΣ Α</b><span>—</span></div>
+            <div class="topology-branch" data-topology-slot="branch-b"><b>ΚΛΑΔΟΣ Β</b><span>—</span></div>
+            <div class="topology-end" data-topology-slot="right"><b>ΑΚΡΟ Β</b><span>—</span></div>
+          </div>
+          <div class="demo-selects">
+            <label>Αντίσταση Α <select data-placement="a"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Άκρο Α</option><option value="branch-a">Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
+            <label>Αντίσταση Β <select data-placement="b"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Άκρο Α</option><option value="branch-a">Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
+          </div>
+          <div class="demo-meter compact"><span>ΕΝΔΕΙΞΗ ΠΟΛΥΜΕΤΡΟΥ ΜΕ ΤΟ ΚΥΚΛΩΜΑ ΣΒΗΣΤΟ</span><strong data-topology-reading>— —</strong><small data-topology-note>Τοποθέτησε τις αντιστάσεις για να δεις την ένδειξη.</small></div>
+        </div>
+      </section>
+
+      <section class="tour-panel" data-tour-panel="obd" hidden>
+        <div class="tour-copy">
+          <span class="eyebrow">ΕΡΓΑΛΕΙΟ 3</span><h2>Το διαγνωστικό επικοινωνεί μέσω OBD</h2>
+          <p>Η διαγνωστική φίσα συνδέει το εργαλείο με το δίκτυο του οχήματος. Στο high-speed CAN, οι γραμμές του δικτύου περνούν από τις ακίδες 6 και 14.</p>
+          <div class="plain-note"><strong>Τι κάνει η σάρωση;</strong><span>Στέλνει αίτημα στις μονάδες και αναφέρει ποιες απαντούν. Δοκίμασε να αλλάξεις τις συνδέσεις και να ξανακάνεις σάρωση.</span></div>
+        </div>
+        <div class="tour-demo">
+          <div class="obd-demo-head"><span>ΔΙΑΓΝΩΣΤΙΚΗ ΦΙΣΑ</span><b>OBD</b></div>
+          <div class="demo-selects obd-selects">
+            <label>Ακίδα 6 <select data-obd-pin="6"><option value="none">Δεν συνδέεται</option><option value="H">CAN-H</option><option value="L">CAN-L</option></select></label>
+            <label>Ακίδα 14 <select data-obd-pin="14"><option value="none">Δεν συνδέεται</option><option value="H">CAN-H</option><option value="L">CAN-L</option></select></label>
+          </div>
+          <div class="ecu-demo" aria-label="Μονάδες του οχήματος"><span data-demo-ecu="engine">ECU κινητήρα</span><span data-demo-ecu="abs">ABS</span><span data-demo-ecu="body">Αμάξωμα</span><span data-demo-ecu="cluster">Πίνακας</span></div>
+          <button type="button" class="instrument-button" data-demo-scan>Σάρωση μονάδων</button>
+          <p class="scan-demo-result" data-demo-scan-result aria-live="polite">Το διαγνωστικό δεν έχει κάνει σάρωση.</p>
+        </div>
+      </section>
+
+      <div class="tour-footer"><a href="ergastirio-mathima-04.html">← Όλες οι δραστηριότητες</a><a class="continue-link" href="ergastirio-mathima-04.html">Πήγαινε στη δεύτερη δραστηριότητα →</a></div>
+      <p class="safety-note">Εκπαιδευτική προσομοίωση. Πριν από πραγματική μέτρηση αντίστασης, ακολουθούμε πάντα τη διαδικασία του κατασκευαστή και επιβεβαιώνουμε ότι το κύκλωμα είναι απενεργοποιημένο.</p>
+    </main>
+    <script src="assets/js/mathima-04-can-tools.js?v=1"></script>
+  </body>
+</html>
