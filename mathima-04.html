@@ -133,11 +133,6 @@
       const dotsContainer = deck.querySelector('[data-slide-dots]');
       const frame = deck.querySelector('[data-slide-frame]');
       const fullscreenButton = deck.querySelector('[data-fullscreen]');
-      const slidesView = deck.querySelector('[data-lesson-slides-view]');
-      const quizView = deck.querySelector('[data-lesson-quiz-view]');
-      const quizToggle = deck.querySelector('[data-lesson-test-toggle]');
-      const quizToggleLabel = deck.querySelector('[data-lesson-test-toggle-label]');
-      const slideCounter = deck.querySelector('.intro-slide-counter');
       const slideSources = Array.from({length: totalSlides}, (_, i) => `assets/slides/mathima-04/slide-${String(i + 1).padStart(2, '0')}.webp`);
       let currentIndex = 0;
       let touchStartX = 0;
@@ -193,20 +188,8 @@
           else await document.exitFullscreen();
         } catch { fullscreenButton.title = 'Η πλήρης οθόνη δεν υποστηρίζεται από αυτόν τον browser.'; }
       });
-      const showQuiz = (open, updateHash = true) => {
-        slidesView.hidden = open;
-        quizView.hidden = !open;
-        deck.classList.toggle('is-quiz-mode', open);
-        quizToggle.setAttribute('aria-expanded', String(open));
-        quizToggleLabel.textContent = open ? 'Επιστροφή στις διαφάνειες' : 'Τεστ 30 ερωτήσεων';
-        slideCounter.hidden = open;
-        title.textContent = open ? 'Τεστ Μαθήματος 4' : 'CAN: Φυσικό επίπεδο · Διαφάνεια ' + current.textContent;
-        if (updateHash) history.replaceState(null, '', open ? '#test' : '#slide-' + current.textContent);
-      };
-      quizToggle.addEventListener('click', () => showQuiz(quizView.hidden));
       const hashMatch = window.location.hash.match(/^#slide-(\d{1,2})$/);
       showSlide(hashMatch ? Number(hashMatch[1]) - 1 : 0, false);
-      showQuiz(window.location.hash === '#test', false);
     </script>
     <script src="assets/js/mathima-04-quiz.js?v=1"></script>
   </body>
