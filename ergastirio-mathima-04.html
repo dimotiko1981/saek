@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/mathima-04-lab.css?v=1" />
+    <link rel="stylesheet" href="assets/css/mathima-04-lab.css?v=2" />
   </head>
   <body>
     <header class="lab-header">
@@ -25,7 +25,12 @@
           <h1>Μέτρησε το σήμα.<br /><em>Βρες τη βλάβη.</em></h1>
           <p>Δούλεψε πάνω σε τέσσερα εκπαιδευτικά περιστατικά. Επίλεξε όργανο, διάβασε τη μέτρηση και αποφάσισε ποιος έλεγχος ακολουθεί.</p>
           <div class="fact-row"><div><strong>12</strong><span>βήματα</span></div><div><strong>4</strong><span>περιστατικά</span></div><div><strong>3</strong><span>είδη ελέγχου</span></div></div>
-          <button class="primary-button" type="button" data-start>Έναρξη εργαστηρίου <span aria-hidden="true">→</span></button>
+          <div class="activity-actions">
+            <button class="primary-button" type="button" data-start>Μετρήσεις CAN <span aria-hidden="true">→</span></button>
+            <a class="secondary-activity-link" href="mathima-04-can-builder.html">
+              <span><small>ΔΕΥΤΕΡΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ</small><strong>Στήσε το δίκτυο CAN</strong><em>Άνοιγμα προσομοιωτή →</em></span>
+            </a>
+          </div>
         </div>
         <div class="welcome-visual" aria-hidden="true">
           <div class="scope-window"><div class="scope-label">CAN-H / CAN-L · ΕΚΠΑΙΔΕΥΤΙΚΟ ΣΗΜΑ</div><svg viewBox="0 0 520 210"><path class="grid-line" d="M0 35H520M0 70H520M0 105H520M0 140H520M0 175H520M52 0V210M104 0V210M156 0V210M208 0V210M260 0V210M312 0V210M364 0V210M416 0V210M468 0V210"/><path class="trace-high" d="M0 108H55V55H100V108H160V55H207V108H267V55H316V108H374V55H424V108H472V55H520"/><path class="trace-low" d="M0 108H55V162H100V108H160V162H207V108H267V162H316V108H374V162H424V108H472V162H520"/></svg><div class="scope-legend"><span><i class="high-dot"></i>CAN-H</span><span><i class="low-dot"></i>CAN-L</span><b>ΔV</b></div></div>
@@ -73,6 +78,6 @@
         <div class="result-actions"><button class="primary-button" type="button" data-restart>Νέα προσπάθεια ↻</button><a href="mathima-04.html?v=20261020-1">Επιστροφή στο Μάθημα 4</a></div>
       </section>
     </main>
-    <script src="assets/js/mathima-04-lab.js?v=1"></script>
+    <script src="assets/js/mathima-04-lab.js?v=2"></script>
   </body>
 </html>
