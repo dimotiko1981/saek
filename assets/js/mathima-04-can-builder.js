@@ -2,130 +2,159 @@ const builder = document.querySelector('[data-can-builder]');
 
 if (builder) {
   const state = {
-    modules: { engine: false, abs: false, body: false, cluster: false },
-    terminators: { left: false, right: false },
-    pins: { '6': false, '14': false }
+    modules: { engine: true, abs: true, body: true, cluster: false },
+    resistors: { a: 'left', b: 'branch-a' },
+    pins: { '6': 'L', '14': 'H' },
+    measured: false,
+    scanned: false
   };
 
-  const moduleLabels = {
-    engine: 'ECU κινητήρα',
-    abs: 'ABS',
-    body: 'ECU αμαξώματος',
-    cluster: 'Πίνακας οργάνων'
-  };
+  const labels = { engine: 'ECU κινητήρα', abs: 'ABS', body: 'Αμάξωμα', cluster: 'Πίνακας οργάνων' };
   const feedback = builder.querySelector('[data-feedback]');
+  const moduleControls = builder.querySelectorAll('[data-module]');
+  const resistorControls = builder.querySelectorAll('[data-resistor]');
+  const pinControls = builder.querySelectorAll('[data-pin]');
 
-  function isComplete() {
-    return Object.values(state.modules).every(Boolean)
-      && state.terminators.left && state.terminators.right
-      && state.pins['6'] && state.pins['14'];
+  function placements() { return Object.values(state.resistors).filter((p) => p !== 'none'); }
+  function bothEnds() {
+    const p = placements();
+    return p.length === 2 && p.includes('left') && p.includes('right');
   }
-
+  function pinPairAcrossBus() {
+    const [a, b] = [state.pins['6'], state.pins['14']];
+    return (a === 'H' && b === 'L') || (a === 'L' && b === 'H');
+  }
+  function obdCorrect() { return state.pins['6'] === 'H' && state.pins['14'] === 'L'; }
+  function resistanceReading() {
+    if (!pinPairAcrossBus()) return '— —';
+    const count = placements().length;
+    return count === 0 ? 'OL' : count === 1 ? '≈ 120 Ω' : '≈ 60 Ω';
+  }
+  function setFeedback(message, success = false) {
+    feedback.hidden = false;
+    feedback.classList.toggle('is-success', success);
+    feedback.innerHTML = message;
+  }
+  function clearFeedback() {
+    feedback.hidden = true;
+    feedback.classList.remove('is-success');
+  }
   function updateView() {
     Object.entries(state.modules).forEach(([key, connected]) => {
       const button = builder.querySelector(`[data-module="${key}"]`);
       const node = builder.querySelector(`[data-module-node="${key}"]`);
       button.setAttribute('aria-pressed', String(connected));
-      button.lastChild.textContent = connected ? `${moduleLabels[key]} · συνδεδεμένη` : moduleLabels[key];
+      button.lastChild.textContent = connected ? `${labels[key]} · συνδεδεμένη` : labels[key];
       node.classList.toggle('is-connected', connected);
       node.querySelector('small').textContent = connected ? 'ΣΥΝΔΕΔΕΜΕΝΗ' : 'ΑΠΟΣΥΝΔΕΔΕΜΕΝΗ';
     });
 
-    Object.entries(state.terminators).forEach(([side, connected]) => {
-      const graphic = builder.querySelector(`[data-terminator="${side}"]`);
-      const control = builder.querySelector(`[data-terminator-control="${side}"]`);
-      graphic.classList.toggle('is-connected', connected);
-      graphic.setAttribute('aria-pressed', String(connected));
-      control.classList.toggle('is-connected', connected);
-      control.setAttribute('aria-pressed', String(connected));
-      control.lastChild.textContent = `${side === 'left' ? 'Αριστερός' : 'Δεξιός'} 120 Ω${connected ? ' · τοποθετημένος' : ''}`;
+    const slotCounts = {};
+    placements().forEach((p) => { slotCounts[p] = (slotCounts[p] || 0) + 1; });
+    builder.querySelectorAll('[data-slot]').forEach((slot) => {
+      const count = slotCounts[slot.dataset.slot] || 0;
+      slot.classList.toggle('has-resistor', count > 0);
+      slot.querySelector('small').textContent = count ? (count === 1 ? '120 Ω' : `${count} × 120 Ω`) : '—';
     });
 
-    Object.entries(state.pins).forEach(([pin, connected]) => {
-      const control = builder.querySelector(`[data-pin="${pin}"]`);
-      control.classList.toggle('is-connected', connected);
-      control.setAttribute('aria-pressed', String(connected));
-      control.lastChild.textContent = `Ακίδα ${pin} → CAN-${pin === '6' ? 'H' : 'L'}${connected ? ' · συνδεδεμένη' : ''}`;
+    Object.entries(state.pins).forEach(([pin, value]) => {
+      const display = builder.querySelector(`[data-pin-state="${pin}"]`);
+      display.textContent = value === 'none' ? '—' : value;
+      display.classList.toggle('is-assigned', value !== 'none');
     });
 
-    const moduleCount = Object.values(state.modules).filter(Boolean).length;
-    const terminatorCount = Object.values(state.terminators).filter(Boolean).length;
-    const obdReady = state.pins['6'] && state.pins['14'];
-    const complete = isComplete();
-    builder.querySelector('.network-board').classList.toggle('has-terminators', terminatorCount > 0);
-    builder.querySelectorAll('[data-check]').forEach((item) => {
-      const key = item.dataset.check;
-      const done = key === 'modules' ? moduleCount === 4 : key === 'terminators' ? terminatorCount === 2 : obdReady;
-      item.classList.toggle('is-complete', done);
-    });
+    const pair = pinPairAcrossBus();
+    builder.querySelector('[data-obd-node]').classList.toggle('is-connected', pair);
+    builder.querySelector('[data-obd-status]').textContent = pair
+      ? 'Οι ακίδες καταλήγουν στις δύο γραμμές'
+      : 'Η διαγνωστική σύνδεση δεν είναι πλήρης';
 
-    const resistance = builder.querySelector('[data-resistance]');
-    const meterNote = builder.querySelector('[data-meter-note]');
-    resistance.textContent = terminatorCount === 2 ? '≈ 60 Ω' : terminatorCount === 1 ? '≈ 120 Ω' : 'OL';
-    meterNote.textContent = terminatorCount === 2
-      ? 'Οι δύο αντιστάσεις 120 Ω είναι παράλληλα: συνολικά περίπου 60 Ω.'
-      : terminatorCount === 1
-        ? 'Φαίνεται ένας τερματισμός 120 Ω. Χρειάζεται και ο δεύτερος στο απέναντι άκρο.'
-        : 'Δεν έχει συνδεθεί τερματισμός ανάμεσα στις γραμμές.';
+    const reading = resistanceReading();
+    builder.querySelector('[data-resistance]').textContent = state.measured ? reading : '— —';
+    builder.querySelector('[data-meter-note]').textContent = state.measured
+      ? (reading === '— —' ? 'Δεν προκύπτει μέτρηση ανάμεσα στις ακίδες της φίσα.' : 'Μέτρηση καταγράφηκε. Ερμήνευσε την ένδειξη με βάση το κύκλωμα.')
+      : 'Το δίκτυο είναι απενεργοποιημένο. Πάρε μέτρηση όταν είσαι έτοιμος.';
 
-    builder.querySelector('[data-obd-node]').classList.toggle('is-connected', obdReady);
-    builder.querySelector('[data-obd-status]').textContent = obdReady ? 'Ακίδα 6 → H · ακίδα 14 → L' : 'Δεν έχει συνδεθεί';
-    const buildState = builder.querySelector('[data-build-state]');
-    buildState.textContent = complete ? 'ΕΤΟΙΜΟ ΓΙΑ ΕΛΕΓΧΟ' : 'ΥΠΟ ΚΑΤΑΣΚΕΥΗ';
-    buildState.classList.toggle('is-ready', complete);
-    builder.querySelector('[data-scope-preview]').hidden = !complete;
+    builder.querySelector('[data-build-state]').textContent = state.scanned ? 'ΕΛΕΓΧΟΣ ΟΛΟΚΛΗΡΩΘΗΚΕ' : 'ΥΠΟ ΔΙΕΡΕΥΝΗΣΗ';
+    builder.querySelector('[data-scope-preview]').hidden = !(state.scanned && obdCorrect() && bothEnds() && Object.values(state.modules).every(Boolean));
   }
 
-  function clearFeedback() {
-    feedback.hidden = true;
-    feedback.classList.remove('is-success');
-  }
+  moduleControls.forEach((button) => button.addEventListener('click', () => {
+    state.modules[button.dataset.module] = !state.modules[button.dataset.module];
+    state.scanned = false;
+    clearFeedback();
+    updateView();
+  }));
+  resistorControls.forEach((select) => select.addEventListener('change', () => {
+    state.resistors[select.dataset.resistor] = select.value;
+    state.measured = false;
+    state.scanned = false;
+    clearFeedback();
+    updateView();
+  }));
+  pinControls.forEach((select) => select.addEventListener('change', () => {
+    state.pins[select.dataset.pin] = select.value;
+    state.measured = false;
+    state.scanned = false;
+    clearFeedback();
+    updateView();
+  }));
 
-  builder.querySelectorAll('[data-module]').forEach((button) => {
-    button.addEventListener('click', () => {
-      state.modules[button.dataset.module] = !state.modules[button.dataset.module];
-      clearFeedback();
-      updateView();
-    });
+  builder.querySelector('[data-measure]').addEventListener('click', () => {
+    state.measured = true;
+    clearFeedback();
+    updateView();
   });
 
-  builder.querySelectorAll('[data-terminator], [data-terminator-control]').forEach((button) => {
-    button.addEventListener('click', () => {
-      const side = button.dataset.terminator || button.dataset.terminatorControl;
-      state.terminators[side] = !state.terminators[side];
-      clearFeedback();
-      updateView();
-    });
-  });
-
-  builder.querySelectorAll('[data-pin]').forEach((button) => {
-    button.addEventListener('click', () => {
-      state.pins[button.dataset.pin] = !state.pins[button.dataset.pin];
-      clearFeedback();
-      updateView();
-    });
-  });
-
-  builder.querySelector('[data-check-build]').addEventListener('click', () => {
-    const missing = [];
-    if (!Object.values(state.modules).every(Boolean)) missing.push('Σύνδεσε και τις τέσσερις ECU παράλληλα στις γραμμές του διαύλου.');
-    if (!state.terminators.left || !state.terminators.right) missing.push('Τοποθέτησε από μία αντίσταση 120 Ω σε κάθε άκρο του διαύλου.');
-    if (!state.pins['6'] || !state.pins['14']) missing.push('Ολοκλήρωσε τη σύνδεση OBD: ακίδα 6 στο CAN-H και ακίδα 14 στο CAN-L.');
-
-    feedback.hidden = false;
-    if (missing.length === 0) {
-      feedback.classList.add('is-success');
-      feedback.textContent = 'Σωστά! Οι μονάδες είναι συνδεδεμένες στον δίαυλο, οι τερματισμοί βρίσκονται στα δύο άκρα και η OBD συνδέεται στις σωστές γραμμές. Με το κύκλωμα απενεργοποιημένο, η μέτρηση είναι περίπου 60 Ω.';
+  builder.querySelector('[data-scan]').addEventListener('click', () => {
+    state.scanned = true;
+    const reachable = Object.entries(state.modules).filter(([, connected]) => connected).map(([key]) => labels[key]);
+    const validPath = obdCorrect() && bothEnds();
+    let result;
+    if (!obdCorrect()) {
+      result = '<strong>Καμία μονάδα δεν απαντά.</strong><br>Η φίσα δεν επικοινωνεί με το δίκτυο.';
+    } else if (!reachable.length) {
+      result = '<strong>Καμία μονάδα δεν απαντά.</strong><br>Δεν εντοπίστηκαν ενεργές μονάδες.';
+    } else if (!validPath) {
+      result = `<strong>Ασταθής επικοινωνία · ${reachable.length}/4 μονάδες.</strong><br>Απαντούν: ${reachable.join(', ')}.`;
     } else {
-      feedback.classList.remove('is-success');
-      feedback.innerHTML = `<strong>Χρειάζονται ακόμη ${missing.length} έλεγχοι:</strong><ul>${missing.map((item) => `<li>${item}</li>`).join('')}</ul>`;
+      result = `<strong>Απαντούν ${reachable.length}/4 μονάδες.</strong><br>${reachable.length === 4 ? 'Όλες οι μονάδες είναι προσβάσιμες από το διαγνωστικό.' : `Εντοπίστηκαν: ${reachable.join(', ')}.`}`;
+    }
+    builder.querySelector('[data-scan-result]').innerHTML = result;
+    clearFeedback();
+    updateView();
+  });
+
+  builder.querySelector('[data-submit-build]').addEventListener('click', () => {
+    if (!state.measured || !state.scanned) {
+      setFeedback('Πριν υποβάλεις την κατασκευή, χρησιμοποίησε το πολύμετρο και τον διαγνωστικό εξοπλισμό.');
+      return;
+    }
+    const connectedModules = Object.values(state.modules).filter(Boolean).length;
+    const checks = [
+      { ok: connectedModules === 4, text: 'Πρόσβαση και στις τέσσερις μονάδες' },
+      { ok: bothEnds(), text: 'Σταθερή τοπολογία τερματισμού' },
+      { ok: obdCorrect(), text: 'Σωστή επικοινωνία από τη διαγνωστική φίσα' },
+      { ok: resistanceReading() === '≈ 60 Ω', text: 'Εύλογη αντίσταση μεταξύ των γραμμών' }
+    ];
+    const score = checks.filter((c) => c.ok).length;
+    const lines = checks.map((c) => `<li>${c.ok ? '✓' : '○'} ${c.text}</li>`).join('');
+    if (score === checks.length) {
+      setFeedback(`<strong>Η κατασκευή λειτουργεί.</strong><ul>${lines}</ul><p>Οι μετρήσεις και η σάρωση συμφωνούν με ένα λειτουργικό δίκτυο.</p>`, true);
+    } else {
+      setFeedback(`<strong>Αποτέλεσμα: ${score}/4 κριτήρια.</strong><ul>${lines}</ul><p>Έλεγξε ξανά την τοπολογία και τις ενδείξεις πριν από νέα υποβολή.</p>`);
     }
   });
 
   builder.querySelector('[data-reset-build]').addEventListener('click', () => {
     Object.keys(state.modules).forEach((key) => { state.modules[key] = false; });
-    Object.keys(state.terminators).forEach((key) => { state.terminators[key] = false; });
-    Object.keys(state.pins).forEach((key) => { state.pins[key] = false; });
+    state.resistors = { a: 'none', b: 'none' };
+    state.pins = { '6': 'none', '14': 'none' };
+    resistorControls.forEach((control) => { control.value = 'none'; });
+    pinControls.forEach((control) => { control.value = 'none'; });
+    state.measured = false;
+    state.scanned = false;
+    builder.querySelector('[data-scan-result]').textContent = 'Ο διαγνωστικός εξοπλισμός δεν έχει συνδεθεί.';
     clearFeedback();
     updateView();
   });

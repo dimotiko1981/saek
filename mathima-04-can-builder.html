@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/mathima-04-can-builder.css?v=1" />
+    <link rel="stylesheet" href="assets/css/mathima-04-can-builder.css?v=2" />
   </head>
   <body>
     <header class="builder-header">
@@ -22,10 +22,10 @@
       <section class="builder-intro">
         <div>
           <span class="eyebrow">ΔΙΑΔΡΑΣΤΙΚΟΣ ΠΡΟΣΟΜΟΙΩΤΗΣ · ΔΡΑΣΤΗΡΙΟΤΗΤΑ 2</span>
-          <h1>Σύνδεσε το δίκτυο.<br /><em>Έλεγξε τη δουλειά σου.</em></h1>
-          <p>Σύνδεσε τις μονάδες παράλληλα στις δύο γραμμές, βάλε τερματισμό 120 Ω σε κάθε άκρο και πρόσθεσε τη φίσα OBD. Οι ενδείξεις αλλάζουν καθώς στήνεις το κύκλωμα.</p>
+          <h1>Το όχημα δεν επικοινωνεί.<br /><em>Βρες τη βλάβη.</em></h1>
+          <p>Ένα όχημα δεν επικοινωνεί με το διαγνωστικό. Διερεύνησε το δίκτυο, κάνε τις επιλογές σου και χρησιμοποίησε τα όργανα για να εντοπίσεις τι φταίει.</p>
         </div>
-        <div class="builder-progress" aria-label="Στόχος άσκησης"><span>ΣΤΟΧΟΣ</span><strong>4 ECU · 2 τερματισμοί · 2 ακίδες OBD</strong><small>Δίκτυο απενεργοποιημένο για τη μέτρηση αντίστασης</small></div>
+        <div class="builder-progress" aria-label="Περιστατικό"><span>ΠΕΡΙΣΤΑΤΙΚΟ</span><strong>Στήνεις το δίκτυο ενός εκπαιδευτικού οχήματος.</strong><small>Ο διαγνωστικός εξοπλισμός πρέπει να επικοινωνήσει με όλες τις μονάδες. Οργάνωσε τη συνδεσμολογία και έλεγξέ την.</small></div>
       </section>
 
       <section class="builder-grid">
@@ -34,13 +34,14 @@
 
           <div class="network-board" aria-label="Σχηματικό εκπαιδευτικού δικτύου CAN">
             <div class="board-label">ΣΥΝΕΣΤΡΑΜΜΕΝΟ ΖΕΥΓΟΣ ΔΙΑΥΛΟΥ</div>
-            <div class="termination-row">
-              <button type="button" class="termination" data-terminator="left" aria-pressed="false" aria-label="Τοποθέτηση αριστερής αντίστασης 120 Ω"><span class="resistor-symbol">╱╲</span><strong>120 Ω</strong><small>ΑΡΙΣΤΕΡΟ ΑΚΡΟ</small><i></i></button>
-              <span class="line-label high-label">CAN-H</span>
-              <span class="line-label low-label">CAN-L</span>
-              <button type="button" class="termination" data-terminator="right" aria-pressed="false" aria-label="Τοποθέτηση δεξιάς αντίστασης 120 Ω"><span class="resistor-symbol">╱╲</span><strong>120 Ω</strong><small>ΔΕΞΙΟ ΑΚΡΟ</small><i></i></button>
-            </div>
+            <div class="line-labels"><span class="line-label high-label">CAN-H</span><span class="line-label low-label">CAN-L</span></div>
             <div class="bus-lines" aria-hidden="true"><span class="bus-wire bus-high"></span><span class="bus-wire bus-low"></span><span class="bus-caption">Ο ΚΟΡΜΟΣ ΤΟΥ ΔΙΚΤΥΟΥ</span></div>
+            <div class="bus-slots" aria-label="Πιθανές θέσεις αντιστάσεων τερματισμού">
+              <div data-slot="left"><strong>ΑΚΡΟ Α</strong><small>—</small></div>
+              <div data-slot="branch-a"><strong>ΚΛΑΔΟΣ Α</strong><small>—</small></div>
+              <div data-slot="branch-b"><strong>ΚΛΑΔΟΣ Β</strong><small>—</small></div>
+              <div data-slot="right"><strong>ΑΚΡΟ Β</strong><small>—</small></div>
+            </div>
 
             <div class="module-grid">
               <div class="module-node" data-module-node="engine"><i></i><strong>ECU κινητήρα</strong><small>ΑΠΟΣΥΝΔΕΔΕΝΗ</small></div>
@@ -52,39 +53,35 @@
             <div class="obd-node" data-obd-node>
               <span class="obd-icon" aria-hidden="true">OBD</span>
               <div><strong>Διαγνωστική φίσα</strong><small><span data-obd-status>Δεν έχει συνδεθεί</span></small></div>
-              <span class="obd-pins"><b>6</b><i>CAN-H</i><b>14</b><i>CAN-L</i></span>
+              <span class="obd-pins"><b>6</b><i data-pin-state="6">—</i><b>14</b><i data-pin-state="14">—</i></span>
             </div>
           </div>
 
           <div class="connection-controls">
-            <section class="control-group"><h3>Σύνδεσε τις μονάδες στον δίαυλο</h3><div class="toggle-grid">
-              <button type="button" class="toggle-control" data-module="engine" aria-pressed="false"><span class="toggle-dot"></span>ECU κινητήρα</button>
-              <button type="button" class="toggle-control" data-module="abs" aria-pressed="false"><span class="toggle-dot"></span>ABS</button>
-              <button type="button" class="toggle-control" data-module="body" aria-pressed="false"><span class="toggle-dot"></span>ECU αμαξώματος</button>
+            <section class="control-group"><h3>Μονάδες του οχήματος</h3><div class="toggle-grid">
+              <button type="button" class="toggle-control" data-module="engine" aria-pressed="true"><span class="toggle-dot"></span>ECU κινητήρα</button>
+              <button type="button" class="toggle-control" data-module="abs" aria-pressed="true"><span class="toggle-dot"></span>ABS</button>
+              <button type="button" class="toggle-control" data-module="body" aria-pressed="true"><span class="toggle-dot"></span>ECU αμαξώματος</button>
               <button type="button" class="toggle-control" data-module="cluster" aria-pressed="false"><span class="toggle-dot"></span>Πίνακας οργάνων</button>
             </div></section>
-            <section class="control-group"><h3>Τοποθέτησε τους τερματισμούς στα δύο άκρα</h3><div class="toggle-grid two-controls">
-              <button type="button" class="toggle-control" data-terminator-control="left" aria-pressed="false"><span class="toggle-dot"></span>Αριστερός 120 Ω</button>
-              <button type="button" class="toggle-control" data-terminator-control="right" aria-pressed="false"><span class="toggle-dot"></span>Δεξιός 120 Ω</button>
-            </div></section>
-            <section class="control-group"><h3>Σύνδεσε τη διαγνωστική φίσα</h3><div class="toggle-grid two-controls">
-              <button type="button" class="toggle-control" data-pin="6" aria-pressed="false"><span class="toggle-dot"></span>Ακίδα 6 → CAN-H</button>
-              <button type="button" class="toggle-control" data-pin="14" aria-pressed="false"><span class="toggle-dot"></span>Ακίδα 14 → CAN-L</button>
+            <section class="control-group"><h3>Εξαρτήματα και συνδέσεις</h3><div class="setting-grid">
+              <label>Τερματισμός Α <select data-resistor="a"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left" selected>Άκρο Α</option><option value="branch-a">Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
+              <label>Τερματισμός Β <select data-resistor="b"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Άκρο Α</option><option value="branch-a" selected>Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
+              <label>OBD · ακίδα 6 <select data-pin="6"><option value="none">Δεν συνδέεται</option><option value="H">CAN-H</option><option value="L" selected>CAN-L</option></select></label>
+              <label>OBD · ακίδα 14 <select data-pin="14"><option value="none">Δεν συνδέεται</option><option value="H" selected>CAN-H</option><option value="L">CAN-L</option></select></label>
             </div></section>
           </div>
         </div>
 
         <aside class="check-card">
           <div class="section-heading"><div><span class="eyebrow">ΒΗΜΑ 2</span><h2>Έλεγχος κατασκευής</h2></div><span class="meter-icon" aria-hidden="true">Ω</span></div>
-          <div class="meter-display"><span>ΠΟΛΥΜΕΤΡΟ · ΔΙΚΤΥΟ ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΟ</span><strong data-resistance>OL</strong><small>CAN-H ↔ CAN-L</small></div>
-          <p class="meter-note" data-meter-note>Σύνδεσε τους τερματισμούς για να εμφανιστεί η μέτρηση.</p>
-          <ul class="check-list">
-            <li data-check="modules"><i></i><span>Οι 4 μονάδες συνδέθηκαν παράλληλα</span></li>
-            <li data-check="terminators"><i></i><span>Υπάρχουν 120 Ω και στα δύο άκρα</span></li>
-            <li data-check="obd"><i></i><span>OBD: ακίδα 6 στο CAN-H, ακίδα 14 στο CAN-L</span></li>
-          </ul>
-          <div class="builder-actions"><button class="check-button" type="button" data-check-build>Έλεγχος κυκλώματος <span aria-hidden="true">→</span></button><button class="reset-button" type="button" data-reset-build>Επαναφορά</button></div>
+          <div class="meter-display"><span>ΠΟΛΥΜΕΤΡΟ · ΔΙΚΤΥΟ ΑΠΕΝΕΡΓΟΠΟΙΗΜΕΝΟ</span><strong data-resistance>— —</strong><small>CAN-H ↔ CAN-L</small></div>
+          <p class="meter-note" data-meter-note>Επίλεξε πότε θα πάρεις μέτρηση.</p>
+          <div class="instrument-actions"><button class="instrument-button" type="button" data-measure>Μέτρηση Ω</button><button class="instrument-button" type="button" data-scan>Σάρωση μονάδων</button></div>
+          <div class="scan-result" data-scan-result aria-live="polite">Ο διαγνωστικός εξοπλισμός δεν έχει συνδεθεί.</div>
+          <div class="builder-actions"><button class="check-button" type="button" data-submit-build>Υποβολή κατασκευής <span aria-hidden="true">→</span></button><button class="reset-button" type="button" data-reset-build>Επαναφορά</button></div>
           <div class="builder-feedback" data-feedback role="status" aria-live="polite" hidden></div>
+          <details class="hint-box"><summary>Θέλω μια υπόδειξη</summary><p>Σκέψου πώς επηρεάζουν τη μέτρηση δύο αντιστάσεις των 120 Ω, πού πρέπει να βρίσκονται σε σχέση με τον κορμό του δικτύου και ποια γραμμή φτάνει σε κάθε ακίδα OBD.</p></details>
           <section class="scope-preview" data-scope-preview aria-label="Ενδεικτική κυματομορφή CAN" hidden>
             <div class="scope-title"><span>ΕΝΔΕΙΚΤΙΚΟ ΣΗΜΑ</span><b>CAN-H / CAN-L</b></div>
             <svg viewBox="0 0 520 130" role="img" aria-label="Συμπληρωματικές κυματομορφές CAN-H και CAN-L"><path class="scope-grid" d="M0 25H520M0 65H520M0 105H520M52 0V130M104 0V130M156 0V130M208 0V130M260 0V130M312 0V130M364 0V130M416 0V130M468 0V130"/><path class="scope-trace-high" d="M0 65H45V32H95V65H150V32H200V65H255V32H305V65H360V32H410V65H465V32H520"/><path class="scope-trace-low" d="M0 65H45V98H95V65H150V98H200V65H255V98H305V65H360V98H410V65H465V98H520"/></svg>
@@ -94,6 +91,6 @@
       </section>
       <p class="safety-note">Εκπαιδευτική προσομοίωση high-speed CAN. Οι τιμές είναι ενδεικτικές. Σε πραγματικό όχημα ακολουθούμε το διάγραμμα και τη διαδικασία του κατασκευαστή.</p>
     </main>
-    <script src="assets/js/mathima-04-can-builder.js?v=1"></script>
+    <script src="assets/js/mathima-04-can-builder.js?v=2"></script>
   </body>
 </html>
