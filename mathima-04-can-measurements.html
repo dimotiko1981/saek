@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Εκπαιδευτικός πάγκος μετρήσεων για πολύμετρο και παλμογράφο σε δίκτυο CAN." />
+  <meta name="theme-color" content="#071426" />
+  <title>Πάγκος Μετρήσεων CAN — Εργαστήριο 4</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/mathima-04-lab.css?v=5" />
+  <link rel="stylesheet" href="assets/css/mathima-04-can-measurements.css?v=1" />
+</head>
+<body>
+  <header class="lab-header">
+    <a class="lab-brand" href="index.html" aria-label="ΣΑΕΚ — Αρχική σελίδα"><span class="brand-mark">Σ</span><span><strong>ΣΑΕΚ</strong><small>Εργαστήριο Μαθήματος 4</small></span></a>
+    <div class="header-title"><span>CAN · ΠΑΓΚΟΣ ΜΕΤΡΗΣΕΩΝ</span><strong>Ρύθμισε · Μέτρησε · Ερμήνευσε</strong></div>
+    <a class="back-link" href="ergastirio-mathima-04.html">← Επιλογή δραστηριότητας</a>
+  </header>
+
+  <main class="bench-shell" data-measurement-bench>
+    <section class="bench-welcome" data-view="welcome">
+      <span class="eyebrow">ΔΕΥΤΕΡΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ · ΕΡΓΑΣΤΗΡΙΟ 4</span>
+      <h1>Μην μαντεύεις.<br /><em>Ρύθμισε και μέτρησε.</em></h1>
+      <p>Στον πάγκο έχεις ένα εκπαιδευτικό δίκτυο CAN και δύο όργανα. Σε κάθε περιστατικό αποφασίζεις τι θα χρησιμοποιήσεις, πώς θα το ρυθμίσεις και πού θα ακουμπήσεις τις ακίδες. Έπειτα ερμηνεύεις την ένδειξη.</p>
+      <div class="bench-stats"><div><b>5</b><span>περιστατικά</span></div><div><b>10</b><span>σημεία αξιολόγησης</span></div><div><b>15–20′</b><span>ενδεικτική διάρκεια</span></div></div>
+      <div class="bench-welcome-note"><strong>Πώς μετράς</strong><span>Πρώτα διαλέγεις όργανο, λειτουργία, κατάσταση δικτύου και σημεία μέτρησης. Αν η ρύθμιση είναι λάθος, δεν εμφανίζεται ένδειξη· διορθώνεις τη ρύθμιση και ξαναδοκιμάζεις.</span></div>
+      <button class="primary-button" type="button" data-begin>Ξεκίνα στον πάγκο <span aria-hidden="true">→</span></button>
+      <p class="bench-disclaimer">Εκπαιδευτική προσομοίωση με απλουστευμένες ενδεικτικές τιμές. Σε πραγματικό όχημα ακολουθούμε πάντα τις προδιαγραφές και τη διαδικασία του κατασκευαστή.</p>
+    </section>
+
+    <section class="bench-work" data-view="work" hidden>
+      <div class="bench-progress-head">
+        <div><span data-case-label>ΠΕΡΙΣΤΑΤΙΚΟ 1 / 5</span><h1 data-case-title></h1></div>
+        <div class="bench-score"><b data-score>0 / 10</b><span>σωστές πρώτες επιλογές</span></div>
+      </div>
+      <div class="bench-progress"><span data-progress></span></div>
+      <div class="bench-grid">
+        <section class="bench-case-card">
+          <span class="bench-kicker">ΔΕΛΤΙΟ ΠΕΡΙΣΤΑΤΙΚΟΥ</span>
+          <p class="bench-symptom" data-symptom></p>
+          <div class="bench-network" aria-label="Σχηματική απεικόνιση δικτύου CAN">
+            <span class="bench-end">120 Ω</span><i class="bench-bus-high"></i><i class="bench-bus-low"></i><span class="bench-end">120 Ω</span>
+            <div class="bench-ecu"><span>ECU</span><span>ABS</span><span>Αμάξωμα</span></div>
+            <small>ΑΠΛΟΠΟΙΗΜΕΝΟ ΕΚΠΑΙΔΕΥΤΙΚΟ ΚΥΚΛΩΜΑ</small>
+          </div>
+          <div class="bench-order"><b>ΕΡΩΤΗΜΑ</b><p data-task></p></div>
+          <div class="bench-rule"><strong>Θυμήσου</strong><span data-rule></span></div>
+        </section>
+
+        <section class="bench-console" aria-live="polite">
+          <div class="bench-console-head"><span>ΟΡΓΑΝΟ ΜΕΤΡΗΣΗΣ</span><b data-tool-label>ΠΟΛΥΜΕΤΡΟ / ΠΑΛΜΟΓΡΑΦΟΣ</b></div>
+          <div class="bench-controls">
+            <label>Όργανο<select data-tool><option value="">Επίλεξε όργανο</option><option value="meter">Πολύμετρο</option><option value="scope">Παλμογράφος</option></select></label>
+            <label>Λειτουργία<select data-mode><option value="">Επίλεξε λειτουργία</option><option value="ohms">Αντίσταση (Ω)</option><option value="volts">Συνεχής τάση (V DC)</option><option value="wave">Κυματομορφή</option></select></label>
+            <label>Κατάσταση δικτύου<select data-power><option value="">Επίλεξε κατάσταση</option><option value="off">Απενεργοποιημένο</option><option value="on">Ενεργοποιημένο</option></select></label>
+            <label>Σημεία μέτρησης<select data-points><option value="">Επίλεξε σημεία</option><option value="hl">CAN-H ↔ CAN-L</option><option value="hg">CAN-H ↔ γείωση</option><option value="lg">CAN-L ↔ γείωση</option></select></label>
+          </div>
+          <button class="bench-measure-button" type="button" data-measure>Εκτέλεση μέτρησης <span aria-hidden="true">↗</span></button>
+          <div class="bench-feedback" data-setup-feedback role="status" hidden></div>
+          <div class="bench-reading" data-reading hidden>
+            <span data-reading-label>ΕΝΔΕΙΞΗ ΟΡΓΑΝΟΥ</span><strong data-reading-value></strong><p data-reading-note></p>
+            <div class="bench-wave" data-wave="healthy" hidden>
+              <svg viewBox="0 0 480 150" role="img" aria-label="Ενδεικτική συμπληρωματική κυματομορφή CAN-H και CAN-L"><path class="wave-grid" d="M0 25H480M0 50H480M0 75H480M0 100H480M0 125H480M48 0V150M96 0V150M144 0V150M192 0V150M240 0V150M288 0V150M336 0V150M384 0V150M432 0V150"/><path class="wave-h" d="M0 75H40V38H80V75H120V38H160V75H200V38H240V75H280V38H320V75H360V38H400V75H440V38H480"/><path class="wave-l" d="M0 75H40V112H80V75H120V112H160V75H200V112H240V75H280V112H320V75H360V112H400V75H440V112H480"/></svg><div><span>— CAN-H</span><span>— CAN-L</span></div>
+            </div>
+            <div class="bench-wave" data-wave="asymmetric" hidden>
+              <svg viewBox="0 0 480 150" role="img" aria-label="Ενδεικτικό σήμα με CAN-H ενεργή και CAN-L σχεδόν επίπεδη"><path class="wave-grid" d="M0 25H480M0 50H480M0 75H480M0 100H480M0 125H480M48 0V150M96 0V150M144 0V150M192 0V150M240 0V150M288 0V150M336 0V150M384 0V150M432 0V150"/><path class="wave-h" d="M0 75H40V38H80V75H120V38H160V75H200V38H240V75H280V38H320V75H360V38H400V75H440V38H480"/><path class="wave-l" d="M0 75H480"/></svg><div><span>— CAN-H</span><span>— CAN-L</span></div>
+            </div>
+          </div>
+          <section class="bench-diagnosis" data-diagnosis hidden>
+            <h2>Τι συμπέρασμα βγάζεις από τη μέτρηση;</h2>
+            <div class="bench-options" data-options></div>
+            <div class="bench-feedback" data-diagnosis-feedback role="status" hidden></div>
+            <button class="bench-next" type="button" data-next hidden>Επόμενο περιστατικό <span aria-hidden="true">→</span></button>
+          </section>
+        </section>
+      </div>
+      <p class="bench-footnote">Οι μετρήσεις είναι προσομοιωμένες. Δεν αποτελούν τιμές προδιαγραφών για συγκεκριμένο μοντέλο οχήματος.</p>
+    </section>
+
+    <section class="bench-result" data-view="result" hidden>
+      <span class="eyebrow">ΟΛΟΚΛΗΡΩΣΗ ΠΑΓΚΟΥ ΜΕΤΡΗΣΕΩΝ</span>
+      <h1>Οι μετρήσεις έγιναν.<br /><em>Τώρα έχεις στοιχεία.</em></h1>
+      <div class="bench-final-score"><b data-final-score>0 / 10</b><span>σωστές επιλογές με την πρώτη προσπάθεια</span></div>
+      <p data-result-message></p>
+      <div class="bench-result-list" data-result-list></div>
+      <div class="bench-result-actions"><button class="primary-button" type="button" data-restart>Επανάληψη πάγκου ↻</button><a href="ergastirio-mathima-04.html">Επιστροφή στις δραστηριότητες</a></div>
+    </section>
+  </main>
+  <script src="assets/js/mathima-04-can-measurements.js?v=1"></script>
+</body>
+</html>
