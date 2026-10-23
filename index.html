@@ -239,6 +239,21 @@
   background: linear-gradient(135deg, rgba(41, 156, 144, 0.5), rgba(91, 72, 177, 0.38));
   border-color: rgba(132, 255, 222, 0.86);
 }
+/* Το κουμπί ανοίγματος του Μαθήματος 1 ακολουθεί το κοινό μπλε ύφος. */
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation {
+  color: #e4f9ff;
+  background: linear-gradient(135deg, rgba(20, 87, 143, 0.32), rgba(8, 44, 92, 0.22));
+  border-color: rgba(92, 202, 255, 0.42);
+  box-shadow: 0 10px 24px rgba(7, 25, 49, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation svg { color: #86ddff; }
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:hover,
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:focus-visible {
+  color: #f4fcff;
+  background: linear-gradient(135deg, rgba(36, 132, 214, 0.46), rgba(14, 78, 150, 0.32));
+  border-color: rgba(126, 221, 255, 0.82);
+  box-shadow: 0 16px 32px rgba(8, 46, 92, 0.32), 0 0 0 1px rgba(126, 221, 255, 0.18);
+}
 </style>
     <style id="saek-lesson-3-actions-layout">
       /* Μάθημα 3: ίδιο μοτίβο με το Μάθημα 2 — περιγραφή αριστερά, ενέργειες δεξιά. */
@@ -255,12 +270,13 @@
         grid-template-columns: repeat(3, minmax(0, 1fr));
         align-items: stretch;
         justify-content: stretch;
-        gap: 0.65rem;
+        gap: 12px;
       }
       .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
         grid-column: 2;
       }
       .course-preview-stack .lesson-entry-3 .course-open-link {
+        box-sizing: border-box;
         width: 100%;
         min-width: 0;
         height: auto;
@@ -285,6 +301,7 @@
         }
       }
     </style>
+
   </head>
   <body>
     <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
@@ -461,11 +478,11 @@
               </div>
               <div class="course-preview-actions">
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-1 course-open-link-lesson-1-presentation" href="eisagogiki-parousiasi.html">
-                  Άνοιγμα Μαθήματος
+                  Παρουσίαση Μαθήματος 1
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-1 course-open-link-lesson-1-lab" href="ergastirio-eisagogis.html">
-                  Εργαστήριο 1
+                  Εργαστήριο Μαθήματος 1
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
               </div>
@@ -482,11 +499,11 @@
               </div>
               <div class="course-preview-actions">
                 <a class="course-open-link course-open-link-lesson-2 course-open-link-lesson-2-main" href="mathima-02.html?v=20261007-2">
-                  Άνοιγμα Μαθήματος
+                  Άνοιγμα μαθήματος
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-lesson-2-lab" href="ergastirio-mathima-02.html?v=2">
-                  Εργαστήριο 2
+                  Εργαστήριο Μαθήματος 2
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-shift" href="diagnostiki-vardia.html">
@@ -507,7 +524,7 @@
               </div>
               <div class="course-preview-actions">
                 <a class="course-open-link course-open-link-lesson-3" href="mathima-03.html?v=3">
-                  Άνοιγμα Μαθήματος
+                  Άνοιγμα μαθήματος
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
                 <a class="course-open-link course-open-link-secondary course-open-link-lesson-3" href="topologies-interactive.html">
@@ -531,16 +548,12 @@
                 <div>
                   <small>ΜΑΘΗΜΑ 4 · ΕΒΔΟΜΑΔΑ 5</small>
                   <strong>CAN: Φυσικό επίπεδο</strong>
-                  <p>30 διαφάνειες · τεστ 30 ερωτήσεων · 4 δραστηριότητες CAN</p>
+                  <p>30 διαφάνειες · CAN-H/CAN-L · διαφορικό σήμα και διάγνωση</p>
                 </div>
               </div>
               <div class="course-preview-actions">
                 <a class="course-open-link course-open-link-lesson-4" href="mathima-04.html?v=20261020-1">
-                  Άνοιγμα Μαθήματος
-                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
-                </a>
-                <a class="course-open-link course-open-link-secondary course-open-link-lesson-4" href="ergastirio-mathima-04.html">
-                  Εργαστήριο 4
+                  Άνοιγμα μαθήματος
                   <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
                 </a>
               </div>
