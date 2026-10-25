@@ -81,7 +81,9 @@
       const dotsContainer = deck.querySelector('[data-slide-dots]');
       const frame = deck.querySelector('[data-slide-frame]');
       const fullscreenButton = deck.querySelector('[data-fullscreen]');
-      const slideSources = Array.from({length: totalSlides}, (_, i) => `assets/slides/mathima-05/slide-${String(i + 1).padStart(2, '0')}.webp`);
+      const slideSources = Array.from({length: totalSlides}, (_, i) => [2, 4, 9, 29].includes(i)
+        ? `assets/slides/mathima-05/slide-${String(i + 1).padStart(2, '0')}.png`
+        : `assets/slides/mathima-05/slide-${String(i + 1).padStart(2, '0')}.webp`);
       let currentIndex = 0;
       let touchStartX = 0;
 
