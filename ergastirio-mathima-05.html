@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=2" />
+    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=3" />
       <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
     <script src="assets/js/common-back-button.js?v=2" defer></script>
 </head>
@@ -28,7 +28,7 @@
           <span class="eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ · ΜΑΘΗΜΑ 5</span>
           <h1>Ποιο μήνυμα<br /><em>περνά πρώτο;</em></h1>
           <p>Παρακολούθησε τη διαιτησία bit προς bit, πειραματίσου με τα μηνύματα και τις καθυστερήσεις και εξάσκησε τη διάγνωση πέντε εκπαιδευτικών βλαβών CAN.</p>
-          <div class="fact-row"><div><strong>4</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
+          <div class="fact-row"><div><strong>5</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
           <button class="primary-button" type="button" data-start>Ξεκίνα το εργαστήριο <span aria-hidden="true">→</span></button>
         </div>
         <div class="welcome-visual" aria-hidden="true">
@@ -48,6 +48,7 @@
           <button type="button" data-tab="network"><b>02</b><span>Κίνηση δικτύου</span></button>
           <button type="button" data-tab="mission"><b>03</b><span>Τελική αποστολή</span></button>
           <button type="button" data-tab="diagnosis"><b>04</b><span>Διάγνωση CAN</span></button>
+          <button type="button" data-tab="decoder"><b>05</b><span>Αποκωδικοποίηση</span></button>
         </nav>
 
         <section class="activity-panel" data-panel="arbitration">
@@ -98,10 +99,57 @@
           <div class="diagnosis-complete" data-diagnosis-complete hidden><span>ΚΑΙ ΤΑ 5 ΠΕΡΙΣΤΑΤΙΚΑ ΟΛΟΚΛΗΡΩΘΗΚΑΝ</span><strong>Έκανες τη διάγνωση με βάση τα στοιχεία.</strong><p>Σε πραγματικό όχημα, επιβεβαίωσε πάντα τις τιμές και τη διαδικασία στο επίσημο εγχειρίδιο του συγκεκριμένου μοντέλου.</p></div>
           <p class="diagnosis-disclaimer">Εκπαιδευτικά και υποθετικά σενάρια με ενδεικτικές μετρήσεις. Δεν αποτελούν εργοστασιακά δεδομένα ή γνωστές βλάβες των μοντέλων. Στο Tesla εξετάζεται μόνο εκπαιδευτικό δίκτυο χαμηλής τάσης CAN· δεν γίνονται εργασίες στο σύστημα υψηλής τάσης.</p>
         </section>
+
+        <section class="activity-panel" data-panel="decoder" hidden>
+          <div class="decoder-intro">
+            <div>
+              <span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 5 · ΑΝΑΓΝΩΣΗ ΚΑΤΑΓΡΑΦΗΣ</span>
+              <h2>Αποκωδικοποίησε το μήνυμα</h2>
+              <p>Μελέτησε την καταγραφή και το εκπαιδευτικό λεξικό σημάτων. Απάντησε στις ερωτήσεις για να μετατρέψεις τα bytes σε πληροφορία.</p>
+            </div>
+            <div class="decoder-progress"><small>ΣΩΣΤΕΣ ΑΠΑΝΤΗΣΕΙΣ</small><strong><b data-decoder-score>0</b> / 7</strong></div>
+          </div>
+
+          <div class="decoder-grid">
+            <article class="decoder-log-card">
+              <div class="card-top"><span>ΥΠΟΘΕΤΙΚΗ ΚΑΤΑΓΡΑΦΗ CAN</span><span>ΚΛΑΣΙΚΟ CAN</span></div>
+              <div class="decoder-table-wrap">
+                <table class="decoder-table">
+                  <thead><tr><th>Χρόνος</th><th>ID</th><th>DLC</th><th>DATA</th></tr></thead>
+                  <tbody>
+                    <tr><td>0 ms</td><td>0x250</td><td>2</td><td><code>10 03</code></td></tr>
+                    <tr><td>10 ms</td><td>0x250</td><td>2</td><td><code>11 03</code></td></tr>
+                    <tr><td>20 ms</td><td>0x250</td><td>2</td><td><code>12 03</code></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="decoder-dbc">
+                <div class="card-top"><span>ΕΚΠΑΙΔΕΥΤΙΚΟ ΛΕΞΙΚΟ ΣΗΜΑΤΩΝ</span><span>DBC</span></div>
+                <p><b>Μήνυμα 0x250 · Byte 0:</b> Ταχύτητα οχήματος = δεκαδική τιμή byte × 2 km/h.</p>
+                <p><b>Μήνυμα 0x250 · Byte 1, bit 0:</b> 0 = Cruise OFF · 1 = Cruise ON.</p>
+                <small>Οι τιμές και το ID είναι κατασκευασμένα για την άσκηση, όχι δεδομένα πραγματικού οχήματος.</small>
+              </div>
+            </article>
+
+            <article class="decoder-question-card" aria-live="polite">
+              <div class="decoder-question-top"><span class="panel-kicker" data-decoder-step>ΕΡΩΤΗΣΗ 1 ΑΠΟ 7</span><span class="decoder-step-track" data-decoder-track>● ○ ○ ○ ○ ○ ○</span></div>
+              <h3 data-decoder-prompt>Φόρτωση ερώτησης…</h3>
+              <div class="decoder-options" data-decoder-options role="group" aria-label="Επιλογές απάντησης"></div>
+              <div class="decoder-feedback" data-decoder-feedback aria-live="polite"></div>
+              <div class="decoder-controls">
+                <button class="primary-button" type="button" data-decoder-next disabled>Έλεγξε την απάντηση <span aria-hidden="true">→</span></button>
+                <button class="text-button" type="button" data-decoder-reset>Ξεκίνα από την αρχή</button>
+              </div>
+            </article>
+          </div>
+          <p class="technical-note">Σημείωση: Τα bytes από μόνα τους είναι αριθμητικές τιμές. Για να μάθουμε τι σημαίνουν, χρειαζόμαστε την περιγραφή του μηνύματος, όπως το εκπαιδευτικό λεξικό που δίνεται εδώ.</p>
+          <div class="decoder-complete" data-decoder-complete hidden><span>ΚΑΤΑΓΡΑΦΗ ΑΠΟΚΩΔΙΚΟΠΟΙΗΘΗΚΕ</span><strong>0x250 επαναλαμβάνεται κάθε 10 ms.</strong><p>Η ταχύτητα αλλάζει από 32 σε 34 και μετά σε 36 km/h, ενώ το Cruise παραμένει ενεργό. Αυτή η ερμηνεία είναι δυνατή επειδή είχαμε το λεξικό σημάτων.</p></div>
+        </section>
       </section>
       <p class="footer-note">Εκπαιδευτική προσομοίωση · Οι πραγματικές τιμές, τα ID και οι χρόνοι κύκλου διαφέρουν ανά όχημα και σύστημα.</p>
     </main>
     <script src="assets/js/mathima-05-traffic.js?v=2"></script>
     <script src="assets/js/mathima-05-diagnosis.js?v=1"></script>
+    <script src="assets/js/mathima-05-decoder.js?v=1"></script>
   </body>
 </html>
