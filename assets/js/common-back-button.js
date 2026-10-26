@@ -39,22 +39,44 @@
 
   const current = location.pathname.split("/").pop() || "index.html";
   const fallback = parents[current] ?? null;
+  if (current === "index.html") return;
+
   const referrerIsLocal = (() => {
     if (!document.referrer) return false;
     try { return new URL(document.referrer).origin === location.origin; }
     catch { return false; }
   })();
 
-  const button = document.createElement("button");
-  button.id = "saek-common-back-button";
-  button.type = "button";
-  button.textContent = "← Πίσω";
-  button.setAttribute("aria-label", "Επιστροφή στην προηγούμενη σελίδα");
-  button.title = "Επιστροφή στην προηγούμενη σελίδα";
+  const goBack = (event) => {
+    event.preventDefault();
+    if (referrerIsLocal && history.length > 1) {
+      history.back();
+      return;
+    }
+    if (fallback) {
+      location.assign(fallback);
+      return;
+    }
+    if (history.length > 1) history.back();
+  };
+
+  const labHeaderBack = ["ergastirio-mathima-04.html", "ergastirio-mathima-05.html"].includes(current)
+    ? document.querySelector("header a.back-link")
+    : null;
+  if (labHeaderBack) {
+    const labNumber = current.includes("mathima-04") ? "4" : "5";
+    labHeaderBack.id = `saek-lab${labNumber}-back-button`;
+    labHeaderBack.classList.add("saek-common-back-link");
+    labHeaderBack.textContent = "← Πίσω";
+    labHeaderBack.setAttribute("aria-label", "Επιστροφή στην προηγούμενη σελίδα");
+    labHeaderBack.title = "Επιστροφή στην προηγούμενη σελίδα";
+    labHeaderBack.addEventListener("click", goBack);
+  }
 
   // Κρύβει τα παλαιότερα κουμπιά επιστροφής, ώστε να υπάρχει μία κοινή επιλογή.
   const candidates = document.querySelectorAll("a[href]");
   for (const link of candidates) {
+    if (link === labHeaderBack) continue;
     const label = (link.textContent || "").trim();
     const isLegacyBack = [
       "back", "back-link", "lab-back-link", "academy-back", "top-link",
@@ -68,17 +90,15 @@
     }
   }
 
-  button.addEventListener("click", () => {
-    if (referrerIsLocal && history.length > 1) {
-      history.back();
-      return;
-    }
-    if (fallback) {
-      location.assign(fallback);
-      return;
-    }
-    if (history.length > 1) history.back();
-  });
+  if (labHeaderBack) return;
+
+  const button = document.createElement("button");
+  button.id = "saek-common-back-button";
+  button.type = "button";
+  button.textContent = "← Πίσω";
+  button.setAttribute("aria-label", "Επιστροφή στην προηγούμενη σελίδα");
+  button.title = "Επιστροφή στην προηγούμενη σελίδα";
+  button.addEventListener("click", goBack);
 
   if (!fallback && !referrerIsLocal && history.length <= 1) {
     button.disabled = true;

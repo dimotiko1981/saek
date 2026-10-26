@@ -45,3 +45,50 @@
 @media print {
   #saek-common-back-button { display: none !important; }
 }
+
+/* Το Εργαστήριο 5 κρατά το κοινό κουμπί μέσα στην κεφαλίδα, επάνω δεξιά. */
+.saek-common-back-link,
+#saek-lab4-back-button,
+#saek-lab5-back-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  margin-left: auto;
+  padding: 0.65rem 1rem;
+  border: 1px solid #55cde4;
+  border-radius: 10px;
+  background: rgba(43, 217, 254, 0.1);
+  color: #f4fbff;
+  font-family: inherit;
+  font-size: 0.84rem;
+  font-weight: 750;
+  line-height: 1.1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+.saek-common-back-link:hover,
+#saek-lab4-back-button:hover,
+#saek-lab5-back-button:hover {
+  border-color: #8cecff;
+  background: rgba(43, 217, 254, 0.2);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+.saek-common-back-link:focus-visible,
+#saek-lab4-back-button:focus-visible,
+#saek-lab5-back-button:focus-visible {
+  outline: 3px solid #ffd27a;
+  outline-offset: 3px;
+}
+@media (max-width: 760px) {
+  .saek-common-back-link,
+  #saek-lab4-back-button,
+  #saek-lab5-back-button {
+    min-height: 38px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
