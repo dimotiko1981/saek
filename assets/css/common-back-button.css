@@ -48,6 +48,7 @@
 
 /* Το Εργαστήριο 5 κρατά το κοινό κουμπί μέσα στην κεφαλίδα, επάνω δεξιά. */
 .saek-common-back-link,
+#saek-lab1-back-button,
 #saek-lab4-back-button,
 #saek-lab5-back-button {
   display: inline-flex;
@@ -70,6 +71,7 @@
   transition: background-color 150ms ease, border-color 150ms ease, transform 150ms ease;
 }
 .saek-common-back-link:hover,
+#saek-lab1-back-button:hover,
 #saek-lab4-back-button:hover,
 #saek-lab5-back-button:hover {
   border-color: #8cecff;
@@ -78,6 +80,7 @@
   transform: translateY(-1px);
 }
 .saek-common-back-link:focus-visible,
+#saek-lab1-back-button:focus-visible,
 #saek-lab4-back-button:focus-visible,
 #saek-lab5-back-button:focus-visible {
   outline: 3px solid #ffd27a;
@@ -85,6 +88,7 @@
 }
 @media (max-width: 760px) {
   .saek-common-back-link,
+  #saek-lab1-back-button,
   #saek-lab4-back-button,
   #saek-lab5-back-button {
     min-height: 38px;

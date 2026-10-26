@@ -60,11 +60,17 @@
     if (history.length > 1) history.back();
   };
 
-  const labHeaderBack = ["ergastirio-mathima-04.html", "ergastirio-mathima-05.html"].includes(current)
+  const labHeaderBack = [
+    "ergastirio-eisagogis.html",
+    "ergastirio-mathima-04.html",
+    "ergastirio-mathima-05.html"
+  ].includes(current)
     ? document.querySelector("header .saek-common-back-link")
     : null;
   if (labHeaderBack) {
-    const labNumber = current.includes("mathima-04") ? "4" : "5";
+    const labNumber = current === "ergastirio-eisagogis.html"
+      ? "1"
+      : current.includes("mathima-04") ? "4" : "5";
     labHeaderBack.id = `saek-lab${labNumber}-back-button`;
     labHeaderBack.classList.add("saek-common-back-link");
     labHeaderBack.textContent = "← Πίσω";
