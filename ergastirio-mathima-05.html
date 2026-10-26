@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=1" />
+    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=2" />
   </head>
   <body>
     <header class="lab-header">
@@ -25,8 +25,8 @@
         <div class="welcome-copy">
           <span class="eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ · ΜΑΘΗΜΑ 5</span>
           <h1>Ποιο μήνυμα<br /><em>περνά πρώτο;</em></h1>
-          <p>Παρακολούθησε τη διαιτησία bit προς bit, πειραματίσου με τα ID και τους χρόνους κύκλου και διόρθωσε ένα δίκτυο με καθυστερημένο μήνυμα ABS.</p>
-          <div class="fact-row"><div><strong>3</strong><span>δραστηριότητες</span></div><div><strong>11 bit</strong><span>αναγνωριστικό CAN</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
+          <p>Παρακολούθησε τη διαιτησία bit προς bit, πειραματίσου με τα μηνύματα και τις καθυστερήσεις και εξάσκησε τη διάγνωση πέντε εκπαιδευτικών βλαβών CAN.</p>
+          <div class="fact-row"><div><strong>4</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
           <button class="primary-button" type="button" data-start>Ξεκίνα το εργαστήριο <span aria-hidden="true">→</span></button>
         </div>
         <div class="welcome-visual" aria-hidden="true">
@@ -45,6 +45,7 @@
           <button type="button" class="is-active" data-tab="arbitration"><b>01</b><span>Διαιτησία</span></button>
           <button type="button" data-tab="network"><b>02</b><span>Κίνηση δικτύου</span></button>
           <button type="button" data-tab="mission"><b>03</b><span>Τελική αποστολή</span></button>
+          <button type="button" data-tab="diagnosis"><b>04</b><span>Διάγνωση CAN</span></button>
         </nav>
 
         <section class="activity-panel" data-panel="arbitration">
@@ -87,9 +88,18 @@
           </div>
           <div class="mission-complete" data-mission-complete hidden><span>ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ</span><strong>Το δίκτυο ρυθμίστηκε σωστά.</strong><p>Αιτιολόγησε: ποια αλλαγή έδωσε προτεραιότητα στο ABS και ποια μείωσε τον φόρτο του διαύλου;</p></div>
         </section>
+
+        <section class="activity-panel" data-panel="diagnosis" hidden>
+          <div class="diagnosis-intro"><div><span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 4 · ΔΙΑΓΝΩΣΗ ΜΕΤΡΗΣΕΩΝ</span><h2>Βρες τη βλάβη στο δίκτυο CAN</h2><p>Διάλεξε όχημα, μελέτησε το σύμπτωμα και τις μετρήσεις και επίλεξε την πιθανότερη αιτία. Ξεκίνα από τα απλά περιστατικά και προχώρα στα πιο απαιτητικά.</p></div><div class="diagnosis-progress"><small>ΛΥΜΕΝΑ ΠΕΡΙΣΤΑΤΙΚΑ</small><strong><b data-diagnosis-count>0</b> / 5</strong></div></div>
+          <div class="diagnosis-cases" data-diagnosis-cases aria-label="Επιλογή περιστατικού"></div>
+          <article class="diagnosis-case" data-diagnosis-case aria-live="polite"></article>
+          <div class="diagnosis-complete" data-diagnosis-complete hidden><span>ΚΑΙ ΤΑ 5 ΠΕΡΙΣΤΑΤΙΚΑ ΟΛΟΚΛΗΡΩΘΗΚΑΝ</span><strong>Έκανες τη διάγνωση με βάση τα στοιχεία.</strong><p>Σε πραγματικό όχημα, επιβεβαίωσε πάντα τις τιμές και τη διαδικασία στο επίσημο εγχειρίδιο του συγκεκριμένου μοντέλου.</p></div>
+          <p class="diagnosis-disclaimer">Εκπαιδευτικά και υποθετικά σενάρια με ενδεικτικές μετρήσεις. Δεν αποτελούν εργοστασιακά δεδομένα ή γνωστές βλάβες των μοντέλων. Στο Tesla εξετάζεται μόνο εκπαιδευτικό δίκτυο χαμηλής τάσης CAN· δεν γίνονται εργασίες στο σύστημα υψηλής τάσης.</p>
+        </section>
       </section>
       <p class="footer-note">Εκπαιδευτική προσομοίωση · Οι πραγματικές τιμές, τα ID και οι χρόνοι κύκλου διαφέρουν ανά όχημα και σύστημα.</p>
     </main>
-    <script src="assets/js/mathima-05-traffic.js?v=1"></script>
+    <script src="assets/js/mathima-05-traffic.js?v=2"></script>
+    <script src="assets/js/mathima-05-diagnosis.js?v=1"></script>
   </body>
 </html>
