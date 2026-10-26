@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Διαδραστικός προσομοιωτής μηνυμάτων, διαιτησίας και φόρτου σε δίκτυο CAN." />
+    <meta name="theme-color" content="#071426" />
+    <title>Εργαστήριο 5 — Ρύθμισε την κίνηση στο CAN</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=1" />
+  </head>
+  <body>
+    <header class="lab-header">
+      <a class="lab-brand" href="index.html" aria-label="ΣΑΕΚ — Αρχική σελίδα">
+        <span class="brand-mark" aria-hidden="true">Σ</span><span><strong>ΣΑΕΚ</strong><small>Εργαστήριο Μαθήματος 5</small></span>
+      </a>
+      <div class="header-title"><span>CAN · ΜΗΝΥΜΑΤΑ ΚΑΙ ΠΡΟΤΕΡΑΙΟΤΗΤΑ</span><strong>Ρύθμισε την κίνηση στο CAN</strong></div>
+      <a class="back-link" href="mathima-05.html?v=20261025-1">← Επιστροφή στο Μάθημα 5</a>
+    </header>
+
+    <main class="lab-shell" data-traffic-lab>
+      <section class="welcome-panel" data-welcome>
+        <div class="welcome-copy">
+          <span class="eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ · ΜΑΘΗΜΑ 5</span>
+          <h1>Ποιο μήνυμα<br /><em>περνά πρώτο;</em></h1>
+          <p>Παρακολούθησε τη διαιτησία bit προς bit, πειραματίσου με τα ID και τους χρόνους κύκλου και διόρθωσε ένα δίκτυο με καθυστερημένο μήνυμα ABS.</p>
+          <div class="fact-row"><div><strong>3</strong><span>δραστηριότητες</span></div><div><strong>11 bit</strong><span>αναγνωριστικό CAN</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
+          <button class="primary-button" type="button" data-start>Ξεκίνα το εργαστήριο <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="welcome-visual" aria-hidden="true">
+          <div class="bus-visual"><div class="bus-label"><span>CAN BUS</span><b>500 kbit/s · ΕΚΠΑΙΔΕΥΤΙΚΟ ΜΟΝΤΕΛΟ</b></div><div class="bus-line"><i></i><i></i><i></i><i></i></div><div class="node-row"><span>ABS</span><span>ECU</span><span>BCM</span><span>MEDIA</span></div><div class="message-wave"><b>0x080</b><i></i><b>0x120</b><i></i><b>0x320</b></div></div>
+          <div class="winner-chip"><span class="pulse-dot"></span><div><small>ΚΕΡΔΙΖΕΙ ΤΗ ΔΙΑΙΤΗΣΙΑ</small><strong>Μικρότερο ID</strong></div><b>0x080</b></div>
+        </div>
+        <p class="disclaimer">Απλοποιημένη εκπαιδευτική προσομοίωση κλασικού CAN. Οι χρόνοι και τα μηνύματα είναι ενδεικτικά, όχι εργοστασιακά δεδομένα συγκεκριμένου οχήματος.</p>
+      </section>
+
+      <section class="simulator" data-simulator hidden>
+        <div class="simulator-heading">
+          <div><span class="eyebrow">ΕΚΠΑΙΔΕΥΤΙΚΟΣ ΠΡΟΣΟΜΟΙΩΤΗΣ CAN</span><h1>Κέντρο ελέγχου διαύλου</h1></div>
+          <div class="lab-score"><span>ΣΤΟΧΟΙ ΑΠΟΣΤΟΛΗΣ</span><strong><b data-score>0</b>/4</strong></div>
+        </div>
+        <nav class="activity-tabs" aria-label="Επιλογή δραστηριότητας">
+          <button type="button" class="is-active" data-tab="arbitration"><b>01</b><span>Διαιτησία</span></button>
+          <button type="button" data-tab="network"><b>02</b><span>Κίνηση δικτύου</span></button>
+          <button type="button" data-tab="mission"><b>03</b><span>Τελική αποστολή</span></button>
+        </nav>
+
+        <section class="activity-panel" data-panel="arbitration">
+          <div class="panel-intro"><div><span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 1 · ΒΗΜΑ ΠΡΟΣ ΒΗΜΑ</span><h2>Παρακολούθησε τη διαιτησία</h2><p>Τρεις μονάδες ξεκινούν μαζί. Προχώρησε ένα bit κάθε φορά και δες ποια μηνύματα συνεχίζουν.</p></div><div class="bit-readout"><small>ΒΗΜΑ ΔΙΑΙΤΗΣΙΑΣ</small><strong data-bit-number>— / 11</strong></div></div>
+          <div class="arbitration-layout">
+            <div class="arbitration-card">
+              <div class="card-top"><span>ΑΝΑΓΝΩΡΙΣΤΙΚΑ 11 BIT</span><span class="legend"><i></i> dominant 0 <i class="recessive"></i> recessive 1</span></div>
+              <div class="bit-ruler" data-bit-ruler></div>
+              <div class="contender-list" data-contenders></div>
+              <div class="bus-state"><span class="pulse-dot"></span><div><small>ΚΑΤΑΣΤΑΣΗ ΔΙΑΥΛΟΥ</small><strong data-bus-state>Έτοιμος για διαιτησία</strong></div><b data-bus-bit>—</b></div>
+            </div>
+            <aside class="explain-card"><span class="panel-kicker">ΤΙ ΠΑΡΑΤΗΡΕΙΣ</span><h3 data-arbitration-title>Τα μηνύματα ξεκινούν μαζί</h3><p data-arbitration-copy>Στο CAN όλοι οι κόμβοι ελέγχουν τον δίαυλο. Η διαιτησία συγκρίνει τα ID από το σημαντικότερο bit.</p><div class="survivors"><small>ΣΥΝΕΧΙΖΟΥΝ</small><strong data-survivors>ABS · ECU κινητήρα · Πολυμέσα</strong></div><button class="primary-button" type="button" data-arbitration-step>Έλεγξε το πρώτο bit <span aria-hidden="true">→</span></button><button class="text-button" type="button" data-arbitration-reset>Επαναφορά γύρου</button></aside>
+          </div>
+        </section>
+
+        <section class="activity-panel" data-panel="network" hidden>
+          <div class="panel-intro"><div><span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 2 · ΕΛΕΥΘΕΡΟΣ ΠΕΙΡΑΜΑΤΙΣΜΟΣ</span><h2>Δες την κίνηση στο δίκτυο</h2><p>Άλλαξε ID ή χρόνο κύκλου και προσομοίωσε 100 ms κίνησης. Παρατήρησε ποιος περιμένει και πόσο.</p></div><div class="model-tag">Κάθε πλαίσιο καταλαμβάνει<br /><strong>0,8 ms στο μοντέλο</strong></div></div>
+          <div class="network-grid">
+            <div class="traffic-card">
+              <div class="card-top"><span>ΡΥΘΜΙΣΕΙΣ ΜΗΝΥΜΑΤΩΝ</span><button type="button" class="text-button" data-reset-network>Επαναφορά βασικών τιμών</button></div>
+              <div class="traffic-table-wrap"><table class="traffic-table"><thead><tr><th>Μονάδα / μήνυμα</th><th>ID</th><th>Χρόνος κύκλου</th></tr></thead><tbody data-config-rows></tbody></table></div>
+              <div class="traffic-actions"><button class="primary-button" type="button" data-run-simulation>Προσομοίωση 100 ms <span aria-hidden="true">→</span></button><span data-run-status>Ρύθμισε τις τιμές και ξεκίνα.</span></div>
+            </div>
+            <aside class="metrics-card">
+              <div class="card-top"><span>ΑΠΟΤΕΛΕΣΜΑΤΑ ΠΡΟΣΟΜΟΙΩΣΗΣ</span><span data-simulation-label>ΑΝΑΜΟΝΗ</span></div>
+              <div class="metric-grid"><article><small>ΦΟΡΤΟΣ ΔΙΑΥΛΟΥ</small><strong data-bus-load>—<em>%</em></strong><span data-load-hint>Προσφερόμενος φόρτος</span></article><article><small>ΜΕΓΙΣΤΗ ΑΝΑΜΟΝΗ ABS</small><strong data-abs-delay>—<em> ms</em></strong><span data-delay-hint>Πριν αρχίσει η μετάδοση</span></article></div>
+              <div class="queue-title"><span>ΣΕΙΡΑ ΠΡΟΣΒΑΣΗΣ ΣΤΟΝ ΔΙΑΥΛΟ</span><small>πρώτα τα μικρότερα ID</small></div><div class="queue-list" data-queue-list><p class="empty-queue">Η σειρά μετάδοσης θα εμφανιστεί εδώ.</p></div>
+              <div class="sim-explanation" data-sim-explanation>Όταν ο δίαυλος ελευθερώνεται, τα μηνύματα που περιμένουν ανταγωνίζονται ξανά με βάση το ID τους.</div>
+            </aside>
+          </div>
+          <p class="technical-note">Το μοντέλο απλοποιεί το πραγματικό CAN για να φαίνεται καθαρά η επίδραση της συχνότητας και της προτεραιότητας. Δεν αποτελεί μέτρηση ή εργοστασιακή προδιαγραφή.</p>
+        </section>
+
+        <section class="activity-panel" data-panel="mission" hidden>
+          <div class="mission-banner"><div><span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 3 · ΤΕΛΙΚΗ ΑΠΟΣΤΟΛΗ</span><h2>Το ABS αργεί να ενημερωθεί</h2><p>Σε ένα εκπαιδευτικό δίκτυο, το infotainment στέλνει υπερβολικά συχνά μηνύματα και έχει ID υψηλότερης προτεραιότητας από το ABS. Ρύθμισε το δίκτυο, τρέξε την προσομοίωση και πέτυχε και τους τέσσερις στόχους.</p></div><div class="mission-status" data-mission-status><span class="pulse-dot"></span><strong>ΑΝΕΞΕΛΕΓΚΤΗ ΡΟΗ</strong></div></div>
+          <div class="mission-goals" aria-label="Στόχοι αποστολής"><div data-goal="abs-priority"><b>01</b><span>Το μήνυμα ABS έχει την υψηλότερη προτεραιότητα</span><i>Εκκρεμεί</i></div><div data-goal="media-priority"><b>02</b><span>Τα πολυμέσα έχουν τη χαμηλότερη προτεραιότητα</span><i>Εκκρεμεί</i></div><div data-goal="media-cycle"><b>03</b><span>Ο χρόνος κύκλου πολυμέσων είναι τουλάχιστον 20 ms</span><i>Εκκρεμεί</i></div><div data-goal="bus-load"><b>04</b><span>Ο φόρτος διαύλου πέφτει κάτω από 30%</span><i>Εκκρεμεί</i></div></div>
+          <div class="network-grid mission-network-grid">
+            <div class="traffic-card"><div class="card-top"><span>ΡΥΘΜΙΣΕ ΤΑ ΜΗΝΥΜΑΤΑ ΤΟΥ ΠΕΡΙΣΤΑΤΙΚΟΥ</span><button type="button" class="text-button" data-reset-mission>Επαναφορά περιστατικού</button></div><div class="traffic-table-wrap"><table class="traffic-table"><thead><tr><th>Μονάδα / μήνυμα</th><th>ID</th><th>Χρόνος κύκλου</th></tr></thead><tbody data-mission-config-rows></tbody></table></div><div class="traffic-actions"><button class="primary-button" type="button" data-run-mission>Έλεγξε τη ρύθμιση <span aria-hidden="true">→</span></button><span data-mission-run-status>Κάνε αλλαγές και δοκίμασε το δίκτυο.</span></div></div>
+            <aside class="metrics-card mission-metrics"><div class="card-top"><span>ΑΠΟΤΕΛΕΣΜΑΤΑ</span><span data-mission-simulation-label>ΧΩΡΙΣ ΔΟΚΙΜΗ</span></div><div class="metric-grid"><article><small>ΦΟΡΤΟΣ ΔΙΑΥΛΟΥ</small><strong data-mission-bus-load>—<em>%</em></strong><span>στόχος κάτω από 30%</span></article><article><small>ΜΕΓΙΣΤΗ ΑΝΑΜΟΝΗ ABS</small><strong data-mission-abs-delay>—<em> ms</em></strong><span>μικρότερη καθυστέρηση = καλύτερα</span></article></div><div class="sim-explanation" data-mission-feedback>Η προσομοίωση θα ελέγξει προτεραιότητα, συχνότητα μηνυμάτων και φόρτο διαύλου.</div></aside>
+          </div>
+          <div class="mission-complete" data-mission-complete hidden><span>ΑΠΟΣΤΟΛΗ ΟΛΟΚΛΗΡΩΘΗΚΕ</span><strong>Το δίκτυο ρυθμίστηκε σωστά.</strong><p>Αιτιολόγησε: ποια αλλαγή έδωσε προτεραιότητα στο ABS και ποια μείωσε τον φόρτο του διαύλου;</p></div>
+        </section>
+      </section>
+      <p class="footer-note">Εκπαιδευτική προσομοίωση · Οι πραγματικές τιμές, τα ID και οι χρόνοι κύκλου διαφέρουν ανά όχημα και σύστημα.</p>
+    </main>
+    <script src="assets/js/mathima-05-traffic.js?v=1"></script>
+  </body>
+</html>
