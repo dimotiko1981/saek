@@ -1,20 +1,20 @@
 #saek-common-back-button {
   position: fixed;
   z-index: 2147483000;
-  left: max(14px, env(safe-area-inset-left));
-  bottom: max(14px, env(safe-area-inset-bottom));
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 44px;
+  min-height: 42px;
   padding: 0.65rem 1rem;
   border: 1px solid #55cde4;
-  border-radius: 999px;
-  background: #0a1c2d;
+  border-radius: 10px;
+  background: rgba(43, 217, 254, 0.1);
   color: #f4fbff;
   box-shadow: 0 5px 22px rgba(4, 19, 32, 0.28);
   font-family: inherit;
-  font-size: 0.9rem;
+  font-size: 0.84rem;
   font-weight: 700;
   line-height: 1.1;
   cursor: pointer;
@@ -22,7 +22,7 @@
 }
 #saek-common-back-button:hover:not(:disabled) {
   border-color: #8cecff;
-  background: #14334b;
+  background: rgba(43, 217, 254, 0.2);
   transform: translateY(-1px);
 }
 #saek-common-back-button:focus-visible {
@@ -35,11 +35,11 @@
 }
 @media (max-width: 600px) {
   #saek-common-back-button {
-    left: max(10px, env(safe-area-inset-left));
-    bottom: max(10px, env(safe-area-inset-bottom));
-    min-height: 42px;
-    padding: 0.6rem 0.85rem;
-    font-size: 0.84rem;
+    top: max(10px, env(safe-area-inset-top));
+    right: max(10px, env(safe-area-inset-right));
+    min-height: 38px;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.75rem;
   }
 }
 @media print {
