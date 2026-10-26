@@ -61,7 +61,7 @@
   };
 
   const labHeaderBack = ["ergastirio-mathima-04.html", "ergastirio-mathima-05.html"].includes(current)
-    ? document.querySelector("header a.back-link")
+    ? document.querySelector("header .saek-common-back-link")
     : null;
   if (labHeaderBack) {
     const labNumber = current.includes("mathima-04") ? "4" : "5";
