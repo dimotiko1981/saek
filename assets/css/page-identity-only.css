@@ -1,0 +1,110 @@
+/* Shared header rule: show the page identity, not the site badge. */
+header.site-header > .brand,
+header.lab-header > .lab-brand,
+header.builder-header > .builder-brand {
+  display: none !important;
+}
+
+header.site-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 1rem;
+}
+
+header.site-header .header-course-title {
+  flex: 1 1 auto;
+  justify-items: start;
+  margin: 0 auto 0 0;
+  text-align: left;
+}
+
+header.site-header .header-cta {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+header.site-header .main-nav {
+  margin-right: auto;
+}
+
+.home-page-identity {
+  color: var(--text, #edf6ff);
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+
+header.lab-header,
+header.builder-header {
+  display: flex !important;
+  justify-content: flex-start !important;
+  gap: 1rem;
+}
+
+header.lab-header .lab-header-title,
+header.lab-header .header-title,
+header.builder-header .header-title {
+  justify-items: start;
+  margin-right: auto;
+  text-align: left;
+}
+
+header.lab-header .lab-back-link,
+header.lab-header .back-link,
+header.builder-header .back-link {
+  flex: 0 0 auto;
+  margin-left: auto;
+}
+
+@media (max-width: 760px) {
+  header.site-header.presentation-header,
+  header.site-header.lesson-header {
+    gap: .45rem;
+  }
+
+  header.site-header.presentation-header .header-course-title,
+  header.site-header.lesson-header .header-course-title {
+    display: grid !important;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  header.site-header.presentation-header .header-course-title span,
+  header.site-header.lesson-header .header-course-title span {
+    display: none;
+  }
+
+  header.site-header.presentation-header .header-course-title strong,
+  header.site-header.lesson-header .header-course-title strong {
+    font-size: .68rem;
+    line-height: 1.25;
+  }
+
+  header.lab-header .lab-header-title,
+  header.lab-header .header-title {
+    display: grid !important;
+    min-width: 0;
+    flex: 1 1 auto;
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  header.lab-header .lab-header-title span,
+  header.lab-header .header-title span {
+    display: none;
+  }
+
+  header.lab-header .lab-header-title strong,
+  header.lab-header .header-title strong {
+    font-size: .68rem;
+    line-height: 1.25;
+  }
+}
+
+/* Course pages use the shared fixed back button, so suppress duplicate header CTAs. */
+header.site-header.presentation-header .header-cta,
+header.site-header.lesson-header .header-cta,
+header.site-header.intro-course-header .header-cta {
+  display: none !important;
+}
