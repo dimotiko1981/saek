@@ -64,8 +64,8 @@ if (tour) {
     const properEnds = positions.length === 2 && counts.left === 1 && counts.right === 1;
     if (positions.length === 0) topologyNote.textContent = 'Δεν υπάρχουν τερματισμοί στο δίκτυο.';
     else if (positions.length === 1) topologyNote.textContent = 'Ένας τερματισμός 120 Ω: η ένδειξη είναι περίπου 120 Ω.';
-    else if (properEnds) topologyNote.textContent = 'Οι τερματισμοί βρίσκονται στα δύο άκρα του κορμού.';
-    else topologyNote.textContent = 'Η ένδειξη είναι περίπου 60 Ω, αλλά η θέση των τερματισμών επηρεάζει το σήμα.';
+    else if (properEnds) topologyNote.textContent = 'Σωστά: μία αντίσταση σε κάθε άκρο του κύριου κορμού.';
+    else topologyNote.textContent = 'Η ένδειξη είναι ≈60 Ω, αλλά δεν επιβεβαιώνει τη σωστή θέση. Οι αντιστάσεις πρέπει να είναι στα δύο άκρα του κύριου κορμού.';
   }
   placementControls.forEach((control) => control.addEventListener('change', updateTopology));
   updateTopology();

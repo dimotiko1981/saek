@@ -34,7 +34,7 @@
         <div class="how-to-heading"><span class="eyebrow">Η ΑΠΟΣΤΟΛΗ ΣΟΥ</span><strong>Επισκεύασε το δίκτυο ώστε το διαγνωστικό να επικοινωνεί με όλες τις μονάδες.</strong><small>Το σχεδιάγραμμα δείχνει την τωρινή, προβληματική κατάσταση του οχήματος.</small></div>
         <ol class="how-to-steps">
           <li><b>1</b><span>Τα κουμπιά των μονάδων τις συνδέουν ή τις αποσυνδέουν.</span></li>
-          <li><b>2</b><span>Από τις λίστες αλλάζεις θέσεις αντιστάσεων και συνδέσεις OBD.</span></li>
+          <li><b>2</b><span>Οι αντιστάσεις μπαίνουν στα δύο άκρα της κύριας γραμμής. Οι κλάδοι είναι τα μικρά καλώδια που φεύγουν προς τις μονάδες.</span></li>
           <li><b>3</b><span>Χρησιμοποίησε τη μέτρηση Ω και τη σάρωση για να βρεις στοιχεία.</span></li>
           <li><b>4</b><span>Μετά από αλλαγές, ξανακάνε τους ελέγχους και υπέβαλε την κατασκευή.</span></li>
         </ol>
@@ -49,10 +49,10 @@
             <div class="line-labels"><span class="line-label high-label">CAN-H</span><span class="line-label low-label">CAN-L</span></div>
             <div class="bus-lines" aria-hidden="true"><span class="bus-wire bus-high"></span><span class="bus-wire bus-low"></span><span class="bus-caption">Ο ΚΟΡΜΟΣ ΤΟΥ ΔΙΚΤΥΟΥ</span></div>
             <div class="bus-slots" aria-label="Πιθανές θέσεις αντιστάσεων τερματισμού">
-              <div data-slot="left"><strong>ΑΚΡΟ Α</strong><small>—</small></div>
-              <div data-slot="branch-a"><strong>ΚΛΑΔΟΣ Α</strong><small>—</small></div>
-              <div data-slot="branch-b"><strong>ΚΛΑΔΟΣ Β</strong><small>—</small></div>
-              <div data-slot="right"><strong>ΑΚΡΟ Β</strong><small>—</small></div>
+              <div data-slot="left"><strong>ΑΡΙΣΤΕΡΟ ΑΚΡΟ</strong><small>—</small></div>
+              <div data-slot="branch-a"><strong>ΚΛΑΔΟΣ ΠΡΟΣ ΜΟΝΑΔΕΣ 1</strong><small>—</small></div>
+              <div data-slot="branch-b"><strong>ΚΛΑΔΟΣ ΠΡΟΣ ΜΟΝΑΔΕΣ 2</strong><small>—</small></div>
+              <div data-slot="right"><strong>ΔΕΞΙΟ ΑΚΡΟ</strong><small>—</small></div>
             </div>
 
             <div class="module-grid">
@@ -77,8 +77,8 @@
               <button type="button" class="toggle-control" data-module="cluster" aria-pressed="false"><span class="toggle-dot"></span>Πίνακας οργάνων</button>
             </div></section>
             <section class="control-group"><h3>Εξαρτήματα και συνδέσεις</h3><div class="setting-grid">
-              <label>Τερματισμός Α <select data-resistor="a"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left" selected>Άκρο Α</option><option value="branch-a">Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
-              <label>Τερματισμός Β <select data-resistor="b"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Άκρο Α</option><option value="branch-a" selected>Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
+              <label>Αντίσταση 120 Ω · 1 <select data-resistor="a"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left" selected>Αριστερό άκρο κορμού</option><option value="branch-a">Κλάδος προς μονάδες 1</option><option value="branch-b">Κλάδος προς μονάδες 2</option><option value="right">Δεξί άκρο κορμού</option></select></label>
+              <label>Αντίσταση 120 Ω · 2 <select data-resistor="b"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Αριστερό άκρο κορμού</option><option value="branch-a" selected>Κλάδος προς μονάδες 1</option><option value="branch-b">Κλάδος προς μονάδες 2</option><option value="right">Δεξί άκρο κορμού</option></select></label>
               <label>OBD · ακίδα 6 <select data-pin="6"><option value="none">Δεν συνδέεται</option><option value="H">CAN-H</option><option value="L" selected>CAN-L</option></select></label>
               <label>OBD · ακίδα 14 <select data-pin="14"><option value="none">Δεν συνδέεται</option><option value="H" selected>CAN-H</option><option value="L">CAN-L</option></select></label>
             </div></section>
@@ -103,6 +103,6 @@
       </section>
       <p class="safety-note">Εκπαιδευτική προσομοίωση high-speed CAN. Οι τιμές είναι ενδεικτικές. Σε πραγματικό όχημα ακολουθούμε το διάγραμμα και τη διαδικασία του κατασκευαστή.</p>
     </main>
-    <script src="assets/js/mathima-04-can-builder.js?v=2"></script>
+    <script src="assets/js/mathima-04-can-builder.js?v=3"></script>
   </body>
 </html>

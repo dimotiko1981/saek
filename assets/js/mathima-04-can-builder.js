@@ -133,7 +133,7 @@ if (builder) {
     const connectedModules = Object.values(state.modules).filter(Boolean).length;
     const checks = [
       { ok: connectedModules === 4, text: 'Πρόσβαση και στις τέσσερις μονάδες' },
-      { ok: bothEnds(), text: 'Σταθερή τοπολογία τερματισμού' },
+      { ok: bothEnds(), text: 'Μία αντίσταση σε κάθε άκρο του κύριου κορμού' },
       { ok: obdCorrect(), text: 'Σωστή επικοινωνία από τη διαγνωστική φίσα' },
       { ok: resistanceReading() === '≈ 60 Ω', text: 'Εύλογη αντίσταση μεταξύ των γραμμών' }
     ];
@@ -142,7 +142,10 @@ if (builder) {
     if (score === checks.length) {
       setFeedback(`<strong>Η κατασκευή λειτουργεί.</strong><ul>${lines}</ul><p>Οι μετρήσεις και η σάρωση συμφωνούν με ένα λειτουργικό δίκτυο.</p>`, true);
     } else {
-      setFeedback(`<strong>Αποτέλεσμα: ${score}/4 κριτήρια.</strong><ul>${lines}</ul><p>Έλεγξε ξανά την τοπολογία και τις ενδείξεις πριν από νέα υποβολή.</p>`);
+      const placementHint = bothEnds()
+        ? 'Έλεγξε ξανά τις συνδέσεις και τις ενδείξεις πριν από νέα υποβολή.'
+        : 'Ακόμη κι αν το πολύμετρο δείχνει ≈60 Ω, αυτό δεν επιβεβαιώνει τη θέση τους. Βάλε μία αντίσταση σε κάθε άκρο της κύριας γραμμής, όχι στους κλάδους.';
+      setFeedback(`<strong>Αποτέλεσμα: ${score}/4 κριτήρια.</strong><ul>${lines}</ul><p>${placementHint}</p>`);
     }
   });
 

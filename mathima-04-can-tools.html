@@ -61,19 +61,19 @@
       <section class="tour-panel" data-tour-panel="terminators" hidden>
         <div class="tour-copy">
           <span class="eyebrow">ΕΞΑΡΤΗΜΑ 2</span><h2>Οι αντιστάσεις τερματισμού</h2>
-          <p>Στο εκπαιδευτικό δίκτυο, κάθε τερματισμός είναι 120 Ω. Οι δύο αντιστάσεις μπαίνουν στα δύο άκρα του κορμού του διαύλου.</p>
-          <div class="plain-note"><strong>Γιατί υπάρχουν;</strong><span>Βοηθούν να περιοριστούν οι ανακλάσεις του σήματος. Η θέση τους έχει σημασία, όχι μόνο η συνολική τιμή.</span></div>
+          <p>Στο εκπαιδευτικό δίκτυο, κάθε αντίσταση είναι 120 Ω. Βάζουμε μία σε κάθε άκρο της κύριας γραμμής CAN. Οι κλάδοι είναι τα μικρότερα καλώδια που συνδέουν τις μονάδες με την κύρια γραμμή.</p>
+          <div class="plain-note"><strong>Πρόσεξε</strong><span>Η ένδειξη ≈60 Ω δεν αρκεί από μόνη της: έλεγξε και στο σχέδιο ότι οι αντιστάσεις είναι στα δύο άκρα της κύριας γραμμής, όχι στους κλάδους.</span></div>
         </div>
         <div class="tour-demo">
           <div class="topology-demo">
-            <div class="topology-end" data-topology-slot="left"><b>ΑΚΡΟ Α</b><span>—</span></div>
-            <div class="topology-branch" data-topology-slot="branch-a"><b>ΚΛΑΔΟΣ Α</b><span>—</span></div>
-            <div class="topology-branch" data-topology-slot="branch-b"><b>ΚΛΑΔΟΣ Β</b><span>—</span></div>
-            <div class="topology-end" data-topology-slot="right"><b>ΑΚΡΟ Β</b><span>—</span></div>
+            <div class="topology-end" data-topology-slot="left"><b>ΑΡΙΣΤΕΡΟ ΑΚΡΟ ΚΟΡΜΟΥ</b><span>—</span></div>
+            <div class="topology-branch" data-topology-slot="branch-a"><b>ΚΛΑΔΟΣ ΠΡΟΣ ΜΟΝΑΔΕΣ 1</b><span>—</span></div>
+            <div class="topology-branch" data-topology-slot="branch-b"><b>ΚΛΑΔΟΣ ΠΡΟΣ ΜΟΝΑΔΕΣ 2</b><span>—</span></div>
+            <div class="topology-end" data-topology-slot="right"><b>ΔΕΞΙΟ ΑΚΡΟ ΚΟΡΜΟΥ</b><span>—</span></div>
           </div>
           <div class="demo-selects">
-            <label>Αντίσταση Α <select data-placement="a"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Άκρο Α</option><option value="branch-a">Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
-            <label>Αντίσταση Β <select data-placement="b"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Άκρο Α</option><option value="branch-a">Κλάδος Α</option><option value="branch-b">Κλάδος Β</option><option value="right">Άκρο Β</option></select></label>
+            <label>Αντίσταση 120 Ω · 1 <select data-placement="a"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Αριστερό άκρο κορμού</option><option value="branch-a">Κλάδος προς μονάδες 1</option><option value="branch-b">Κλάδος προς μονάδες 2</option><option value="right">Δεξί άκρο κορμού</option></select></label>
+            <label>Αντίσταση 120 Ω · 2 <select data-placement="b"><option value="none">Δεν έχει τοποθετηθεί</option><option value="left">Αριστερό άκρο κορμού</option><option value="branch-a">Κλάδος προς μονάδες 1</option><option value="branch-b">Κλάδος προς μονάδες 2</option><option value="right">Δεξί άκρο κορμού</option></select></label>
           </div>
           <div class="demo-meter compact"><span>ΕΝΔΕΙΞΗ ΠΟΛΥΜΕΤΡΟΥ ΜΕ ΤΟ ΚΥΚΛΩΜΑ ΣΒΗΣΤΟ</span><strong data-topology-reading>— —</strong><small data-topology-note>Τοποθέτησε τις αντιστάσεις για να δεις την ένδειξη.</small></div>
         </div>
@@ -100,6 +100,6 @@
       <div class="tour-footer"><a href="ergastirio-mathima-04.html">← Όλες οι δραστηριότητες</a><a class="continue-link" href="ergastirio-mathima-04.html">Πήγαινε στη δεύτερη δραστηριότητα →</a></div>
       <p class="safety-note">Εκπαιδευτική προσομοίωση. Πριν από πραγματική μέτρηση αντίστασης, ακολουθούμε πάντα τη διαδικασία του κατασκευαστή και επιβεβαιώνουμε ότι το κύκλωμα είναι απενεργοποιημένο.</p>
     </main>
-    <script src="assets/js/mathima-04-can-tools.js?v=1"></script>
+    <script src="assets/js/mathima-04-can-tools.js?v=2"></script>
   </body>
 </html>
