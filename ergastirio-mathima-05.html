@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=3" />
+    <link rel="stylesheet" href="assets/css/mathima-05-frame-builder.css?v=1" />
       <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
     <script src="assets/js/common-back-button.js?v=2" defer></script>
     <link rel="stylesheet" href="assets/css/page-identity-only.css?v=2" />
@@ -25,8 +26,8 @@
         <div class="welcome-copy">
           <span class="eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ · ΜΑΘΗΜΑ 5</span>
           <h1>Ποιο μήνυμα<br /><em>περνά πρώτο;</em></h1>
-          <p>Παρακολούθησε τη διαιτησία bit προς bit, πειραματίσου με τα μηνύματα και τις καθυστερήσεις και εξάσκησε τη διάγνωση πέντε εκπαιδευτικών βλαβών CAN.</p>
-          <div class="fact-row"><div><strong>5</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
+          <p>Παρακολούθησε τη διαιτησία bit προς bit, ρύθμισε την κίνηση του δικτύου, μελέτησε διαγνωστικά περιστατικά και κατασκεύασε το δικό σου μήνυμα CAN.</p>
+          <div class="fact-row"><div><strong>6</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
           <button class="primary-button" type="button" data-start>Ξεκίνα το εργαστήριο <span aria-hidden="true">→</span></button>
         </div>
         <div class="welcome-visual" aria-hidden="true">
@@ -47,6 +48,7 @@
           <button type="button" data-tab="mission"><b>03</b><span>Τελική αποστολή</span></button>
           <button type="button" data-tab="diagnosis"><b>04</b><span>Διάγνωση CAN</span></button>
           <button type="button" data-tab="decoder"><b>05</b><span>Αποκωδικοποίηση</span></button>
+          <button type="button" data-tab="frame-builder"><b>06</b><span>CAN Frame Builder</span></button>
         </nav>
 
         <section class="activity-panel" data-panel="arbitration">
@@ -143,11 +145,80 @@
           <p class="technical-note">Σημείωση: Τα bytes από μόνα τους είναι αριθμητικές τιμές. Για να μάθουμε τι σημαίνουν, χρειαζόμαστε την περιγραφή του μηνύματος, όπως το εκπαιδευτικό λεξικό που δίνεται εδώ.</p>
           <div class="decoder-complete" data-decoder-complete hidden><span>ΚΑΤΑΓΡΑΦΗ ΑΠΟΚΩΔΙΚΟΠΟΙΗΘΗΚΕ</span><strong>0x250 επαναλαμβάνεται κάθε 10 ms.</strong><p>Η ταχύτητα αλλάζει από 32 σε 34 και μετά σε 36 km/h, ενώ το Cruise παραμένει ενεργό. Αυτή η ερμηνεία είναι δυνατή επειδή είχαμε το λεξικό σημάτων.</p></div>
         </section>
+
+        <!-- ΔΡΑΣΤΗΡΙΟΤΗΤΑ 6: ΝΕΟ ΑΥΤΟΤΕΛΕΣ ΕΚΠΑΙΔΕΥΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ -->
+        <section class="activity-panel" data-panel="frame-builder" data-frame-builder hidden>
+          <div class="frame-intro">
+            <div>
+              <span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 6 · ΚΑΤΑΣΚΕΥΗ ΚΑΙ ΜΕΤΑΔΟΣΗ</span>
+              <h2>CAN Frame Builder <span>· Φτιάξε το δικό σου μήνυμα</span></h2>
+              <p>Επίλεξε μονάδα, γράψε το αναγνωριστικό, όρισε DLC και bytes, βάλε τα 12 πεδία στη σωστή σειρά και παρακολούθησε το αποτέλεσμα στον δίαυλο.</p>
+            </div>
+            <div class="frame-progress-box"><small>ΠΡΟΟΔΟΣ ΕΠΙΠΕΔΟΥ</small><strong data-frame-progress>0 / 3</strong></div>
+          </div>
+          <div class="frame-levels" role="group" aria-label="Επίπεδο δυσκολίας">
+            <button type="button" data-frame-mode="guided" class="is-active" aria-pressed="true"><b>01</b><span><strong>Καθοδηγούμενο</strong><small>Ακολούθησε την αποστολή</small></span></button>
+            <button type="button" data-frame-mode="repair" aria-pressed="false"><b>02</b><span><strong>Διόρθωσε το μήνυμα</strong><small>Βρες και διόρθωσε λάθη</small></span></button>
+            <button type="button" data-frame-mode="free" aria-pressed="false"><b>03</b><span><strong>Ελεύθερη κατασκευή</strong><small>Φτιάξε ό,τι θέλεις</small></span></button>
+          </div>
+          <p class="frame-mode-hint" data-frame-mode-description>Ακολούθησε τις οδηγίες για 3 μηνύματα και μάθε πώς σχηματίζεται το πλαίσιο.</p>
+          <div class="frame-scenario" data-frame-scenario>
+            <div class="frame-scenario-label" data-frame-scenario-label>ΒΗΜΑ 1 / 3</div>
+            <h3 data-frame-scenario-title>Μήνυμα ABS</h3>
+            <p data-frame-scenario-text></p>
+            <div class="frame-scenario-result" data-frame-scenario-result aria-live="polite"></div>
+          </div>
+          <div class="frame-workspace">
+            <div class="frame-editor">
+              <div class="frame-card-heading"><span>01 · ΡΥΘΜΙΣΕ ΤΟ ΜΗΝΥΜΑ</span><small>Classic CAN · 11-bit DATA frame</small></div>
+              <div class="frame-settings">
+                <label class="frame-label">Μονάδα αποστολής<select data-frame-ecu></select></label>
+                <label class="frame-label">CAN ID (HEX)<input data-frame-id type="text" maxlength="5" spellcheck="false" autocomplete="off" placeholder="0x080" aria-describedby="frame-id-help" /></label>
+                <label class="frame-label">DLC · Bytes<select data-frame-dlc><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></label>
+              </div>
+              <p class="frame-subhint" id="frame-id-help">ID: 0x000–0x7FF. Τα μικρότερα ID έχουν υψηλότερη προτεραιότητα σε διαιτησία ίδιου τύπου πλαισίων.</p>
+              <div class="frame-data-heading">DATA · HEXADECIMAL <small>Κάθε byte: 00–FF</small></div>
+              <div class="frame-bytes" data-frame-bytes></div>
+              <p class="frame-subhint" data-frame-empty-bytes hidden>Το DLC 0 δηλώνει ότι το πλαίσιο δεν περιέχει bytes δεδομένων.</p>
+              <div class="frame-card-heading frame-order-heading"><span>02 · ΣΥΝΑΡΜΟΛΟΓΗΣΕ ΤΟ ΠΛΑΙΣΙΟ</span><small data-frame-order-count>0 / 12</small></div>
+              <p class="frame-subhint">Πάτησε κάθε πεδίο με τη σωστή σειρά. Μπορείς να αφαιρέσεις ένα πεδίο πατώντας το στην επάνω σειρά.</p>
+              <div class="frame-order-slots" data-frame-order-slots aria-label="Τοποθετημένα πεδία CAN"></div>
+              <div class="frame-order-choices" data-frame-order-choices aria-label="Διαθέσιμα πεδία CAN"></div>
+              <button type="button" class="text-button frame-order-reset" data-frame-order-reset>↺ Καθάρισε τη σειρά</button>
+            </div>
+            <aside class="frame-monitor">
+              <div class="frame-card-heading"><span>03 · ΠΡΟΕΠΙΣΚΟΠΗΣΗ / ΔΙΑΥΛΟΣ</span><small>CAN ANALYZER</small></div>
+              <div class="frame-preview">
+                <small>ΕΤΟΙΜΟ ΠΡΟΣ ΜΕΤΑΔΟΣΗ</small>
+                <strong data-frame-live-preview>—</strong>
+                <code data-frame-live-binary>—</code>
+              </div>
+              <label class="frame-ack-toggle"><input type="checkbox" data-frame-ack checked /><span><strong>Υπάρχει δέκτης που απαντά με ACK</strong><small>Απενεργοποίησέ το για να δεις ACK error.</small></span></label>
+              <button class="primary-button frame-send" type="button" data-frame-send>Αποστολή μηνύματος <span aria-hidden="true">→</span></button>
+              <button class="text-button frame-reset" type="button" data-frame-reset>Επαναφορά επιπέδου</button>
+              <div class="frame-feedback frame-feedback--info" data-frame-feedback role="status" aria-live="polite"></div>
+              <button class="primary-button frame-next" type="button" data-frame-next hidden>Επόμενη αποστολή →</button>
+              <div class="frame-mini-lesson">
+                <strong>Τι υπολογίζει ο προσομοιωτής;</strong>
+                <p>Σχηματίζει τα πραγματικά πεδία ενός βασικού πλαισίου Classic CAN, υπολογίζει CRC-15/CAN και τα bit stuffing που προκύπτουν. Το ACK είναι ενδεικτική επιλογή της άσκησης.</p>
+              </div>
+            </aside>
+          </div>
+          <div class="frame-transmission" data-frame-transmission hidden>
+            <div class="frame-card-heading"><span>ΑΝΑΛΥΣΗ ΠΛΑΙΣΙΟΥ ΠΟΥ ΣΤΑΛΘΗΚΕ</span><small>BIT STREAM</small></div>
+            <div class="frame-bus-flow" data-frame-bus-flow aria-label="Οπτική προσομοίωση μετάδοσης"><span data-frame-sender-name>ECU</span><div class="frame-wire"><i></i></div><span data-frame-receiver-name>ΔΕΚΤΗΣ · ACK</span></div>
+            <div class="frame-timeline" data-frame-timeline></div>
+            <strong class="frame-tx-summary" data-frame-tx-summary></strong>
+            <p class="frame-detail" data-frame-frame-details></p>
+          </div>
+          <p class="frame-educational-note">Αυστηρά εκπαιδευτικό παράδειγμα: τα ID, οι αντιστοιχίσεις ECU–μηνυμάτων και τα DATA δεν προέρχονται από πραγματικό όχημα. Πρόκειται για κλασικό CAN 2.0A με 11-bit ID, όχι CAN FD. Τα επιπλέον stuff bits μετρούνται από SOF έως CRC sequence, ενώ τα 3 intermission bits (IFS) δεν περιλαμβάνονται στο άθροισμα του πλαισίου.</p>
+        </section>
       </section>
       <p class="footer-note">Εκπαιδευτική προσομοίωση · Οι πραγματικές τιμές, τα ID και οι χρόνοι κύκλου διαφέρουν ανά όχημα και σύστημα.</p>
     </main>
     <script src="assets/js/mathima-05-traffic.js?v=2"></script>
     <script src="assets/js/mathima-05-diagnosis.js?v=1"></script>
     <script src="assets/js/mathima-05-decoder.js?v=1"></script>
+    <script src="assets/js/mathima-05-frame-builder.js?v=1"></script>
   </body>
 </html>

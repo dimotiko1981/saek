@@ -1,0 +1,87 @@
+/* Η δραστηριότητα 6 χρησιμοποιεί αποκλειστικά το υπάρχον graphite/cyan θέμα του εργαστηρίου 5. */
+[data-frame-builder]{--frame-edge:rgba(161,203,235,.16)}
+[data-frame-builder][hidden], [data-frame-builder] [hidden]{display:none!important}
+.frame-intro{display:flex;align-items:start;justify-content:space-between;gap:18px;margin-bottom:17px}
+.frame-intro h2{margin:7px 0 6px;font-size:clamp(22px,2.5vw,28px);letter-spacing:-.035em}
+.frame-intro h2 span{color:var(--cyan);font-size:.72em}
+.frame-intro p{max-width:800px;margin:0;color:#adc4d7;font-size:12px;line-height:1.7}
+.frame-progress-box{flex:none;min-width:145px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:rgba(4,15,26,.46)}
+.frame-progress-box small{display:block;margin-bottom:4px;color:#8aa8be;font-size:9px;font-weight:800;letter-spacing:.07em}
+.frame-progress-box strong{color:var(--green);font:700 20px "Roboto Slab",serif}
+.frame-levels{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.frame-levels button{display:flex;align-items:center;gap:12px;min-height:69px;padding:11px 14px;border:1px solid var(--frame-edge);border-radius:12px;background:rgba(4,15,26,.5);color:#b4cbdc;text-align:left;cursor:pointer}
+.frame-levels button:hover,.frame-levels button.is-active{border-color:rgba(43,217,254,.55);background:rgba(43,217,254,.09);color:#ecfaff}
+.frame-levels button b{display:grid;place-items:center;flex:none;width:34px;height:34px;border:1px solid var(--frame-edge);border-radius:9px;color:var(--cyan);font-size:11px}
+.frame-levels button strong,.frame-levels button small{display:block}
+.frame-levels button strong{font-size:12px}
+.frame-levels button small{margin-top:4px;color:#829caf;font-size:10px}
+.frame-mode-hint{margin:12px 3px 15px;color:#92abc1;font-size:11px;line-height:1.6}
+.frame-scenario{margin-bottom:16px;padding:17px 19px;border:1px solid rgba(43,217,254,.25);border-left:3px solid var(--cyan);border-radius:13px;background:linear-gradient(105deg,rgba(43,217,254,.075),rgba(7,20,35,.55))}
+.frame-scenario-label{color:var(--cyan);font-size:9px;font-weight:800;letter-spacing:.11em}
+.frame-scenario h3{margin:6px 0;color:#e4f4ff;font-size:18px}
+.frame-scenario p{margin:0;color:#b1c8d7;font-size:12px;line-height:1.7}
+.frame-scenario-result:not(:empty){margin-top:10px;color:var(--green);font-size:12px;font-weight:800}
+.frame-workspace{display:grid;grid-template-columns:minmax(0,1.33fr) minmax(290px,.8fr);gap:14px;align-items:start}
+.frame-editor,.frame-monitor,.frame-transmission{min-width:0;padding:18px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(155deg,rgba(16,36,58,.9),rgba(8,21,34,.96))}
+.frame-card-heading{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px 12px;color:#95b5cb;font-size:10px;font-weight:800;letter-spacing:.075em}
+.frame-card-heading small{color:#6fbdd0;font-size:9px;font-weight:700;letter-spacing:0}
+.frame-settings{display:grid;grid-template-columns:minmax(170px,1.6fr) minmax(130px,1fr) minmax(100px,.7fr);gap:12px;margin-top:17px}
+.frame-label{display:grid;gap:7px;color:#a9c0d1;font-size:11px;font-weight:800}
+.frame-label select,.frame-label input,.frame-byte input{width:100%;min-width:0;min-height:44px;padding:8px 11px;border:1px solid rgba(161,203,235,.25);border-radius:8px;outline:none;background:#0a192a;color:#e6f8ff;font:700 12px Manrope,system-ui,sans-serif}
+.frame-label input{font-family:"Roboto Slab",monospace;letter-spacing:.04em}
+.frame-label select:focus-visible,.frame-label input:focus-visible,.frame-byte input:focus-visible{border-color:var(--cyan);box-shadow:0 0 0 2px rgba(43,217,254,.14)}
+.frame-subhint{margin:10px 0 13px;color:#90aabc;font-size:10px;line-height:1.65}
+.frame-data-heading{display:flex;justify-content:space-between;gap:10px;margin:17px 0 9px;color:#a8c5d7;font-size:10px;font-weight:800;letter-spacing:.08em}
+.frame-data-heading small{color:#8ba6b8;font-size:9px;font-weight:600;letter-spacing:0}
+.frame-bytes{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:7px}
+.frame-byte{display:grid;gap:6px;min-width:0}
+.frame-byte span{color:#8faabd;font-size:9px;font-weight:800}
+.frame-byte input{padding:7px 5px;text-align:center;font-size:12px}
+.frame-order-heading{margin-top:23px;padding-top:17px;border-top:1px solid var(--line)}
+.frame-order-slots{display:flex;flex-wrap:wrap;align-items:center;gap:7px;min-height:72px;margin:12px 0 10px;padding:10px;border:1px dashed rgba(43,217,254,.33);border-radius:10px;background:rgba(2,13,24,.45)}
+.frame-order-placeholder{color:#91abbd;font-size:11px}
+.frame-order-pill,.frame-field-choice{min-height:35px;padding:7px 9px;border:1px solid rgba(43,217,254,.3);border-radius:7px;background:rgba(43,217,254,.08);color:#c5f0ff;font-family:Manrope,sans-serif;font-size:10px;font-weight:800;cursor:pointer}
+.frame-order-pill:hover{border-color:var(--red);background:rgba(255,130,125,.12)}
+.frame-order-choices{display:flex;flex-wrap:wrap;gap:7px;min-height:42px}
+.frame-field-choice{border-color:rgba(161,203,235,.24);background:rgba(161,203,235,.055);color:#c2d7e6}
+.frame-field-choice:hover{border-color:var(--cyan);background:rgba(43,217,254,.11)}
+.frame-order-reset{margin-top:12px;font-size:11px}
+.frame-preview{display:grid;gap:8px;margin:16px 0;padding:14px;border:1px solid rgba(43,217,254,.21);border-radius:11px;background:rgba(4,15,26,.55)}
+.frame-preview small{color:#8ba6b8;font-size:9px;font-weight:800;letter-spacing:.09em}
+.frame-preview strong{color:#e0f8ff;overflow-wrap:anywhere;font-size:13px;line-height:1.6}
+.frame-preview code{color:var(--cyan);font-size:11px;line-height:1.8;overflow-wrap:anywhere}
+.frame-ack-toggle{display:flex;align-items:flex-start;gap:11px;margin:16px 0;padding:13px;border:1px solid rgba(161,203,235,.15);border-radius:10px;color:#cedfeb;cursor:pointer}
+.frame-ack-toggle input{width:17px;height:17px;margin:1px 0;accent-color:#2bd9fe}
+.frame-ack-toggle strong,.frame-ack-toggle small{display:block}
+.frame-ack-toggle strong{font-size:11px;line-height:1.4}
+.frame-ack-toggle small{margin-top:5px;color:#89a5b8;font-size:10px;line-height:1.4}
+.frame-send{width:100%;min-height:48px}
+.frame-reset{display:block;margin:13px auto 0;color:#a9bed0;font-size:11px}
+.frame-feedback{min-height:72px;margin-top:16px;padding:13px;border:1px solid rgba(161,203,235,.16);border-radius:10px;background:rgba(4,15,26,.42);color:#b4cbd9;font-size:11px;line-height:1.7;overflow-wrap:anywhere}
+.frame-feedback--success{border-color:rgba(84,228,178,.35);background:rgba(84,228,178,.065);color:#c6f9df}
+.frame-feedback--warning{border-color:rgba(255,208,125,.35);background:rgba(255,208,125,.055);color:#f2dbad}
+.frame-feedback--error{border-color:rgba(255,130,125,.32);background:rgba(255,130,125,.055);color:#ffcfca}
+.frame-next{width:100%;margin-top:10px;background:rgba(84,228,178,.11);border-color:rgba(84,228,178,.38);color:#d5ffea}
+.frame-mini-lesson{margin-top:20px;padding:14px;border:1px solid var(--line);border-radius:10px;background:rgba(4,15,26,.25)}
+.frame-mini-lesson strong{font-size:11px;color:#d7ecf8}
+.frame-mini-lesson p{margin:7px 0 0;color:#9eb6c9;font-size:10px;line-height:1.7}
+.frame-transmission{margin-top:16px}
+.frame-bus-flow{display:flex;align-items:center;gap:14px;margin:19px 0 22px}
+.frame-bus-flow>span{flex:none;max-width:30%;padding:12px;border:1px solid rgba(43,217,254,.25);border-radius:9px;background:rgba(43,217,254,.06);color:#d6f4ff;font-size:11px;font-weight:800;text-align:center}
+.frame-bus-flow>span.is-no-ack{border-color:rgba(255,130,125,.35);color:#ffbcb7}
+.frame-wire{position:relative;flex:1;height:4px;overflow:hidden;border-radius:12px;background:rgba(43,217,254,.2)}
+.frame-wire i{position:absolute;left:-16%;top:0;width:16%;height:100%;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.frame-bus-flow.is-running .frame-wire i{animation:frame-bit-flight 1.6s ease-in-out forwards}
+@keyframes frame-bit-flight{from{left:-16%}to{left:100%}}
+.frame-timeline{display:flex;flex-wrap:wrap;gap:8px}
+.frame-timeline-item{display:grid;gap:7px;min-width:70px;flex:1 1 auto;padding:11px 10px;border:1px solid rgba(43,217,254,.18);border-radius:9px;background:rgba(4,15,26,.42);animation:frame-cell-in .22s backwards;animation-delay:calc(var(--frame-i) * 55ms)}
+.frame-timeline-item b{color:#9bbdd0;font-size:9px}
+.frame-timeline-item code{color:#91edff;overflow-wrap:anywhere;font-size:11px}
+@keyframes frame-cell-in{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:none}}
+.frame-tx-summary{display:block;margin-top:14px;color:var(--green);font-size:12px;line-height:1.7}
+.frame-detail{margin:8px 0 0;color:#a9c2d3;font-size:11px;line-height:1.7}
+.frame-educational-note{margin:15px 2px 0;color:#91aabd;font-size:10px;line-height:1.75}
+[data-frame-builder] button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+@media(max-width:1050px){.frame-workspace{grid-template-columns:1fr}.frame-monitor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:16px}.frame-monitor>.frame-card-heading,.frame-monitor>.frame-mini-lesson,.frame-monitor>.frame-feedback{grid-column:1/-1}.frame-monitor>.frame-preview{margin-bottom:0}.frame-monitor>.frame-ack-toggle{align-self:end}.frame-monitor>.frame-send{margin-top:14px}.frame-monitor>.frame-reset{margin-top:14px}.frame-monitor>.frame-next{grid-column:1/-1}.frame-mini-lesson{margin-top:14px}}
+@media(max-width:700px){.frame-intro{flex-direction:column}.frame-intro h2{font-size:21px}.frame-intro h2 span{display:block;font-size:16px;margin-top:4px}.frame-intro p{font-size:11px}.frame-progress-box{padding:9px 12px}.frame-levels{grid-template-columns:1fr}.frame-levels button{min-height:54px}.frame-levels button small{font-size:9px}.frame-scenario{padding:13px}.frame-scenario h3{font-size:15px}.frame-scenario p{font-size:11px}.frame-editor,.frame-monitor,.frame-transmission{padding:12px}.frame-settings{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.frame-settings .frame-label:first-child{grid-column:1/-1}.frame-label select,.frame-label input{font-size:12px}.frame-bytes{grid-template-columns:repeat(4,minmax(0,1fr))}.frame-monitor{display:block}.frame-monitor>.frame-preview{margin-bottom:14px}.frame-bus-flow{gap:7px}.frame-bus-flow>span{padding:8px 5px;font-size:9px}.frame-timeline-item{min-width:65px}}
+@media(prefers-reduced-motion:reduce){.frame-bus-flow.is-running .frame-wire i,.frame-timeline-item{animation:none}}
