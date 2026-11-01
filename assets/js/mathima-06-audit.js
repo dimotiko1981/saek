@@ -201,6 +201,23 @@
     form.replaceWith(feedback);
     updateProgress();
     renderCards();
+    const nextIndex = findNextUnsolved(index);
+    if (nextIndex >= 0) {
+      const nextButton = document.createElement('button');
+      nextButton.type = 'button';
+      nextButton.className = 'secondary-button';
+      nextButton.textContent = `Επόμενο δελτίο: ${String(nextIndex + 1).padStart(2, '0')} →`;
+      nextButton.addEventListener('click', () => openCase(nextIndex));
+      feedback.append(nextButton);
+    }
+  }
+
+  function findNextUnsolved(afterIndex){
+    for(let offset=1;offset<=cases.length;offset++){
+      const candidate=(afterIndex+offset)%cases.length;
+      if(!scoreByCase.has(candidate)) return candidate;
+    }
+    return -1;
   }
 
   function updateProgress(){
@@ -212,6 +229,10 @@
     finish.hidden=done!==cases.length;
     if(done===cases.length){root.querySelector('[data-audit-final-score]').textContent=String(score);finish.scrollIntoView({behavior:'smooth',block:'center'});}
   }
+
+  root.querySelector('[data-back-to-dossiers]').addEventListener('click',()=>{
+    root.querySelector('.dossier-section').scrollIntoView({behavior:'smooth',block:'start'});
+  });
 
   root.querySelector('[data-audit-restart]').addEventListener('click',()=>{
     scoreByCase.clear();activeIndex=-1;panel.hidden=true;finish.hidden=true;updateProgress();renderCards();
