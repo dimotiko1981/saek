@@ -22,6 +22,7 @@
     "ergastirio-mathima-03.html": "mathima-03.html",
     "ergastirio-mathima-04.html": "mathima-04.html",
     "ergastirio-mathima-05.html": "mathima-05.html",
+    "ergastirio-mathima-06.html": "mathima-06.html",
     "mathima-01.html": "index.html",
     "mathima-02.html": "index.html",
     "mathima-03.html": "index.html",
@@ -64,14 +65,15 @@
   const labHeaderBack = [
     "ergastirio-eisagogis.html",
     "ergastirio-mathima-04.html",
-    "ergastirio-mathima-05.html"
+    "ergastirio-mathima-05.html",
+    "ergastirio-mathima-06.html"
   ].includes(current)
     ? document.querySelector("header .saek-common-back-link")
     : null;
   if (labHeaderBack) {
     const labNumber = current === "ergastirio-eisagogis.html"
       ? "1"
-      : current.includes("mathima-04") ? "4" : "5";
+      : current.includes("mathima-04") ? "4" : current.includes("mathima-05") ? "5" : "6";
     labHeaderBack.id = `saek-lab${labNumber}-back-button`;
     labHeaderBack.classList.add("saek-common-back-link");
     labHeaderBack.textContent = "← Πίσω";
