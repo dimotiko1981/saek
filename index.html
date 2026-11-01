@@ -297,8 +297,8 @@ body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-l
         }
       }
     </style>
-    <style id="saek-lesson-6-actions-layout">
-      /* Μάθημα 6: εμφάνιση των δύο ενεργειών σε καθαρή διάταξη. */
+    <style id="saek-lesson-6-actions-layout-v3">
+      /* Μάθημα 6: ίδια δεξιά στοίχιση και απόσταση με το Μάθημα 5. */
       .course-preview-stack .lesson-entry-6 {
         grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.8fr);
       }
@@ -307,14 +307,17 @@ body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-l
         min-width: 0;
       }
       .course-preview-stack .lesson-entry-6 .course-preview-actions {
-        display: grid;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
         width: 100%;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        align-items: stretch;
-        gap: 0.65rem;
+        align-items: center;
+        justify-content: flex-end !important;
+        gap: 0.65rem !important;
       }
       .course-preview-stack .lesson-entry-6 .course-open-link {
         box-sizing: border-box;
+        flex: 0 0 auto;
         width: auto;
         max-width: 100%;
         min-width: 0;
@@ -328,7 +331,13 @@ body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-l
       }
       @media (max-width: 650px) {
         .course-preview-stack .lesson-entry-6 .course-preview-actions {
-          grid-template-columns: minmax(0, 1fr);
+          flex-direction: column !important;
+          flex-wrap: nowrap !important;
+          align-items: stretch;
+          gap: 0.5rem !important;
+        }
+        .course-preview-stack .lesson-entry-6 .course-open-link {
+          width: 100%;
         }
       }
     </style>
