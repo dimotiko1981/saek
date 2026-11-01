@@ -307,11 +307,11 @@ body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-l
         min-width: 0;
       }
       .course-preview-stack .lesson-entry-6 .course-preview-actions {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
         width: 100%;
-        align-items: center;
-        justify-content: flex-end;
+        grid-template-columns: max-content max-content;
+        align-items: stretch;
+        justify-content: end;
         gap: 0.65rem;
       }
       .course-preview-stack .lesson-entry-6 .course-open-link {
@@ -329,9 +329,12 @@ body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-l
       }
       @media (max-width: 650px) {
         .course-preview-stack .lesson-entry-6 .course-preview-actions {
-          flex-direction: column;
-          align-items: stretch;
+          grid-template-columns: minmax(0, 1fr);
+          justify-content: stretch;
           gap: 0.5rem;
+        }
+        .course-preview-stack .lesson-entry-6 .course-open-link {
+          width: 100%;
         }
       }
     </style>
