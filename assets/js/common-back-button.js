@@ -31,6 +31,7 @@
     "mathima-04-can-mission.html": "ergastirio-mathima-04.html",
     "mathima-04-can-tools.html": "ergastirio-mathima-04.html",
     "mathima-05.html": "index.html",
+    "mathima-06.html": "index.html",
     "sxediasmos-diktyou.html": "topologies-interactive.html",
     "test-mathima-03.html": "mathima-03.html",
     "test-mathima-04.html": "mathima-04.html",
