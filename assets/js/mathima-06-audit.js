@@ -140,7 +140,19 @@
   const doneCount = root.querySelector('[data-audit-done]');
   const scoreNode = root.querySelector('[data-audit-score]');
   const progress = root.querySelector('[data-audit-progress]');
+  const finalScoreNode = root.querySelector('[data-audit-final-score]');
+  const scoreStorageKey = 'saek-mathima-06-audit-scores-v1';
   const scoreByCase = new Map();
+  try {
+    const savedScores = JSON.parse(sessionStorage.getItem(scoreStorageKey) || '{}');
+    for (const [key, value] of Object.entries(savedScores)) {
+      const index = Number(key);
+      const points = Number(value);
+      if (Number.isInteger(index) && index >= 0 && index < cases.length && Number.isInteger(points) && points >= 0 && points <= 2) {
+        scoreByCase.set(index, points);
+      }
+    }
+  } catch {}
   let activeIndex = -1;
   const shuffle = (items) => [...items].map((item) => ({item, sort:Math.random()})).sort((a,b)=>a.sort-b.sort).map(({item})=>item);
   const statusLabels = {supported:'Τεκμηριωμένο', partly:'Μερικώς τεκμηριωμένο', unsupported:'Ατεκμηρίωτο'};
@@ -193,6 +205,7 @@
     form.querySelector('[data-form-error]').hidden=true;
     const points=selected.filter(input=>input.dataset.correct==='true').length;
     scoreByCase.set(index,points);
+    try { sessionStorage.setItem(scoreStorageKey, JSON.stringify(Object.fromEntries(scoreByCase))); } catch {}
     const item=cases[index];
     const feedback=document.createElement('section');
     feedback.className='audit-feedback'+(points===2?'':' is-review');
@@ -220,14 +233,15 @@
     return -1;
   }
 
-  function updateProgress(){
+  function updateProgress(scrollToFinish = true){
     const done=scoreByCase.size;
     const score=[...scoreByCase.values()].reduce((sum,value)=>sum+value,0);
     doneCount.textContent=String(done);
     scoreNode.textContent=String(score);
+    finalScoreNode.textContent=String(score);
     progress.style.width=`${done*10}%`;
     finish.hidden=done!==cases.length;
-    if(done===cases.length){root.querySelector('[data-audit-final-score]').textContent=String(score);finish.scrollIntoView({behavior:'smooth',block:'center'});}
+    if(done===cases.length && scrollToFinish){finish.scrollIntoView({behavior:'smooth',block:'center'});}
   }
 
   root.querySelector('[data-back-to-dossiers]').addEventListener('click',()=>{
@@ -235,8 +249,11 @@
   });
 
   root.querySelector('[data-audit-restart]').addEventListener('click',()=>{
-    scoreByCase.clear();activeIndex=-1;panel.hidden=true;finish.hidden=true;updateProgress();renderCards();
+    scoreByCase.clear();
+    try { sessionStorage.removeItem(scoreStorageKey); } catch {}
+    activeIndex=-1;panel.hidden=true;finish.hidden=true;updateProgress(false);renderCards();
     root.querySelector('.dossier-section').scrollIntoView({behavior:'smooth',block:'start'});
   });
+  updateProgress(false);
   renderCards();
 })();
