@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Εκπαιδευτικό υλικό ΣΑΕΚ οργανωμένο ανά ειδικότητα και μάθημα."
+    />
+    <meta name="theme-color" content="#edf4f7" />
+    <title>Εκπαιδευτικό Υλικό ΣΑΕΚ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Roboto+Slab:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css?v=12" />
+    <link rel="stylesheet" href="assets/css/saek-links-ui.css?v=1" />
+    <link rel="stylesheet" href="assets/css/saek-academy.css?v=1" />
+    <style id="saek-home-mobile-layout">
+/* SAEK · Αρχική σελίδα / κινητά: τα στοιχεία του οπτικού διαγράμματος
+   μπαίνουν σε κανονική ροή, ώστε οι ετικέτες να μην επικαλύπτουν το μάθημα.
+   Desktop/tablet (>650px) και τα άλλα στοιχεία του site δεν αλλάζουν. */
+@media (max-width: 650px) {
+  .hero-visual {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+    row-gap: 12px;
+    width: 100%;
+    min-height: 0;
+    margin-top: 1.15rem;
+    padding-bottom: 4px;
+    perspective: none;
+  }
+  .hero-visual .visual-grid {
+    inset: 0;
+    transform: none;
+  }
+  .hero-visual .dashboard-card-main {
+    position: relative;
+    inset: auto;
+    grid-column: 1 / -1;
+    min-width: 0;
+    width: 100%;
+    min-height: 360px;
+    padding: 1.25rem;
+    transform: none;
+  }
+  .hero-visual .network-orbit {
+    width: min(205px, 61%);
+  }
+  .hero-visual .dashboard-label {
+    min-width: 0;
+  }
+  .hero-visual .dashboard-label strong {
+    max-width: 100%;
+    font-size: clamp(0.95rem, 4.3vw, 1.1rem);
+    overflow-wrap: break-word;
+  }
+  .hero-visual .dashboard-card-small {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-width: 0;
+    padding: 0.7rem;
+    gap: 0.52rem;
+    border-radius: 15px;
+  }
+  .hero-visual .card-top {
+    grid-column: 1;
+  }
+  .hero-visual .card-bottom {
+    grid-column: 2;
+  }
+  .hero-visual .dashboard-card-small .mini-icon {
+    flex: 0 0 32px;
+    width: 32px;
+    border-radius: 9px;
+  }
+  .hero-visual .dashboard-card-small > span:last-child {
+    min-width: 0;
+  }
+  .hero-visual .dashboard-card-small small {
+    font-size: clamp(0.48rem, 2.2vw, 0.6rem);
+    letter-spacing: 0.08em;
+  }
+  .hero-visual .dashboard-card-small strong {
+    font-size: clamp(0.74rem, 3.4vw, 0.88rem);
+    line-height: 1.3;
+  }
+}
+    </style>
+    <style id="saek-home-vehicle-art">
+/* Στοχευμένη αντικατάσταση του εσωτερικού Vehicle Network γραφικού.
+   Διατηρούνται η διάταξη των καρτών, οι ετικέτες και όλα τα responsive breakpoints. */
+.hero-visual .dashboard-card-main { overflow: hidden; }
+.hero-visual .home-network-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  flex: 1 1 0;
+  min-height: 0;
+  margin: 0.65rem auto 0.75rem;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #061629;
+  box-shadow: inset 0 0 0 1px rgba(67, 207, 249, 0.12), 0 0 26px rgba(34, 152, 231, 0.09);
+}
+.hero-visual .home-network-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+.hero-visual .dashboard-label,
+.hero-visual .dashboard-topline { position: relative; z-index: 1; }
+@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
+  .hero-visual .home-network-art img { animation: saekHomeNetworkBreath 10s ease-in-out infinite; }
+  @keyframes saekHomeNetworkBreath {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.035); }
+  }
+}
+@media (max-width: 650px) {
+  .hero-visual .home-network-art { margin: 0.55rem auto 0.65rem; border-radius: 12px; }
+}
+    </style>
+  
+    <style id="saek-home-course-button-colors">
+/* Κουμπιά μαθημάτων στην αρχική:
+   Μάθημα 1 = πράσινη/μέντα οικογένεια
+   Μάθημα 2 = μπλε/κυανή οικογένεια
+   Μάθημα 3 = μωβ/κυανή οικογένεια
+   Κάθε λειτουργία έχει δική της απόχρωση, αλλά παραμένει μέσα στην ταυτότητα του μαθήματος. */
+.course-open-link.course-open-link-lesson-1 {
+  color: #e9fff8;
+  box-shadow: 0 10px 24px rgba(9, 33, 29, 0.22), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.course-open-link.course-open-link-lesson-1 svg { color: #96ffd9; }
+.course-open-link.course-open-link-lesson-1:hover,
+.course-open-link.course-open-link-lesson-1:focus-visible {
+  color: #f8fffd;
+  box-shadow: 0 16px 32px rgba(15, 80, 63, 0.3), 0 0 0 1px rgba(146, 255, 219, 0.16);
+}
+/* Μάθημα 1 · Παρουσίαση */
+body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation {
+  background: linear-gradient(135deg, rgba(28, 115, 92, 0.24), rgba(18, 82, 65, 0.18));
+  border-color: rgba(111, 243, 197, 0.34);
+}
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:hover,
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:focus-visible {
+  background: linear-gradient(135deg, rgba(43, 163, 129, 0.38), rgba(27, 106, 84, 0.28));
+  border-color: rgba(146, 255, 219, 0.7);
+}
+/* Μάθημα 1 · Εργαστήριο */
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-lab {
+  background: linear-gradient(135deg, rgba(21, 91, 74, 0.3), rgba(13, 61, 50, 0.2));
+  border-color: rgba(102, 232, 189, 0.42);
+}
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-lab:hover,
+.course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-lab:focus-visible {
+  background: linear-gradient(135deg, rgba(34, 145, 116, 0.42), rgba(20, 93, 74, 0.3));
+  border-color: rgba(129, 245, 206, 0.78);
+}
+
+.course-open-link.course-open-link-lesson-2 {
+  color: #e4f9ff;
+  box-shadow: 0 10px 24px rgba(7, 25, 49, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.course-open-link.course-open-link-lesson-2 svg { color: #86ddff; }
+.course-open-link.course-open-link-lesson-2:hover,
+.course-open-link.course-open-link-lesson-2:focus-visible {
+  color: #f4fcff;
+  box-shadow: 0 16px 32px rgba(8, 46, 92, 0.32), 0 0 0 1px rgba(126, 221, 255, 0.18);
+}
+/* Μάθημα 2 · Θεωρία */
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-main {
+  background: linear-gradient(135deg, rgba(20, 87, 143, 0.32), rgba(8, 44, 92, 0.22));
+  border-color: rgba(92, 202, 255, 0.42);
+}
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-main:hover,
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-main:focus-visible {
+  background: linear-gradient(135deg, rgba(36, 132, 214, 0.46), rgba(14, 78, 150, 0.32));
+  border-color: rgba(126, 221, 255, 0.82);
+}
+/* Μάθημα 2 · Εργαστήριο */
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-lab {
+  background: linear-gradient(135deg, rgba(16, 104, 114, 0.32), rgba(8, 56, 82, 0.24));
+  border-color: rgba(98, 232, 248, 0.42);
+}
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-lab:hover,
+.course-open-link.course-open-link-lesson-2.course-open-link-lesson-2-lab:focus-visible {
+  background: linear-gradient(135deg, rgba(32, 150, 173, 0.46), rgba(10, 87, 126, 0.32));
+  border-color: rgba(133, 240, 255, 0.82);
+}
+/* Μάθημα 2 · Βάρδια Συνεργείου */
+.course-open-link.course-open-link-lesson-2.course-open-link-shift {
+  background: linear-gradient(135deg, rgba(24, 116, 162, 0.38), rgba(9, 63, 122, 0.28));
+  border-color: rgba(111, 227, 255, 0.52);
+}
+.course-open-link.course-open-link-lesson-2.course-open-link-shift:hover,
+.course-open-link.course-open-link-lesson-2.course-open-link-shift:focus-visible {
+  background: linear-gradient(135deg, rgba(52, 160, 224, 0.52), rgba(17, 94, 164, 0.36));
+  border-color: rgba(153, 235, 255, 0.88);
+}
+
+.course-open-link.course-open-link-lesson-3 {
+  color: #f4eeff;
+  background: linear-gradient(135deg, rgba(111, 72, 188, 0.36), rgba(37, 87, 132, 0.25));
+  border-color: rgba(184, 148, 255, 0.48);
+  box-shadow: 0 10px 24px rgba(25, 15, 58, 0.27), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+.course-open-link.course-open-link-lesson-3 svg { color: #cdb3ff; }
+.course-open-link.course-open-link-lesson-3:hover,
+.course-open-link.course-open-link-lesson-3:focus-visible {
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(137, 91, 224, 0.5), rgba(43, 119, 178, 0.36));
+  border-color: rgba(210, 185, 255, 0.88);
+  box-shadow: 0 16px 32px rgba(53, 31, 112, 0.34), 0 0 0 1px rgba(205, 179, 255, 0.18);
+}
+/* Μάθημα 3 · Εργαστήριο */
+.course-open-link.course-open-link-lesson-3.course-open-link-lesson-3-lab {
+  background: linear-gradient(135deg, rgba(32, 119, 112, 0.36), rgba(71, 57, 139, 0.28));
+  border-color: rgba(96, 233, 207, 0.48);
+}
+.course-open-link.course-open-link-lesson-3.course-open-link-lesson-3-lab svg { color: #83f0d2; }
+.course-open-link.course-open-link-lesson-3.course-open-link-lesson-3-lab:hover,
+.course-open-link.course-open-link-lesson-3.course-open-link-lesson-3-lab:focus-visible {
+  background: linear-gradient(135deg, rgba(41, 156, 144, 0.5), rgba(91, 72, 177, 0.38));
+  border-color: rgba(132, 255, 222, 0.86);
+}
+/* Το κουμπί ανοίγματος του Μαθήματος 1 ακολουθεί το κοινό μπλε ύφος. */
+body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation {
+  color: #e4f9ff;
+  background: linear-gradient(135deg, rgba(20, 87, 143, 0.32), rgba(8, 44, 92, 0.22));
+  border-color: rgba(92, 202, 255, 0.42);
+  box-shadow: 0 10px 24px rgba(7, 25, 49, 0.25), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation svg { color: #86ddff; }
+body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:hover,
+body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-link-lesson-1.course-open-link-lesson-1-presentation:focus-visible {
+  color: #f4fcff;
+  background: linear-gradient(135deg, rgba(36, 132, 214, 0.46), rgba(14, 78, 150, 0.32));
+  border-color: rgba(126, 221, 255, 0.82);
+  box-shadow: 0 16px 32px rgba(8, 46, 92, 0.32), 0 0 0 1px rgba(126, 221, 255, 0.18);
+}
+</style>
+    <style id="saek-lesson-3-actions-layout">
+      /* Μάθημα 3: ίδιο μοτίβο με το Μάθημα 2 — περιγραφή αριστερά, ενέργειες δεξιά. */
+      .course-preview-stack .lesson-entry-3 {
+        grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.8fr);
+      }
+      .course-preview-stack .lesson-entry-3 .lesson-entry-main,
+      .course-preview-stack .lesson-entry-3 .course-preview-actions {
+        min-width: 0;
+      }
+      .course-preview-stack .lesson-entry-3 .course-preview-actions {
+        display: grid;
+        width: 100%;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        align-items: stretch;
+        justify-content: stretch;
+        gap: 0.65rem;
+      }
+      .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
+        grid-column: 2;
+      }
+      .course-preview-stack .lesson-entry-3 .course-open-link {
+        box-sizing: border-box;
+        width: auto;
+        max-width: 100%;
+        min-width: 0;
+        height: auto;
+        min-height: 58px;
+        justify-content: space-between;
+      }
+      @media (max-width: 1000px) {
+        .course-preview-stack .lesson-entry-3 {
+          grid-template-columns: minmax(0, 1fr);
+        }
+      }
+      @media (max-width: 650px) {
+        .course-preview-stack .lesson-entry-3 .course-preview-actions {
+          grid-template-columns: minmax(0, 1fr);
+        }
+        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
+          grid-column: 1;
+          grid-row: 3;
+        }
+        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-design {
+          grid-row: 4;
+        }
+      }
+    </style>
+
+      <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
+    <script src="assets/js/common-back-button.js?v=2" defer></script>
+    <link rel="stylesheet" href="assets/css/page-identity-only.css?v=2" />
+</head>
+  <body>
+    <a class="skip-link" href="#main-content">Μετάβαση στο κύριο περιεχόμενο</a>
+
+    <div class="site-shell">
+      <header class="site-header" aria-label="Κύρια κεφαλίδα">
+        <a class="home-page-identity" href="./" aria-label="Αρχική σελίδα — Εκπαιδευτικό Υλικό">Εκπαιδευτικό Υλικό</a>
+
+        <nav class="main-nav" aria-label="Κύρια πλοήγηση">
+          <a class="active" href="#top">Αρχική</a>
+          <a href="#specialties">Ειδικότητες</a>
+        </nav>
+
+        <a class="header-cta" href="#specialties">Προβολή υλικού</a>
+      </header>
+
+      <main id="main-content">
+        <section class="hero" id="top" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <div class="eyebrow">
+              <span class="eyebrow-dot" aria-hidden="true"></span>
+              Ψηφιακός χώρος μαθημάτων
+            </div>
+            <h1 id="hero-title">Εκπαιδευτικό Υλικό</h1>
+            <p class="hero-lead">
+              Μαθήματα, παρουσιάσεις, εργαστηριακές δραστηριότητες και ψηφιακές
+              ασκήσεις οργανωμένα ανά ειδικότητα.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#specialties">
+                Εξερεύνηση ειδικοτήτων
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="m7 4 6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <dl class="hero-stats" aria-label="Στοιχεία εκπαιδευτικού υλικού">
+              <div>
+                <dt>1</dt>
+                <dd>Ειδικότητα</dd>
+              </div>
+              <div>
+                <dt>1</dt>
+                <dd>Γνωστικό αντικείμενο</dd>
+              </div>
+              <div>
+                <dt data-available-lessons-count>3</dt>
+                <dd>Διαθέσιμα μαθήματα</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="visual-grid"></div>
+            <div class="dashboard-card dashboard-card-main">
+              <div class="dashboard-topline">
+                <span>VEHICLE NETWORK</span>
+                <span class="signal-bars"><i></i><i></i><i></i><i></i></span>
+              </div>
+              <div class="home-network-art">
+                <img src="assets/images/vehicle-network-hero.webp" width="1120" height="840" alt="" decoding="async" fetchpriority="high" />
+              </div>
+              <div class="dashboard-label">
+                <small>ΜΑΘΗΜΑ</small>
+                <strong>Δίκτυα &amp; Επικοινωνία Οχημάτων</strong>
+              </div>
+            </div>
+            <div class="dashboard-card dashboard-card-small card-top">
+              <span class="mini-icon">
+                <svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 17v3m8-3v3M8 4v3m8-3v3" /></svg>
+              </span>
+              <span><small>ΣΥΝΑΝΤΗΣΕΙΣ</small><strong>15</strong></span>
+            </div>
+            <div class="dashboard-card dashboard-card-small card-bottom">
+              <span class="mini-icon accent">
+                <svg viewBox="0 0 24 24"><path d="m5 12 4 4L19 6" /></svg>
+              </span>
+              <span><small>ΚΑΤΑΣΤΑΣΗ</small><strong>Σε εξέλιξη</strong></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="specialties-section" id="specialties" aria-labelledby="specialties-title">
+          <div class="section-heading">
+            <div>
+              <p class="section-kicker">Εκπαιδευτικές διαδρομές</p>
+              <h2 id="specialties-title">Διαθέσιμες ειδικότητες</h2>
+            </div>
+            <p>Επίλεξε ειδικότητα για να δεις τα διαθέσιμα μαθήματα και το υλικό τους.</p>
+          </div>
+
+          <article class="specialty-card">
+            <figure class="specialty-photo">
+              <img
+                src="assets/images/mechatronics-diagnostic.webp"
+                width="800"
+                height="800"
+                loading="lazy"
+                alt="Τεχνικός μηχανοτρονικής πραγματοποιεί διαγνωστικό έλεγχο σε αυτοκίνητο με φορητό υπολογιστή"
+              />
+              <figcaption>
+                <small>ΔΙΑΓΝΩΣΤΙΚΟΣ ΕΛΕΓΧΟΣ</small>
+                <strong>Σύγχρονο συνεργείο</strong>
+              </figcaption>
+            </figure>
+            <div class="specialty-content">
+              <span class="status-pill"><i aria-hidden="true"></i> Ενεργή ειδικότητα</span>
+              <p class="specialty-code">ΕΙΔΙΚΟΤΗΤΑ 1</p>
+              <h3>Τεχνικός Μηχανοτρονικής Οχημάτων</h3>
+              <p>
+                Εκπαιδευτικό υλικό για τα ηλεκτρονικά συστήματα, τα δίκτυα
+                επικοινωνίας και τη σύγχρονη τεχνολογία οχημάτων.
+              </p>
+              <ul class="specialty-meta" aria-label="Περιεχόμενο ειδικότητας">
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4h12v12H4zM7 8h6m-6 4h4" /></svg>
+                  <span data-available-lessons-count>3</span> διαθέσιμα μαθήματα
+                </li>
+                <li>
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="7" /><path d="M10 6v4l3 2" /></svg>
+                  60 διδακτικές ώρες
+                </li>
+              </ul>
+            </div>
+            <div class="specialty-action">
+              <button class="round-button" type="button" data-preview-button aria-expanded="false" aria-controls="specialty-preview">
+                <span class="sr-only">Προβολή διαθέσιμων μαθημάτων</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+              </button>
+            </div>
+          </article>
+
+          <div class="course-preview course-preview-stack" id="specialty-preview" hidden>
+            <!-- ΑΚΑΔΗΜΙΑ: ξεχωριστό πλαίσιο με κουμπί, όπως τα μαθήματα -->
+            <article class="lesson-entry lesson-entry-academy academy-entry-link" aria-labelledby="academy-entry-title">
+              <div class="lesson-entry-main academy-entry-heading">
+                <span class="course-number academy-course-symbol" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 12 8.5 8.5M12 12l4-4M12 12v5"/><circle cx="12" cy="12" r="1.6"/></svg>
+                </span>
+                <div>
+                  <small>ΑΚΑΔΗΜΙΑ · ΔΙΑΔΡΑΣΤΙΚΗ ΕΚΠΑΙΔΕΥΣΗ</small>
+                  <strong id="academy-entry-title">Ακαδημία Πινάκων Οργάνων</strong>
+                  <p>Γνώρισε αυθεντικές ενδείξεις και εξασκήσου στη διαγνωστική σκέψη ανά όχημα.</p>
+                </div>
+              </div>
+              <div class="course-preview-actions academy-entry-actions">
+                <a class="course-open-link academy-entry-cta" href="akadimia-pinakon.html?v=2">
+                  Είσοδος στην Ακαδημία
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry lesson-entry-intro" data-lesson>
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-intro" aria-hidden="true">1</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 1</small>
+                  <strong>Γνωριμία με το μάθημα</strong>
+                  <p>12 εισαγωγικές διαφάνειες · 80 σενάρια σε 3 διαδρομές</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-1 course-open-link-lesson-1-presentation" href="eisagogiki-parousiasi.html">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-1 course-open-link-lesson-1-lab" href="ergastirio-eisagogis.html">
+                  Εργαστήριο Μαθήματος 1
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry" data-lesson>
+              <div class="lesson-entry-main">
+                <span class="course-number" aria-hidden="true">2</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 2</small>
+                  <strong>Δεδομένα και βασικές αρχές μετάδοσης</strong>
+                  <p>30 διαφάνειες · τεστ 30 ερωτήσεων · εργαστήριο 100 σεναρίων</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-lesson-2 course-open-link-lesson-2-main" href="mathima-02.html?v=20261007-2">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-lesson-2-lab" href="ergastirio-mathima-02.html?v=2">
+                  Εργαστήριο Μαθήματος 2
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-2 course-open-link-shift" href="diagnostiki-vardia.html">
+                  Βάρδια Συνεργείου
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry lesson-entry-3" data-lesson>
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-lesson-3" aria-hidden="true">3</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 3</small>
+                  <strong>Αρχιτεκτονική και τοπολογίες δικτύων</strong>
+                  <p>30 διαφάνειες · τεστ 30 ερωτήσεων · εργαστήριο 80 σεναρίων</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-lesson-3" href="mathima-03.html?v=3">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-3" href="topologies-interactive.html">
+                  Εξερεύνηση τοπολογιών δικτύου
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-3 course-open-link-lesson-3-design" href="sxediasmos-diktyou.html">
+                  Άσκηση σχεδίασης δικτύου
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-3 course-open-link-lesson-3-lab" href="ergastirio-mathima-03.html?v=2">
+                  Εργαστήριο 3
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry lesson-entry-4" data-lesson>
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-lesson-4" aria-hidden="true">4</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 4</small>
+                  <strong>CAN: Φυσικό επίπεδο</strong>
+                  <p>30 διαφάνειες · CAN-H/CAN-L · διαφορικό σήμα και διάγνωση</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-lesson-4" href="mathima-04.html?v=20261020-1">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-4 course-open-link-lesson-4-lab" href="ergastirio-mathima-04.html">
+                  Εργαστήριο 4
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry lesson-entry-5" data-lesson>
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-lesson-5" aria-hidden="true">5</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 5</small>
+                  <strong>CAN: Μηνύματα και προτεραιότητα</strong>
+                  <p>30 διαφάνειες · αναγνωριστικά μηνυμάτων · διαιτησία και χρόνος κύκλου</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-lesson-5" href="mathima-05.html?v=20261025-1">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-5 course-open-link-lesson-5-lab" href="ergastirio-mathima-05.html">
+                  Εργαστήριο 5
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="lesson-entry lesson-entry-6" data-lesson>
+              <div class="lesson-entry-main">
+                <span class="course-number course-number-lesson-6" aria-hidden="true">6</span>
+                <div>
+                  <small>ΜΑΘΗΜΑ 6</small>
+                  <strong>CAN: Βλάβες και διάγνωση</strong>
+                  <p>30 διαφάνειες · συστηματικός έλεγχος και εντοπισμός βλαβών</p>
+                </div>
+              </div>
+              <div class="course-preview-actions">
+                <a class="course-open-link course-open-link-lesson-6" href="mathima-06.html?v=20261101-1">
+                  Άνοιγμα μαθήματος
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+                <a class="course-open-link course-open-link-secondary course-open-link-lesson-6 course-open-link-lesson-6-lab" href="ergastirio-mathima-06.html?v=20261101-1">
+                  Εργαστήριο 6
+                  <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7 4 6 6-6 6" /></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="footer-monogram">Σ</span>
+          <div>
+            <strong>Εκπαιδευτικό Υλικό ΣΑΕΚ</strong>
+            <small>Οργανωμένη ψηφιακή μάθηση</small>
+          </div>
+        </div>
+        <p>© <span data-year></span> EVAGELAK EDU LAB</p>
+      </footer>
+    </div>
+
+    <script>
+      // Τα άρθρα μαθημάτων μέσα στην προεπισκόπηση φέρουν data-lesson.
+      // Όταν προστεθεί μάθημα, προσθέστε το ίδιο γνώρισμα στο νέο article.
+      (() => {
+        const total = document.querySelectorAll("#specialty-preview [data-lesson]").length;
+        document.querySelectorAll("[data-available-lessons-count]").forEach((element) => {
+          element.textContent = String(total);
+        });
+      })();
+    </script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
