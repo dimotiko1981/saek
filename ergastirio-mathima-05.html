@@ -27,7 +27,7 @@
           <span class="eyebrow">ΔΙΑΔΡΑΣΤΙΚΟ ΕΡΓΑΣΤΗΡΙΟ · ΜΑΘΗΜΑ 5</span>
           <h1>Ποιο μήνυμα<br /><em>περνά πρώτο;</em></h1>
           <p>Παρακολούθησε τη διαιτησία bit προς bit, ρύθμισε την κίνηση του δικτύου, μελέτησε διαγνωστικά περιστατικά και κατασκεύασε το δικό σου μήνυμα CAN.</p>
-          <div class="fact-row"><div><strong>6</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
+          <div class="fact-row"><div><strong>7</strong><span>δραστηριότητες</span></div><div><strong>5</strong><span>περιστατικά διάγνωσης</span></div><div><strong>100 ms</strong><span>παράθυρο προσομοίωσης</span></div></div>
           <button class="primary-button" type="button" data-start>Ξεκίνα το εργαστήριο <span aria-hidden="true">→</span></button>
         </div>
         <div class="welcome-visual" aria-hidden="true">
@@ -49,6 +49,7 @@
           <button type="button" data-tab="diagnosis"><b>04</b><span>Διάγνωση CAN</span></button>
           <button type="button" data-tab="decoder"><b>05</b><span>Αποκωδικοποίηση</span></button>
           <button type="button" data-tab="frame-builder"><b>06</b><span>CAN Frame Builder</span></button>
+          <button type="button" data-tab="can-review"><b>07</b><span>Έλεγχος γνώσεων CAN</span></button>
         </nav>
 
         <section class="activity-panel" data-panel="arbitration">
@@ -213,6 +214,45 @@
           </div>
           <p class="frame-educational-note">Αυστηρά εκπαιδευτικό παράδειγμα: τα ID, οι αντιστοιχίσεις ECU–μηνυμάτων και τα DATA δεν προέρχονται από πραγματικό όχημα. Πρόκειται για κλασικό CAN 2.0A με 11-bit ID, όχι CAN FD. Τα επιπλέον stuff bits μετρούνται από SOF έως CRC sequence, ενώ τα 3 intermission bits (IFS) δεν περιλαμβάνονται στο άθροισμα του πλαισίου.</p>
         </section>
+        <section class="activity-panel" data-panel="can-review" hidden>
+          <div class="decoder-intro">
+            <div>
+              <span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 7 · ΕΠΑΝΑΛΗΨΗ CAN</span>
+              <h2>Από την καταγραφή στην ερμηνεία</h2>
+              <p>Διάβασε την υποθετική καταγραφή και επίλεξε μία απάντηση σε κάθε ερώτηση. Αν κάνεις λάθος, μπορείς να ξαναδοκιμάσεις.</p>
+            </div>
+            <div class="decoder-progress"><small>ΣΩΣΤΕΣ ΑΠΑΝΤΗΣΕΙΣ</small><strong><b data-review-score>0</b> / 10</strong></div>
+          </div>
+          <div class="decoder-grid">
+            <article class="decoder-log-card">
+              <div class="card-top"><span>ΥΠΟΘΕΤΙΚΗ ΚΑΤΑΓΡΑΦΗ CAN</span><span>CLASSIC CAN</span></div>
+              <div class="decoder-table-wrap">
+                <table class="decoder-table">
+                  <thead><tr><th>Χρόνος</th><th>ID</th><th>DLC</th><th>DATA</th></tr></thead>
+                  <tbody><tr><td>0 ms</td><td>0x120</td><td>3</td><td><code>2A 01 7F</code></td></tr><tr><td>20 ms</td><td>0x120</td><td>3</td><td><code>2A 01 7F</code></td></tr></tbody>
+                </table>
+              </div>
+              <div class="decoder-dbc">
+                <div class="card-top"><span>ΥΠΟΘΕΤΙΚΟ ΛΕΞΙΚΟ ΣΗΜΑΤΩΝ</span><span>DBC</span></div>
+                <p><b>Μήνυμα 0x120 · Byte 0–1:</b> Στροφές κινητήρα = ακατέργαστη τιμή × 0,5 rpm. Τα bytes είναι little-endian: πρώτο το χαμηλό byte.</p>
+                <p><b>Byte 2:</b> Δεν δίνεται αντιστοίχιση στο λεξικό.</p>
+                <small>Όλα τα στοιχεία είναι κατασκευασμένα για την άσκηση. Δεν είναι δεδομένα πραγματικού οχήματος.</small>
+              </div>
+              <p class="technical-note">Υπενθύμιση: Το ID, το DLC και τα bytes περιγράφουν την καταγραφή. Το DBC είναι ξεχωριστή περιγραφή που βοηθά να μετατρέψουμε τα bytes σε φυσικές τιμές.</p>
+            </article>
+            <article class="decoder-question-card" aria-live="polite">
+              <div class="decoder-question-top"><span class="panel-kicker" data-review-step>ΕΡΩΤΗΣΗ 1 ΑΠΟ 10</span><span class="decoder-step-track" data-review-track></span></div>
+              <h3 data-review-prompt>Φόρτωση ερώτησης…</h3>
+              <div class="decoder-options" data-review-options role="group" aria-label="Επιλογές απάντησης"></div>
+              <div class="decoder-feedback" data-review-feedback aria-live="polite"></div>
+              <div class="decoder-controls">
+                <button class="primary-button" type="button" data-review-next disabled>Έλεγξε την απάντηση <span aria-hidden="true">→</span></button>
+                <button class="text-button" type="button" data-review-reset>Ξεκίνα από την αρχή</button>
+              </div>
+            </article>
+          </div>
+          <div class="decoder-complete" data-review-complete hidden><span>ΟΛΟΚΛΗΡΩΣΗ ΕΠΑΝΑΛΗΨΗΣ</span><strong>Ολοκλήρωσες τις 10 ερωτήσεις.</strong><p>Η φυσική σημασία των bytes προκύπτει μόνο όταν γνωρίζουμε τον ορισμό των σημάτων και τον τρόπο αποκωδικοποίησής τους.</p></div>
+        </section>
       </section>
       <p class="footer-note">Εκπαιδευτική προσομοίωση · Οι πραγματικές τιμές, τα ID και οι χρόνοι κύκλου διαφέρουν ανά όχημα και σύστημα.</p>
     </main>
@@ -220,5 +260,6 @@
     <script src="assets/js/mathima-05-diagnosis.js?v=1"></script>
     <script src="assets/js/mathima-05-decoder.js?v=1"></script>
     <script src="assets/js/mathima-05-frame-builder.js?v=1"></script>
+    <script src="assets/js/mathima-05-can-review.js?v=1"></script>
   </body>
 </html>
