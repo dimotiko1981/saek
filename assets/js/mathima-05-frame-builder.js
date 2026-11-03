@@ -13,16 +13,11 @@
   ];
   const FIELDS = [
     { key: 'sof', label: 'SOF', hint: 'Έναρξη πλαισίου' },
-    { key: 'id', label: 'ID', hint: 'Αναγνωριστικό 11 bit' },
-    { key: 'rtr', label: 'RTR', hint: '0 = πλαίσιο δεδομένων' },
-    { key: 'ide', label: 'IDE', hint: '0 = βασικό αναγνωριστικό' },
-    { key: 'r0', label: 'r0', hint: 'Δεσμευμένο bit, 0' },
-    { key: 'dlc', label: 'DLC', hint: 'Μήκος δεδομένων σε bytes' },
+    { key: 'id', label: 'ID', hint: 'Αναγνωριστικό μηνύματος' },
+    { key: 'dlc', label: 'DLC', hint: 'Μήκος δεδομένων' },
     { key: 'data', label: 'DATA', hint: 'Περιεχόμενο 0–8 bytes' },
-    { key: 'crc', label: 'CRC-15', hint: 'Έλεγχος σφαλμάτων' },
-    { key: 'crcDel', label: 'CRC DEL', hint: 'Διαχωριστικό CRC' },
+    { key: 'crc', label: 'CRC', hint: 'Έλεγχος για πιθανά σφάλματα' },
     { key: 'ack', label: 'ACK', hint: 'Επιβεβαίωση λήψης' },
-    { key: 'ackDel', label: 'ACK DEL', hint: 'Διαχωριστικό ACK' },
     { key: 'eof', label: 'EOF', hint: 'Τέλος πλαισίου' }
   ];
   const REQUIRED_ORDER = FIELDS.map((field) => field.key);
@@ -33,7 +28,7 @@
     { ecu: 'bcm', id: 0x320, bytes: [0x01], heading: 'Μήνυμα BCM', task: 'Το BCM εκπέμπει ένα byte: 01, με αναγνωριστικό 0x320.' }
   ];
   const REPAIR = [
-    { ecu: 'abs', id: 0x080, bytes: [0x1A, 0x00], start: { ecu: 'abs', id: '0x800', dlc: 2, bytes: ['1A', '00'] }, heading: 'Λανθασμένο αναγνωριστικό', task: 'Ο τεχνικός κατέγραψε ID 0x800. Για βασικό CAN με 11-bit ID, διόρθωσέ το σε 0x080.' },
+    { ecu: 'abs', id: 0x080, bytes: [0x1A, 0x00], start: { ecu: 'abs', id: '0x120', dlc: 2, bytes: ['1A', '00'] }, heading: 'Λανθασμένο αναγνωριστικό', task: 'Το μήνυμα ABS πρέπει να έχει ID 0x080, αλλά έχει καταγραφεί με ID 0x120. Διόρθωσε το αναγνωριστικό.' },
     { ecu: 'ecu', id: 0x120, bytes: [0x0C, 0xA0], start: { ecu: 'ecu', id: '0x120', dlc: 3, bytes: ['0C', 'A0', '00'] }, heading: 'Ασυμφωνία DLC / δεδομένων', task: 'Το ζητούμενο μήνυμα έχει δύο bytes, 0C A0. Διόρθωσε το DLC και έλεγξε τη σειρά πεδίων.' },
     { ecu: 'bcm', id: 0x320, bytes: [0x01, 0xFF], start: { ecu: 'bcm', id: '0x320', dlc: 2, bytes: ['FF', '01'] }, heading: 'Αντεστραμμένα bytes', task: 'Η συμφωνημένη ακολουθία είναι 01 FF και όχι FF 01. Διόρθωσε τα DATA.' }
   ];
@@ -116,7 +111,7 @@
   }
   function readFrame() {
     const id = parseID(idInput.value);
-    if (id === null) return { error: 'Το ID πρέπει να είναι hexadecimal από 0x000 έως 0x7FF (11 bit).' };
+    if (id === null) return { error: 'Συμπλήρωσε ένα έγκυρο ID σε δεκαεξαδική μορφή, όπως 0x080.' };
     const dlc = Number(dlcInput.value);
     if (!Number.isInteger(dlc) || dlc < 0 || dlc > 8) return { error: 'Το DLC επιτρέπεται να είναι 0–8.' };
     const entries = byteValues();
@@ -153,7 +148,7 @@
     $('progress').textContent = `${solved[mode].size} / ${mode === 'guided' ? GUIDED.length : REPAIR.length}`;
   }
   function resetSequence(wrong = false) {
-    order = wrong ? ['id', 'sof', 'rtr', 'ide', 'r0', 'dlc', 'data', 'crc', 'crcDel', 'ack', 'ackDel', 'eof'] : [];
+    order = wrong ? ['id', 'sof', 'dlc', 'data', 'crc', 'ack', 'eof'] : [];
     renderOrder();
   }
   function loadScenario() {
@@ -205,14 +200,14 @@
     }
     const result = frameFor(parsed.id, parsed.data, ackPresent);
     preview.textContent = `ID 0x${hex(result.id, 3)} · DLC ${result.dlc} · DATA ${result.data.length ? result.data.map(x => hex(x)).join(' ') : '—'}`;
-    $('live-binary').textContent = `ID bits: ${bits(result.id, 11)} · CRC-15: 0x${hex(result.crc, 4)}`;
+    $('live-binary').textContent = `ID: 0x${hex(result.id, 3)} · CRC: υπολογίστηκε`;
   }
   function paintTimeline(result, parsed) {
     const timeline = $('timeline'); timeline.replaceChildren();
     const items = [
-      ['SOF', '0'], ['ID', bits(result.id, 11)], ['RTR', '0'], ['IDE', '0'], ['r0', '0'],
-      ['DLC', bits(result.dlc, 4)], ['DATA', parsed.data.length ? parsed.data.map(v => hex(v)).join(' ') : '—'],
-      ['CRC-15', bits(result.crc, 15)], ['CRC DEL', '1'], ['ACK', result.ack ? '0' : '1'], ['ACK DEL', '1'], ['EOF', '1111111']
+      ['SOF', 'Έναρξη'], ['ID', `0x${hex(result.id, 3)}`], ['DLC', String(result.dlc)],
+      ['DATA', parsed.data.length ? parsed.data.map(v => hex(v)).join(' ') : '—'],
+      ['CRC', 'Έλεγχος'], ['ACK', result.ack ? 'Επιβεβαιώθηκε' : 'Χωρίς ACK'], ['EOF', 'Τέλος']
     ];
     items.forEach(([label, value], idx) => {
       const cell = makeElement('div', 'frame-timeline-item');
@@ -221,7 +216,7 @@
       timeline.append(cell);
     });
     $('transmission').hidden = false;
-    $('tx-summary').textContent = `0x${hex(result.id, 3)} · ${result.dlc} byte${result.dlc === 1 ? '' : 's'} · CRC 0x${hex(result.crc, 4)} · ${result.stuff} stuff bits · ${result.bits} bit (χωρίς IFS)`;
+    $('tx-summary').textContent = `ID 0x${hex(result.id, 3)} · DLC ${result.dlc} · DATA ${result.data.length ? result.data.map(v => hex(v)).join(' ') : '—'} · ${result.ack ? 'ACK' : 'χωρίς ACK'}`;
     const flow = $('bus-flow');
     flow.classList.remove('is-running');
     void flow.offsetWidth;
@@ -230,14 +225,14 @@
     $('receiver-name').textContent = result.ack ? 'ΔΕΚΤΗΣ · ACK' : 'ΔΕΚΤΗΣ · ΧΩΡΙΣ ACK';
     $('receiver-name').classList.toggle('is-no-ack', !result.ack);
     $('frame-details').textContent = result.ack
-      ? `Ο δέκτης επιβεβαίωσε την ορθή λήψη με dominant ACK (0). Στον CAN δίαυλο το μήνυμα είναι broadcast· το ACK δεν αποδεικνύει ότι το επεξεργάστηκε συγκεκριμένη μονάδα.`
-      : 'Κανένας δέκτης δεν επιβεβαίωσε λήψη: το ACK slot παραμένει recessive (1). Ο πομπός ανιχνεύει ACK error και το CAN controller συνήθως επιχειρεί επαναμετάδοση.';
+      ? 'Ο δέκτης επιβεβαίωσε ότι έλαβε το μήνυμα.'
+      : 'Δεν ήρθε επιβεβαίωση ACK από δέκτη.';
   }
   function send() {
     const parsed = readFrame();
     if (parsed.error) { setMessage(parsed.error, 'error'); return; }
     if (order.length !== REQUIRED_ORDER.length || order.some((key, i) => key !== REQUIRED_ORDER[i])) {
-      setMessage('Η σειρά πεδίων δεν είναι σωστή. Ξεκίνα με SOF, μετά ID, RTR, IDE, r0, DLC, DATA, CRC, CRC DEL, ACK, ACK DEL και EOF.', 'error');
+      setMessage('Η σειρά πεδίων δεν είναι σωστή. Βάλε τα 7 βασικά μέρη: SOF, ID, DLC, DATA, CRC, ACK και EOF.', 'error');
       return;
     }
     let correctScenario = true;
@@ -263,7 +258,7 @@
     }
     if (!correctScenario) return;
     if (mode === 'free') {
-      setMessage(`Επιτυχής κατασκευή! Πλαίσιο ${packet.bits} bit μαζί με τα stuff bits. Δοκίμασε άλλο ID ή νέα δεδομένα.`, 'success');
+      setMessage('Επιτυχής κατασκευή! Το μήνυμα στάλθηκε με ACK. Δοκίμασε άλλο ID ή νέα δεδομένα.', 'success');
       return;
     }
     const fresh = !solved[mode].has(index);
