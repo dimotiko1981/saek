@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=3" />
+    <link rel="stylesheet" href="assets/css/mathima-05-lab.css?v=guided-3" />
     <link rel="stylesheet" href="assets/css/mathima-05-frame-builder.css?v=1" />
       <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
     <script src="assets/js/common-back-button.js?v=2" defer></script>
@@ -66,7 +66,8 @@
         </section>
 
         <section class="activity-panel" data-panel="network" hidden>
-          <div class="panel-intro"><div><span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 2 · ΕΛΕΥΘΕΡΟΣ ΠΕΙΡΑΜΑΤΙΣΜΟΣ</span><h2>Δες την κίνηση στο δίκτυο</h2><p>Άλλαξε ID ή χρόνο κύκλου και προσομοίωσε 100 ms κίνησης. Παρατήρησε ποιος περιμένει και πόσο.</p></div><div class="model-tag">Κάθε πλαίσιο καταλαμβάνει<br /><strong>0,8 ms στο μοντέλο</strong></div></div>
+          <div class="panel-intro"><div><span class="panel-kicker">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 2 · ΠΑΡΑΤΗΡΩ ΚΑΙ ΠΕΙΡΑΜΑΤΙΖΟΜΑΙ</span><h2>Δες την κίνηση στο δίκτυο</h2><p>Άλλαξε ID ή χρόνο κύκλου και προσομοίωσε 100 ms κίνησης. Παρατήρησε ποιος περιμένει και πόσο.</p></div><div class="model-tag">Κάθε πλαίσιο καταλαμβάνει<br /><strong>0,8 ms στο μοντέλο</strong></div></div>
+          <div class="network-guide"><strong>Πώς διαβάζω την προσομοίωση;</strong><p>Παρακολουθούμε 100 ms, δηλαδή ένα δέκατο του δευτερολέπτου. Όλα τα μηνύματα είναι έτοιμα στα 0 ms. Κάθε μετάδοση διαρκεί 0,8 ms στο μοντέλο.</p><p><b>ID:</b> ποιος προηγείται όταν περιμένουν μαζί. <b>Χρόνος κύκλου:</b> κάθε πότε είναι έτοιμο νέο μήνυμα. Μικρότερο ID δεν σημαίνει συχνότερη αποστολή.</p></div>
           <div class="network-grid">
             <div class="traffic-card">
               <div class="card-top"><span>ΡΥΘΜΙΣΕΙΣ ΜΗΝΥΜΑΤΩΝ</span><button type="button" class="text-button" data-reset-network>Επαναφορά βασικών τιμών</button></div>
@@ -76,10 +77,11 @@
             <aside class="metrics-card">
               <div class="card-top"><span>ΑΠΟΤΕΛΕΣΜΑΤΑ ΠΡΟΣΟΜΟΙΩΣΗΣ</span><span data-simulation-label>ΑΝΑΜΟΝΗ</span></div>
               <div class="metric-grid"><article><small>ΦΟΡΤΟΣ ΔΙΑΥΛΟΥ</small><strong data-bus-load>—<em>%</em></strong><span data-load-hint>Προσφερόμενος φόρτος</span></article><article><small>ΜΕΓΙΣΤΗ ΑΝΑΜΟΝΗ ABS</small><strong data-abs-delay>—<em> ms</em></strong><span data-delay-hint>Πριν αρχίσει η μετάδοση</span></article></div>
-              <div class="queue-title"><span>ΣΕΙΡΑ ΠΡΟΣΒΑΣΗΣ ΣΤΟΝ ΔΙΑΥΛΟ</span><small>πρώτα τα μικρότερα ID</small></div><div class="queue-list" data-queue-list><p class="empty-queue">Η σειρά μετάδοσης θα εμφανιστεί εδώ.</p></div>
+              <div class="queue-title"><span>ΣΕΙΡΑ ΠΡΟΣΒΑΣΗΣ ΣΤΟΝ ΔΙΑΥΛΟ</span><small>διάβασε από πάνω προς τα κάτω</small></div><p class="sequence-help">01, 02… = σειρά αποστολής, όχι χρόνος. «Έτοιμο» = πότε ζητά να στείλει. «Έναρξη» = πότε αρχίζει πραγματικά. Δες όλες τις αποστολές με κύλιση μέσα στη λίστα.</p><div class="queue-list guided-sequence" data-queue-list tabindex="0" aria-label="Πλήρες χρονικό μεταδόσεων"><p class="empty-queue">Η σειρά μετάδοσης θα εμφανιστεί εδώ.</p></div>
               <div class="sim-explanation" data-sim-explanation>Όταν ο δίαυλος ελευθερώνεται, τα μηνύματα που περιμένουν ανταγωνίζονται ξανά με βάση το ID τους.</div>
             </aside>
           </div>
+          <div class="network-guide"><h3>Δοκίμασε βήμα βήμα</h3><ol><li><b>Παρατήρησε:</b> Πάτησε «Επαναφορά βασικών τιμών» και «Προσομοίωση 100 ms». Ποιος στέλνει πρώτος και γιατί; Βρες πότε ξαναεμφανίζεται η ECU.</li><li><b>Πρόβλεψε:</b> Άλλαξε μόνο τον χρόνο κύκλου του ABS από 50 σε 10 ms. Θα στείλει περισσότερα ή λιγότερα μηνύματα; Τρέξε ξανά και σύγκρινε τον φόρτο.</li><li><b>Σύγκρινε:</b> Επανέφερε τις βασικές τιμές. Άλλαξε μόνο το ID του ABS σε 0x200. Ποιος θα στείλει πρώτος; Τρέξε ξανά και κοίτα την αναμονή του ABS.</li></ol><details><summary>Έλεγξε την εξήγησή σου — μετά τη δοκιμή</summary><p>Στις βασικές τιμές το ABS προηγείται λόγω του μικρότερου ID. Η ECU ετοιμάζει νέο μήνυμα κάθε 10 ms. Με κύκλο ABS 10 ms, τα μηνύματά του αυξάνονται από 2 σε 10 και ο φόρτος από 12% σε 18,4%. Με ID ABS 0x200 και τις βασικές περιόδους, η ECU προηγείται και το ABS περιμένει 0,8 ms.</p></details></div>
           <p class="technical-note">Το μοντέλο απλοποιεί το πραγματικό CAN για να φαίνεται καθαρά η επίδραση της συχνότητας και της προτεραιότητας. Δεν αποτελεί μέτρηση ή εργοστασιακή προδιαγραφή.</p>
         </section>
 
@@ -257,7 +259,7 @@
       </section>
       <p class="footer-note">Εκπαιδευτική προσομοίωση · Οι πραγματικές τιμές, τα ID και οι χρόνοι κύκλου διαφέρουν ανά όχημα και σύστημα.</p>
     </main>
-    <script src="assets/js/mathima-05-traffic.js?v=2"></script>
+    <script src="assets/js/mathima-05-traffic.js?v=3"></script>
     <script src="assets/js/mathima-05-diagnosis.js?v=1"></script>
     <script src="assets/js/mathima-05-decoder.js?v=1"></script>
     <script src="assets/js/mathima-05-frame-builder.js?v=1"></script>

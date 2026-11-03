@@ -13,7 +13,7 @@
   const FRAME_MS = 0.8;
   const HORIZON_MS = 100;
   const sandboxStart = {
-    abs: { id: "080", period: 10 },
+    abs: { id: "080", period: 50 },
     engine: { id: "120", period: 10 },
     body: { id: "320", period: 50 },
     media: { id: "600", period: 100 },
@@ -270,7 +270,7 @@
       }
       pending.sort((a, b) => a.id - b.id || a.release - b.release || a.serial - b.serial);
       const frame = pending.shift();
-      transmitted.push({ ...frame, delay: now - frame.release, sentAt: now });
+      transmitted.push({ ...frame, delay: now - frame.release, sentAt: now, waiting: pending.length + 1 });
       now += FRAME_MS;
     }
     const absFrames = transmitted.filter((frame) => frame.key === "abs");
@@ -288,21 +288,36 @@
     const queue = root.querySelector(prefix === "" ? "[data-queue-list]" : "[data-mission-queue-list]");
     if (queue) {
       queue.replaceChildren();
-      result.transmitted.slice(0, 8).forEach((frame, index) => {
-        const item = document.createElement("div");
-        item.className = "queue-item";
-        const order = document.createElement("b"); order.textContent = String(index + 1).padStart(2, "0");
-        const label = document.createElement("span"); label.textContent = frame.name;
-        const id = document.createElement("small"); id.textContent = "0x" + frame.idHex;
-        item.append(order, label, id);
+      const fmt = value => Number(value.toFixed(1)).toLocaleString("el-GR");
+      let end = 0;
+      const idle = (from, to) => {
+        if (to - from < 1e-7) return;
+        const gap = document.createElement("p");
+        gap.className = "sequence-idle";
+        gap.textContent = `${fmt(from)}–${fmt(to)} ms · Ελεύθερος δίαυλος: δεν περιμένει μήνυμα.`;
+        queue.append(gap);
+      };
+      result.transmitted.forEach((frame, index) => {
+        idle(end, frame.sentAt);
+        const item = document.createElement("article");
+        item.className = "sequence-frame";
+        item.style.setProperty("--node-color", messages.find(m => m.key === frame.key).color);
+        const title = document.createElement("strong");
+        title.textContent = `${String(index + 1).padStart(2, "0")} · ${frame.name} · ID 0x${frame.idHex}`;
+        const time = document.createElement("p");
+        time.className = "sequence-time";
+        time.textContent = `Έτοιμο: ${fmt(frame.release)} ms → Έναρξη: ${fmt(frame.sentAt)} ms · Αναμονή: ${fmt(frame.delay)} ms`;
+        const reason = document.createElement("p");
+        const period = sandboxConfig[frame.key].period;
+        reason.textContent = (frame.release === 0 ? "Αρχικό μήνυμα, έτοιμο στα 0 ms. " : `Νέο περιοδικό μήνυμα: κάθε ${period} ms. `)
+          + (frame.waiting > 1 ? `Από ${frame.waiting} έτοιμα μηνύματα, έχει το μικρότερο ID. ` : "Είναι το μόνο μήνυμα που περιμένει. ")
+          + (frame.delay > 1e-7 ? "Περίμενε να ολοκληρωθούν προηγούμενες μεταδόσεις. " : "Ξεκινά χωρίς αναμονή. ")
+          + (frame.sentAt >= HORIZON_MS ? "Μετάδοση μετά το παράθυρο των 100 ms λόγω φόρτου." : "");
+        item.append(title, time, reason);
         queue.append(item);
+        end = frame.sentAt + FRAME_MS;
       });
-      if (result.transmitted.length > 8) {
-        const more = document.createElement("p");
-        more.className = "empty-queue";
-        more.textContent = `…και ${result.transmitted.length - 8} ακόμη μεταδόσεις στο παράθυρο.`;
-        queue.append(more);
-      }
+      idle(end, HORIZON_MS);
     }
   }
 
@@ -313,9 +328,26 @@
     return met;
   }
 
+  root.querySelector("[data-config-rows]").addEventListener("change", () => {
+    sandboxConfig = readConfig(root.querySelector("[data-config-rows]"));
+    root.querySelector("[data-simulation-label]").textContent = "ΝΕΕΣ ΡΥΘΜΙΣΕΙΣ";
+    root.querySelector("[data-run-status]").textContent = "Οι ρυθμίσεις άλλαξαν. Πάτησε προσομοίωση.";
+    root.querySelector("[data-queue-list]").textContent = "Πάτησε προσομοίωση για τη νέα σειρά.";
+    root.querySelector("[data-bus-load]").innerHTML = "—<em>%</em>";
+    root.querySelector("[data-abs-delay]").innerHTML = "—<em> ms</em>";
+    root.querySelector("[data-load-hint]").textContent = "Αναμονή νέας δοκιμής";
+    root.querySelector("[data-delay-hint]").textContent = "Αναμονή νέας δοκιμής";
+    root.querySelector("[data-sim-explanation]").textContent = "Πρόβλεψε τι θα αλλάξει και έλεγξε με νέα προσομοίωση.";
+  });
+
   root.querySelector("[data-run-simulation]").addEventListener("click", () => {
     sandboxConfig = readConfig(root.querySelector("[data-config-rows]"));
     const result = simulate(sandboxConfig);
+    if (result.duplicates) {
+      root.querySelector("[data-run-status]").textContent = "Δώσε διαφορετικό ID σε κάθε μήνυμα και δοκίμασε ξανά.";
+      root.querySelector("[data-queue-list]").textContent = "Δεν εμφανίζεται σειρά: υπάρχουν ίδια ID σε διαφορετικά μηνύματα.";
+      return;
+    }
     renderSimulation(result, "");
     root.querySelector("[data-simulation-label]").textContent = "100 ms · ΟΛΟΚΛΗΡΩΘΗΚΕ";
     root.querySelector("[data-load-hint]").textContent = `${result.generated.length} πλαίσια στο παράθυρο`;
