@@ -14,6 +14,15 @@
       <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
     <script src="assets/js/common-back-button.js?v=3" defer></script>
     <link rel="stylesheet" href="assets/css/page-identity-only.css?v=2" />
+    <style id="mathima-07-larger-slides">
+      /* Μεγαλύτερη προβολή χωρίς περικοπή, ώστε να διαβάζονται ευκολότερα τα γράμματα. */
+      .intro-deck:fullscreen .intro-slide-frame {
+        width: min(100%, calc((100svh - 160px) * 16 / 9));
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .intro-slide-frame img { transition: none; }
+      }
+    </style>
 </head>
   <body class="presentation-page">
     <a class="skip-link" href="#presentation-content">Μετάβαση στην παρουσίαση</a>
