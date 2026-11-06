@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="assets/css/saek-links-ui.css?v=1" />
   <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
   <link rel="stylesheet" href="assets/css/page-identity-only.css?v=2" />
+  <link rel="stylesheet" href="assets/css/mathima-06-audit.css?v=4" />
   <script src="assets/js/common-back-button.js?v=4" defer></script>
   <style>
     :root{color-scheme:dark;--lab-cyan:#2bd9fe;--lab-green:#47e6ae;--lab-line:rgba(122,190,220,.2);--lab-muted:#9cb2c8}
@@ -105,6 +106,18 @@
           </div>
         </section>
       </div>
+      <section class="lin-card case-activity" data-lab7-cases aria-labelledby="case-activity-title">
+        <div class="lin-toolbar"><div><span class="lin-eyebrow">ΔΡΑΣΤΗΡΙΟΤΗΤΑ 2 · ΔΙΑΓΝΩΣΤΙΚΑ ΔΕΛΤΙΑ</span><h2 id="case-activity-title">Έλεγξε τα στοιχεία πριν βγάλεις συμπέρασμα</h2><p>Άνοιξε ένα δελτίο, διάβασε την αναφορά, τα ευρήματα και την απόφαση του τεχνικού. Έπειτα κρίνε αν η απόφαση τεκμηριώνεται.</p></div><span class="lin-count"><b data-l7-done>0</b>/10 · <b data-l7-score>0</b>/20 βαθμοί</span></div>
+        <p class="lin-note"><strong>Για τις περιπτώσεις:</strong> Τα αυτοκίνητα λειτουργούν ως εικόνες των δελτίων. Συμπτώματα, μετρήσεις και δίκτυα είναι υποθετικά εκπαιδευτικά παραδείγματα· δεν περιγράφουν πραγματικές βλάβες ή τον εξοπλισμό των συγκεκριμένων μοντέλων. Στο Ioniq 6 εξετάζεται μόνο το δίκτυο χαμηλής τάσης.</p>
+        <div class="dossier-grid" data-l7-cards></div>
+        <section class="case-panel" data-l7-case hidden aria-live="polite"></section>
+        <section class="finish-panel" data-l7-finish hidden aria-live="polite">
+          <span class="eyebrow">ΟΛΟΚΛΗΡΩΘΗΚΑΝ ΤΑ ΔΕΛΤΙΑ</span><h2>Έλεγξες 10 τεχνικές αποφάσεις.</h2>
+          <p>Ξεχώρισε το καταγεγραμμένο εύρημα από την υπόθεση και διάλεξε δίκτυο μόνο όταν το υποστηρίζουν τα στοιχεία του σεναρίου.</p>
+          <strong><b data-l7-final-score>0</b>/20 βαθμοί</strong>
+          <div class="button-row"><button class="secondary-button" type="button" data-l7-back>Επιστροφή στα δελτία</button><button class="secondary-button" type="button" data-l7-restart>Νέα προσπάθεια</button></div>
+        </section>
+      </section>
       <p class="lin-footer">Εκπαιδευτικό, υποθετικό παράδειγμα για τη λειτουργία master/slave στο LIN.</p>
     </main>
   </div>
@@ -166,5 +179,6 @@
       render();
     })();
   </script>
+  <script src="assets/js/mathima-07-cases.js?v=1"></script>
 </body>
 </html>
