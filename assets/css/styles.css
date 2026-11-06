@@ -6784,6 +6784,62 @@ body.lesson-layout-v11 {
   color: #8ff4d5;
 }
 
+/* Ενιαία εμφάνιση και διακριτική κίνηση στους αριθμούς μαθημάτων. */
+.course-preview-stack .lesson-entry .course-number,
+.course-preview-stack .lesson-entry .course-number-intro {
+  border: 1px solid rgba(43, 217, 254, 0.24);
+  background: rgba(43, 217, 254, 0.13);
+  color: #8cecff;
+  box-shadow: 0 0 18px rgba(43, 217, 254, 0.08);
+}
+
+.course-preview-stack .lesson-entry {
+  position: relative;
+  overflow: hidden;
+}
+
+.course-preview-stack .lesson-entry-main,
+.course-preview-stack .course-preview-actions {
+  position: relative;
+  z-index: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .course-preview-stack .lesson-entry .course-number {
+    animation: saekCourseNumberBreath 5.5s ease-in-out infinite;
+  }
+
+  .course-preview-stack .lesson-entry::after {
+    position: absolute;
+    z-index: 0;
+    top: -55%;
+    bottom: -55%;
+    left: -70%;
+    width: 38%;
+    background: linear-gradient(90deg, transparent, rgba(72, 224, 255, 0.075), transparent);
+    content: "";
+    pointer-events: none;
+    transform: rotate(18deg);
+    animation: saekCourseCardScan 12s ease-in-out infinite;
+  }
+
+  .course-preview-stack .lesson-entry:nth-child(even)::after {
+    animation-delay: 2.4s;
+  }
+
+  @keyframes saekCourseNumberBreath {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(43, 217, 254, 0.06); }
+    50% { transform: scale(1.045); box-shadow: 0 0 22px rgba(43, 217, 254, 0.2); }
+  }
+
+  @keyframes saekCourseCardScan {
+    0%, 18% { transform: translateX(0) rotate(18deg); opacity: 0; }
+    26% { opacity: 1; }
+    56% { opacity: 0.7; }
+    82%, 100% { transform: translateX(470%) rotate(18deg); opacity: 0; }
+  }
+}
+
 .course-preview-stack .course-preview-actions {
   flex: 0 0 auto;
 }
