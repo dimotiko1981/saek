@@ -119,11 +119,26 @@
 }
 .hero-visual .dashboard-label,
 .hero-visual .dashboard-topline { position: relative; z-index: 1; }
-@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
-  .hero-visual .home-network-art img { animation: saekHomeNetworkBreath 10s ease-in-out infinite; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-visual .home-network-art img { animation: saekHomeNetworkBreath 9s ease-in-out infinite; }
+  .hero-visual .home-network-art::after {
+    position: absolute;
+    inset: -45% 0 auto;
+    height: 32%;
+    background: linear-gradient(180deg, transparent, rgba(72, 224, 255, 0.075), transparent);
+    content: "";
+    pointer-events: none;
+    animation: saekHomeNetworkScan 8s ease-in-out infinite;
+  }
   @keyframes saekHomeNetworkBreath {
     0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.035); }
+    50% { transform: translateY(-2px) scale(1.018); }
+  }
+  @keyframes saekHomeNetworkScan {
+    0%, 12% { transform: translateY(0); opacity: 0; }
+    24% { opacity: 1; }
+    72% { opacity: 0.75; }
+    100% { transform: translateY(520%); opacity: 0; }
   }
 }
 @media (max-width: 650px) {
