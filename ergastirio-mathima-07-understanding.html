@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Εργαστήριο 7: τέσσερις ξεχωριστές δραστηριότητες για LIN, SAE J1850, Chrysler PCI Bus, I²C και CAN." />
+  <meta name="theme-color" content="#071426" />
+  <title>Εργαστήριο 7 — Δραστηριότητες κατανόησης</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Slab:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/mathima-04-lab.css?v=5" />
+  <link rel="stylesheet" href="assets/css/common-back-button.css?v=3" />
+  <link rel="stylesheet" href="assets/css/page-identity-only.css?v=2" />
+  <style>
+    .lin-identity-visual{display:grid;align-content:center;gap:18px;min-height:310px;padding:26px;border:1px solid rgba(43,217,254,.2);border-radius:18px;background:linear-gradient(145deg,rgba(12,42,60,.88),rgba(6,20,34,.94))}
+    .lin-identity-visual>span{color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:.13em}
+    .lin-identity-flow{display:grid;grid-template-columns:1fr;gap:10px}
+    .lin-identity-node{padding:14px 16px;border:1px solid rgba(43,217,254,.24);border-radius:12px;background:rgba(7,24,39,.8)}
+    .lin-identity-node b{display:block;font-size:13px}.lin-identity-node small{display:block;margin-top:4px;color:#96aec2;font-size:10px}
+    .lin-identity-line{height:2px;margin:0 28px;background:linear-gradient(90deg,#2bd9fe,#54e4b2);box-shadow:0 0 14px rgba(43,217,254,.24)}
+    .activity-actions{max-width:520px}.primary-activity-link{min-height:104px;height:auto}.primary-activity-link .activity-link-title{font-size:14px}.primary-activity-link small{font-size:9px}
+    @media(max-width:650px){.lin-identity-visual{min-height:230px;padding:18px}.activity-actions{max-width:none}}
+  </style>
+</head>
+<body>
+  <header class="lab-header"><div class="header-title"><span>ΔΙΚΤΥΑ ΚΑΙ ΕΠΙΚΟΙΝΩΝΙΑ ΟΧΗΜΑΤΩΝ</span><strong>Εργαστήριο 7 · Δραστηριότητες κατανόησης</strong></div><a class="back-link saek-common-back-link" href="ergastirio-mathima-07.html" aria-label="Επιστροφή στο Εργαστήριο 7">← Πίσω</a></header>
+  <main class="lab-shell">
+    <section class="welcome-panel">
+      <div class="welcome-copy"><span class="eyebrow">ΕΡΓΑΣΤΗΡΙΟ 7 · ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ ΚΑΤΑΝΟΗΣΗΣ</span><h1>Κατανοώ την<br><em>επικοινωνία LIN</em></h1><p>Ξεκίνα από ένα καθημερινό περιστατικό στο αυτοκίνητο. Παρακολούθησε την επικοινωνία και μετά δοκίμασε να προβλέψεις ποιος μιλά.</p>
+<div class="fact-row"><div><strong>2</strong><span>δραστηριότητες κατανόησης</span></div><div><strong>LIN</strong><span>master και μονάδες</span></div></div>
+<nav class="activity-actions" aria-label="Δραστηριότητες κατανόησης">
+<a class="primary-activity-link" href="ergastirio-mathima-07-lin-cycle.html"><span class="activity-link-title">Δραστηριότητα 1 · Ο οδηγός ζεσταίνεται στην καμπίνα <span aria-hidden="true">→</span></span><small>ΘΕΡΜΟΚΡΑΣΙΑ · ΠΑΡΑΘΥΡΟ · ΚΛΙΜΑΤΙΣΜΟΣ · ΠΡΟΣΟΜΟΙΩΣΗ ΜΕ ΚΙΝΗΣΗ</small></a>
+<a class="primary-activity-link" href="ergastirio-mathima-07-understanding-02.html"><span class="activity-link-title">Δραστηριότητα 2 · Ποιος έχει σειρά να μιλήσει; <span aria-hidden="true">→</span></span><small>ΠΡΟΒΛΕΨΕ ΤΗΝ ΕΠΟΜΕΝΗ ΚΙΝΗΣΗ · 6 ΒΗΜΑΤΑ ΕΠΙΚΟΙΝΩΝΙΑΣ</small></a>
+</nav></div>
+      <div class="welcome-visual"><div class="lin-identity-visual"><span>ΤΟΠΙΚΟ ΔΙΚΤΥΟ LIN</span><div class="lin-identity-flow"><div class="lin-identity-node"><b>Master</b><small>Στέλνει την επικεφαλίδα και ορίζει το πρόγραμμα</small></div><div class="lin-identity-line"></div><div class="lin-identity-node"><b>Slave A · Slave B</b><small>Απαντά η μονάδα που έχει οριστεί για το μήνυμα</small></div></div></div></div>
+      <p class="disclaimer">Τα διαγνωστικά δελτία είναι υποθετικά εκπαιδευτικά περιστατικά. Οι μάρκες και τα μοντέλα χρησιμοποιούνται ως εικόνες των σεναρίων.</p>
+    </section>
+  </main>
+</body>
+</html>
