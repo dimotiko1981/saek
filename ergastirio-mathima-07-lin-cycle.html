@@ -1,8 +1,17 @@
 <!doctype html>
-<html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071426"><title>Εργαστήριο 7 · Δραστηριότητα 1 — Ο κύκλος επικοινωνίας LIN</title><link rel="stylesheet" href="assets/css/mathima-06-audit.css?v=4"><link rel="stylesheet" href="assets/css/common-back-button.css?v=3"><link rel="stylesheet" href="assets/css/page-identity-only.css?v=2"><link rel="stylesheet" href="assets/css/mathima-07-lin-cycle.css?v=1"></head><body>
+<html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071426"><title>Εργαστήριο 7 · Δραστηριότητα 1 — Ο κύκλος επικοινωνίας LIN</title><link rel="stylesheet" href="assets/css/mathima-06-audit.css?v=4"><link rel="stylesheet" href="assets/css/common-back-button.css?v=3"><link rel="stylesheet" href="assets/css/page-identity-only.css?v=2"><link rel="stylesheet" href="assets/css/mathima-07-lin-cycle.css?v=3"></head><body>
 <header class="audit-header"><div class="header-title"><span>ΔΙΚΤΥΑ ΚΑΙ ΕΠΙΚΟΙΝΩΝΙΑ ΟΧΗΜΑΤΩΝ · ΜΑΘΗΜΑ 7</span><strong>Εργαστήριο 7 · Δραστηριότητα 1</strong></div><a class="back-link saek-common-back-link" href="ergastirio-mathima-07.html">← Πίσω</a></header>
-<main class="audit-shell cycle-shell" id="lin-cycle"><span class="eyebrow">ΠΡΩΤΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ · ΠΑΡΑΤΗΡΗΣΕ ΤΗ ΣΕΙΡΑ</span><h1>Ποιος μιλά τώρα;<br>Ο κύκλος επικοινωνίας LIN</h1>
-<p class="cycle-intro">Πάτησε «Επόμενο βήμα». Ο master στέλνει την επικεφαλίδα και η μονάδα που έχει οριστεί για το μήνυμα απαντά. Οι άλλες περιμένουν.</p>
+<main class="audit-shell cycle-shell" id="lin-cycle"><span class="eyebrow">ΠΡΩΤΗ ΔΡΑΣΤΗΡΙΟΤΗΤΑ · ΠΡΟΒΛΗΜΑ ΕΠΙΚΟΙΝΩΝΙΑΣ LIN</span><h1>Ποιος μιλά τώρα;<br>Ο κύκλος επικοινωνίας LIN</h1>
+<section class="cycle-problem" aria-labelledby="problem-heading">
+<h2 id="problem-heading">Ο οδηγός ζεσταίνεται στην καμπίνα</h2>
+<p>Ένας οδηγός μπαίνει στο αυτοκίνητο και βλέπει ότι η θερμοκρασία στην καμπίνα είναι <strong>32°C</strong>. Το παράθυρο είναι ανοιχτό. Για να δροσίσει την καμπίνα, πατά το κουμπί για να <strong>ανεβάσει το παράθυρο</strong> και ενεργοποιεί τον κλιματισμό.</p>
+<p>Αργότερα η θερμοκρασία πέφτει στους <strong>22°C</strong>. Ο οδηγός νιώθει άνετα και επιλέγει να <strong>κλείσει τον κλιματισμό</strong>, αφήνοντας το παράθυρο κλειστό.</p>
+<h2>Πώς μαθαίνει το σύστημα τι συμβαίνει;</h2>
+<ol><li>Πώς ενημερώνεται ο master για τη θερμοκρασία της καμπίνας;</li><li>Πώς μαθαίνει ότι ο οδηγός πάτησε το κουμπί για να ανεβάσει το παράθυρο;</li><li>Πώς ενημερώνεται για την κατάσταση του κλιματισμού;</li></ol>
+</section>
+<p class="cycle-intro">Διάλεξε τη στιγμή της διαδρομής και πάτησε «Επόμενο βήμα» για να δεις τις πληροφορίες να μεταφέρονται με τη σειρά.</p>
+<label class="cycle-scenario-label" for="driver-scenario">Τι συμβαίνει στο αυτοκίνητο;</label>
+<select id="driver-scenario" class="cycle-scenario"><option value="hot">32°C · Ο οδηγός ανεβάζει το παράθυρο και ανάβει τον κλιματισμό</option><option value="cool">22°C · Ο οδηγός κλείνει τον κλιματισμό, το παράθυρο μένει κλειστό</option></select>
 <div class="cycle-controls"><button type="button" class="primary-button" id="cycle-next">Επόμενο βήμα →</button><span id="cycle-count">Κύκλος 1 · Έτοιμο</span></div>
 <div class="cycle-network" aria-label="Ένας master και τρεις μονάδες στον κοινό δίαυλο LIN">
 <div class="cycle-master"><strong>MASTER</strong><span id="master-state">Δίνει τη σειρά</span></div>
@@ -11,6 +20,6 @@
 <div class="cycle-lane" data-lane="2"><span class="cycle-packet" hidden></span></div><div class="cycle-node" data-node="2"><strong>Μονάδα<br>κλιματισμού</strong><span>Περιμένει</span></div>
 </div>
 <p class="cycle-caption">Κοινός δίαυλος LIN · Μιλά μία μονάδα κάθε φορά</p>
-<div class="cycle-speech" id="cycle-speech" aria-live="polite">Ο master ξεκινά από τον αισθητήρα θερμοκρασίας.</div>
-<p class="cycle-note">Οι απαντήσεις είναι ενδεικτικές. Τα βέλη δείχνουν τη σειρά της επικοινωνίας πάνω στον ίδιο δίαυλο, όχι ξεχωριστά καλώδια.</p>
-</main><script src="assets/js/mathima-07-lin-cycle.js?v=1"></script></body></html>
+<div class="cycle-speech" id="cycle-speech" aria-live="polite">Ο οδηγός ζεσταίνεται. Πώς θα φτάσουν οι πληροφορίες στον master;</div>
+<p class="cycle-note">Απλοποιημένο εκπαιδευτικό παράδειγμα: οι επιλογές γίνονται από τον οδηγό, όχι αυτόματα στους 32°C ή στους 22°C. Η προσομοίωση δείχνει τη συλλογή πληροφοριών στον κοινό δίαυλο LIN, όχι τις εντολές προς το μοτέρ του παραθύρου. Η πραγματική διάταξη διαφέρει ανά όχημα.</p>
+</main><script src="assets/js/mathima-07-lin-cycle.js?v=2"></script></body></html>
