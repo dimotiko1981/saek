@@ -392,7 +392,13 @@ if (lessonTest) {
       const fieldset = document.createElement("fieldset");
       fieldset.className = "intro-quiz-question";
       fieldset.dataset.lessonQuestion = "";
-      fieldset.dataset.correct = String(item.correct);
+      // Ανακατεύουμε μόνο τις επιλογές, κρατώντας την αντιστοίχιση της σωστής απάντησης.
+      const shuffledOptions = item.options.map((option, originalIndex) => ({ option, originalIndex }));
+      for (let i = shuffledOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+      }
+      fieldset.dataset.correct = String(shuffledOptions.findIndex((entry) => entry.originalIndex === item.correct));
 
       const legend = document.createElement("legend");
       const number = document.createElement("span");
@@ -402,7 +408,7 @@ if (lessonTest) {
       legend.append(number, questionText);
       fieldset.append(legend);
 
-      item.options.forEach((option, optionIndex) => {
+      shuffledOptions.forEach(({ option }, optionIndex) => {
         const label = document.createElement("label");
         const input = document.createElement("input");
         input.type = "radio";
