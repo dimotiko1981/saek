@@ -19,7 +19,7 @@
     "eisagogiko-mathima.html": "mathima-01.html",
     "ergastirio-eisagogis.html": "eisagogiki-parousiasi.html",
     "ergastirio-mathima-02.html": "mathima-02.html",
-    "ergastirio-mathima-03.html": "mathima-03.html",
+    "ergastirio-mathima-03.html": "index.html",
     "ergastirio-mathima-04.html": "mathima-04.html",
     "ergastirio-mathima-05.html": "mathima-05.html",
     "ergastirio-mathima-06.html": "mathima-06.html",
@@ -57,6 +57,18 @@
   };
 
   const current = location.pathname.split("/").pop() || "index.html";
+// Κεντρικό Εργαστήριο 3: επιστροφή ΜΟΝΟ στην αρχική, ανεξάρτητα από το ιστορικό.
+// Διατηρούμε το υπάρχον κουμπί/στυλ στην κεφαλίδα. Δεν προσθέτουμε άλλο.
+if (current === "ergastirio-mathima-03.html") {
+  const backLink = document.querySelector("header.lab-header a.lab-back-link");
+  if (backLink) {
+    backLink.setAttribute("href", "index.html");
+    backLink.setAttribute("aria-label", "Επιστροφή στην αρχική σελίδα");
+    backLink.hidden = false;
+    backLink.style.removeProperty("display");
+  }
+  return;
+}
   const fallback = parents[current] ?? null;
   if (current === "index.html") return;
 
