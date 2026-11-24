@@ -39,6 +39,21 @@
     "topologies-interactive.html": "mathima-03.html"
   };
 
+  // Only stand-alone laboratory activities: return to their actual parent page.
+  // Do not use browser history here; referrers can point to the homepage.
+  const fixedActivityParents = {
+    "mathima-04-can-tools.html": "ergastirio-mathima-04.html",
+    "mathima-04-can-measurements.html": "ergastirio-mathima-04.html",
+    "mathima-04-can-builder.html": "ergastirio-mathima-04.html",
+    "mathima-04-can-mission.html": "ergastirio-mathima-04.html",
+    "diagnostiki-vardia.html": "ergastirio-mathima-02.html",
+    "diagnostiki-yaris.html": "diagnostiki-vardia.html",
+    "diagnostiki-golf.html": "diagnostiki-vardia.html",
+    "diagnostiki-peugeot.html": "diagnostiki-vardia.html",
+    "diagnostiki-focus.html": "diagnostiki-vardia.html",
+    "diagnostiki-pilot.html": "diagnostiki-vardia.html"
+  };
+
   const current = location.pathname.split("/").pop() || "index.html";
   const fallback = parents[current] ?? null;
   if (current === "index.html") return;
@@ -51,6 +66,10 @@
 
   const goBack = (event) => {
     event.preventDefault();
+    if (Object.prototype.hasOwnProperty.call(fixedActivityParents, current)) {
+      location.assign(fixedActivityParents[current]);
+      return;
+    }
     if (referrerIsLocal && history.length > 1) {
       history.back();
       return;
