@@ -265,53 +265,6 @@ body:not(.diagnostic-page) .course-preview-stack .course-open-link.course-open-l
   box-shadow: 0 16px 32px rgba(8, 46, 92, 0.32), 0 0 0 1px rgba(126, 221, 255, 0.18);
 }
 </style>
-    <style id="saek-lesson-3-actions-layout">
-      /* Μάθημα 3: ίδιο μοτίβο με το Μάθημα 2 — περιγραφή αριστερά, ενέργειες δεξιά. */
-      .course-preview-stack .lesson-entry-3 {
-        grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.8fr);
-      }
-      .course-preview-stack .lesson-entry-3 .lesson-entry-main,
-      .course-preview-stack .lesson-entry-3 .course-preview-actions {
-        min-width: 0;
-      }
-      .course-preview-stack .lesson-entry-3 .course-preview-actions {
-        display: grid;
-        width: 100%;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        align-items: stretch;
-        justify-content: stretch;
-        gap: 0.65rem;
-      }
-      .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
-        grid-column: 2;
-      }
-      .course-preview-stack .lesson-entry-3 .course-open-link {
-        box-sizing: border-box;
-        width: auto;
-        max-width: 100%;
-        min-width: 0;
-        height: auto;
-        min-height: 58px;
-        justify-content: space-between;
-      }
-      @media (max-width: 1000px) {
-        .course-preview-stack .lesson-entry-3 {
-          grid-template-columns: minmax(0, 1fr);
-        }
-      }
-      @media (max-width: 650px) {
-        .course-preview-stack .lesson-entry-3 .course-preview-actions {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-lab {
-          grid-column: 1;
-          grid-row: 3;
-        }
-        .course-preview-stack .lesson-entry-3 .course-open-link-lesson-3-design {
-          grid-row: 4;
-        }
-      }
-    </style>
     <style id="saek-lesson-6-actions-layout-v3">
       /* Μάθημα 6: ίδια δεξιά στοίχιση και απόσταση με το Μάθημα 5. */
       .course-preview-stack .lesson-entry-6 {
