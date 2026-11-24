@@ -33,15 +33,17 @@
     "mathima-04-can-tools.html": "ergastirio-mathima-04.html",
     "mathima-05.html": "index.html",
     "mathima-06.html": "index.html",
-    "sxediasmos-diktyou.html": "topologies-interactive.html",
+    "sxediasmos-diktyou.html": "ergastirio-mathima-03.html",
     "test-mathima-03.html": "mathima-03.html",
     "test-mathima-04.html": "mathima-04.html",
-    "topologies-interactive.html": "mathima-03.html"
+    "topologies-interactive.html": "ergastirio-mathima-03.html"
   };
 
   // Only stand-alone laboratory activities: return to their actual parent page.
   // Do not use browser history here; referrers can point to the homepage.
   const fixedActivityParents = {
+    "sxediasmos-diktyou.html": "ergastirio-mathima-03.html",
+    "topologies-interactive.html": "ergastirio-mathima-03.html",
     "mathima-04-can-tools.html": "ergastirio-mathima-04.html",
     "mathima-04-can-measurements.html": "ergastirio-mathima-04.html",
     "mathima-04-can-builder.html": "ergastirio-mathima-04.html",
